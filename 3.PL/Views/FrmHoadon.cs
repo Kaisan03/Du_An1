@@ -19,13 +19,13 @@ namespace _3.PL.Views
 {
     public partial class FrmHoadon : Form
     {
-        
+
         private IKhachHangService _Ikhachhangservice;
         private INhanVienService _Inhanvienservice;
         private IHoaDonService _ihoadonservice;
         private List<ViewHoaDon> _viewHoaDon;
         private Guid _idhoadon;
-        
+
         public FrmHoadon()
         {
             InitializeComponent();
@@ -34,13 +34,13 @@ namespace _3.PL.Views
             _ihoadonservice = new HoaDonService();
             _viewHoaDon = new List<ViewHoaDon>();
             Loaddata();
-           LoaddataCombobox();
+            LoaddataCombobox();
         }
         public void Loaddata()
         {
             dgrid_view.ColumnCount = 13;
             dgrid_view.Columns[0].Name = "id";
-            dgrid_view.Columns[0].Visible= false;
+            dgrid_view.Columns[0].Visible = false;
             dgrid_view.Columns[1].Name = "Ma ";
             dgrid_view.Columns[2].Name = "Khách Hàng";
             dgrid_view.Columns[3].Name = "Nhân Viên";
@@ -80,11 +80,11 @@ namespace _3.PL.Views
 
         private void dgrid_view_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex >= 0)
+            if (e.RowIndex >= 0)
             {
                 DataGridViewRow r = dgrid_view.Rows[e.RowIndex];
                 _idhoadon = Guid.Parse(r.Cells[0].Value.ToString());
-                var hd = _ihoadonservice.GetAll().FirstOrDefault(c =>c.Id == _idhoadon);
+                var hd = _ihoadonservice.GetAll().FirstOrDefault(c => c.Id == _idhoadon);
                 tbx_ma.Text = r.Cells[1].Value.ToString();
                 cbx_khachhang.Text = r.Cells[2].Value.ToString();
                 //cbx_sanpham.Text = r.Cells[3].Value.ToString();
@@ -115,7 +115,7 @@ namespace _3.PL.Views
                 DiaChi = tbx_diachi.Text,
                 Sdt = tbx_sdt.Text,
                 GiamGia = tbx_giamgia.Text,
-                TrangThai = rbtn_hoatdong.Checked ? 1 : rbtn_khonghoatdong.Checked ? 0 :2,
+                TrangThai = rbtn_hoatdong.Checked ? 1 : rbtn_khonghoatdong.Checked ? 0 : 2,
                 //IdSanOham  = cbx_sanpham.Text != null ? _iSanphamService.GetAllSanPham().FirstOrDefault(c => c.Ten == cbx_sanpham.Text).Id : null,
                 IdKhachHang = cbx_khachhang.Text != null ? _Ikhachhangservice.GetAll().FirstOrDefault(c => c.Ten == cbx_khachhang.Text).Id : null,
                 IdNhanVien = cbx_nhanvien.Text != null ? _Inhanvienservice.GetAllNhanVien().FirstOrDefault(c => c.Ten == cbx_nhanvien.Text).Id : null,
@@ -174,7 +174,7 @@ namespace _3.PL.Views
             DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn xóa?", "Thông báo", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-               _ihoadonservice.Delete(_idhoadon);
+                _ihoadonservice.Delete(_idhoadon);
                 MessageBox.Show("Xóa thành công");
                 Loaddata();
             }
@@ -184,14 +184,90 @@ namespace _3.PL.Views
             }
         }
 
-        private void label10_Click(object sender, EventArgs e)
+        private void dgrid_view_MouseClick(object sender, MouseEventArgs e)
         {
 
-        }
+            ContextMenuStrip _newmenu = new System.Windows.Forms.ContextMenuStrip();
+            int position = dgrid_view.HitTest(e.X, e.Y).RowIndex;
 
-        private void FrmHoadon_Load(object sender, EventArgs e)
+            //_idhoadon = Guid.Parse(dgrid_view.HitTest(e.X, e.Y).RowIndex.ToString());
+            //MessageBox.Show("right");
+            // MessageBox.Show(position.ToString());
+            if (e.Button == MouseButtons.Right)
+            {
+                _newmenu.Items.Add("Add").Name = "Add";
+                _newmenu.Items.Add("Del").Name = "Del";
+                _newmenu.Items.Add("Edit").Name = "Edit";
+
+            }
+            _newmenu.Show(dgrid_view, new Point(e.X, e.Y));
+            _newmenu.ItemClicked += _newmenu_ItemClicked;
+        }
+        private void _newmenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
+            //throw new NotImplementedException();
+            MessageBox.Show(e.ClickedItem.ToString());
+            switch (e.ClickedItem.Name.ToString())
+            {
+                case "Add":
+                    DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn thêm?", "Thông báo", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        _ihoadonservice.Add(dataadd());
+                        MessageBox.Show("Thêm thành công");
+                        Loaddata();
+                    }
+                    if (dialogResult == DialogResult.No)
+                    {
+                        return;
+                    }
+                    break;
+                case "Del":
+                    DialogResult dialogResult1 = MessageBox.Show("Bạn chắc chắn muốn xóa?", "Thông báo", MessageBoxButtons.YesNo);
+                    if (dialogResult1 == DialogResult.Yes)
+                    {
+                        _ihoadonservice.Delete(_idhoadon);
+                        MessageBox.Show("Xóa thành công");
+                        Loaddata();
+                    }
+                    if (dialogResult1 == DialogResult.No)
+                    {
+                        return;
+                    }
+                    break;
+                case "Edit":
+                    DialogResult dialogResult2 = MessageBox.Show("Bạn chắc chắn muốn Sửa?", "Thông báo", MessageBoxButtons.YesNo);
+                    if (dialogResult2 == DialogResult.Yes)
+                    {
+                        HoaDon hoadonview = new HoaDon()
+                        {
+                            Id = _idhoadon,
+                            Ma = dataadd().Ma,
+                            TenSp = dataadd().TenSp,
+                            TenNguoiNhan = dataadd().TenNguoiNhan,
+                            NgayGiao = dataadd().NgayGiao,
+                            NgayTao = dataadd().NgayTao,
+                            NgayThanhToan = dataadd().NgayThanhToan,
+                            DiaChi = dataadd().DiaChi,
+                            Sdt = dataadd().Sdt,
+                            GiamGia = dataadd().GiamGia,
+                            TrangThai = dataadd().TrangThai,
+                            IdKhachHang = dataadd().IdKhachHang,
+                            IdNhanVien = dataadd().IdNhanVien,
 
+                        };
+                        _ihoadonservice.Update(hoadonview);
+                        MessageBox.Show("Sửa thành công");
+                        Loaddata();
+                    }
+                    if (dialogResult2 == DialogResult.No)
+                    {
+                        return;
+                    }
+                    break;
+            }
         }
+
+       
     }
 }

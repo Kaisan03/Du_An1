@@ -28,3 +28,18 @@ C:\Users\Acer\Source\Repos\Du_An1\2.BUS\obj\Debug\net5.0\2.BUS.dll
 C:\Users\Acer\Source\Repos\Du_An1\2.BUS\obj\Debug\net5.0\refint\2.BUS.dll
 C:\Users\Acer\Source\Repos\Du_An1\2.BUS\obj\Debug\net5.0\2.BUS.pdb
 C:\Users\Acer\Source\Repos\Du_An1\2.BUS\obj\Debug\net5.0\ref\2.BUS.dll
+D:\Study File\Kỳ 4\PRO131\GETDuana1\2.BUS\bin\Debug\net5.0\2.BUS.deps.json
+D:\Study File\Kỳ 4\PRO131\GETDuana1\2.BUS\bin\Debug\net5.0\2.BUS.dll
+D:\Study File\Kỳ 4\PRO131\GETDuana1\2.BUS\bin\Debug\net5.0\2.BUS.pdb
+D:\Study File\Kỳ 4\PRO131\GETDuana1\2.BUS\bin\Debug\net5.0\1.DAL.dll
+D:\Study File\Kỳ 4\PRO131\GETDuana1\2.BUS\bin\Debug\net5.0\1.DAL.pdb
+D:\Study File\Kỳ 4\PRO131\GETDuana1\2.BUS\obj\Debug\net5.0\2.BUS.csproj.AssemblyReference.cache
+D:\Study File\Kỳ 4\PRO131\GETDuana1\2.BUS\obj\Debug\net5.0\2.BUS.GeneratedMSBuildEditorConfig.editorconfig
+D:\Study File\Kỳ 4\PRO131\GETDuana1\2.BUS\obj\Debug\net5.0\2.BUS.AssemblyInfoInputs.cache
+D:\Study File\Kỳ 4\PRO131\GETDuana1\2.BUS\obj\Debug\net5.0\2.BUS.AssemblyInfo.cs
+D:\Study File\Kỳ 4\PRO131\GETDuana1\2.BUS\obj\Debug\net5.0\2.BUS.csproj.CoreCompileInputs.cache
+D:\Study File\Kỳ 4\PRO131\GETDuana1\2.BUS\obj\Debug\net5.0\2.BUS.csproj.CopyComplete
+D:\Study File\Kỳ 4\PRO131\GETDuana1\2.BUS\obj\Debug\net5.0\2.BUS.dll
+D:\Study File\Kỳ 4\PRO131\GETDuana1\2.BUS\obj\Debug\net5.0\refint\2.BUS.dll
+D:\Study File\Kỳ 4\PRO131\GETDuana1\2.BUS\obj\Debug\net5.0\2.BUS.pdb
+D:\Study File\Kỳ 4\PRO131\GETDuana1\2.BUS\obj\Debug\net5.0\ref\2.BUS.dll
