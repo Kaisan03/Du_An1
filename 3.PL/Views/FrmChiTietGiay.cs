@@ -25,6 +25,7 @@ namespace _3.PL.Views
         private IDeGiayService _IDeGiayService;
         private IKieuDangService _IKieuDangService;
         private INhaSanXuatService _INsxService;
+        private IAnhService _IAnhService;
         private Guid _idCTGiay;
         public FrmChiTietGiay()
         {
@@ -38,6 +39,7 @@ namespace _3.PL.Views
             _INsxService = new NhaSanXuatService();
             _IMauSacService = new MauSacService();
             _IChatLieuService = new ChatLieuService();
+            _IAnhService = new AnhService();
             LoadData();
             LoadComboBox();
         }
@@ -70,6 +72,10 @@ namespace _3.PL.Views
             foreach (var x in _IChatLieuService.GetAllChatLieu())
             {
                 cmb_ChatLieu.Items.Add(x.Ten);
+            }
+            foreach (var x in _IAnhService.GetAllAnh())
+            {
+                cmb_Anh.Items.Add(x.TenAnh);
             }
         }
         private void LoadData()
@@ -113,7 +119,7 @@ namespace _3.PL.Views
                     x.GiaBan,
                     x.SoLuong,
                     x.SoLuongTon,
-                    x.IdAnh,
+                    x.Anh,
                     x.MoTa,
                     x.TrangThai == 1 ? "Hoạt động" : "Không hoạt động"
                     );
@@ -134,7 +140,7 @@ namespace _3.PL.Views
                     IdKieuDang = cmb_KieuDang.Text != null ? _IKieuDangService.GetAllKieuDang().FirstOrDefault(c => c.Ten == cmb_KieuDang.Text).Id : null,
                     IdSize = cmb_TenSize.Text != null ? _ISizeService.GetAllSize().FirstOrDefault(c => c.Ten == cmb_TenSize.Text).Id : null,
                     Ma = txt_Ma.Text,
-                    IdAnh = Guid.Parse(txt_Anh.Text),
+                    IdAnh = cmb_Anh.Text != null ? _IAnhService.GetAllAnh().FirstOrDefault(c => c.TenAnh == cmb_Anh.Text).Id : null,
                     SoLuong = Convert.ToInt32(txt_SoLuong.Text),
                     GiaNhap = Convert.ToInt32(txt_NgayNhap.Text),
                     GiaBan = Convert.ToInt32(txt_NgayBan.Text),
@@ -168,7 +174,7 @@ namespace _3.PL.Views
                     IdKieuDang = cmb_KieuDang.Text != null ? _IKieuDangService.GetAllKieuDang().FirstOrDefault(c => c.Ten == cmb_KieuDang.Text).Id : null,
                     IdSize = cmb_TenSize.Text != null ? _ISizeService.GetAllSize().FirstOrDefault(c => c.Ten == cmb_TenSize.Text).Id : null,
                     Ma = txt_Ma.Text,
-                    IdAnh = txt_Anh.Text != null ? _ISizeService.GetAllSize().FirstOrDefault(c => c.Ten == cmb_TenSize.Text).Id : null,
+                    IdAnh = cmb_Anh.Text != null ? _IAnhService.GetAllAnh().FirstOrDefault(c => c.TenAnh == cmb_Anh.Text).Id : null,
                     SoLuong = Convert.ToInt32(txt_SoLuong.Text),
                     GiaNhap = Convert.ToInt32(txt_NgayNhap.Text),
                     GiaBan = Convert.ToInt32(txt_NgayBan.Text),
@@ -238,7 +244,7 @@ namespace _3.PL.Views
                 txt_NgayBan.Text = sp.GiaBan.ToString();
                 txt_SoLuong.Text = sp.SoLuong.ToString();
                 txt_SoLuongTon.Text = sp.SoLuongTon.ToString();
-                txt_Anh.Text = sp.IdAnh.ToString();
+                cmb_Anh.Text = r.Cells[13].Value.ToString();
                 txt_moTa.Text = sp.MoTa;
                 cbx_HoatDong.Checked = sp.TrangThai == 1;
                 cbx_khongHD.Checked = sp.TrangThai == 0;

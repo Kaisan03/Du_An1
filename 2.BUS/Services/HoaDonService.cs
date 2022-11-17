@@ -95,6 +95,8 @@ namespace _2.BUS.Services
                                 NgayGiao = hd.NgayTao,
                                 NgayThanhToan = hd.NgayThanhToan,
                                 NgayTao = hd.NgayTao,
+                                NgayNhanHang = hd.NgayNhanHang,
+                                NgayTraHang = hd.NgayTraHang,
                                 TenNguoiNhan = hd.TenNguoiNhan,
                                 DiaChi = hd.DiaChi,
                                 Sdt = hd.Sdt,
@@ -107,8 +109,6 @@ namespace _2.BUS.Services
 
         public bool Update(HoaDon obj)
         {
-            
-            
             _iHoaDonRepository.Update(obj);
             return true;
         }

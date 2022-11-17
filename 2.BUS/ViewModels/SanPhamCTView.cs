@@ -18,5 +18,6 @@ namespace _2.BUS.ViewModels
         public Size Size { get; set; }
         public DeGiay DeGiay { get; set; }
         public ChatLieu ChatLieu { get; set; }
+        public Anh Anh { get; set; }
     }
 }

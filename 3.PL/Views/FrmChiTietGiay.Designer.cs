@@ -40,7 +40,6 @@
             this.txt_NgayNhap = new System.Windows.Forms.TextBox();
             this.txt_moTa = new System.Windows.Forms.TextBox();
             this.txt_SoLuong = new System.Windows.Forms.TextBox();
-            this.txt_Anh = new System.Windows.Forms.TextBox();
             this.txt_SoLuongTon = new System.Windows.Forms.TextBox();
             this.txt_Ma = new System.Windows.Forms.TextBox();
             this.cmb_KieuDang = new System.Windows.Forms.ComboBox();
@@ -68,6 +67,7 @@
             this.btn_Xoa = new System.Windows.Forms.Button();
             this.btn_Sua = new System.Windows.Forms.Button();
             this.btn_Them = new System.Windows.Forms.Button();
+            this.cmb_Anh = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_ChiTietGiay)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -114,9 +114,9 @@
             this.groupBox1.Controls.Add(this.txt_NgayNhap);
             this.groupBox1.Controls.Add(this.txt_moTa);
             this.groupBox1.Controls.Add(this.txt_SoLuong);
-            this.groupBox1.Controls.Add(this.txt_Anh);
             this.groupBox1.Controls.Add(this.txt_SoLuongTon);
             this.groupBox1.Controls.Add(this.txt_Ma);
+            this.groupBox1.Controls.Add(this.cmb_Anh);
             this.groupBox1.Controls.Add(this.cmb_KieuDang);
             this.groupBox1.Controls.Add(this.cmb_LoaiDe);
             this.groupBox1.Controls.Add(this.cmb_MauSac);
@@ -210,13 +210,6 @@
             this.txt_SoLuong.Name = "txt_SoLuong";
             this.txt_SoLuong.Size = new System.Drawing.Size(282, 27);
             this.txt_SoLuong.TabIndex = 1;
-            // 
-            // txt_Anh
-            // 
-            this.txt_Anh.Location = new System.Drawing.Point(548, 136);
-            this.txt_Anh.Name = "txt_Anh";
-            this.txt_Anh.Size = new System.Drawing.Size(282, 27);
-            this.txt_Anh.TabIndex = 1;
             // 
             // txt_SoLuongTon
             // 
@@ -463,6 +456,14 @@
             this.btn_Them.UseVisualStyleBackColor = true;
             this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
+            // cmb_Anh
+            // 
+            this.cmb_Anh.FormattingEnabled = true;
+            this.cmb_Anh.Location = new System.Drawing.Point(548, 137);
+            this.cmb_Anh.Name = "cmb_Anh";
+            this.cmb_Anh.Size = new System.Drawing.Size(282, 28);
+            this.cmb_Anh.TabIndex = 1;
+            // 
             // FrmChiTietGiay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -497,7 +498,6 @@
         private System.Windows.Forms.TextBox txt_NgayNhap;
         private System.Windows.Forms.TextBox txt_moTa;
         private System.Windows.Forms.TextBox txt_SoLuong;
-        private System.Windows.Forms.TextBox txt_Anh;
         private System.Windows.Forms.TextBox txt_SoLuongTon;
         private System.Windows.Forms.TextBox txt_Ma;
         private System.Windows.Forms.ComboBox cmb_KieuDang;
@@ -525,5 +525,6 @@
         private System.Windows.Forms.Button btn_Xoa;
         private System.Windows.Forms.Button btn_Sua;
         private System.Windows.Forms.Button btn_Them;
+        private System.Windows.Forms.ComboBox cmb_Anh;
     }
 }

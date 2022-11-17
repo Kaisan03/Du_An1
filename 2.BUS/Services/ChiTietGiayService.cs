@@ -24,6 +24,7 @@ namespace _2.BUS.Services
         private IDeGiayRepository _IDeGiayRepository;
         private ISizeRepository _ISizeRepository;
         private ISanPhamRepository _ISanPhamRepository;
+        private IAnhRepository _IAnhRepository;
         public ChiTietGiayService()
         {
             _IChiTietGiayRepository = new ChiTietGiayRepository();
@@ -36,6 +37,7 @@ namespace _2.BUS.Services
             _IDeGiayRepository = new DeGiayRepository();
             _ISizeRepository = new SizeRepository();
             _ISanPhamRepository = new SanPhamRepository();
+            _IAnhRepository = new AnhRepository();
             _lstSanPhamCTView = new List<SanPhamCTView>();
         }
 
@@ -110,6 +112,7 @@ namespace _2.BUS.Services
                                    join degiay in _IDeGiayRepository.GetAllDeGiay() on ctsp.IdDeGiay equals degiay.Id
                                    join size in _ISizeRepository.GetAllSize() on ctsp.IdSize equals size.Id
                                    join sp in _ISanPhamRepository.GetAllSanPham() on ctsp.IdSanPham equals sp.Id
+                                   join anh in _IAnhRepository.GetAllAnh() on ctsp.IdAnh equals anh.Id
                                    select new ViewChiTietGiay
                                    {
                                       Id = ctsp.Id,
@@ -121,7 +124,7 @@ namespace _2.BUS.Services
                                       TenSize = size.Ten,
                                       TenSanPham = sp.Ten,
                                       Ma = ctsp.Ma,
-                                      IdAnh = ctsp.IdAnh,
+                                      Anh = anh.TenAnh,
                                       SoLuong = ctsp.SoLuong,
                                       GiaBan = ctsp.GiaBan,
                                       GiaNhap = ctsp.GiaNhap,
@@ -142,6 +145,7 @@ namespace _2.BUS.Services
                                    join degiay in _IDeGiayRepository.GetAllDeGiay() on ctsp.IdDeGiay equals degiay.Id
                                    join size in _ISizeRepository.GetAllSize() on ctsp.IdSize equals size.Id
                                    join sp in _ISanPhamRepository.GetAllSanPham() on ctsp.IdSanPham equals sp.Id
+                                   join anh in _IAnhRepository.GetAllAnh() on ctsp.IdAnh equals anh.Id
 
                                    select new SanPhamCTView
                                    {
@@ -154,6 +158,7 @@ namespace _2.BUS.Services
                                        DeGiay = degiay,
                                        Size = size,
                                        SanPham = sp,
+                                       Anh = anh
                                        
                                    }).ToList();
             return _lstSanPhamCTView;

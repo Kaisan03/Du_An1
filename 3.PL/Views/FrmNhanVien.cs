@@ -16,7 +16,7 @@ namespace _3.PL.Views
     public partial class FrmNhanVien : Form
     {
         private INhanVienService _iNhanVienService;
-        private IChucVuService _chucVuService;
+        private IChucVuService _IChucVuService;
         //private ViewNhanVien _lstViewNhanVien;
         private List<ViewNhanVien> _lstViewNhanVien;
         private Guid _Idnhanvien;
@@ -24,7 +24,7 @@ namespace _3.PL.Views
         {
             InitializeComponent();
             _iNhanVienService = new NhanVienService();
-            _chucVuService = new ChucVuService();
+            _IChucVuService = new ChucVuService();
             _lstViewNhanVien = new List<ViewNhanVien>();
             LoadDataNhanVien();
             LoadComboBox();
@@ -32,7 +32,7 @@ namespace _3.PL.Views
         }
         public void LoadComboBox()
         {
-            foreach (var x in _chucVuService.GetAllChucVu())
+            foreach (var x in _IChucVuService.GetAllChucVu())
             {
                 cmb_idChucVu.Items.Add(x.Ten);
             }
@@ -87,7 +87,7 @@ namespace _3.PL.Views
                 AddNhanVienView addNhanVienView = new AddNhanVienView()
                 {
                    
-                    IdChucVu = cmb_idChucVu.Text != null ? _chucVuService.GetAllChucVu().FirstOrDefault(c => c.Ten == cmb_idChucVu.Text).Id : null,
+                    IdChucVu = cmb_idChucVu.Text != null ? _IChucVuService.GetAllChucVu().FirstOrDefault(c => c.Ten == cmb_idChucVu.Text).Id : null,
                     Ma = txt_Ma.Text,
                     Ho = txt_Ho.Text,
                     TenDem = txt_TenDem.Text,
@@ -117,7 +117,7 @@ namespace _3.PL.Views
                 UpdateNhanVienView updateNhanVienView = new UpdateNhanVienView()
                 {
                     Id = _Idnhanvien,
-                    IdChucVu = cmb_idChucVu.Text != null ? _iNhanVienService.GetAllNhanVien().FirstOrDefault(c => c.Ten == cmb_idChucVu.Text).Id : null,
+                    IdChucVu = cmb_idChucVu.Text != null ? _IChucVuService.GetAllChucVu().FirstOrDefault(c => c.Ten == cmb_idChucVu.Text).Id : null,
                     Ma = txt_Ma.Text,
                     Ho = txt_Ho.Text,
                     TenDem = txt_TenDem.Text,
@@ -170,9 +170,8 @@ namespace _3.PL.Views
         private void drgid_NhanVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow r = drgid_NhanVien.Rows[e.RowIndex];
-            _Idnhanvien = Guid.Parse(r.Cells[0].Value.ToString());
-            //cmb_ChucVu.Text = _NhanVienService.GetAllNV().FirstOrDefault(c => c.Id == _idNV).Ten;
-            cmb_idChucVu.Text = r.Cells[2].Value.ToString();
+            _Idnhanvien  = Guid.Parse(r.Cells[0].Value.ToString());
+            cmb_idChucVu.Text = r.Cells[10].Value.ToString();
             var x = _iNhanVienService.GetViewNhanVien().FirstOrDefault(c => c.Id == _Idnhanvien);
             txt_Ma.Text = x.Ma;
             txt_Ten.Text = x.Ten;

@@ -21,6 +21,7 @@ namespace _2.BUS.ViewModels
         public Guid? IdKieuDang { get; set; }
         public string? TenKieuDang { get; set; }
         public Guid? IdAnh { get; set; }
+        public string Anh { get; set; }
         public int? SoLuong { get; set; }
         public int? GiaNhap { get; set; }
         public int? GiaBan { get; set; }

@@ -8,7 +8,7 @@ namespace _2.BUS.ViewModels
 {
     public class UpdateNhanVienView
     {
-        public Guid? Id { get; set; }
+        public Guid Id { get; set; }
 
         public string Ma { get; set; }
 

@@ -62,6 +62,7 @@ namespace _2.BUS.Services
         public bool UpdateNhanVien(UpdateNhanVienView obj)
         {
             var updateNv = _iNhanVienRepository.GetAllNhanVien().FirstOrDefault(c => c.Id == obj.Id);
+            updateNv.Id = obj.Id;
             updateNv.IdChucVu = obj.IdChucVu;
             updateNv.Ma = obj.Ma;
             updateNv.Ten = obj.Ten;
@@ -99,7 +100,7 @@ namespace _2.BUS.Services
                                 {
                                     Id = nv.Id,
                                     TenChuCVu = cv.Ten,
-                                    IdChucVu = nv.IdChucVu,
+                                    //IdChucVu = nv.IdChucVu,
                                     Ma = nv.Ma,
                                     Ten = nv.Ten,
                                     TenDem = nv.TenDem,
