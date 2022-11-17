@@ -61,5 +61,37 @@ namespace _3.PL.Views
                 currentFormChild.Close();
             }
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_quanLy_MouseHover(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btn_quanLy_MouseLeave(object sender, EventArgs e)
+        {
+            
+        }
+       
+        private void btn_quanLy_Click(object sender, EventArgs e)
+        {
+            if (button2.Visible == true && button6.Visible == true)
+            {
+                button2.Visible = false;
+                button6.Visible = false;
+            }
+            else 
+            {
+                button2.Visible = true;
+                button6.Visible = true;
+            }
+        }
+
+
     }
+    
 }

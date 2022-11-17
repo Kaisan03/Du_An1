@@ -74,6 +74,12 @@ namespace _3.PL.Views
             dgrid_GioHang.Columns[10].Name = "ID ctsp";
             dgrid_GioHang.Columns[10].Visible = false;
             dgrid_GioHang.Rows.Clear();
+            DataGridViewButtonColumn column = new DataGridViewButtonColumn();
+            column.HeaderText = "Add";
+            column.Text = "Add";
+            column.Name = "txt_add";
+            column.UseColumnTextForButtonValue = true;
+            dgrid_GioHang.Columns.Add(column);
             foreach (var x in _lstGiohang)
             {
 
@@ -216,6 +222,8 @@ namespace _3.PL.Views
 
         private void dgrid_GioHang_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            int rowindex = e.RowIndex;
+            if (rowindex == _IChiTietSPService.GetAllSPView().Count) return;
             DataGridViewRow r = dgrid_GioHang.Rows[e.RowIndex];
             _ctspId = Guid.Parse(r.Cells[10].Value.ToString());
         }
