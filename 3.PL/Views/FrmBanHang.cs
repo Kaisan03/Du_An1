@@ -22,9 +22,11 @@ namespace _3.PL.Views
         private IHoaDonService _IHoaDonService;
         private IHoaDonChiTietService _IHoaDonCTService;
         public List<GioHangChiTiet> _lstGiohang;
+        public ChiTietGiay _chiTietGiay;
         public GioHang _gioHang;
         public Guid _ctspId;
         public HoaDon _hoaDonCho;
+        int? slt;
         public FrmBanHang()
         {
             InitializeComponent();
@@ -146,18 +148,25 @@ namespace _3.PL.Views
             {
                 data.SoLuong++;
             }
+            
             LoadGioHang();
         }
         private void dgrid_SanPham_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
             if (e.RowIndex >= 0)
             {
-
-                DataGridViewRow r = dgrid_SanPham.Rows[e.RowIndex];
-                _ctspId = _IChiTietSPService.GetAllSPView().FirstOrDefault(c => c.ChiTietGiay.Id == Guid.Parse(r.Cells[0].Value.ToString())).ChiTietGiay.Id;
-                AddGioHang(_ctspId);
+            DataGridViewRow r = dgrid_SanPham.Rows[e.RowIndex];
+            DataGridViewRow a = dgrid_GioHang.Rows[e.RowIndex];
+                if(Convert.ToInt32(a.Cells[2].Value)>= Convert.ToInt32(r.Cells[3].Value))
+                {
+                    MessageBox.Show("Số lượng sản phẩm không đủ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+            _ctspId = _IChiTietSPService.GetAllSPView().FirstOrDefault(c => c.ChiTietGiay.Id == Guid.Parse(r.Cells[0].Value.ToString())).ChiTietGiay.Id;
+                
+            AddGioHang(_ctspId);
             }
+            
         }
         private void btn_TaoHoaDon_Click(object sender, EventArgs e)
         {
