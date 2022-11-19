@@ -37,7 +37,7 @@ namespace _3.PL.Views
             _lstMauSac = _IMauSacService.GetAllMauSac();
             if (txt_TimKiem.Text != "")
             {
-                _lstMauSac = _lstMauSac.Where(p => p.Ten.ToLower().Contains(txt_TimKiem.Text.ToLower()) || p.Ma.ToLower().Contains(txt_TimKiem.Text.ToLower())).ToList();
+                _lstMauSac = _lstMauSac.Where(p => p.Ten.ToLower().Contains(txt_TimKiem.Text.ToLower())).ToList();
             }
             foreach (var x in _lstMauSac.OrderBy(c => c.Ma).ToList())
             {
@@ -127,8 +127,6 @@ namespace _3.PL.Views
         {
             if (e.RowIndex >= 0)
             {
-                int rowindex = e.RowIndex;
-                if (rowindex == _IMauSacService.GetAllMauSac().Count) return;
                 DataGridViewRow r = dgrid_MauSac.Rows[e.RowIndex];
                 _mauSac = _IMauSacService.GetAllMauSac().FirstOrDefault(c => c.Id == Guid.Parse(r.Cells[0].Value.ToString()));
                 txt_Ma.Text = _mauSac.Ma;

@@ -400,7 +400,6 @@
             this.btn_TimKiem.TabIndex = 3;
             this.btn_TimKiem.Text = "Tìm Kiếm";
             this.btn_TimKiem.UseVisualStyleBackColor = true;
-            this.btn_TimKiem.Click += new System.EventHandler(this.btn_TimKiem_Click);
             // 
             // txt_TimKiem
             // 

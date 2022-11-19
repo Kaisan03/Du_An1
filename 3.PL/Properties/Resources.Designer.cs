@@ -123,26 +123,6 @@ namespace _3.PL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_purchase_order_32 {
-            get {
-                object obj = ResourceManager.GetObject("icons8-purchase-order-32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icons8_purchase_order_321 {
-            get {
-                object obj = ResourceManager.GetObject("icons8-purchase-order-321", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap icons8_sale_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-sale-32", resourceCulture);

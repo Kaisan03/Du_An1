@@ -133,7 +133,7 @@
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button6.ForeColor = System.Drawing.SystemColors.HighlightText;
-            //this.button6.Image = global::_3.PL.Properties.Resources.icons8_tools_32;
+            this.button6.Image = global::_3.PL.Properties.Resources.icons8_tools_32;
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button6.Location = new System.Drawing.Point(0, 270);
             this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -154,7 +154,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button2.ForeColor = System.Drawing.SystemColors.HighlightText;
-            //this.button2.Image = global::_3.PL.Properties.Resources.icons8_tools_32;
+            this.button2.Image = global::_3.PL.Properties.Resources.icons8_tools_32;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.Location = new System.Drawing.Point(0, 220);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -174,7 +174,7 @@
             this.btn_quanLy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_quanLy.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_quanLy.ForeColor = System.Drawing.SystemColors.HighlightText;
-            //this.btn_quanLy.Image = global::_3.PL.Properties.Resources.icons8_tools_32;
+            this.btn_quanLy.Image = global::_3.PL.Properties.Resources.icons8_tools_32;
             this.btn_quanLy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_quanLy.Location = new System.Drawing.Point(0, 170);
             this.btn_quanLy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

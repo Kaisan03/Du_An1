@@ -309,26 +309,5 @@ namespace _3.PL.Views
                 return;
             }
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //DialogResult dialogResult = MessageBox.Show("Bạn có muốn tạo hóa đơn không?", "Thông báo", MessageBoxButtons.YesNo);
-            //if (dialogResult == DialogResult.Yes)
-            //{
-            //    for (int i = 0; i < 2; i++)
-            //    {
-            //        MessageBox.Show("Tạo hóa đơn thành công!");
-            //    }
-            //    var idHd = _IHoaDonService.GetallHoadon().Max(x => x.Id);
-            //    var hd = new ViewHoaDon()
-            //    {
-            //        Id = Guid.NewGuid(),
-            //        Ma = (_IHoaDonService.GetallHoadon().Count + 1).ToString(),
-            //        TrangThai = 1,
-            //        NgayTao = DateTime.Now
-            //    };
-            //    _IHoaDonService.Add(idHd);
-            //}
-        }
     }
 }

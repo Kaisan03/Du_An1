@@ -37,7 +37,7 @@ namespace _3.PL.Views
             _lstKieuDang = _IKieuDangService.GetAllKieuDang();
             if (txt_TimKiem.Text != "")
             {
-                _lstKieuDang = _lstKieuDang.Where(p => p.Ten.ToLower().Contains(txt_TimKiem.Text.ToLower()) || p.Ma.ToLower().Contains(txt_TimKiem.Text.ToLower())).ToList();
+                _lstKieuDang = _lstKieuDang.Where(p => p.Ten.ToLower().Contains(txt_TimKiem.Text.ToLower())).ToList();
             }
             foreach (var x in _lstKieuDang.OrderBy(c => c.Ma).ToList())
             {
@@ -127,8 +127,6 @@ namespace _3.PL.Views
         {
             if (e.RowIndex >= 0)
             {
-                int rowindex = e.RowIndex;
-                if (rowindex == _IKieuDangService.GetAllKieuDang().Count) return;
                 DataGridViewRow r = dgrid_KieuDang.Rows[e.RowIndex];
                 _kieuDang = _IKieuDangService.GetAllKieuDang().FirstOrDefault(c => c.Id == Guid.Parse(r.Cells[0].Value.ToString()));
                 txt_Ma.Text = _kieuDang.Ma;

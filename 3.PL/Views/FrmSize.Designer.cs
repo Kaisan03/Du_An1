@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txt_Ten = new System.Windows.Forms.TextBox();
             this.txt_Ma = new System.Windows.Forms.TextBox();
@@ -45,9 +44,6 @@
             this.btn_Xoa = new System.Windows.Forms.Button();
             this.btn_Sua = new System.Windows.Forms.Button();
             this.btn_Them = new System.Windows.Forms.Button();
-            this.lbl_Time = new System.Windows.Forms.Label();
-            this.lbl_Date = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_Size)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -216,38 +212,11 @@
             this.btn_Them.UseVisualStyleBackColor = true;
             this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
-            // lbl_Time
-            // 
-            this.lbl_Time.AutoSize = true;
-            this.lbl_Time.Font = new System.Drawing.Font("Lucida Sans", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbl_Time.ForeColor = System.Drawing.Color.Red;
-            this.lbl_Time.Location = new System.Drawing.Point(0, 277);
-            this.lbl_Time.Name = "lbl_Time";
-            this.lbl_Time.Size = new System.Drawing.Size(50, 19);
-            this.lbl_Time.TabIndex = 30;
-            this.lbl_Time.Text = "Time";
-            // 
-            // lbl_Date
-            // 
-            this.lbl_Date.AutoSize = true;
-            this.lbl_Date.Location = new System.Drawing.Point(0, 310);
-            this.lbl_Date.Name = "lbl_Date";
-            this.lbl_Date.Size = new System.Drawing.Size(41, 20);
-            this.lbl_Date.TabIndex = 30;
-            this.lbl_Date.Text = "Date";
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // FrmSize
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1222, 613);
-            this.Controls.Add(this.lbl_Date);
-            this.Controls.Add(this.lbl_Time);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgrid_Size);
             this.Controls.Add(this.btn_TimKiem);
@@ -283,8 +252,5 @@
         private System.Windows.Forms.Button btn_Xoa;
         private System.Windows.Forms.Button btn_Sua;
         private System.Windows.Forms.Button btn_Them;
-        private System.Windows.Forms.Label lbl_Time;
-        private System.Windows.Forms.Label lbl_Date;
-        private System.Windows.Forms.Timer timer1;
     }
 }

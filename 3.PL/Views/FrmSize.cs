@@ -154,15 +154,7 @@ namespace _3.PL.Views
 
         private void FrmSize_Load(object sender, EventArgs e)
         {
-            timer1.Start();
-            lbl_Time.Text = DateTime.Now.ToLongTimeString();
-            lbl_Date.Text = DateTime.Now.ToLongDateString();
-        }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            lbl_Time.Text = DateTime.Now.ToLongTimeString();
-            //timer1.Start();
         }
     }
 }
