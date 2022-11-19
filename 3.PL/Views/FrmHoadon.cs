@@ -56,12 +56,11 @@ namespace _3.PL.Views
             dgrid_view.Rows.Clear();
             foreach (var x in _ihoadonservice.GetAll())
             {
-                dgrid_view.Rows.Add(x.Id, x.Ma, x.khachhang, x.nhanvien, x.TenSp, x.TenNguoiNhan, x.NgayTao, x.NgayGiao, x.NgayThanhToan, x.DiaChi, x.Sdt, x.GiamGia, x.TrangThai);
+                dgrid_view.Rows.Add(x.Id, x.Ma, x.khachhang, x.nhanvien, x.TenSp, x.TenNguoiNhan, x.NgayTao, x.NgayGiao, x.NgayThanhToan, x.DiaChi, x.Sdt, x.GiamGia, x.TrangThai == 1 ? "Đang hoạt động":"Không hoạt động");
                 //var kh = _Ikhachhangservice.GetAll().FirstOrDefault(c => c.Id == x.IdKhachHang);
                 //var nv = _Inhanvienservice.GetAllNhanVien().FirstOrDefault(c => c.Id == x.IdNhanVien);
                 //dgrid_view.Rows.Add(x.Id,x.Ma,kh.Ten,nv.Ten,x.TenSp,x.TenNguoiNhan,x.NgayTao,x.NgayGiao,x.NgayThanhToan,x.DiaChi,x.Sdt,x.GiamGia,x.TrangThai);
             };
-
         }
         public void LoaddataCombobox()
         {
@@ -70,7 +69,7 @@ namespace _3.PL.Views
                 cbx_khachhang.Items.Add(x.Ten);
 
             }
-            cbx_khachhang.SelectedIndex = 0;
+            //cbx_khachhang.SelectedIndex = 0;
             foreach (var x in _Inhanvienservice.GetAllNhanVien())
             {
                 cbx_nhanvien.Items.Add(x.Ten);
@@ -82,6 +81,8 @@ namespace _3.PL.Views
         {
             if(e.RowIndex >= 0)
             {
+                int rowindex = e.RowIndex;
+                if (rowindex == _ihoadonservice.GetallHoadon().Count) return;
                 DataGridViewRow r = dgrid_view.Rows[e.RowIndex];
                 _idhoadon = Guid.Parse(r.Cells[0].Value.ToString());
                 var hd = _ihoadonservice.GetAll().FirstOrDefault(c =>c.Id == _idhoadon);
@@ -192,6 +193,43 @@ namespace _3.PL.Views
         private void FrmHoadon_Load(object sender, EventArgs e)
         {
 
+        }
+        public void Loaddata_timKiem(string txt)
+        {
+            dgrid_view.ColumnCount = 13;
+            dgrid_view.Columns[0].Name = "id";
+            dgrid_view.Columns[0].Visible = false;
+            dgrid_view.Columns[1].Name = "Ma ";
+            dgrid_view.Columns[2].Name = "Khách Hàng";
+            dgrid_view.Columns[3].Name = "Nhân Viên";
+            dgrid_view.Columns[4].Name = "Tên Sản Phẩm";
+            dgrid_view.Columns[5].Name = "Tên Người Nhận";
+            dgrid_view.Columns[6].Name = "Ngày Tạo";
+            dgrid_view.Columns[7].Name = "Ngày Giao";
+            dgrid_view.Columns[8].Name = "Ngày Thanh Toán";
+            dgrid_view.Columns[9].Name = "Dịa Chỉ";
+            dgrid_view.Columns[10].Name = "Sdt";
+            dgrid_view.Columns[11].Name = "Giảm GIá";
+            dgrid_view.Columns[12].Name = "Trạng Thái";
+            dgrid_view.Rows.Clear();
+            foreach (var x in _ihoadonservice.GetAll().Where(c => c.Ma.ToLower().Contains(txt_TimKiem.Text.ToLower())))
+            {
+                dgrid_view.Rows.Add(x.Id, x.Ma, x.khachhang, x.nhanvien, x.TenSp, x.TenNguoiNhan, x.NgayTao, x.NgayGiao, x.NgayThanhToan, x.DiaChi, x.Sdt, x.GiamGia, x.TrangThai == 1 ? "Đang hoạt động" : "Không hoạt động");
+            };
+        }
+
+        private void txt_TimKiem_KeyUp(object sender, KeyEventArgs e)
+        {
+            Loaddata_timKiem(txt_TimKiem.Text);
+        }
+
+        private void txt_TimKiem_Leave(object sender, EventArgs e)
+        {
+            if (txt_TimKiem.Text == "")
+            {
+                Loaddata();
+                return;
+            }
         }
     }
 }

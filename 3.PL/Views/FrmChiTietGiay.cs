@@ -34,7 +34,7 @@ namespace _3.PL.Views
             _lstCTGiay = new List<ViewChiTietGiay>();
             _ISanPhamService = new SanPhamService();
             _ISizeService = new SizeService();
-            _IDeGiayService = new DeGiayService();  
+            _IDeGiayService = new DeGiayService();
             _IKieuDangService = new KieuDangService();
             _INsxService = new NhaSanXuatService();
             _IMauSacService = new MauSacService();
@@ -99,12 +99,7 @@ namespace _3.PL.Views
             dgrid_ChiTietGiay.Columns[14].Name = "Mô tả";
             dgrid_ChiTietGiay.Columns[15].Name = "Trạng thái";
             dgrid_ChiTietGiay.Rows.Clear();
-            _lstCTGiay = _IChiTietGiayService.GetViewChiTietGiay();
-            if (txt_TimKiem.Text != "")
-            {
-                _lstCTGiay = _lstCTGiay.Where(p => p.Ma.ToLower().Contains(txt_Ma.Text.ToLower())).ToList();
-            }
-            foreach (var x in _lstCTGiay.OrderBy(c => c.Ma).ToList())
+            foreach (var x in _IChiTietGiayService.GetViewChiTietGiay().OrderBy(c => c.Ma).ToList())
             {
                 dgrid_ChiTietGiay.Rows.Add(x.Id,
                     x.TenSize,
@@ -212,7 +207,7 @@ namespace _3.PL.Views
             DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn clear?", "Thông báo", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                LoadData();
+                //LoadData();
             }
             if (dialogResult == DialogResult.No)
             {
@@ -222,33 +217,32 @@ namespace _3.PL.Views
 
         private void btn_TimKiem_Click(object sender, EventArgs e)
         {
-            LoadData();
+            //LoadData_TimKiem(txt_TimKiem.Text);
         }
 
         private void dgrid_ChiTietGiay_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow r = dgrid_ChiTietGiay.Rows[e.RowIndex];
-                _idCTGiay = Guid.Parse(r.Cells[0].Value.ToString());
-                var sp = _IChiTietGiayService.GetAllCTGiay().FirstOrDefault(c => c.Id == _idCTGiay);
-                cmb_TenSize.Text = r.Cells[1].Value.ToString();
-                cmb_MauSac.Text = r.Cells[2].Value.ToString();
-                cmb_ChatLieu.Text = r.Cells[3].Value.ToString();
-                cmb_LoaiDe.Text = r.Cells[4].Value.ToString();
-                cmb_Nsx.Text = r.Cells[5].Value.ToString();
-                cmb_KieuDang.Text = r.Cells[6].Value.ToString();
-                cmb_SanPham.Text = r.Cells[7].Value.ToString();
-                txt_Ma.Text = sp.Ma;
-                txt_NgayNhap.Text = sp.GiaNhap.ToString();
-                txt_NgayBan.Text = sp.GiaBan.ToString();
-                txt_SoLuong.Text = sp.SoLuong.ToString();
-                txt_SoLuongTon.Text = sp.SoLuongTon.ToString();
-                cmb_Anh.Text = r.Cells[13].Value.ToString();
-                txt_moTa.Text = sp.MoTa;
-                cbx_HoatDong.Checked = sp.TrangThai == 1;
-                cbx_khongHD.Checked = sp.TrangThai == 0;
-            }
+            int rowindex = e.RowIndex;
+            if (rowindex == _IChiTietGiayService.GetAllCTGiay().Count) return;
+            DataGridViewRow r = dgrid_ChiTietGiay.Rows[e.RowIndex];
+            _idCTGiay = Guid.Parse(r.Cells[0].Value.ToString());
+            var sp = _IChiTietGiayService.GetAllCTGiay().FirstOrDefault(c => c.Id == _idCTGiay);
+            cmb_TenSize.Text = r.Cells[1].Value.ToString();
+            cmb_MauSac.Text = r.Cells[2].Value.ToString();
+            cmb_ChatLieu.Text = r.Cells[3].Value.ToString();
+            cmb_LoaiDe.Text = r.Cells[4].Value.ToString();
+            cmb_Nsx.Text = r.Cells[5].Value.ToString();
+            cmb_KieuDang.Text = r.Cells[6].Value.ToString();
+            cmb_SanPham.Text = r.Cells[7].Value.ToString();
+            txt_Ma.Text = sp.Ma;
+            txt_NgayNhap.Text = sp.GiaNhap.ToString();
+            txt_NgayBan.Text = sp.GiaBan.ToString();
+            txt_SoLuong.Text = sp.SoLuong.ToString();
+            txt_SoLuongTon.Text = sp.SoLuongTon.ToString();
+            cmb_Anh.Text = r.Cells[13].Value.ToString();
+            txt_moTa.Text = sp.MoTa;
+            cbx_HoatDong.Checked = sp.TrangThai == 1;
+            cbx_khongHD.Checked = sp.TrangThai == 0;
         }
         private void cbx_HoatDong_CheckedChanged(object sender, EventArgs e)
         {
@@ -274,6 +268,62 @@ namespace _3.PL.Views
         private void FrmChiTietGiay_Load_1(object sender, EventArgs e)
         {
 
+        }
+        private void LoadData_TimKiem(string text)
+        {
+            dgrid_ChiTietGiay.ColumnCount = 16;
+            dgrid_ChiTietGiay.Columns[0].Name = "ID";
+            dgrid_ChiTietGiay.Columns[0].Visible = false;
+            dgrid_ChiTietGiay.Columns[1].Name = "Size";
+            dgrid_ChiTietGiay.Columns[2].Name = "Màu sắc";
+            dgrid_ChiTietGiay.Columns[3].Name = "Chất liệu";
+            dgrid_ChiTietGiay.Columns[4].Name = "Loại đế";
+            dgrid_ChiTietGiay.Columns[5].Name = "Nhà sản xuất";
+            dgrid_ChiTietGiay.Columns[6].Name = "Kiểu dáng";
+            dgrid_ChiTietGiay.Columns[7].Name = "Tên sản phẩm";
+            dgrid_ChiTietGiay.Columns[8].Name = "Mã";
+            dgrid_ChiTietGiay.Columns[9].Name = "Giá nhập";
+            dgrid_ChiTietGiay.Columns[10].Name = "Giá bán";
+            dgrid_ChiTietGiay.Columns[11].Name = "Số lượng";
+            dgrid_ChiTietGiay.Columns[12].Name = "Số lượng tồn";
+            dgrid_ChiTietGiay.Columns[13].Name = "Ảnh";
+            dgrid_ChiTietGiay.Columns[14].Name = "Mô tả";
+            dgrid_ChiTietGiay.Columns[15].Name = "Trạng thái";
+            dgrid_ChiTietGiay.Rows.Clear();
+            foreach (var x in _IChiTietGiayService.GetAllSPView().Where(c => c.ChiTietGiay.Ma.ToLower().StartsWith(txt_TimKiem.Text.ToLower())))
+            {
+                dgrid_ChiTietGiay.Rows.Add(x.ChiTietGiay.Id,
+                    x.Size.Ten,
+                    x.MauSac.Ten,
+                    x.ChatLieu.Ten,
+                    x.DeGiay.Ten,
+                    x.Nsx.Ten,
+                    x.KieuDang.Ten,
+                    x.SanPham.Ten,
+                    x.ChiTietGiay.Ma,
+                    x.ChiTietGiay.GiaNhap,
+                    x.ChiTietGiay.GiaBan,
+                    x.ChiTietGiay.SoLuong,
+                    x.ChiTietGiay.SoLuongTon,
+                    x.Anh.TenAnh,
+                    x.ChiTietGiay.MoTa,
+                    x.ChiTietGiay.TrangThai == 1 ? "Hoạt động" : "Không hoạt động"
+                    );
+            }
+        }
+
+        private void txt_TimKiem_KeyUp(object sender, KeyEventArgs e)
+        {
+            LoadData_TimKiem(txt_TimKiem.Text);
+        }
+
+        private void txt_TimKiem_Leave(object sender, EventArgs e)
+        {
+            if (txt_TimKiem.Text == "")
+            {
+                LoadData();
+                return;
+            }
         }
     }
 }

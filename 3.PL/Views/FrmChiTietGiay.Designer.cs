@@ -30,7 +30,6 @@
         {
             this.dgrid_ChiTietGiay = new System.Windows.Forms.DataGridView();
             this.txt_TimKiem = new System.Windows.Forms.TextBox();
-            this.btn_TimKiem = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbx_khongHD = new System.Windows.Forms.CheckBox();
             this.cbx_HoatDong = new System.Windows.Forms.CheckBox();
@@ -42,6 +41,7 @@
             this.txt_SoLuong = new System.Windows.Forms.TextBox();
             this.txt_SoLuongTon = new System.Windows.Forms.TextBox();
             this.txt_Ma = new System.Windows.Forms.TextBox();
+            this.cmb_Anh = new System.Windows.Forms.ComboBox();
             this.cmb_KieuDang = new System.Windows.Forms.ComboBox();
             this.cmb_LoaiDe = new System.Windows.Forms.ComboBox();
             this.cmb_MauSac = new System.Windows.Forms.ComboBox();
@@ -67,7 +67,6 @@
             this.btn_Xoa = new System.Windows.Forms.Button();
             this.btn_Sua = new System.Windows.Forms.Button();
             this.btn_Them = new System.Windows.Forms.Button();
-            this.cmb_Anh = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_ChiTietGiay)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -91,18 +90,10 @@
             // 
             this.txt_TimKiem.Location = new System.Drawing.Point(47, 43);
             this.txt_TimKiem.Name = "txt_TimKiem";
-            this.txt_TimKiem.Size = new System.Drawing.Size(285, 27);
+            this.txt_TimKiem.Size = new System.Drawing.Size(385, 27);
             this.txt_TimKiem.TabIndex = 1;
-            // 
-            // btn_TimKiem
-            // 
-            this.btn_TimKiem.Location = new System.Drawing.Point(338, 41);
-            this.btn_TimKiem.Name = "btn_TimKiem";
-            this.btn_TimKiem.Size = new System.Drawing.Size(94, 29);
-            this.btn_TimKiem.TabIndex = 2;
-            this.btn_TimKiem.Text = "Tìm kiếm";
-            this.btn_TimKiem.UseVisualStyleBackColor = true;
-            this.btn_TimKiem.Click += new System.EventHandler(this.btn_TimKiem_Click);
+            this.txt_TimKiem.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_TimKiem_KeyUp);
+            this.txt_TimKiem.Leave += new System.EventHandler(this.txt_TimKiem_Leave);
             // 
             // groupBox1
             // 
@@ -224,6 +215,14 @@
             this.txt_Ma.Name = "txt_Ma";
             this.txt_Ma.Size = new System.Drawing.Size(282, 27);
             this.txt_Ma.TabIndex = 1;
+            // 
+            // cmb_Anh
+            // 
+            this.cmb_Anh.FormattingEnabled = true;
+            this.cmb_Anh.Location = new System.Drawing.Point(548, 137);
+            this.cmb_Anh.Name = "cmb_Anh";
+            this.cmb_Anh.Size = new System.Drawing.Size(282, 28);
+            this.cmb_Anh.TabIndex = 1;
             // 
             // cmb_KieuDang
             // 
@@ -407,7 +406,6 @@
             this.groupBox2.Controls.Add(this.btn_Xoa);
             this.groupBox2.Controls.Add(this.btn_Sua);
             this.groupBox2.Controls.Add(this.btn_Them);
-            this.groupBox2.Controls.Add(this.btn_TimKiem);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox2.Location = new System.Drawing.Point(1006, 295);
             this.groupBox2.Name = "groupBox2";
@@ -456,14 +454,6 @@
             this.btn_Them.UseVisualStyleBackColor = true;
             this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
-            // cmb_Anh
-            // 
-            this.cmb_Anh.FormattingEnabled = true;
-            this.cmb_Anh.Location = new System.Drawing.Point(548, 137);
-            this.cmb_Anh.Name = "cmb_Anh";
-            this.cmb_Anh.Size = new System.Drawing.Size(282, 28);
-            this.cmb_Anh.TabIndex = 1;
-            // 
             // FrmChiTietGiay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -488,7 +478,6 @@
 
         private System.Windows.Forms.DataGridView dgrid_ChiTietGiay;
         private System.Windows.Forms.TextBox txt_TimKiem;
-        private System.Windows.Forms.Button btn_TimKiem;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.CheckBox cbx_khongHD;
         private System.Windows.Forms.CheckBox cbx_HoatDong;

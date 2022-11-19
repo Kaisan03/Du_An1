@@ -56,11 +56,11 @@ namespace _3.PL.Views
             drgid_NhanVien.Columns[11].Name = "Trạng Thái ";
             drgid_NhanVien.Rows.Clear();
             var lstNhanVien = _iNhanVienService.GetViewNhanVien();
-            //if (txt_TimKiem.Text != "")
-            //{
-            //    _lstNhanVien = lstNhanVien.Where(p => p.Ma.ToLower().Contains(txt_Ma.Text.ToLower())).ToList();
-            //}
-            foreach (var x in lstNhanVien)
+            if (txt_TimKiem.Text != "")
+            {
+                lstNhanVien = lstNhanVien.Where(p => p.Ma.ToLower().Contains(txt_Ma.Text.ToLower())).ToList();
+            }
+            foreach (var x in lstNhanVien.OrderBy(c => c.Ma).ToList())
             {
                
                 drgid_NhanVien.Rows.Add(x.Id, x.Ma, x.Ho, x.TenDem, x.Ten, x.GioiTinh == "Nam" ? 0: 1, x.NgaySinh, x.DiaChi, x.Sdt,
@@ -216,6 +216,11 @@ namespace _3.PL.Views
         private void cmb_idChucVu_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_TimKiem_Click(object sender, EventArgs e)
+        {
+            LoadDataNhanVien();
         }
     }
 }

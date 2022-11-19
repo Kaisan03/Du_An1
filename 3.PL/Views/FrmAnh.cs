@@ -38,7 +38,7 @@ namespace _3.PL.Views
             _lstAnh = _IAnhService.GetAllAnh();
             if (txt_TimKiem.Text != "")
             {
-                _lstAnh = _lstAnh.Where(p => p.TenAnh.ToLower().Contains(txt_TimKiem.Text.ToLower())).ToList();
+                _lstAnh = _lstAnh.Where(p => p.TenAnh.ToLower().Contains(txt_TimKiem.Text.ToLower()) || p.MaAnh.ToLower().Contains(txt_TimKiem.Text.ToLower())).ToList();
             }
             foreach (var x in _lstAnh.OrderBy(c => c.MaAnh).ToList())
             {
@@ -128,8 +128,8 @@ namespace _3.PL.Views
 
         private void dgrid_Anh_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
+                int rowindex = e.RowIndex;
+                if (rowindex == _IAnhService.GetAllAnh().Count) return;
                 DataGridViewRow r = dgrid_Anh.Rows[e.RowIndex];
                 _Anh = _IAnhService.GetAllAnh().FirstOrDefault(c => c.Id == Guid.Parse(r.Cells[0].Value.ToString()));
                 txt_Ma.Text = _Anh.MaAnh;
@@ -137,7 +137,6 @@ namespace _3.PL.Views
                 txt_duongDan.Text = _Anh.DuongDan;
                 cbx_HoatDong.Checked = _Anh.TrangThai == 1;
                 cbx_KhongHD.Checked = _Anh.TrangThai == 0;
-            }
         }
 
         private void cbx_HoatDong_CheckedChanged(object sender, EventArgs e)

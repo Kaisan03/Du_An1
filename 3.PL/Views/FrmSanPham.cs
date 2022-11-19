@@ -37,7 +37,7 @@ namespace _3.PL.Views
             _lstSanPham = _ISanPhamService.GetAllSanPham();
             if (txt_TimKiem.Text != "")
             {
-                _lstSanPham = _lstSanPham.Where(p => p.Ten.ToLower().Contains(txt_TimKiem.Text.ToLower())).ToList();
+                _lstSanPham = _lstSanPham.Where(p => p.Ten.ToLower().Contains(txt_TimKiem.Text.ToLower()) || p.Ma.ToLower().Contains(txt_TimKiem.Text.ToLower())).ToList();
             }
             foreach (var x in _lstSanPham.OrderBy(c => c.Ma).ToList())
             {
@@ -125,15 +125,14 @@ namespace _3.PL.Views
 
         private void dgrid_SanPham_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
+                int rowindex = e.RowIndex;
+                if (rowindex == _ISanPhamService.GetAllSanPham().Count) return;
                 DataGridViewRow r = dgrid_SanPham.Rows[e.RowIndex];
                 _sanPham = _ISanPhamService.GetAllSanPham().FirstOrDefault(c => c.Id == Guid.Parse(r.Cells[0].Value.ToString()));
                 txt_Ma.Text = _sanPham.Ma;
                 txt_Ten.Text = _sanPham.Ten;
                 cbx_HoatDong.Checked = _sanPham.TrangThai == 1;
                 cbx_KhongHD.Checked = _sanPham.TrangThai == 0;
-            }
         }
 
         private void cbx_HoatDong_CheckedChanged(object sender, EventArgs e)

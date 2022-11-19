@@ -5979,11 +5979,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Acer\\Source\\Repos\\Du_An1\\3.PL\\3.PL.csproj",
+      "projectUniqueName": "C:\\Users\\Acer\\source\\repos\\Du_An1\\3.PL\\3.PL.csproj",
       "projectName": "3.PL",
-      "projectPath": "C:\\Users\\Acer\\Source\\Repos\\Du_An1\\3.PL\\3.PL.csproj",
+      "projectPath": "C:\\Users\\Acer\\source\\repos\\Du_An1\\3.PL\\3.PL.csproj",
       "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Acer\\Source\\Repos\\Du_An1\\3.PL\\obj\\",
+      "outputPath": "C:\\Users\\Acer\\source\\repos\\Du_An1\\3.PL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6000,8 +6000,8 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "projectReferences": {
-            "C:\\Users\\Acer\\Source\\Repos\\Du_An1\\2.BUS\\2.BUS.csproj": {
-              "projectPath": "C:\\Users\\Acer\\Source\\Repos\\Du_An1\\2.BUS\\2.BUS.csproj"
+            "C:\\Users\\Acer\\source\\repos\\Du_An1\\2.BUS\\2.BUS.csproj": {
+              "projectPath": "C:\\Users\\Acer\\source\\repos\\Du_An1\\2.BUS\\2.BUS.csproj"
             }
           }
         }

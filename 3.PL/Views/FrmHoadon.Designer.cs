@@ -58,6 +58,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.rbtn_hoatdong = new System.Windows.Forms.RadioButton();
             this.rbtn_khonghoatdong = new System.Windows.Forms.RadioButton();
+            this.txt_TimKiem = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_view)).BeginInit();
             this.SuspendLayout();
             // 
@@ -130,7 +132,7 @@
             // cbx_khachhang
             // 
             this.cbx_khachhang.FormattingEnabled = true;
-            this.cbx_khachhang.Location = new System.Drawing.Point(101, 461);
+            this.cbx_khachhang.Location = new System.Drawing.Point(115, 462);
             this.cbx_khachhang.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbx_khachhang.Name = "cbx_khachhang";
             this.cbx_khachhang.Size = new System.Drawing.Size(189, 28);
@@ -148,7 +150,7 @@
             // cbx_nhanvien
             // 
             this.cbx_nhanvien.FormattingEnabled = true;
-            this.cbx_nhanvien.Location = new System.Drawing.Point(101, 576);
+            this.cbx_nhanvien.Location = new System.Drawing.Point(115, 577);
             this.cbx_nhanvien.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbx_nhanvien.Name = "cbx_nhanvien";
             this.cbx_nhanvien.Size = new System.Drawing.Size(189, 28);
@@ -250,7 +252,7 @@
             // 
             // tbx_giamgia
             // 
-            this.tbx_giamgia.Location = new System.Drawing.Point(849, 451);
+            this.tbx_giamgia.Location = new System.Drawing.Point(849, 487);
             this.tbx_giamgia.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbx_giamgia.Name = "tbx_giamgia";
             this.tbx_giamgia.Size = new System.Drawing.Size(317, 27);
@@ -259,7 +261,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(722, 455);
+            this.label9.Location = new System.Drawing.Point(725, 490);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(73, 20);
             this.label9.TabIndex = 23;
@@ -350,11 +352,30 @@
             this.rbtn_khonghoatdong.Text = "Không hoạt động";
             this.rbtn_khonghoatdong.UseVisualStyleBackColor = true;
             // 
+            // txt_TimKiem
+            // 
+            this.txt_TimKiem.Location = new System.Drawing.Point(849, 443);
+            this.txt_TimKiem.Name = "txt_TimKiem";
+            this.txt_TimKiem.Size = new System.Drawing.Size(317, 27);
+            this.txt_TimKiem.TabIndex = 37;
+            this.txt_TimKiem.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_TimKiem_KeyUp);
+            this.txt_TimKiem.Leave += new System.EventHandler(this.txt_TimKiem_Leave);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(725, 446);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 20);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "Tìm kiếm:";
+            // 
             // FrmHoadon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1418, 847);
+            this.Controls.Add(this.txt_TimKiem);
             this.Controls.Add(this.rbtn_khonghoatdong);
             this.Controls.Add(this.rbtn_hoatdong);
             this.Controls.Add(this.date_ngaygiao);
@@ -365,6 +386,7 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.tbx_giamgia);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.tbx_ma);
             this.Controls.Add(this.label8);
@@ -427,5 +449,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.RadioButton rbtn_hoatdong;
         private System.Windows.Forms.RadioButton rbtn_khonghoatdong;
+        private System.Windows.Forms.TextBox txt_TimKiem;
+        private System.Windows.Forms.Label label2;
     }
 }

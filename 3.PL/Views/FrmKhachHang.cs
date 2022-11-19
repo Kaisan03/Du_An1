@@ -27,7 +27,6 @@ namespace _3.PL.Views
             InitializeComponent();
             _IKhachHangService = new KhachHangService();
             _lstKhachHang = new List<KhachHang>();
-
             LoadData();
         }
         public void LoadData()
@@ -48,19 +47,18 @@ namespace _3.PL.Views
             _lstKhachHang = _IKhachHangService.GetAll();
             if (txt_TimKiem.Text != "")
             {
-                _lstKhachHang = _lstKhachHang.Where( p => p.Ten.ToLower().Contains(txt_TimKiem.Text.ToLower())).ToList();
+                _lstKhachHang = _lstKhachHang.Where(p => p.Ma.ToLower().Contains(txt_TimKiem.Text.ToLower())).ToList();
             }
             foreach (var x in _lstKhachHang.OrderBy(c => c.Ma).ToList())
             {
-                dgridKhachHang.Rows.Add(x.Id, x.Ma,x.Ho,x.TenDem, x.Ten, x.NgaySinh, x.Sdt,x.DiaChi,x.QuocGia, x.TrangThai == 1 ? "Hoạt động" : "Không hoạt động");
+                dgridKhachHang.Rows.Add(x.Id, x.Ma, x.Ho, x.TenDem, x.Ten, x.NgaySinh, x.Sdt, x.DiaChi, x.QuocGia, x.TrangThai == 1 ? "Hoạt động" : "Không hoạt động");
             }
-
         }
         private KhachHang GetDataFromGuid()
         {
             return new KhachHang()
             {
-                Id = Guid.Empty,
+                Id = Guid.NewGuid(),
                 Ma = txt_Ma.Text,
                 Ho = txt_Ho.Text,
                 TenDem = txt_TenDem.Text,
@@ -110,7 +108,7 @@ namespace _3.PL.Views
             DialogResult dialogResult = MessageBox.Show("bạn có muốn sửa không?", "thông báo", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-
+                //_KhachHang.Id = 
                 _KhachHang.Ma = txt_Ma.Text ;
                 _KhachHang.Ho = txt_Ho.Text ;
                 _KhachHang.TenDem = txt_TenDem.Text ;
@@ -204,8 +202,8 @@ namespace _3.PL.Views
             //txt_QuocGia.Text = _KhachHang.QuocGia;
             //cbx_HoatDong.Checked = _KhachHang.TrangThai == 1;
             //cbx_KhongHoatDong.Checked = _KhachHang.TrangThai == 0;
-            if (e.RowIndex >= 0)
-            {
+                int rowindex = e.RowIndex;
+                if (rowindex == _IKhachHangService.GetAll().Count) return;
                 DataGridViewRow r = dgridKhachHang.Rows[e.RowIndex];
                 _KhachHang = _IKhachHangService.GetAll().FirstOrDefault(c => c.Id == Guid.Parse(r.Cells[0].Value.ToString()));
                 txt_Ma.Text = _KhachHang.Ma;
@@ -218,8 +216,6 @@ namespace _3.PL.Views
                 txt_QuocGia.Text = _KhachHang.QuocGia;
                 cbx_HoatDong.Checked = _KhachHang.TrangThai == 1;
                 cbx_KhongHoatDong.Checked = _KhachHang.TrangThai == 0;
-
-            }
 
         }
     }

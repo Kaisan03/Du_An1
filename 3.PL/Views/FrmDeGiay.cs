@@ -39,7 +39,7 @@ namespace _3.PL.Views
             _lstDeGiay = _IDeGiayService.GetAllDeGiay();
             if (txt_TimKiem.Text != "")
             {
-                _lstDeGiay = _lstDeGiay.Where(p => p.Ten.ToLower().Contains(txt_TimKiem.Text.ToLower())).ToList();
+                _lstDeGiay = _lstDeGiay.Where(p => p.Ten.ToLower().Contains(txt_TimKiem.Text.ToLower()) || p.Ma.ToLower().Contains(txt_Ma.Text)).ToList();
             }
             foreach (var x in _lstDeGiay.OrderBy(c => c.Ma).ToList())
             {
@@ -133,8 +133,8 @@ namespace _3.PL.Views
 
         private void dgrid_DeGiay_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
+                int rowindex = e.RowIndex;
+                if (rowindex == _IDeGiayService.GetAllDeGiay().Count) return;
                 DataGridViewRow r = dgrid_DeGiay.Rows[e.RowIndex];
                 _deGiay = _IDeGiayService.GetAllDeGiay().FirstOrDefault(c => c.Id == Guid.Parse(r.Cells[0].Value.ToString()));
                 txt_Ma.Text = _deGiay.Ma;
@@ -143,7 +143,6 @@ namespace _3.PL.Views
                 txt_ChieuCao.Text = Convert.ToString(_deGiay.ChieuCao);
                 cbx_HoatDong.Checked = _deGiay.TrangThai == 1;
                 cbx_KhongHD.Checked = _deGiay.TrangThai == 0;
-            }
         }
 
         private void cbx_HoatDong_CheckedChanged(object sender, EventArgs e)

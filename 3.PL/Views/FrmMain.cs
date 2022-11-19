@@ -90,8 +90,5 @@ namespace _3.PL.Views
                 button6.Visible = true;
             }
         }
-
-
     }
-    
 }
