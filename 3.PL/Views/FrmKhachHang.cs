@@ -48,7 +48,7 @@ namespace _3.PL.Views
             _lstKhachHang = _IKhachHangService.GetAll();
             if (txt_TimKiem.Text != "")
             {
-                _lstKhachHang = _lstKhachHang.Where( p => p.Ten.ToLower().Contains(txt_TimKiem.Text.ToLower())).ToList();
+                _lstKhachHang = _lstKhachHang.Where( p => p.Ten.ToLower().Contains(txt_TimKiem.Text.ToLower()) || p.Ma.ToLower().Contains(txt_TimKiem.Text.ToLower())).ToList();
             }
             foreach (var x in _lstKhachHang.OrderBy(c => c.Ma).ToList())
             {
@@ -206,6 +206,8 @@ namespace _3.PL.Views
             //cbx_KhongHoatDong.Checked = _KhachHang.TrangThai == 0;
             if (e.RowIndex >= 0)
             {
+                int rowindex = e.RowIndex;
+                if (rowindex == _IKhachHangService.GetAll().Count) return;
                 DataGridViewRow r = dgridKhachHang.Rows[e.RowIndex];
                 _KhachHang = _IKhachHangService.GetAll().FirstOrDefault(c => c.Id == Guid.Parse(r.Cells[0].Value.ToString()));
                 txt_Ma.Text = _KhachHang.Ma;

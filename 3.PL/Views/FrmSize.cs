@@ -38,7 +38,7 @@ namespace _3.PL.Views
             _lstSize = _ISizeService.GetAllSize();
             if (txt_TimKiem.Text != "")
             {
-                _lstSize = _lstSize.Where(p => p.Ten.ToLower().Contains(txt_TimKiem.Text.ToLower())).ToList();
+                _lstSize = _lstSize.Where(p => p.Ten.ToLower().Contains(txt_TimKiem.Text.ToLower()) || p.Ma.ToLower().Contains(txt_TimKiem.Text.ToLower())).ToList();
             }
             foreach (var x in _lstSize.OrderBy(c => c.Ma).ToList())
             {
@@ -127,6 +127,8 @@ namespace _3.PL.Views
         {
             if (e.RowIndex >= 0)
             {
+                int rowindex = e.RowIndex;
+                if (rowindex == _ISizeService.GetAllSize().Count) return;
                 DataGridViewRow r = dgrid_Size.Rows[e.RowIndex];
                 _Size = _ISizeService.GetAllSize().FirstOrDefault(c => c.Id == Guid.Parse(r.Cells[0].Value.ToString()));
                 txt_Ma.Text = _Size.Ma;

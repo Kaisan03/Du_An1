@@ -188,6 +188,7 @@ namespace _3.PL.Views
             this.btn_TimKiem.TabIndex = 7;
             this.btn_TimKiem.Text = "Tìm kiếm";
             this.btn_TimKiem.UseVisualStyleBackColor = true;
+            this.btn_TimKiem.Click += new System.EventHandler(this.btn_TimKiem_Click);
             // 
             // txt_TimKiem
             // 

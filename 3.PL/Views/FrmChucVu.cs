@@ -32,14 +32,14 @@ namespace _3.PL.Views
             dgrid_ChucVu.Columns[1].Name = "Mã";
             dgrid_ChucVu.Columns[2].Name = "Tên";
             dgrid_ChucVu.Columns[3].Name = "Trạng thái";
-
             dgrid_ChucVu.Rows.Clear();
             var x = _IchucVuService.GetAllChucVu();
+            x = x.Where(c => c.Ma.ToLower().Contains(txt_TimKiem.Text.ToLower()) || c.Ten.ToLower().Contains(txt_TimKiem.Text.ToLower())).ToList();
             foreach (var item in x)
             {
                 dgrid_ChucVu.Rows.Add(
                     item.Id, item.Ma, item.Ten,
-                    item.TrangThai);
+                    item.TrangThai == 1 ? "Hoạt động":"Không hoạt động");
             }
         }
         private ViewChucVu GetDataFromGuid()
@@ -134,6 +134,11 @@ namespace _3.PL.Views
         private void FrmChucVu_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_TimKiem_Click(object sender, EventArgs e)
+        {
+            loaddata();
         }
     }
 }

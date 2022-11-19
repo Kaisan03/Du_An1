@@ -38,7 +38,7 @@ namespace _3.PL.Views
             _lstChatLieu = _IChatLieuService.GetAllChatLieu();
             if (txt_TimKiem.Text != "")
             {
-                _lstChatLieu = _lstChatLieu.Where(p => p.Ten.ToLower().Contains(txt_TimKiem.Text.ToLower())).ToList();
+                _lstChatLieu = _lstChatLieu.Where(p => p.Ten.ToLower().Contains(txt_TimKiem.Text.ToLower()) || p.Ma.ToLower().Contains(txt_TimKiem.Text.ToLower())).ToList();
             }
             foreach (var x in _lstChatLieu.OrderBy(c => c.Ma).ToList())
             {
@@ -127,6 +127,8 @@ namespace _3.PL.Views
         {
             if (e.RowIndex >= 0)
             {
+                int rowindex = e.RowIndex;
+                if (rowindex == _IChatLieuService.GetAllChatLieu().Count) return;
                 DataGridViewRow r = dgrid_ChatLieu.Rows[e.RowIndex];
                 _chatLieu = _IChatLieuService.GetAllChatLieu().FirstOrDefault(c => c.Id == Guid.Parse(r.Cells[0].Value.ToString()));
                 txt_Ma.Text = _chatLieu.Ma;

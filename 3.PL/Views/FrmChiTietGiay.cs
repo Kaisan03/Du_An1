@@ -99,12 +99,12 @@ namespace _3.PL.Views
             dgrid_ChiTietGiay.Columns[14].Name = "Mô tả";
             dgrid_ChiTietGiay.Columns[15].Name = "Trạng thái";
             dgrid_ChiTietGiay.Rows.Clear();
-            _lstCTGiay = _IChiTietGiayService.GetViewChiTietGiay();
-            if (txt_TimKiem.Text != "")
-            {
-                _lstCTGiay = _lstCTGiay.Where(p => p.Ma.ToLower().Contains(txt_Ma.Text.ToLower())).ToList();
-            }
-            foreach (var x in _lstCTGiay.OrderBy(c => c.Ma).ToList())
+            //_lstCTGiay = _IChiTietGiayService.GetViewChiTietGiay();
+            //if (txt_TimKiem.Text != "")
+            //{
+            //    _lstCTGiay = _lstCTGiay.Where(p => p.Ma.ToLower().Contains(txt_Ma.Text.ToLower())).ToList();
+            //}
+            foreach (var x in _IChiTietGiayService.GetViewChiTietGiay().OrderBy(c => c.Ma).ToList())
             {
                 dgrid_ChiTietGiay.Rows.Add(x.Id,
                     x.TenSize,
@@ -274,6 +274,69 @@ namespace _3.PL.Views
         private void FrmChiTietGiay_Load_1(object sender, EventArgs e)
         {
 
+        }
+        private void LoadData_timKiem(string txt)
+        {
+            dgrid_ChiTietGiay.ColumnCount = 16;
+            dgrid_ChiTietGiay.Columns[0].Name = "ID";
+            dgrid_ChiTietGiay.Columns[0].Visible = false;
+            dgrid_ChiTietGiay.Columns[1].Name = "Size";
+            dgrid_ChiTietGiay.Columns[2].Name = "Màu sắc";
+            dgrid_ChiTietGiay.Columns[3].Name = "Chất liệu";
+            dgrid_ChiTietGiay.Columns[4].Name = "Loại đế";
+            dgrid_ChiTietGiay.Columns[5].Name = "Nhà sản xuất";
+            dgrid_ChiTietGiay.Columns[6].Name = "Kiểu dáng";
+            dgrid_ChiTietGiay.Columns[7].Name = "Tên sản phẩm";
+            dgrid_ChiTietGiay.Columns[8].Name = "Mã";
+            dgrid_ChiTietGiay.Columns[9].Name = "Giá nhập";
+            dgrid_ChiTietGiay.Columns[10].Name = "Giá bán";
+            dgrid_ChiTietGiay.Columns[11].Name = "Số lượng";
+            dgrid_ChiTietGiay.Columns[12].Name = "Số lượng tồn";
+            dgrid_ChiTietGiay.Columns[13].Name = "Ảnh";
+            dgrid_ChiTietGiay.Columns[14].Name = "Mô tả";
+            dgrid_ChiTietGiay.Columns[15].Name = "Trạng thái";
+            dgrid_ChiTietGiay.Rows.Clear();
+            //_lstCTGiay = _IChiTietGiayService.GetViewChiTietGiay();
+            //if (txt_TimKiem.Text != "")
+            //{
+            //    _lstCTGiay = _lstCTGiay.Where(p => p.Ma.ToLower().Contains(txt_Ma.Text.ToLower())).ToList();
+            //}
+            foreach (var x in _IChiTietGiayService.GetViewChiTietGiay().Where(c => c.Ma.ToLower().Contains(txt_TimKiem.Text)).OrderBy(c => c.Ma).ToList())
+            {
+                dgrid_ChiTietGiay.Rows.Add(x.Id,
+                    x.TenSize,
+                    x.TenMauSac,
+                    x.TenChatLieu,
+                    x.TenDeGiay,
+                    x.TenNSX,
+                    x.TenKieuDang,
+                    x.TenSanPham,
+                    x.Ma,
+                    x.GiaNhap,
+                    x.GiaBan,
+                    x.SoLuong,
+                    x.SoLuongTon,
+                    x.Anh,
+                    x.MoTa,
+                    x.TrangThai == 1 ? "Hoạt động" : "Không hoạt động"
+                    );
+            }
+        }
+
+        private void txt_TimKiem_KeyUp(object sender, KeyEventArgs e)
+        {
+            LoadData_timKiem(txt_TimKiem.Text);
+        }
+
+        private void txt_TimKiem_Leave(object sender, EventArgs e)
+        {
+            if (txt_TimKiem.Text == "")
+            {
+
+
+                LoadData();
+                return;
+            }
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using _1.DAL.DomainClass;
 using _2.BUS.IServices;
 using _2.BUS.Services;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Markup;
 
 namespace _3.PL.Views
 {
@@ -38,7 +40,7 @@ namespace _3.PL.Views
             _lstAnh = _IAnhService.GetAllAnh();
             if (txt_TimKiem.Text != "")
             {
-                _lstAnh = _lstAnh.Where(p => p.TenAnh.ToLower().Contains(txt_TimKiem.Text.ToLower())).ToList();
+                _lstAnh = _lstAnh.Where(p => p.TenAnh.ToLower().Contains(txt_TimKiem.Text.ToLower()) || p.MaAnh.ToLower().Contains(txt_TimKiem.Text.ToLower())).ToList();
             }
             foreach (var x in _lstAnh.OrderBy(c => c.MaAnh).ToList())
             {
@@ -130,6 +132,8 @@ namespace _3.PL.Views
         {
             if (e.RowIndex >= 0)
             {
+                int rowindex = e.RowIndex;
+                if (rowindex == _IAnhService.GetAllAnh().Count) return;
                 DataGridViewRow r = dgrid_Anh.Rows[e.RowIndex];
                 _Anh = _IAnhService.GetAllAnh().FirstOrDefault(c => c.Id == Guid.Parse(r.Cells[0].Value.ToString()));
                 txt_Ma.Text = _Anh.MaAnh;

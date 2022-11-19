@@ -227,3 +227,5 @@ D:\Study File\Kỳ 4\PRO131\GETDuana1\3.PL\obj\Debug\net5.0-windows\3.PL.genrunt
 D:\Study File\Kỳ 4\PRO131\GETDuana1\3.PL\obj\Debug\net5.0-windows\ref\3.PL.dll
 D:\Study File\Kỳ 4\PRO131\GETDuana1\3.PL\bin\Debug\net5.0-windows\FontAwesome.Sharp.dll
 D:\Study File\Kỳ 4\PRO131\GETDuana1\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmMain2.resources
+C:\Users\Acer\source\repos\Du_An1\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmMain2.resources
+C:\Users\Acer\source\repos\Du_An1\3.PL\bin\Debug\net5.0-windows\FontAwesome.Sharp.dll
