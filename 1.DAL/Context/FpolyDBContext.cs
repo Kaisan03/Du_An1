@@ -45,7 +45,6 @@ namespace _1.DAL.Context
                 optionsBuilder.UseSqlServer("Data Source=LAPTOP-46F72MJA\\SQLEXPRESS;Initial Catalog=Duan1;Persist Security Info=True;User ID=duyvtph24890;Password=123456");
             }
         }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");

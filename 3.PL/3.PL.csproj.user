@@ -41,6 +41,9 @@
     <Compile Update="Views\FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\FrmMain2.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\FrmMauSac.cs">
       <SubType>Form</SubType>
     </Compile>

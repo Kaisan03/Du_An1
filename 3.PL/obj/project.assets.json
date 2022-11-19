@@ -2,6 +2,18 @@
   "version": 3,
   "targets": {
     "net5.0-windows7.0": {
+      "FontAwesome.Sharp/6.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0-windows7.0/FontAwesome.Sharp.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/FontAwesome.Sharp.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App"
+        ]
+      },
       "Microsoft.CSharp/4.5.0": {
         "type": "package",
         "compile": {
@@ -1748,6 +1760,24 @@
     }
   },
   "libraries": {
+    "FontAwesome.Sharp/6.1.1": {
+      "sha512": "p6dnSMcKQg790vGSJgvFk6S8gXQnEcCugfaJ21WFxZz9h+9KyxL+sX6kbGv8p4iVoX/e5BAMnTV4QJFJvx8QxQ==",
+      "type": "package",
+      "path": "fontawesome.sharp/6.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fontawesome.sharp.6.1.1.nupkg.sha512",
+        "fontawesome.sharp.nuspec",
+        "lib/net40/FontAwesome.Sharp.dll",
+        "lib/net45/FontAwesome.Sharp.dll",
+        "lib/net472/FontAwesome.Sharp.dll",
+        "lib/net48/FontAwesome.Sharp.dll",
+        "lib/net5.0-windows7.0/FontAwesome.Sharp.dll",
+        "lib/net6.0-windows7.0/FontAwesome.Sharp.dll",
+        "lib/netcoreapp3.1/FontAwesome.Sharp.dll"
+      ]
+    },
     "Microsoft.CSharp/4.5.0": {
       "sha512": "kaj6Wb4qoMuH3HySFJhxwQfe8R/sJsNJnANrvv8WdFPMoNbKY5htfNscv+LHCu5ipz+49m2e+WQXpLXr9XYemQ==",
       "type": "package",
@@ -5970,7 +6000,8 @@
   },
   "projectFileDependencyGroups": {
     "net5.0-windows7.0": [
-      "2.BUS >= 1.0.0"
+      "2.BUS >= 1.0.0",
+      "FontAwesome.Sharp >= 6.1.1"
     ]
   },
   "packageFolders": {
@@ -5979,11 +6010,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Acer\\Source\\Repos\\Du_An1\\3.PL\\3.PL.csproj",
+      "projectUniqueName": "C:\\Users\\Acer\\source\\repos\\Du_An1\\3.PL\\3.PL.csproj",
       "projectName": "3.PL",
-      "projectPath": "C:\\Users\\Acer\\Source\\Repos\\Du_An1\\3.PL\\3.PL.csproj",
+      "projectPath": "C:\\Users\\Acer\\source\\repos\\Du_An1\\3.PL\\3.PL.csproj",
       "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Acer\\Source\\Repos\\Du_An1\\3.PL\\obj\\",
+      "outputPath": "C:\\Users\\Acer\\source\\repos\\Du_An1\\3.PL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6000,8 +6031,8 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "projectReferences": {
-            "C:\\Users\\Acer\\Source\\Repos\\Du_An1\\2.BUS\\2.BUS.csproj": {
-              "projectPath": "C:\\Users\\Acer\\Source\\Repos\\Du_An1\\2.BUS\\2.BUS.csproj"
+            "C:\\Users\\Acer\\source\\repos\\Du_An1\\2.BUS\\2.BUS.csproj": {
+              "projectPath": "C:\\Users\\Acer\\source\\repos\\Du_An1\\2.BUS\\2.BUS.csproj"
             }
           }
         }
@@ -6015,6 +6046,12 @@
     "frameworks": {
       "net5.0-windows7.0": {
         "targetAlias": "net5.0-windows",
+        "dependencies": {
+          "FontAwesome.Sharp": {
+            "target": "Package",
+            "version": "[6.1.1, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "VrlGaEQEGB2UKpbsoOLj7zaCMWVsn14+Edq7tbXPjLiPVVXNJ5Zzi17MVZbxFIpOPSDfK7wV6JODOHjkGZxixQ==",
+  "dgSpecHash": "aaBsx/PH2JTxyEDDqep+Zj9PpDhhqTB4/qtF+0Puvdw/S4mWPHyaj/38adXvR2vbNPcHbuyA/eKjPwxQkhY/Gw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Acer\\Source\\Repos\\Du_An1\\3.PL\\3.PL.csproj",
+  "projectFilePath": "C:\\Users\\Acer\\source\\repos\\Du_An1\\3.PL\\3.PL.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Acer\\.nuget\\packages\\fontawesome.sharp\\6.1.1\\fontawesome.sharp.6.1.1.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.0.1\\microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",
