@@ -229,6 +229,8 @@ namespace _3.PL.Views
         {
             if (e.RowIndex >= 0)
             {
+                int rowindex = e.RowIndex;
+                if (rowindex == _IChiTietGiayService.GetAllCTGiay().Count) return;
                 DataGridViewRow r = dgrid_ChiTietGiay.Rows[e.RowIndex];
                 _idCTGiay = Guid.Parse(r.Cells[0].Value.ToString());
                 var sp = _IChiTietGiayService.GetAllCTGiay().FirstOrDefault(c => c.Id == _idCTGiay);
