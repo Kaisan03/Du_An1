@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\3.PL",
+    "\\3.PL\\Views"
   ],
-  "SelectedNode": "\\PTPM_FPOLY_SOF205_EF_Dungna29.sln",
+  "SelectedNode": "\\3.PL\\Views\\FrmMain2.cs",
   "PreviewInSolutionExplorer": false
 }
