@@ -47,15 +47,15 @@ namespace _2.BUS.Services
 
         public List<ViewGioHangcs> GetViewGioHang()
         {
-            _lstViewGioHang = (from gh in GetAllGH()
-                               join kh in _IKhachHangRepository.GetAllKhachHang() on gh.IdKh equals kh.Id
-                               join nv in _INhanVienRepository.GetAllNhanVien() on gh.IdNv equals nv.Id
-                               select new GioHangView()
-                               {
-                                   GioHang = gh,
-                                   KhachHang = kh,
-                                   NhanVien = nv
-                               }).ToList();
+            //_lstViewGioHang = (from gh in GetAllGH()
+            //                   join kh in _IKhachHangRepository.GetAllKhachHang() on gh.IdKh equals kh.Id
+            //                   join nv in _INhanVienRepository.GetAllNhanVien() on gh.IdNv equals nv.Id
+            //                   select new GioHangView()
+            //                   {
+            //                       GioHang = gh,
+            //                       KhachHang = kh,
+            //                       NhanVien = nv
+            //                   }).ToList();
             return _lstViewGioHang;
         }
 
