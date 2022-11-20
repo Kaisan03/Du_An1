@@ -345,6 +345,7 @@
             this.dgridKhachHang.Name = "dgridKhachHang";
             this.dgridKhachHang.RowHeadersWidth = 51;
             this.dgridKhachHang.RowTemplate.Height = 29;
+            this.dgridKhachHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgridKhachHang.Size = new System.Drawing.Size(1306, 188);
             this.dgridKhachHang.TabIndex = 7;
             this.dgridKhachHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgridKhachHang_CellClick);

@@ -60,7 +60,7 @@ namespace _3.PL.Views
         {
             return new KhachHang()
             {
-                Id = Guid.Empty,
+                Id = Guid.NewGuid(),
                 Ma = txt_Ma.Text,
                 Ho = txt_Ho.Text,
                 TenDem = txt_TenDem.Text,
