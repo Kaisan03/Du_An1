@@ -224,7 +224,6 @@
             this.Controls.Add(this.groupBox2);
             this.Name = "FrmSize";
             this.Text = "FrmSize";
-            this.Load += new System.EventHandler(this.FrmSize_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_Size)).EndInit();

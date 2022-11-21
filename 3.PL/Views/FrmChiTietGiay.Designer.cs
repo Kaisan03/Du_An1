@@ -31,6 +31,12 @@
             this.dgrid_ChiTietGiay = new System.Windows.Forms.DataGridView();
             this.txt_TimKiem = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_AddSp = new System.Windows.Forms.Button();
+            this.btn_addchatLieu = new System.Windows.Forms.Button();
+            this.btn_KieuDang = new System.Windows.Forms.Button();
+            this.btn_DeGiay = new System.Windows.Forms.Button();
+            this.btn_AddMauSac = new System.Windows.Forms.Button();
+            this.btn_AddNsx = new System.Windows.Forms.Button();
             this.btn_AddSize = new System.Windows.Forms.Button();
             this.cbx_khongHD = new System.Windows.Forms.CheckBox();
             this.cbx_HoatDong = new System.Windows.Forms.CheckBox();
@@ -68,7 +74,7 @@
             this.btn_Xoa = new System.Windows.Forms.Button();
             this.btn_Sua = new System.Windows.Forms.Button();
             this.btn_Them = new System.Windows.Forms.Button();
-            this.btn_loadLaiSize = new System.Windows.Forms.Button();
+            this.btn_AddAnh1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_ChiTietGiay)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -100,7 +106,13 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btn_loadLaiSize);
+            this.groupBox1.Controls.Add(this.btn_AddAnh1);
+            this.groupBox1.Controls.Add(this.btn_AddSp);
+            this.groupBox1.Controls.Add(this.btn_addchatLieu);
+            this.groupBox1.Controls.Add(this.btn_KieuDang);
+            this.groupBox1.Controls.Add(this.btn_DeGiay);
+            this.groupBox1.Controls.Add(this.btn_AddMauSac);
+            this.groupBox1.Controls.Add(this.btn_AddNsx);
             this.groupBox1.Controls.Add(this.btn_AddSize);
             this.groupBox1.Controls.Add(this.cbx_khongHD);
             this.groupBox1.Controls.Add(this.cbx_HoatDong);
@@ -141,14 +153,87 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin sản phẩm";
             // 
+            // btn_AddSp
+            // 
+            this.btn_AddSp.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.btn_AddSp.BackColor = System.Drawing.Color.Yellow;
+            this.btn_AddSp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_AddSp.Image = global::_3.PL.Properties.Resources.icons8_plus_321;
+            this.btn_AddSp.Location = new System.Drawing.Point(406, 280);
+            this.btn_AddSp.Name = "btn_AddSp";
+            this.btn_AddSp.Size = new System.Drawing.Size(34, 28);
+            this.btn_AddSp.TabIndex = 4;
+            this.btn_AddSp.UseVisualStyleBackColor = false;
+            this.btn_AddSp.Click += new System.EventHandler(this.btn_AddSp_Click);
+            // 
+            // btn_addchatLieu
+            // 
+            this.btn_addchatLieu.BackColor = System.Drawing.Color.Lime;
+            this.btn_addchatLieu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_addchatLieu.Image = global::_3.PL.Properties.Resources.icons8_plus_32;
+            this.btn_addchatLieu.Location = new System.Drawing.Point(406, 246);
+            this.btn_addchatLieu.Name = "btn_addchatLieu";
+            this.btn_addchatLieu.Size = new System.Drawing.Size(34, 28);
+            this.btn_addchatLieu.TabIndex = 3;
+            this.btn_addchatLieu.UseVisualStyleBackColor = false;
+            this.btn_addchatLieu.Click += new System.EventHandler(this.btn_AddChatLieu);
+            // 
+            // btn_KieuDang
+            // 
+            this.btn_KieuDang.BackColor = System.Drawing.Color.Lime;
+            this.btn_KieuDang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_KieuDang.Image = global::_3.PL.Properties.Resources.icons8_plus_32;
+            this.btn_KieuDang.Location = new System.Drawing.Point(406, 206);
+            this.btn_KieuDang.Name = "btn_KieuDang";
+            this.btn_KieuDang.Size = new System.Drawing.Size(34, 28);
+            this.btn_KieuDang.TabIndex = 3;
+            this.btn_KieuDang.UseVisualStyleBackColor = false;
+            this.btn_KieuDang.Click += new System.EventHandler(this.btn_kieuDang);
+            // 
+            // btn_DeGiay
+            // 
+            this.btn_DeGiay.BackColor = System.Drawing.Color.Lime;
+            this.btn_DeGiay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_DeGiay.Image = global::_3.PL.Properties.Resources.icons8_plus_32;
+            this.btn_DeGiay.Location = new System.Drawing.Point(406, 169);
+            this.btn_DeGiay.Name = "btn_DeGiay";
+            this.btn_DeGiay.Size = new System.Drawing.Size(34, 28);
+            this.btn_DeGiay.TabIndex = 3;
+            this.btn_DeGiay.UseVisualStyleBackColor = false;
+            this.btn_DeGiay.Click += new System.EventHandler(this.btn_AddLoaiDe);
+            // 
+            // btn_AddMauSac
+            // 
+            this.btn_AddMauSac.BackColor = System.Drawing.Color.Lime;
+            this.btn_AddMauSac.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_AddMauSac.Image = global::_3.PL.Properties.Resources.icons8_plus_32;
+            this.btn_AddMauSac.Location = new System.Drawing.Point(406, 127);
+            this.btn_AddMauSac.Name = "btn_AddMauSac";
+            this.btn_AddMauSac.Size = new System.Drawing.Size(34, 29);
+            this.btn_AddMauSac.TabIndex = 3;
+            this.btn_AddMauSac.UseVisualStyleBackColor = false;
+            this.btn_AddMauSac.Click += new System.EventHandler(this.btn_AddMauSac_Click);
+            // 
+            // btn_AddNsx
+            // 
+            this.btn_AddNsx.BackColor = System.Drawing.Color.Lime;
+            this.btn_AddNsx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_AddNsx.Image = global::_3.PL.Properties.Resources.icons8_plus_32;
+            this.btn_AddNsx.Location = new System.Drawing.Point(406, 84);
+            this.btn_AddNsx.Name = "btn_AddNsx";
+            this.btn_AddNsx.Size = new System.Drawing.Size(34, 28);
+            this.btn_AddNsx.TabIndex = 3;
+            this.btn_AddNsx.UseVisualStyleBackColor = false;
+            this.btn_AddNsx.Click += new System.EventHandler(this.btn_AddNsx_Click);
+            // 
             // btn_AddSize
             // 
             this.btn_AddSize.BackColor = System.Drawing.Color.Lime;
             this.btn_AddSize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_AddSize.Image = global::_3.PL.Properties.Resources.icons8_plus_32;
-            this.btn_AddSize.Location = new System.Drawing.Point(406, 50);
+            this.btn_AddSize.Location = new System.Drawing.Point(406, 43);
             this.btn_AddSize.Name = "btn_AddSize";
-            this.btn_AddSize.Size = new System.Drawing.Size(34, 32);
+            this.btn_AddSize.Size = new System.Drawing.Size(34, 28);
             this.btn_AddSize.TabIndex = 3;
             this.btn_AddSize.UseVisualStyleBackColor = false;
             this.btn_AddSize.Click += new System.EventHandler(this.btn_AddSize_Click);
@@ -178,7 +263,7 @@
             // cmb_SanPham
             // 
             this.cmb_SanPham.FormattingEnabled = true;
-            this.cmb_SanPham.Location = new System.Drawing.Point(144, 255);
+            this.cmb_SanPham.Location = new System.Drawing.Point(144, 280);
             this.cmb_SanPham.Name = "cmb_SanPham";
             this.cmb_SanPham.Size = new System.Drawing.Size(240, 28);
             this.cmb_SanPham.TabIndex = 1;
@@ -186,21 +271,21 @@
             // cmb_ChatLieu
             // 
             this.cmb_ChatLieu.FormattingEnabled = true;
-            this.cmb_ChatLieu.Location = new System.Drawing.Point(144, 221);
+            this.cmb_ChatLieu.Location = new System.Drawing.Point(144, 246);
             this.cmb_ChatLieu.Name = "cmb_ChatLieu";
             this.cmb_ChatLieu.Size = new System.Drawing.Size(240, 28);
             this.cmb_ChatLieu.TabIndex = 1;
             // 
             // txt_NgayBan
             // 
-            this.txt_NgayBan.Location = new System.Drawing.Point(144, 322);
+            this.txt_NgayBan.Location = new System.Drawing.Point(144, 347);
             this.txt_NgayBan.Name = "txt_NgayBan";
             this.txt_NgayBan.Size = new System.Drawing.Size(240, 27);
             this.txt_NgayBan.TabIndex = 1;
             // 
             // txt_NgayNhap
             // 
-            this.txt_NgayNhap.Location = new System.Drawing.Point(144, 289);
+            this.txt_NgayNhap.Location = new System.Drawing.Point(144, 314);
             this.txt_NgayNhap.Name = "txt_NgayNhap";
             this.txt_NgayNhap.Size = new System.Drawing.Size(240, 27);
             this.txt_NgayNhap.TabIndex = 1;
@@ -244,7 +329,7 @@
             // cmb_KieuDang
             // 
             this.cmb_KieuDang.FormattingEnabled = true;
-            this.cmb_KieuDang.Location = new System.Drawing.Point(144, 187);
+            this.cmb_KieuDang.Location = new System.Drawing.Point(144, 206);
             this.cmb_KieuDang.Name = "cmb_KieuDang";
             this.cmb_KieuDang.Size = new System.Drawing.Size(240, 28);
             this.cmb_KieuDang.TabIndex = 1;
@@ -252,7 +337,7 @@
             // cmb_LoaiDe
             // 
             this.cmb_LoaiDe.FormattingEnabled = true;
-            this.cmb_LoaiDe.Location = new System.Drawing.Point(144, 150);
+            this.cmb_LoaiDe.Location = new System.Drawing.Point(144, 166);
             this.cmb_LoaiDe.Name = "cmb_LoaiDe";
             this.cmb_LoaiDe.Size = new System.Drawing.Size(240, 28);
             this.cmb_LoaiDe.TabIndex = 1;
@@ -260,7 +345,7 @@
             // cmb_MauSac
             // 
             this.cmb_MauSac.FormattingEnabled = true;
-            this.cmb_MauSac.Location = new System.Drawing.Point(144, 118);
+            this.cmb_MauSac.Location = new System.Drawing.Point(144, 127);
             this.cmb_MauSac.Name = "cmb_MauSac";
             this.cmb_MauSac.Size = new System.Drawing.Size(240, 28);
             this.cmb_MauSac.TabIndex = 1;
@@ -276,7 +361,7 @@
             // cmb_TenSize
             // 
             this.cmb_TenSize.FormattingEnabled = true;
-            this.cmb_TenSize.Location = new System.Drawing.Point(144, 50);
+            this.cmb_TenSize.Location = new System.Drawing.Point(144, 43);
             this.cmb_TenSize.Name = "cmb_TenSize";
             this.cmb_TenSize.Size = new System.Drawing.Size(240, 28);
             this.cmb_TenSize.TabIndex = 1;
@@ -338,7 +423,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(41, 329);
+            this.label9.Location = new System.Drawing.Point(41, 354);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(63, 20);
             this.label9.TabIndex = 0;
@@ -347,7 +432,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(41, 296);
+            this.label8.Location = new System.Drawing.Point(41, 317);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(71, 20);
             this.label8.TabIndex = 0;
@@ -356,7 +441,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(41, 258);
+            this.label7.Location = new System.Drawing.Point(41, 283);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(103, 20);
             this.label7.TabIndex = 0;
@@ -365,7 +450,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(41, 221);
+            this.label6.Location = new System.Drawing.Point(42, 246);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(70, 20);
             this.label6.TabIndex = 0;
@@ -374,7 +459,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(41, 187);
+            this.label5.Location = new System.Drawing.Point(41, 209);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(79, 20);
             this.label5.TabIndex = 0;
@@ -383,7 +468,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(41, 153);
+            this.label4.Location = new System.Drawing.Point(43, 171);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 20);
             this.label4.TabIndex = 0;
@@ -392,7 +477,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(41, 117);
+            this.label3.Location = new System.Drawing.Point(41, 129);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 20);
             this.label3.TabIndex = 0;
@@ -401,7 +486,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(41, 84);
+            this.label2.Location = new System.Drawing.Point(41, 90);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 20);
             this.label2.TabIndex = 0;
@@ -471,17 +556,18 @@
             this.btn_Them.UseVisualStyleBackColor = true;
             this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
-            // btn_loadLaiSize
+            // btn_AddAnh1
             // 
-            this.btn_loadLaiSize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_loadLaiSize.ForeColor = System.Drawing.Color.BlueViolet;
-            this.btn_loadLaiSize.Image = global::_3.PL.Properties.Resources.icons8_available_updates_321;
-            this.btn_loadLaiSize.Location = new System.Drawing.Point(457, 50);
-            this.btn_loadLaiSize.Name = "btn_loadLaiSize";
-            this.btn_loadLaiSize.Size = new System.Drawing.Size(40, 32);
-            this.btn_loadLaiSize.TabIndex = 4;
-            this.btn_loadLaiSize.UseVisualStyleBackColor = true;
-            this.btn_loadLaiSize.Click += new System.EventHandler(this.btn_loadLaiSize_Click);
+            this.btn_AddAnh1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.btn_AddAnh1.BackColor = System.Drawing.Color.Yellow;
+            this.btn_AddAnh1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_AddAnh1.Image = global::_3.PL.Properties.Resources.icons8_plus_321;
+            this.btn_AddAnh1.Location = new System.Drawing.Point(960, 133);
+            this.btn_AddAnh1.Name = "btn_AddAnh1";
+            this.btn_AddAnh1.Size = new System.Drawing.Size(34, 28);
+            this.btn_AddAnh1.TabIndex = 4;
+            this.btn_AddAnh1.UseVisualStyleBackColor = false;
+            this.btn_AddAnh1.Click += new System.EventHandler(this.btn_AddAnh1_Click);
             // 
             // FrmChiTietGiay
             // 
@@ -545,6 +631,12 @@
         private System.Windows.Forms.Button btn_Them;
         private System.Windows.Forms.ComboBox cmb_Anh;
         private System.Windows.Forms.Button btn_AddSize;
-        private System.Windows.Forms.Button btn_loadLaiSize;
+        private System.Windows.Forms.Button btn_AddNsx;
+        private System.Windows.Forms.Button btn_AddMauSac;
+        private System.Windows.Forms.Button btn_DeGiay;
+        private System.Windows.Forms.Button btn_KieuDang;
+        private System.Windows.Forms.Button btn_addchatLieu;
+        private System.Windows.Forms.Button btn_AddSp;
+        private System.Windows.Forms.Button btn_AddAnh1;
     }
 }

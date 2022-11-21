@@ -79,7 +79,7 @@ namespace _3.PL.Views
             }
             foreach (var x in _IAnhService.GetAllAnh())
             {
-                cmb_Anh.Items.Add(x.TenAnh);
+                cmb_Anh.Items.Add(x.DuongDan);
             }
         }
         private void LoadData()
@@ -349,11 +349,78 @@ namespace _3.PL.Views
         {
             FrmSize frmSize = new FrmSize();
             frmSize.ShowDialog();
+            cmb_TenSize.Items.Clear();
+            LoadComboBox();
         }
 
-        private void btn_loadLaiSize_Click(object sender, EventArgs e)
+        private void btn_AddNsx_Click(object sender, EventArgs e)
         {
+            FrmNhaSanXuat frmNsx = new FrmNhaSanXuat();
+            frmNsx.ShowDialog();
+            cmb_Nsx.Items.Clear();
+            LoadComboBox();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmSize frmSize = new FrmSize();
+            frmSize.ShowDialog();
             cmb_TenSize.Items.Clear();
+            LoadComboBox();
+        }
+
+        private void btn_AddMauSac_Click(object sender, EventArgs e)
+        {
+            FrmMauSac frmMauSac = new FrmMauSac();
+            frmMauSac.ShowDialog();
+            cmb_MauSac.Items.Clear();
+            LoadComboBox();
+        }
+
+        private void btn_AddLoaiDe(object sender, EventArgs e)
+        {
+            FrmDeGiay frmDeGiay = new FrmDeGiay();
+            frmDeGiay.ShowDialog();
+            cmb_LoaiDe.Items.Clear();
+            LoadComboBox();
+        }
+
+        private void btn_kieuDang(object sender, EventArgs e)
+        {
+            FrmKieuDang frmKieuDang = new FrmKieuDang();
+            frmKieuDang.ShowDialog();
+            cmb_KieuDang.Items.Clear();
+            LoadComboBox();
+        }
+        private void btn_AddChatLieu(object sender, EventArgs e)
+        {
+            FrmChatLieu frmchatLieu = new FrmChatLieu();
+            frmchatLieu.ShowDialog();
+            cmb_ChatLieu.Items.Clear();
+            LoadComboBox();
+        }
+
+        //private void btn_AddSanPham(object sender, EventArgs e)
+        //{
+        //    FrmSanPham frmSanPham = new FrmSanPham();
+        //    frmSanPham.ShowDialog();
+        //    cmb_SanPham.Items.Clear();
+        //    LoadComboBox();
+        //}
+
+        private void btn_AddSp_Click(object sender, EventArgs e)
+        {
+            FrmSanPham frmSanPham = new FrmSanPham();
+            frmSanPham.ShowDialog();
+            cmb_SanPham.Items.Clear();
+            LoadComboBox();
+        }
+
+        private void btn_AddAnh1_Click(object sender, EventArgs e)
+        {
+            FrmAnh frmAnh = new FrmAnh();
+            frmAnh.ShowDialog();
+            cmb_Anh.Items.Clear();
             LoadComboBox();
         }
     }

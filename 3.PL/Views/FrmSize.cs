@@ -153,10 +153,5 @@ namespace _3.PL.Views
                 cbx_HoatDong.Checked = false;
             }
         }
-
-        private void FrmSize_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
