@@ -53,7 +53,9 @@ namespace _3.PL.Views
             }
             foreach (var x in _ISizeService.GetAllSize())
             {
+                
                 cmb_TenSize.Items.Add(x.Ten);
+                
             }
             foreach (var x in _IDeGiayService.GetAllDeGiay())
             {
@@ -351,7 +353,8 @@ namespace _3.PL.Views
 
         private void btn_loadLaiSize_Click(object sender, EventArgs e)
         {
-
+            cmb_TenSize.Items.Clear();
+            LoadComboBox();
         }
     }
 }
