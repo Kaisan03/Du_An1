@@ -159,5 +159,16 @@ namespace _3.PL.Views
                 cbx_HoatDong.Checked = false;
             }
         }
+
+        private void btn_fileName_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Chọn ảnh";
+            openFileDialog.Filter = "Image file(*.gif;*.jpg;*.jpeg;*.bmp;*.wmf;*.png;)|*.gif;*.jpg;*.jpeg;*.bmp;*.wmf;*.png";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                txt_duongDan.Text = openFileDialog.FileName;
+            }
+        }
     }
 }
