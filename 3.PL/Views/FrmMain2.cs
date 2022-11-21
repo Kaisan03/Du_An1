@@ -22,9 +22,10 @@ namespace _3.PL.Views
             InitializeComponent();
             _iconbuton = new IconButton();
             Leftboderbtn = new Panel();
-            Leftboderbtn.Size = new Size(10, 49);
+            Leftboderbtn.Size = new Size(10, 63);
             panel_menu.Controls.Add(Leftboderbtn);
 
+            this.WindowState = FormWindowState.Maximized;
 
             //this.Text = string.Empty;
             //this.ControlBox = false;
@@ -151,6 +152,18 @@ namespace _3.PL.Views
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012,0);
+        }
+
+        private void FrmMain2_Load(object sender, EventArgs e)
+        {
+            timer1.Start();
+            txt_Date.Text = DateTime.Now.ToLongDateString();
+            txt_Time.Text = DateTime.Now.ToLongTimeString();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            txt_Time.Text = DateTime.Now.ToLongTimeString();
         }
     }
 }

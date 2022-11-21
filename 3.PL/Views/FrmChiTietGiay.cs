@@ -16,6 +16,7 @@ namespace _3.PL.Views
 {
     public partial class FrmChiTietGiay : Form
     {
+        private FrmSize _frmSize;
         private IChiTietGiayService _IChiTietGiayService;
         private List<ViewChiTietGiay> _lstCTGiay;
         private ISanPhamService _ISanPhamService;
@@ -40,6 +41,7 @@ namespace _3.PL.Views
             _IMauSacService = new MauSacService();
             _IChatLieuService = new ChatLieuService();
             _IAnhService = new AnhService();
+            _frmSize = new FrmSize();
             LoadData();
             LoadComboBox();
         }
@@ -339,6 +341,17 @@ namespace _3.PL.Views
                 LoadData();
                 return;
             }
+        }
+
+        private void btn_AddSize_Click(object sender, EventArgs e)
+        {
+            FrmSize frmSize = new FrmSize();
+            frmSize.ShowDialog();
+        }
+
+        private void btn_loadLaiSize_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
