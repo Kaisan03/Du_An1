@@ -38,7 +38,7 @@ namespace _3.PL.Views
         }
         public void Loaddata()
         {
-            dgrid_view.ColumnCount = 13;
+            dgrid_view.ColumnCount = 15;
             dgrid_view.Columns[0].Name = "id";
             dgrid_view.Columns[0].Visible = false;
             dgrid_view.Columns[1].Name = "Ma ";
@@ -49,14 +49,16 @@ namespace _3.PL.Views
             dgrid_view.Columns[6].Name = "Ngày Tạo";
             dgrid_view.Columns[7].Name = "Ngày Giao";
             dgrid_view.Columns[8].Name = "Ngày Thanh Toán";
-            dgrid_view.Columns[9].Name = "Dịa Chỉ";
-            dgrid_view.Columns[10].Name = "Sdt";
-            dgrid_view.Columns[11].Name = "Giảm GIá";
-            dgrid_view.Columns[12].Name = "Trạng Thái";
+            dgrid_view.Columns[9].Name = "Ngày nhận";
+            dgrid_view.Columns[10].Name = "Ngày trả";
+            dgrid_view.Columns[11].Name = "Dịa Chỉ";
+            dgrid_view.Columns[12].Name = "Sdt";
+            dgrid_view.Columns[13].Name = "Giảm GIá";
+            dgrid_view.Columns[14].Name = "Trạng Thái";
             dgrid_view.Rows.Clear();
             foreach (var x in _ihoadonservice.GetAll())
             {
-                dgrid_view.Rows.Add(x.Id, x.Ma, x.khachhang, x.nhanvien, x.TenSp, x.TenNguoiNhan, x.NgayTao, x.NgayGiao, x.NgayThanhToan, x.DiaChi, x.Sdt, x.GiamGia, x.TrangThai);
+                dgrid_view.Rows.Add(x.Id, x.Ma, x.khachhang, x.nhanvien, x.TenSp, x.TenNguoiNhan, x.NgayTao, x.NgayGiao, x.NgayThanhToan, x.NgayNhanHang, x.NgayTraHang, x.DiaChi, x.Sdt, x.GiamGia, x.TrangThai == 1 ? "Hoạt động":"Không hoạt động");
                 //var kh = _Ikhachhangservice.GetAll().FirstOrDefault(c => c.Id == x.IdKhachHang);
                 //var nv = _Inhanvienservice.GetAllNhanVien().FirstOrDefault(c => c.Id == x.IdNhanVien);
                 //dgrid_view.Rows.Add(x.Id,x.Ma,kh.Ten,nv.Ten,x.TenSp,x.TenNguoiNhan,x.NgayTao,x.NgayGiao,x.NgayThanhToan,x.DiaChi,x.Sdt,x.GiamGia,x.TrangThai);
@@ -82,6 +84,8 @@ namespace _3.PL.Views
         {
             if (e.RowIndex >= 0)
             {
+                int rowindex = e.RowIndex;
+                if (rowindex == _ihoadonservice.GetallHoadon().Count) return;
                 DataGridViewRow r = dgrid_view.Rows[e.RowIndex];
                 _idhoadon = Guid.Parse(r.Cells[0].Value.ToString());
                 var hd = _ihoadonservice.GetAll().FirstOrDefault(c => c.Id == _idhoadon);
@@ -94,9 +98,11 @@ namespace _3.PL.Views
                 date_ngaytao.Value = Convert.ToDateTime(r.Cells[6].Value);
                 date_ngaygiao.Value = Convert.ToDateTime(r.Cells[7].Value);
                 date_ngaythanhtoan.Value = Convert.ToDateTime(r.Cells[8].Value);
-                tbx_diachi.Text = r.Cells[9].Value.ToString();
-                tbx_sdt.Text = r.Cells[10].Value.ToString();
-                tbx_giamgia.Text = r.Cells[11].Value.ToString();
+                date_NgayNhan.Value = hd.NgayNhanHang.Value;
+                date_NgayTra.Value = hd.NgayTraHang.Value;
+                tbx_diachi.Text = r.Cells[11].Value.ToString();
+                tbx_sdt.Text = r.Cells[12].Value.ToString();
+                tbx_giamgia.Text = r.Cells[13].Value.ToString();
                 rbtn_hoatdong.Checked = hd.TrangThai == 1;
                 rbtn_khonghoatdong.Checked = hd.TrangThai == 0;
             }
@@ -112,10 +118,12 @@ namespace _3.PL.Views
                 NgayTao = date_ngaytao.Value,
                 NgayGiao = date_ngaytao.Value,
                 NgayThanhToan = date_ngaytao.Value,
+                NgayNhanHang = date_NgayNhan.Value,
+                NgayTraHang = date_NgayTra.Value,
                 DiaChi = tbx_diachi.Text,
                 Sdt = tbx_sdt.Text,
                 GiamGia = tbx_giamgia.Text,
-                TrangThai = rbtn_hoatdong.Checked ? 1 : rbtn_khonghoatdong.Checked ? 0 : 2,
+                TrangThai = rbtn_hoatdong.Checked ? 1 : 0,
                 //IdSanOham  = cbx_sanpham.Text != null ? _iSanphamService.GetAllSanPham().FirstOrDefault(c => c.Ten == cbx_sanpham.Text).Id : null,
                 IdKhachHang = cbx_khachhang.Text != null ? _Ikhachhangservice.GetAll().FirstOrDefault(c => c.Ten == cbx_khachhang.Text).Id : null,
                 IdNhanVien = cbx_nhanvien.Text != null ? _Inhanvienservice.GetAllNhanVien().FirstOrDefault(c => c.Ten == cbx_nhanvien.Text).Id : null,
@@ -151,6 +159,8 @@ namespace _3.PL.Views
                     NgayGiao = dataadd().NgayGiao,
                     NgayTao = dataadd().NgayTao,
                     NgayThanhToan = dataadd().NgayThanhToan,
+                    NgayNhanHang = dataadd().NgayNhanHang,
+                    NgayTraHang = dataadd().NgayTraHang,
                     DiaChi = dataadd().DiaChi,
                     Sdt = dataadd().Sdt,
                     GiamGia = dataadd().GiamGia,
