@@ -189,10 +189,15 @@ namespace _3.PL.Views
                 
                 for (int i = 0; i < dgrid_Anh.RowCount; i++)
                 {
+                    if(Convert.ToString(dgrid_Anh.Rows[i].Cells["Đường dẫn"].Value)=="")
+                    {
+                        return;
+                    }
+                    else { 
                     Image img1 = Image.FromFile(Convert.ToString(dgrid_Anh.Rows[i].Cells["Đường dẫn"].Value));
 
                     dgrid_Anh.Rows[i].Cells["img_sanPham"].Value = img1;
-
+                    }
                 }
             }
             catch (Exception ex)
