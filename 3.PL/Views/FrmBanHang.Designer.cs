@@ -189,7 +189,7 @@
             // 
             this.dgrid_SanPham.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgrid_SanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrid_SanPham.Location = new System.Drawing.Point(5, 20);
+            this.dgrid_SanPham.Location = new System.Drawing.Point(5, 10);
             this.dgrid_SanPham.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgrid_SanPham.Name = "dgrid_SanPham";
             this.dgrid_SanPham.RowHeadersWidth = 51;
@@ -285,6 +285,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmBanHang";
             this.Text = "FrmBanHang";
+            this.Leave += new System.EventHandler(this.FrmBanHang_Leave);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);

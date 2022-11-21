@@ -39,6 +39,7 @@ namespace _3.PL.Views
             LoadSanPham();
             LoadGioHang();
             LoadHDcho();
+            anhcaidmm();
             _gioHang = new GioHang()
             {
                 Id = Guid.NewGuid(),
@@ -113,10 +114,16 @@ namespace _3.PL.Views
             dgrid_SanPham.Columns[7].Name = "NSX";
             dgrid_SanPham.Columns[8].Name = "Sizee";
             dgrid_SanPham.Columns[9].Name = "Đế giày";
+            
+            
             dgrid_SanPham.Rows.Clear();
+            
+            
             foreach (var x in _IChiTietSPService.GetAllSPView().OrderBy(c => c.SanPham.Ma).ToList())
             {
+                Image img2 = Image.FromFile(x.Anh.DuongDan);
 
+                
                 dgrid_SanPham.Rows.Add(x.ChiTietGiay.Id,
                     x.SanPham.Ma,
                     x.SanPham.Ten,
@@ -125,11 +132,43 @@ namespace _3.PL.Views
                     x.KieuDang.Ten,
                     x.MauSac.Ten,
                     x.Nsx.Ten,
-                    x.Size.Ten);
+                    x.Size.Ten,
+                    x.DeGiay.Ten
+                    );
             }
         }
 
-       
+        public void anhcaidmm()
+        {
+            try
+            {
+                DataGridViewImageColumn img = new DataGridViewImageColumn();
+                img.HeaderText = "Ảnh";
+                img.Name = "img_anh";
+                img.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                dgrid_SanPham.Columns.Add(img);
+                
+                for (int i = 0; i < dgrid_SanPham.RowCount; i++)
+                {
+
+                    foreach (var x in _IChiTietSPService.GetAllSPView().OrderBy(c => c.SanPham.Ma).ToList())
+                    {
+                        Image img2 = Image.FromFile(x.Anh.DuongDan);
+                        dgrid_SanPham.Rows[i].Cells["img_anh"].Value = img2;
+
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(Convert.ToString(ex), "Lỗi cmm");
+                return;
+
+            }
+        }
+
         public void AddGioHang(Guid id)
         {
             var sp = _IChiTietSPService.GetAllCTGiay().FirstOrDefault(c => c.Id == id);
@@ -162,12 +201,6 @@ namespace _3.PL.Views
             if (e.RowIndex >= 0)
             {
             DataGridViewRow r = dgrid_SanPham.Rows[e.RowIndex];
-            DataGridViewRow a = dgrid_GioHang.Rows[e.RowIndex];
-                if(Convert.ToInt32(a.Cells[2].Value)>= Convert.ToInt32(r.Cells[3].Value))
-                {
-                    MessageBox.Show("Số lượng sản phẩm không đủ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
             _ctspId = _IChiTietSPService.GetAllSPView().FirstOrDefault(c => c.ChiTietGiay.Id == Guid.Parse(r.Cells[0].Value.ToString())).ChiTietGiay.Id;
                 
             AddGioHang(_ctspId);
@@ -179,8 +212,10 @@ namespace _3.PL.Views
             DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn tạo hóa đơn?", "Thông báo", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
+
                 if (_lstGiohang.Any())
                 {
+                    
                     var hoaDon = new ViewHoaDon()
                     {
                         Id = Guid.NewGuid(),
@@ -198,10 +233,20 @@ namespace _3.PL.Views
                             SoLuong = item.SoLuong,
                             DonGia = item.DonGia
                         };
-                        _IHoaDonCTService.Add(hdct);
+                        
                         var sp = _IChiTietSPService.GetAllCTGiay().FirstOrDefault(x => x.Id == item.IdChiTietGiay);
-                        sp.SoLuongTon -= item.SoLuong;
-                        _IChiTietSPService.UpdateCTGiay2(sp);
+                        if(item.SoLuong>sp.SoLuongTon)
+                        {
+                            MessageBox.Show("Số lượng sản phẩm không đủ");
+                            return;
+                        }
+                        else 
+                        {
+                            sp.SoLuongTon -= item.SoLuong;
+                            _IChiTietSPService.UpdateCTGiay2(sp);
+                            _IHoaDonCTService.Add(hdct);
+                        }
+                        
                     }
                     MessageBox.Show("Tạo hóa đơn thành công");
                     _lstGiohang = new List<GioHangChiTiet>();
@@ -308,6 +353,11 @@ namespace _3.PL.Views
             {
                 return;
             }
+        }
+
+        private void FrmBanHang_Leave(object sender, EventArgs e)
+        {
+            
         }
     }
 }
