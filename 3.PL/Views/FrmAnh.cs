@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Markup;
 
+
 namespace _3.PL.Views
 {
     public partial class FrmAnh : Form
@@ -26,6 +27,7 @@ namespace _3.PL.Views
             _IAnhService = new AnhService();
             _lstAnh = new List<Anh>();
             LoadData();
+            anhcaidmm();
         }
         public void LoadData()
         {
@@ -34,7 +36,7 @@ namespace _3.PL.Views
             dgrid_Anh.Columns[0].Visible = false;
             dgrid_Anh.Columns[1].Name = "Mã";
             dgrid_Anh.Columns[2].Name = "Tên";
-            dgrid_Anh.Columns[3].Name = "Đường đẫn";
+            dgrid_Anh.Columns[3].Name = "Đường dẫn";
             dgrid_Anh.Columns[4].Name = "Trạng thái";
             dgrid_Anh.Rows.Clear();
             _lstAnh = _IAnhService.GetAllAnh();
@@ -46,6 +48,7 @@ namespace _3.PL.Views
             {
                 dgrid_Anh.Rows.Add(x.Id, x.MaAnh, x.TenAnh, x.DuongDan, x.TrangThai == 1 ? "Hoạt động" : "Không hoạt động");
             }
+
         }
         private Anh GetDataFromGuid()
         {
@@ -66,6 +69,7 @@ namespace _3.PL.Views
                 _IAnhService.AddAnh(GetDataFromGuid());
                 MessageBox.Show("Thêm thành công");
                 LoadData();
+                anhcaidmm();
             }
             if (dialogResult == DialogResult.No)
             {
@@ -85,6 +89,7 @@ namespace _3.PL.Views
                 _IAnhService.UpdateAnh(_Anh);
                 MessageBox.Show("Sửa thành công");
                 LoadData();
+                anhcaidmm();
             }
             if (dialogResult == DialogResult.No)
             {
@@ -100,6 +105,7 @@ namespace _3.PL.Views
                 _IAnhService.DeleteAnh(_Anh);
                 MessageBox.Show("Xóa thành công");
                 LoadData();
+                anhcaidmm();
             }
             if (dialogResult == DialogResult.No)
             {
@@ -126,6 +132,7 @@ namespace _3.PL.Views
         private void btn_TimKiem_Click(object sender, EventArgs e)
         {
             LoadData();
+            anhcaidmm();
         }
 
         private void dgrid_Anh_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -168,6 +175,32 @@ namespace _3.PL.Views
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 txt_duongDan.Text = openFileDialog.FileName;
+            }
+        }
+        public void anhcaidmm()
+        {
+            try
+            {
+                DataGridViewImageColumn img = new DataGridViewImageColumn();
+                img.HeaderText = "Ảnh";
+                img.Name = "img_sanPham";
+                img.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                dgrid_Anh.Columns.Add(img);
+                
+                for (int i = 0; i < dgrid_Anh.RowCount; i++)
+                {
+                    Image img1 = Image.FromFile(Convert.ToString(dgrid_Anh.Rows[i].Cells["Đường dẫn"].Value));
+
+                    dgrid_Anh.Rows[i].Cells["img_sanPham"].Value = img1;
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(Convert.ToString(ex), "Lỗi cmm");
+                return;
+
             }
         }
     }
