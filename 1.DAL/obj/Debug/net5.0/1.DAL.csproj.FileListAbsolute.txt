@@ -58,3 +58,18 @@ D:\Study File\Kỳ 4\PRO131\GETDuana1\Du_An1\1.DAL\obj\Debug\net5.0\refint\1.DAL
 D:\Study File\Kỳ 4\PRO131\GETDuana1\Du_An1\1.DAL\obj\Debug\net5.0\1.DAL.pdb
 D:\Study File\Kỳ 4\PRO131\GETDuana1\Du_An1\1.DAL\obj\Debug\net5.0\1.DAL.genruntimeconfig.cache
 D:\Study File\Kỳ 4\PRO131\GETDuana1\Du_An1\1.DAL\obj\Debug\net5.0\ref\1.DAL.dll
+C:\Users\Admin\Source\Repos\Du_An1\1.DAL\bin\Debug\net5.0\1.DAL.deps.json
+C:\Users\Admin\Source\Repos\Du_An1\1.DAL\bin\Debug\net5.0\1.DAL.runtimeconfig.json
+C:\Users\Admin\Source\Repos\Du_An1\1.DAL\bin\Debug\net5.0\1.DAL.runtimeconfig.dev.json
+C:\Users\Admin\Source\Repos\Du_An1\1.DAL\bin\Debug\net5.0\1.DAL.dll
+C:\Users\Admin\Source\Repos\Du_An1\1.DAL\bin\Debug\net5.0\1.DAL.pdb
+C:\Users\Admin\Source\Repos\Du_An1\1.DAL\obj\Debug\net5.0\1.DAL.csproj.AssemblyReference.cache
+C:\Users\Admin\Source\Repos\Du_An1\1.DAL\obj\Debug\net5.0\1.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Source\Repos\Du_An1\1.DAL\obj\Debug\net5.0\1.DAL.AssemblyInfoInputs.cache
+C:\Users\Admin\Source\Repos\Du_An1\1.DAL\obj\Debug\net5.0\1.DAL.AssemblyInfo.cs
+C:\Users\Admin\Source\Repos\Du_An1\1.DAL\obj\Debug\net5.0\1.DAL.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Source\Repos\Du_An1\1.DAL\obj\Debug\net5.0\1.DAL.dll
+C:\Users\Admin\Source\Repos\Du_An1\1.DAL\obj\Debug\net5.0\refint\1.DAL.dll
+C:\Users\Admin\Source\Repos\Du_An1\1.DAL\obj\Debug\net5.0\1.DAL.pdb
+C:\Users\Admin\Source\Repos\Du_An1\1.DAL\obj\Debug\net5.0\1.DAL.genruntimeconfig.cache
+C:\Users\Admin\Source\Repos\Du_An1\1.DAL\obj\Debug\net5.0\ref\1.DAL.dll

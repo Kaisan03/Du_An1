@@ -17,6 +17,9 @@
     <Compile Update="Views\FrmChucVu.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\FrmCodeQBR.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\FrmDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
