@@ -6047,11 +6047,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Study File\\Kỳ 4\\PRO131\\GetDuana1\\Du_An1\\1.DAL\\1.DAL.csproj",
+      "projectUniqueName": "D:\\Study File\\Kỳ 4\\PRO131\\GetDuana1\\Kaisan03\\Du_An1\\1.DAL\\1.DAL.csproj",
       "projectName": "1.DAL",
-      "projectPath": "D:\\Study File\\Kỳ 4\\PRO131\\GetDuana1\\Du_An1\\1.DAL\\1.DAL.csproj",
+      "projectPath": "D:\\Study File\\Kỳ 4\\PRO131\\GetDuana1\\Kaisan03\\Du_An1\\1.DAL\\1.DAL.csproj",
       "packagesPath": "C:\\Users\\vanho\\.nuget\\packages\\",
-      "outputPath": "D:\\Study File\\Kỳ 4\\PRO131\\GetDuana1\\Du_An1\\1.DAL\\obj\\",
+      "outputPath": "D:\\Study File\\Kỳ 4\\PRO131\\GetDuana1\\Kaisan03\\Du_An1\\1.DAL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

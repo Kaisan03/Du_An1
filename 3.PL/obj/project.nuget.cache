@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wxvO0bd8beCmJA7eMXazgX4Pu/s/a1PEIWtXyp3VeQda/oNV9GHXYSfCq2IIehTh+Rp5SLmh9xcZMFzUVPlfKg==",
+  "dgSpecHash": "aAggtKpOfjGpJkgrj8AddzKecsZSaJkYI2YClu7cI1PyoS8XW9swdmif/kJpKn9bQg/DV0DyhP+5rzM9KX5oEA==",
   "success": true,
-  "projectFilePath": "D:\\Study File\\Kỳ 4\\PRO131\\GetDuana1\\Du_An1\\3.PL\\3.PL.csproj",
+  "projectFilePath": "D:\\Study File\\Kỳ 4\\PRO131\\GetDuana1\\Kaisan03\\Du_An1\\3.PL\\3.PL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vanho\\.nuget\\packages\\fontawesome.sharp\\6.1.1\\fontawesome.sharp.6.1.1.nupkg.sha512",
     "C:\\Users\\vanho\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
