@@ -60,9 +60,10 @@
             // 
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(162, 53);
+            this.panel1.Location = new System.Drawing.Point(142, 40);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(971, 504);
+            this.panel1.Size = new System.Drawing.Size(850, 378);
             this.panel1.TabIndex = 1;
             // 
             // panel3
@@ -80,9 +81,10 @@
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(468, 0);
+            this.panel3.Location = new System.Drawing.Point(410, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(503, 504);
+            this.panel3.Size = new System.Drawing.Size(440, 378);
             this.panel3.TabIndex = 1;
             // 
             // label4
@@ -90,9 +92,9 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(297, 443);
+            this.label4.Location = new System.Drawing.Point(260, 332);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(116, 17);
+            this.label4.Size = new System.Drawing.Size(91, 16);
             this.label4.TabIndex = 9;
             this.label4.Text = "Đăng ký ngay";
             // 
@@ -100,9 +102,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(112, 443);
+            this.label3.Location = new System.Drawing.Point(98, 332);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(179, 17);
+            this.label3.Size = new System.Drawing.Size(140, 15);
             this.label3.TabIndex = 9;
             this.label3.Text = "Không có tài khoản?";
             // 
@@ -113,9 +115,10 @@
             this.btn_DangNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_DangNhap.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_DangNhap.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(61)))), ((int)(((byte)(86)))));
-            this.btn_DangNhap.Location = new System.Drawing.Point(46, 379);
+            this.btn_DangNhap.Location = new System.Drawing.Point(40, 284);
+            this.btn_DangNhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_DangNhap.Name = "btn_DangNhap";
-            this.btn_DangNhap.Size = new System.Drawing.Size(427, 48);
+            this.btn_DangNhap.Size = new System.Drawing.Size(374, 36);
             this.btn_DangNhap.TabIndex = 8;
             this.btn_DangNhap.Text = "LOGIN";
             this.btn_DangNhap.UseVisualStyleBackColor = false;
@@ -124,19 +127,22 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(425, 313);
+            this.pictureBox5.Location = new System.Drawing.Point(372, 235);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(26, 25);
+            this.pictureBox5.Size = new System.Drawing.Size(23, 19);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox5.TabIndex = 7;
             this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
             // 
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(431, 205);
+            this.pictureBox4.Location = new System.Drawing.Point(377, 154);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(21, 24);
+            this.pictureBox4.Size = new System.Drawing.Size(18, 18);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox4.TabIndex = 6;
             this.pictureBox4.TabStop = false;
@@ -144,9 +150,10 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(206, 76);
+            this.pictureBox2.Location = new System.Drawing.Point(180, 57);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(118, 64);
+            this.pictureBox2.Size = new System.Drawing.Size(103, 48);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 5;
             this.pictureBox2.TabStop = false;
@@ -155,12 +162,13 @@
             // 
             this.txt_mk.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_mk.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(61)))), ((int)(((byte)(86)))));
-            this.txt_mk.Location = new System.Drawing.Point(46, 303);
+            this.txt_mk.Location = new System.Drawing.Point(40, 227);
+            this.txt_mk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_mk.MaxLength = 50;
             this.txt_mk.Multiline = true;
             this.txt_mk.Name = "txt_mk";
             this.txt_mk.PasswordChar = '*';
-            this.txt_mk.Size = new System.Drawing.Size(414, 43);
+            this.txt_mk.Size = new System.Drawing.Size(363, 33);
             this.txt_mk.TabIndex = 4;
             // 
             // label2
@@ -169,9 +177,9 @@
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.Gray;
-            this.label2.Location = new System.Drawing.Point(46, 277);
+            this.label2.Location = new System.Drawing.Point(40, 208);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 22);
+            this.label2.Size = new System.Drawing.Size(98, 18);
             this.label2.TabIndex = 3;
             this.label2.Text = "Password:";
             // 
@@ -179,11 +187,12 @@
             // 
             this.txt_tk.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_tk.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(61)))), ((int)(((byte)(86)))));
-            this.txt_tk.Location = new System.Drawing.Point(46, 196);
+            this.txt_tk.Location = new System.Drawing.Point(40, 147);
+            this.txt_tk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_tk.MaxLength = 50;
             this.txt_tk.Multiline = true;
             this.txt_tk.Name = "txt_tk";
-            this.txt_tk.Size = new System.Drawing.Size(414, 43);
+            this.txt_tk.Size = new System.Drawing.Size(363, 33);
             this.txt_tk.TabIndex = 2;
             // 
             // label1
@@ -192,9 +201,9 @@
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.Gray;
-            this.label1.Location = new System.Drawing.Point(46, 171);
+            this.label1.Location = new System.Drawing.Point(40, 128);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 22);
+            this.label1.Size = new System.Drawing.Size(108, 18);
             this.label1.TabIndex = 1;
             this.label1.Text = "User name:";
             // 
@@ -204,17 +213,19 @@
             this.panel4.Controls.Add(this.pictureBox3);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(503, 40);
+            this.panel4.Size = new System.Drawing.Size(440, 30);
             this.panel4.TabIndex = 0;
             // 
             // pictureBox3
             // 
             this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Right;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(441, 0);
+            this.pictureBox3.Location = new System.Drawing.Point(386, 0);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(62, 40);
+            this.pictureBox3.Size = new System.Drawing.Size(54, 30);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
@@ -225,8 +236,9 @@
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(469, 504);
+            this.panel2.Size = new System.Drawing.Size(410, 378);
             this.panel2.TabIndex = 0;
             // 
             // pictureBox1
@@ -236,22 +248,21 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.ImageLocation = "";
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(469, 504);
+            this.pictureBox1.Size = new System.Drawing.Size(410, 378);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // FrmDangNhap
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1294, 613);
+            this.ClientSize = new System.Drawing.Size(1132, 460);
             this.Controls.Add(this.panel1);
-
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-
             this.Name = "FrmDangNhap";
             this.Text = "FrmTest";
             this.Load += new System.EventHandler(this.FrmTest_Load);

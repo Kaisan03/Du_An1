@@ -76,5 +76,15 @@ namespace _3.PL.Views
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            if (txt_mk.PasswordChar == '*')
+            {
+                
+                txt_mk.PasswordChar = '\0';
+            }
+            else txt_mk.PasswordChar = '*';
+        }
     }
 }
