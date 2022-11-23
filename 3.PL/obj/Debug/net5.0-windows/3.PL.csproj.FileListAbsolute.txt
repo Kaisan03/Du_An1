@@ -469,3 +469,9 @@ C:\Users\Admin\Source\Repos\Du_An1\3.PL\obj\Debug\net5.0-windows\3.PL.genruntime
 C:\Users\Admin\Source\Repos\Du_An1\3.PL\obj\Debug\net5.0-windows\ref\3.PL.dll
 C:\Users\Admin\Source\Repos\Du_An1\3.PL\bin\Debug\net5.0-windows\zxing.dll
 C:\Users\Admin\Source\Repos\Du_An1\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmCodeQBR.resources
+C:\Users\Acer\Source\Repos\Kaisan03\Du_An1\3.PL\bin\Debug\net5.0-windows\Zen.Barcode.Core.dll
+C:\Users\Acer\Source\Repos\Kaisan03\Du_An1\3.PL\bin\Debug\net5.0-windows\Zen.Barcode.Design.dll
+C:\Users\Acer\Source\Repos\Kaisan03\Du_An1\3.PL\bin\Debug\net5.0-windows\Zen.Barcode.Web.Mvc.dll
+C:\Users\Acer\Source\Repos\Kaisan03\Du_An1\3.PL\bin\Debug\net5.0-windows\Zen.Barcode.Web.dll
+C:\Users\Acer\Source\Repos\Kaisan03\Du_An1\3.PL\bin\Debug\net5.0-windows\zxing.dll
+C:\Users\Acer\Source\Repos\Kaisan03\Du_An1\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmCodeQBR.resources

@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Imaging;
+using System.Runtime.InteropServices;
 
 namespace _3.PL.Views
 {
@@ -47,6 +48,16 @@ namespace _3.PL.Views
             LoadData();
             LoadComboBox();
         }
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+        (
+            int nLeftRect,
+            int nTopRect,
+            int nRightRect,
+            int nBottomRect,
+            int nWidthEllipse,
+            int nHeightEllipse
+        );
         private void LoadComboBox()
         {
             foreach (var x in _ISanPhamService.GetAllSanPham())
@@ -274,15 +285,31 @@ namespace _3.PL.Views
                 cbx_HoatDong.Checked = false;
             }
         }
-
-        private void FrmChiTietGiay_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void FrmChiTietGiay_Load_1(object sender, EventArgs e)
         {
-
+            groupBox1.Location = new Point(
+            this.ClientSize.Width / 2 - groupBox1.Size.Width / 2,
+            this.ClientSize.Height / 2 - groupBox1.Size.Height / 2);
+            groupBox1.Anchor = AnchorStyles.None;
+            groupBox1.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, groupBox1.Width,
+            groupBox1.Height, 30, 30));
+            groupBox1.Dock = DockStyle.Left;
+            //
+            dgrid_ChiTietGiay.Location = new Point(
+            this.ClientSize.Width / 2 - dgrid_ChiTietGiay.Size.Width / 2,
+            this.ClientSize.Height / 2 - dgrid_ChiTietGiay.Size.Height / 2);
+            dgrid_ChiTietGiay.Anchor = AnchorStyles.None;
+            dgrid_ChiTietGiay.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, dgrid_ChiTietGiay.Width,
+            dgrid_ChiTietGiay.Height, 35, 30));
+            dgrid_ChiTietGiay.Dock = DockStyle.Top;
+            //
+            groupBox2.Location = new Point(
+            this.ClientSize.Width / 2 - groupBox2.Size.Width / 2,
+            this.ClientSize.Height / 2 - groupBox2.Size.Height / 2);
+            groupBox2.Anchor = AnchorStyles.None;
+            groupBox2.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, groupBox2.Width,
+            groupBox2.Height, 30, 30));
+            groupBox2.Dock = DockStyle.Right;
         }
         private void LoadData_timKiem(string txt)
         {
