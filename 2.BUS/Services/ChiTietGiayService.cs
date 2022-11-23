@@ -124,7 +124,7 @@ namespace _2.BUS.Services
                                       TenSize = size.Ten,
                                       TenSanPham = sp.Ten,
                                       Ma = ctsp.Ma,
-                                      Anh = anh.TenAnh,
+                                      Anh = anh.DuongDan,
                                       SoLuong = ctsp.SoLuong,
                                       GiaBan = ctsp.GiaBan,
                                       GiaNhap = ctsp.GiaNhap,

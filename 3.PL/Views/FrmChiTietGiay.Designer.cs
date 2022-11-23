@@ -31,6 +31,8 @@
             this.dgrid_ChiTietGiay = new System.Windows.Forms.DataGridView();
             this.txt_TimKiem = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pic_ImageGiay = new System.Windows.Forms.PictureBox();
+            this.btn_AddAnh1 = new System.Windows.Forms.Button();
             this.btn_AddSp = new System.Windows.Forms.Button();
             this.btn_addchatLieu = new System.Windows.Forms.Button();
             this.btn_KieuDang = new System.Windows.Forms.Button();
@@ -74,16 +76,16 @@
             this.btn_Xoa = new System.Windows.Forms.Button();
             this.btn_Sua = new System.Windows.Forms.Button();
             this.btn_Them = new System.Windows.Forms.Button();
-            this.btn_AddAnh1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_ChiTietGiay)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_ImageGiay)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgrid_ChiTietGiay
             // 
             this.dgrid_ChiTietGiay.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgrid_ChiTietGiay.BackgroundColor = System.Drawing.Color.DarkSeaGreen;
+            this.dgrid_ChiTietGiay.BackgroundColor = System.Drawing.Color.White;
             this.dgrid_ChiTietGiay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrid_ChiTietGiay.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgrid_ChiTietGiay.Location = new System.Drawing.Point(0, 0);
@@ -97,15 +99,18 @@
             // 
             // txt_TimKiem
             // 
-            this.txt_TimKiem.Location = new System.Drawing.Point(47, 43);
+            this.txt_TimKiem.Location = new System.Drawing.Point(539, 22);
             this.txt_TimKiem.Name = "txt_TimKiem";
-            this.txt_TimKiem.Size = new System.Drawing.Size(385, 27);
+            this.txt_TimKiem.Size = new System.Drawing.Size(405, 27);
             this.txt_TimKiem.TabIndex = 1;
             this.txt_TimKiem.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_TimKiem_KeyUp);
             this.txt_TimKiem.Leave += new System.EventHandler(this.txt_TimKiem_Leave);
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.groupBox1.Controls.Add(this.pic_ImageGiay);
+            this.groupBox1.Controls.Add(this.txt_TimKiem);
             this.groupBox1.Controls.Add(this.btn_AddAnh1);
             this.groupBox1.Controls.Add(this.btn_AddSp);
             this.groupBox1.Controls.Add(this.btn_addchatLieu);
@@ -153,10 +158,33 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin sản phẩm";
             // 
+            // pic_ImageGiay
+            // 
+            this.pic_ImageGiay.BackColor = System.Drawing.Color.White;
+            this.pic_ImageGiay.Location = new System.Drawing.Point(662, 303);
+            this.pic_ImageGiay.Name = "pic_ImageGiay";
+            this.pic_ImageGiay.Size = new System.Drawing.Size(282, 132);
+            this.pic_ImageGiay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_ImageGiay.TabIndex = 5;
+            this.pic_ImageGiay.TabStop = false;
+            // 
+            // btn_AddAnh1
+            // 
+            this.btn_AddAnh1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.btn_AddAnh1.BackColor = System.Drawing.Color.Lime;
+            this.btn_AddAnh1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_AddAnh1.Image = global::_3.PL.Properties.Resources.icons8_plus_321;
+            this.btn_AddAnh1.Location = new System.Drawing.Point(960, 133);
+            this.btn_AddAnh1.Name = "btn_AddAnh1";
+            this.btn_AddAnh1.Size = new System.Drawing.Size(34, 28);
+            this.btn_AddAnh1.TabIndex = 4;
+            this.btn_AddAnh1.UseVisualStyleBackColor = false;
+            this.btn_AddAnh1.Click += new System.EventHandler(this.btn_AddAnh1_Click);
+            // 
             // btn_AddSp
             // 
             this.btn_AddSp.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.btn_AddSp.BackColor = System.Drawing.Color.Yellow;
+            this.btn_AddSp.BackColor = System.Drawing.Color.Lime;
             this.btn_AddSp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_AddSp.Image = global::_3.PL.Properties.Resources.icons8_plus_321;
             this.btn_AddSp.Location = new System.Drawing.Point(406, 280);
@@ -241,7 +269,7 @@
             // cbx_khongHD
             // 
             this.cbx_khongHD.AutoSize = true;
-            this.cbx_khongHD.Location = new System.Drawing.Point(662, 307);
+            this.cbx_khongHD.Location = new System.Drawing.Point(662, 273);
             this.cbx_khongHD.Name = "cbx_khongHD";
             this.cbx_khongHD.Size = new System.Drawing.Size(147, 24);
             this.cbx_khongHD.TabIndex = 2;
@@ -252,7 +280,7 @@
             // cbx_HoatDong
             // 
             this.cbx_HoatDong.AutoSize = true;
-            this.cbx_HoatDong.Location = new System.Drawing.Point(662, 266);
+            this.cbx_HoatDong.Location = new System.Drawing.Point(662, 248);
             this.cbx_HoatDong.Name = "cbx_HoatDong";
             this.cbx_HoatDong.Size = new System.Drawing.Size(106, 24);
             this.cbx_HoatDong.TabIndex = 2;
@@ -414,7 +442,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(533, 263);
+            this.label10.Location = new System.Drawing.Point(539, 246);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(78, 20);
             this.label10.TabIndex = 0;
@@ -503,7 +531,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.txt_TimKiem);
+            this.groupBox2.BackColor = System.Drawing.Color.Aquamarine;
             this.groupBox2.Controls.Add(this.btn_Clear);
             this.groupBox2.Controls.Add(this.btn_Xoa);
             this.groupBox2.Controls.Add(this.btn_Sua);
@@ -548,26 +576,13 @@
             // 
             // btn_Them
             // 
-            this.btn_Them.Location = new System.Drawing.Point(47, 99);
+            this.btn_Them.Location = new System.Drawing.Point(47, 98);
             this.btn_Them.Name = "btn_Them";
             this.btn_Them.Size = new System.Drawing.Size(385, 57);
             this.btn_Them.TabIndex = 2;
             this.btn_Them.Text = "Thêm";
             this.btn_Them.UseVisualStyleBackColor = true;
             this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
-            // 
-            // btn_AddAnh1
-            // 
-            this.btn_AddAnh1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.btn_AddAnh1.BackColor = System.Drawing.Color.Yellow;
-            this.btn_AddAnh1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_AddAnh1.Image = global::_3.PL.Properties.Resources.icons8_plus_321;
-            this.btn_AddAnh1.Location = new System.Drawing.Point(960, 133);
-            this.btn_AddAnh1.Name = "btn_AddAnh1";
-            this.btn_AddAnh1.Size = new System.Drawing.Size(34, 28);
-            this.btn_AddAnh1.TabIndex = 4;
-            this.btn_AddAnh1.UseVisualStyleBackColor = false;
-            this.btn_AddAnh1.Click += new System.EventHandler(this.btn_AddAnh1_Click);
             // 
             // FrmChiTietGiay
             // 
@@ -583,8 +598,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_ChiTietGiay)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_ImageGiay)).EndInit();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -638,5 +653,6 @@
         private System.Windows.Forms.Button btn_addchatLieu;
         private System.Windows.Forms.Button btn_AddSp;
         private System.Windows.Forms.Button btn_AddAnh1;
+        private System.Windows.Forms.PictureBox pic_ImageGiay;
     }
 }
