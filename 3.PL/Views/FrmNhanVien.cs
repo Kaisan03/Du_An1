@@ -28,7 +28,8 @@ namespace _3.PL.Views
             _lstViewNhanVien = new List<ViewNhanVien>();
             LoadDataNhanVien();
             LoadComboBox();
-
+            saringan.BackgroundImageLayout = ImageLayout.Zoom;
+            saringanfake.BackgroundImageLayout = ImageLayout.Zoom;
         }
         public void LoadComboBox()
         {
@@ -52,6 +53,7 @@ namespace _3.PL.Views
             drgid_NhanVien.Columns[8].Name = "SDt ";
             drgid_NhanVien.Columns[9].Name = "Mật Khẩu ";
             drgid_NhanVien.Columns[10].Name = "Ten chức Vụ ";
+            
             //drgid_NhanVien.Columns[13].Name = "ID GuiBC ";
             drgid_NhanVien.Columns[11].Name = "Trạng Thái ";
             drgid_NhanVien.Rows.Clear();
@@ -62,9 +64,9 @@ namespace _3.PL.Views
             }
             foreach (var x in lstNhanVien)
             {
-               
+
                 drgid_NhanVien.Rows.Add(x.Id, x.Ma, x.Ho, x.TenDem, x.Ten, x.GioiTinh == "Nam" ? 0: 1, x.NgaySinh, x.DiaChi, x.Sdt,
-                  x.MatKhau,x.TenChuCVu, x.TrangThai == 1 ? "Hoat dong":"Khong hoat dong");
+                  x.MatKhau, x.TenChuCVu, x.TrangThai == 1 ? "Hoat dong":"Khong hoat dong");
             }
 
         }
@@ -169,14 +171,30 @@ namespace _3.PL.Views
 
         private void drgid_NhanVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            
+        }
+  
+
+        private void drgid_NhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
             DataGridViewRow r = drgid_NhanVien.Rows[e.RowIndex];
-            _Idnhanvien  = Guid.Parse(r.Cells[0].Value.ToString());
+            _Idnhanvien = Guid.Parse(r.Cells[0].Value.ToString());
             cmb_idChucVu.Text = r.Cells[10].Value.ToString();
             var x = _iNhanVienService.GetViewNhanVien().FirstOrDefault(c => c.Id == _Idnhanvien);
             txt_Ma.Text = x.Ma;
+            txt_Ho.Text = x.Ho;
+            txt_TenDem.Text = x.TenDem;
+            cmb_idChucVu.Text = x.TenChuCVu;
             txt_Ten.Text = x.Ten;
+            txt_Sdt.Text = x.Sdt;
+            txt_MatKhau.Text = x.MatKhau;
             txt_DiaChi.Text = x.DiaChi;
             dateTime_NgaySinh.Value = x.NgaySinh.Value;
+            if (int.Parse(r.Cells[5].Value.ToString()) == 0)
+            {
+                rbtn_Nam.Checked = true;
+            }
+            else rbtn_Nu.Checked = true;
             if (x.TrangThai == 1)
             {
                 cbx_HoatDong.Checked = true;
@@ -186,15 +204,9 @@ namespace _3.PL.Views
             {
                 cbx_KhongHoatDong.Checked = true;
             }
-        }
-  
 
-        private void drgid_NhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-               
-          
-            
+
+
         }
         private void cbx_HoatDong_CheckedChanged(object sender, EventArgs e)
         {
@@ -221,6 +233,64 @@ namespace _3.PL.Views
         private void btn_TimKiem_Click(object sender, EventArgs e)
         {
             LoadDataNhanVien();
+        }
+
+        private void btn_Them_MouseHover(object sender, EventArgs e)
+        {
+            btn_Them.BackColor = Color.FromArgb(255, 89, 136);
+        }
+
+        private void btn_Them_MouseLeave(object sender, EventArgs e)
+        {
+            btn_Them.BackColor = Color.White;
+        }
+
+        private void btn_Sua_MouseHover(object sender, EventArgs e)
+        {
+            btn_Sua.BackColor = Color.FromArgb(255, 89, 136);
+        }
+
+        private void btn_Sua_MouseLeave(object sender, EventArgs e)
+        {
+            btn_Sua.BackColor = Color.White;
+        }
+
+        private void btn_Xoa_MouseHover(object sender, EventArgs e)
+        {
+            btn_Xoa.BackColor = Color.FromArgb(255, 89, 136);
+        }
+
+        private void btn_Xoa_MouseLeave(object sender, EventArgs e)
+        {
+            btn_Xoa.BackColor = Color.White;
+        }
+
+        private void btn_Clear_MouseHover(object sender, EventArgs e)
+        {
+            btn_Clear.BackColor = Color.FromArgb(255, 89, 136);
+        }
+
+        private void btn_Clear_MouseLeave(object sender, EventArgs e)
+        {
+            btn_Clear.BackColor = Color.White;
+        }
+
+        private void saringan_Click(object sender, EventArgs e)
+        {
+            if (txt_MatKhau.PasswordChar == '*')
+            {
+                saringanfake.BringToFront();
+                txt_MatKhau.PasswordChar = '\0';
+            }
+        }
+
+        private void saringanfake_Click(object sender, EventArgs e)
+        {
+            if (txt_MatKhau.PasswordChar == '\0')
+            {
+                saringan.BringToFront();
+                txt_MatKhau.PasswordChar = '*';
+            }
         }
     }
 }
