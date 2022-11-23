@@ -109,12 +109,16 @@ namespace _3.PL.Views
 
         private void dgrid_ChatLieu_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
+
             int rowindex = e.RowIndex;
-            if (rowindex == _IchucVuService.GetAllChucVu().Count) return;
+            if(rowindex>=0)
+            {
+                if (rowindex == _IchucVuService.GetAllChucVu().Count) return;
             _id = Guid.Parse(dgrid_ChucVu.CurrentRow.Cells[0].Value.ToString());
             var cv = _IchucVuService.GetAllChucVu().FirstOrDefault(c => c.Id == _id);
             txt_Ten.Text = Convert.ToString(cv.Ma);
             txt_Ma.Text = cv.Ten;
+            }
         }
 
         private void btn_Clear_Click_1(object sender, EventArgs e)
