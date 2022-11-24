@@ -57,4 +57,60 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btn_AddAnh1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAABGdBTUEAALGPC/xhBQAAATZJREFUWEft
+        mF9OwmAQxPuML3oQEhPu0If+f9GkCvHCcgDxDnIDcIbMmqYB25Kv8QvuL5m02e7OTukDlMRxnF9I0/Qu
+        z/OHEKKXbK+nLMsN9AkdA4ueG62ZRlVVbz2z4MKOtdaNB4OnTwrD7zi2OD6FkLzoyXA7rRsHBhbQQcPP
+        KgeDnvLmjoXKwzRNc69BqlE5GPQ0f+5SeRgPNnewuq6X6PuieK7yRegp73mDZVn2aP08V/ki9LR+D/an
+        wbgc33srE3raTn/bvXYuKD2tP2gw1Pad60Paa+wH1P5ZsGgfZR8ut/5zQfrQ0/o9WFTBov1Kmgo9zd+D
+        jYGe5j8pGAbi/GlNMDDbywi0lfeH1o0Hg3yntMc5l160bhq4ozXvCgb2WEPoQM+iKF615nqi+4vAcW6X
+        JPkGtxSPslnwmIcAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="btn_AddSp.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAABGdBTUEAALGPC/xhBQAAATZJREFUWEft
+        mF9OwmAQxPuML3oQEhPu0If+f9GkCvHCcgDxDnIDcIbMmqYB25Kv8QvuL5m02e7OTukDlMRxnF9I0/Qu
+        z/OHEKKXbK+nLMsN9AkdA4ueG62ZRlVVbz2z4MKOtdaNB4OnTwrD7zi2OD6FkLzoyXA7rRsHBhbQQcPP
+        KgeDnvLmjoXKwzRNc69BqlE5GPQ0f+5SeRgPNnewuq6X6PuieK7yRegp73mDZVn2aP08V/ki9LR+D/an
+        wbgc33srE3raTn/bvXYuKD2tP2gw1Pad60Paa+wH1P5ZsGgfZR8ut/5zQfrQ0/o9WFTBov1Kmgo9zd+D
+        jYGe5j8pGAbi/GlNMDDbywi0lfeH1o0Hg3yntMc5l160bhq4ozXvCgb2WEPoQM+iKF615nqi+4vAcW6X
+        JPkGtxSPslnwmIcAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="btn_addchatLieu.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAABGdBTUEAALGPC/xhBQAAATZJREFUWEft
+        mF9OwmAQxPuML3oQEhPu0If+f9GkCvHCcgDxDnIDcIbMmqYB25Kv8QvuL5m02e7OTukDlMRxnF9I0/Qu
+        z/OHEKKXbK+nLMsN9AkdA4ueG62ZRlVVbz2z4MKOtdaNB4OnTwrD7zi2OD6FkLzoyXA7rRsHBhbQQcPP
+        KgeDnvLmjoXKwzRNc69BqlE5GPQ0f+5SeRgPNnewuq6X6PuieK7yRegp73mDZVn2aP08V/ki9LR+D/an
+        wbgc33srE3raTn/bvXYuKD2tP2gw1Pad60Paa+wH1P5ZsGgfZR8ut/5zQfrQ0/o9WFTBov1Kmgo9zd+D
+        jYGe5j8pGAbi/GlNMDDbywi0lfeH1o0Hg3yntMc5l160bhq4ozXvCgb2WEPoQM+iKF615nqi+4vAcW6X
+        JPkGtxSPslnwmIcAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="btn_KieuDang.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAABGdBTUEAALGPC/xhBQAAATZJREFUWEft
+        mF9OwmAQxPuML3oQEhPu0If+f9GkCvHCcgDxDnIDcIbMmqYB25Kv8QvuL5m02e7OTukDlMRxnF9I0/Qu
+        z/OHEKKXbK+nLMsN9AkdA4ueG62ZRlVVbz2z4MKOtdaNB4OnTwrD7zi2OD6FkLzoyXA7rRsHBhbQQcPP
+        KgeDnvLmjoXKwzRNc69BqlE5GPQ0f+5SeRgPNnewuq6X6PuieK7yRegp73mDZVn2aP08V/ki9LR+D/an
+        wbgc33srE3raTn/bvXYuKD2tP2gw1Pad60Paa+wH1P5ZsGgfZR8ut/5zQfrQ0/o9WFTBov1Kmgo9zd+D
+        jYGe5j8pGAbi/GlNMDDbywi0lfeH1o0Hg3yntMc5l160bhq4ozXvCgb2WEPoQM+iKF615nqi+4vAcW6X
+        JPkGtxSPslnwmIcAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="btn_AddSize.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAABGdBTUEAALGPC/xhBQAAATZJREFUWEft
+        mF9OwmAQxPuML3oQEhPu0If+f9GkCvHCcgDxDnIDcIbMmqYB25Kv8QvuL5m02e7OTukDlMRxnF9I0/Qu
+        z/OHEKKXbK+nLMsN9AkdA4ueG62ZRlVVbz2z4MKOtdaNB4OnTwrD7zi2OD6FkLzoyXA7rRsHBhbQQcPP
+        KgeDnvLmjoXKwzRNc69BqlE5GPQ0f+5SeRgPNnewuq6X6PuieK7yRegp73mDZVn2aP08V/ki9LR+D/an
+        wbgc33srE3raTn/bvXYuKD2tP2gw1Pad60Paa+wH1P5ZsGgfZR8ut/5zQfrQ0/o9WFTBov1Kmgo9zd+D
+        jYGe5j8pGAbi/GlNMDDbywi0lfeH1o0Hg3yntMc5l160bhq4ozXvCgb2WEPoQM+iKF615nqi+4vAcW6X
+        JPkGtxSPslnwmIcAAAAASUVORK5CYII=
+</value>
+  </data>
 </root>

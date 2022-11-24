@@ -14,12 +14,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
+using _1.DAL.DomainClass;
 
 namespace _3.PL.Views
 {
     public partial class FrmChiTietGiay : Form
     {
-        private FrmSize _frmSize;
+        private ChiTietGiay _chiTietGiay;
         private IChiTietGiayService _IChiTietGiayService;
         private List<ViewChiTietGiay> _lstCTGiay;
         private ISanPhamService _ISanPhamService;
@@ -44,7 +45,6 @@ namespace _3.PL.Views
             _IMauSacService = new MauSacService();
             _IChatLieuService = new ChatLieuService();
             _IAnhService = new AnhService();
-            _frmSize = new FrmSize();
             LoadData();
             LoadComboBox();
         }
@@ -107,7 +107,7 @@ namespace _3.PL.Views
             dgrid_ChiTietGiay.Columns[5].Name = "Nhà sản xuất";
             dgrid_ChiTietGiay.Columns[6].Name = "Kiểu dáng";
             dgrid_ChiTietGiay.Columns[7].Name = "Tên sản phẩm";
-            dgrid_ChiTietGiay.Columns[8].Name = "Mã";
+            dgrid_ChiTietGiay.Columns[8].Name = "Mã sản phẩm";
             dgrid_ChiTietGiay.Columns[9].Name = "Giá nhập";
             dgrid_ChiTietGiay.Columns[10].Name = "Giá bán";
             dgrid_ChiTietGiay.Columns[11].Name = "Số lượng";
@@ -138,7 +138,7 @@ namespace _3.PL.Views
                     x.SoLuongTon,
                     x.Anh,
                     x.MoTa,
-                    x.TrangThai == 1 ? "Hoạt động" : "Không hoạt động"
+                    x.TrangThai == 1 ? "Còn hàng" : "Hết hàng"
                     );
             }
         }
@@ -166,7 +166,8 @@ namespace _3.PL.Views
                     TrangThai = cbx_HoatDong.Checked ? 1 : 0
                 };
                 _IChiTietGiayService.AddCTGiay(addCTGiay);
-                MessageBox.Show("Thêm thành công");
+                FrmThongBao frmThongBao = new FrmThongBao();
+                frmThongBao.ShowDialog();
                 LoadData();
             }
             if (dialogResult == DialogResult.No)
@@ -196,11 +197,12 @@ namespace _3.PL.Views
                     GiaNhap = Convert.ToInt32(txt_NgayNhap.Text),
                     GiaBan = Convert.ToInt32(txt_NgayBan.Text),
                     SoLuongTon = Convert.ToInt32(txt_SoLuongTon.Text),
-                    MoTa = txt_moTa.Text,
+                    MoTa = txt_moTa.Text,  
                     TrangThai = cbx_HoatDong.Checked ? 1 : 0
                 };
                 _IChiTietGiayService.UpdateCTGiay(updateGiay);
-                MessageBox.Show("Sửa thành công");
+                FrmThongBao frmThongBao = new FrmThongBao();
+                frmThongBao.ShowDialog();
                 LoadData();
             }
             if (dialogResult == DialogResult.No)
@@ -211,11 +213,12 @@ namespace _3.PL.Views
 
         private void btn_Xoa_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn xóa?", "Thông báo", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn cập nhật lại trạng thái?", "Thông báo", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 _IChiTietGiayService.DeleteCTGiay(_idCTGiay);
-                MessageBox.Show("Xóa thành công");
+                FrmThongBao frmThongBao = new FrmThongBao();
+                frmThongBao.ShowDialog();
                 LoadData();
             }
             if (dialogResult == DialogResult.No)
@@ -309,7 +312,43 @@ namespace _3.PL.Views
             groupBox2.Anchor = AnchorStyles.None;
             groupBox2.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, groupBox2.Width,
             groupBox2.Height, 30, 30));
-            
+            //
+            btn_AddSize.FlatStyle = FlatStyle.Flat;
+            btn_AddSize.FlatAppearance.BorderSize = 0;
+            btn_AddNsx.FlatStyle = FlatStyle.Flat;
+            btn_AddNsx.FlatAppearance.BorderSize = 0;
+            btn_AddMauSac.FlatStyle = FlatStyle.Flat;
+            btn_AddMauSac.FlatAppearance.BorderSize = 0;
+            btn_DeGiay.FlatStyle = FlatStyle.Flat;
+            btn_DeGiay.FlatAppearance.BorderSize = 0;
+            btn_KieuDang.FlatStyle = FlatStyle.Flat;
+            btn_KieuDang.FlatAppearance.BorderSize = 0;
+            btn_addchatLieu.FlatStyle = FlatStyle.Flat;
+            btn_addchatLieu.FlatAppearance.BorderSize = 0;
+            btn_AddSp.FlatStyle = FlatStyle.Flat;
+            btn_AddSp.FlatAppearance.BorderSize = 0;
+            btn_AddAnh1.FlatStyle = FlatStyle.Flat;
+            btn_AddAnh1.FlatAppearance.BorderSize = 0;
+            //
+            cmb_TenSize.FlatStyle = FlatStyle.Flat;
+            cmb_Nsx.FlatStyle = FlatStyle.Flat;
+            cmb_MauSac.FlatStyle = FlatStyle.Flat;
+            cmb_LoaiDe.FlatStyle = FlatStyle.Flat;
+            cmb_KieuDang.FlatStyle = FlatStyle.Flat;
+            cmb_ChatLieu.FlatStyle = FlatStyle.Flat;
+            cmb_Anh.FlatStyle = FlatStyle.Flat;
+            cmb_SanPham.FlatStyle = FlatStyle.Flat;
+            //txt_NgayNhap.FlatStyle = FlatStyle.Flat;
+            //
+            btn_Them.Anchor = AnchorStyles.None;
+            btn_Them.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_Them.Width,
+            btn_Them.Height, 35, 30));
+            btn_Sua.Anchor = AnchorStyles.None;
+            btn_Sua.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_Sua.Width,
+            btn_Sua.Height, 35, 30));
+            btn_Xoa.Anchor = AnchorStyles.None;
+            btn_Xoa.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_Xoa.Width,
+            btn_Xoa.Height, 35, 30));
         }
         private void LoadData_timKiem(string txt)
         {
