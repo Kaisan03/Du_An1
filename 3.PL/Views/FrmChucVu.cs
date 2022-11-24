@@ -116,8 +116,8 @@ namespace _3.PL.Views
                 if (rowindex == _IchucVuService.GetAllChucVu().Count) return;
             _id = Guid.Parse(dgrid_ChucVu.CurrentRow.Cells[0].Value.ToString());
             var cv = _IchucVuService.GetAllChucVu().FirstOrDefault(c => c.Id == _id);
-            txt_Ten.Text = Convert.ToString(cv.Ma);
-            txt_Ma.Text = cv.Ten;
+            txt_Ten.Text = Convert.ToString(cv.Ten);
+            txt_Ma.Text = cv.Ma;
             }
         }
 
