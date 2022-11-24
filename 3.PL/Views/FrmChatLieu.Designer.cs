@@ -55,30 +55,27 @@
             this.dgrid_ChatLieu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrid_ChatLieu.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgrid_ChatLieu.Location = new System.Drawing.Point(0, 0);
-            this.dgrid_ChatLieu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgrid_ChatLieu.Name = "dgrid_ChatLieu";
             this.dgrid_ChatLieu.RowHeadersWidth = 51;
             this.dgrid_ChatLieu.RowTemplate.Height = 29;
             this.dgrid_ChatLieu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgrid_ChatLieu.Size = new System.Drawing.Size(1118, 206);
+            this.dgrid_ChatLieu.Size = new System.Drawing.Size(1278, 275);
             this.dgrid_ChatLieu.TabIndex = 0;
-            this.dgrid_ChatLieu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_ChatLieu_CellClick);
-           
+            this.dgrid_ChatLieu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_ChatLieu_CellClick1);
+            this.dgrid_ChatLieu.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_ChatLieu_CellContentClick_1);
             // 
             // txt_TimKiem
             // 
-            this.txt_TimKiem.Location = new System.Drawing.Point(626, 218);
-            this.txt_TimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_TimKiem.Location = new System.Drawing.Point(715, 291);
             this.txt_TimKiem.Name = "txt_TimKiem";
-            this.txt_TimKiem.Size = new System.Drawing.Size(376, 23);
+            this.txt_TimKiem.Size = new System.Drawing.Size(429, 27);
             this.txt_TimKiem.TabIndex = 1;
             // 
             // btn_TimKiem
             // 
-            this.btn_TimKiem.Location = new System.Drawing.Point(1018, 215);
-            this.btn_TimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_TimKiem.Location = new System.Drawing.Point(1163, 287);
             this.btn_TimKiem.Name = "btn_TimKiem";
-            this.btn_TimKiem.Size = new System.Drawing.Size(82, 22);
+            this.btn_TimKiem.Size = new System.Drawing.Size(94, 29);
             this.btn_TimKiem.TabIndex = 2;
             this.btn_TimKiem.Text = "Tìm kiếm";
             this.btn_TimKiem.UseVisualStyleBackColor = true;
@@ -93,38 +90,33 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(10, 250);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Location = new System.Drawing.Point(11, 333);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(526, 193);
+            this.groupBox1.Size = new System.Drawing.Size(601, 257);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin chất liệu";
             // 
             // txt_Ten
             // 
-            this.txt_Ten.Location = new System.Drawing.Point(130, 79);
-            this.txt_Ten.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_Ten.Location = new System.Drawing.Point(149, 105);
             this.txt_Ten.Name = "txt_Ten";
-            this.txt_Ten.Size = new System.Drawing.Size(251, 23);
+            this.txt_Ten.Size = new System.Drawing.Size(286, 27);
             this.txt_Ten.TabIndex = 3;
             // 
             // txt_Ma
             // 
-            this.txt_Ma.Location = new System.Drawing.Point(130, 38);
-            this.txt_Ma.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_Ma.Location = new System.Drawing.Point(149, 51);
             this.txt_Ma.Name = "txt_Ma";
-            this.txt_Ma.Size = new System.Drawing.Size(251, 23);
+            this.txt_Ma.Size = new System.Drawing.Size(286, 27);
             this.txt_Ma.TabIndex = 3;
             // 
             // cbx_KhongHD
             // 
             this.cbx_KhongHD.AutoSize = true;
-            this.cbx_KhongHD.Location = new System.Drawing.Point(130, 146);
-            this.cbx_KhongHD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbx_KhongHD.Location = new System.Drawing.Point(149, 195);
             this.cbx_KhongHD.Name = "cbx_KhongHD";
-            this.cbx_KhongHD.Size = new System.Drawing.Size(119, 19);
+            this.cbx_KhongHD.Size = new System.Drawing.Size(147, 24);
             this.cbx_KhongHD.TabIndex = 2;
             this.cbx_KhongHD.Text = "Không hoạt động";
             this.cbx_KhongHD.UseVisualStyleBackColor = true;
@@ -133,10 +125,9 @@
             // cbx_HoatDong
             // 
             this.cbx_HoatDong.AutoSize = true;
-            this.cbx_HoatDong.Location = new System.Drawing.Point(130, 124);
-            this.cbx_HoatDong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbx_HoatDong.Location = new System.Drawing.Point(149, 165);
             this.cbx_HoatDong.Name = "cbx_HoatDong";
-            this.cbx_HoatDong.Size = new System.Drawing.Size(83, 19);
+            this.cbx_HoatDong.Size = new System.Drawing.Size(103, 24);
             this.cbx_HoatDong.TabIndex = 2;
             this.cbx_HoatDong.Text = "Hoạt động";
             this.cbx_HoatDong.UseVisualStyleBackColor = true;
@@ -145,27 +136,27 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(41, 124);
+            this.label3.Location = new System.Drawing.Point(47, 165);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 15);
+            this.label3.Size = new System.Drawing.Size(78, 20);
             this.label3.TabIndex = 1;
             this.label3.Text = "Trạng thái:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(41, 79);
+            this.label2.Location = new System.Drawing.Point(47, 105);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(28, 15);
+            this.label2.Size = new System.Drawing.Size(35, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Tên:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(41, 38);
+            this.label1.Location = new System.Drawing.Point(47, 51);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(27, 15);
+            this.label1.Size = new System.Drawing.Size(33, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã:";
             // 
@@ -175,21 +166,18 @@
             this.groupBox2.Controls.Add(this.btn_Xoa);
             this.groupBox2.Controls.Add(this.btn_Sua);
             this.groupBox2.Controls.Add(this.btn_Them);
-            this.groupBox2.Location = new System.Drawing.Point(542, 250);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Location = new System.Drawing.Point(619, 333);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(577, 193);
+            this.groupBox2.Size = new System.Drawing.Size(659, 257);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chức năng";
             // 
             // btn_Clear
             // 
-            this.btn_Clear.Location = new System.Drawing.Point(84, 131);
-            this.btn_Clear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Clear.Location = new System.Drawing.Point(96, 175);
             this.btn_Clear.Name = "btn_Clear";
-            this.btn_Clear.Size = new System.Drawing.Size(415, 28);
+            this.btn_Clear.Size = new System.Drawing.Size(474, 37);
             this.btn_Clear.TabIndex = 0;
             this.btn_Clear.Text = "Clear";
             this.btn_Clear.UseVisualStyleBackColor = true;
@@ -197,10 +185,9 @@
             // 
             // btn_Xoa
             // 
-            this.btn_Xoa.Location = new System.Drawing.Point(84, 98);
-            this.btn_Xoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Xoa.Location = new System.Drawing.Point(96, 131);
             this.btn_Xoa.Name = "btn_Xoa";
-            this.btn_Xoa.Size = new System.Drawing.Size(415, 28);
+            this.btn_Xoa.Size = new System.Drawing.Size(474, 37);
             this.btn_Xoa.TabIndex = 0;
             this.btn_Xoa.Text = "Xóa";
             this.btn_Xoa.UseVisualStyleBackColor = true;
@@ -208,10 +195,9 @@
             // 
             // btn_Sua
             // 
-            this.btn_Sua.Location = new System.Drawing.Point(84, 65);
-            this.btn_Sua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Sua.Location = new System.Drawing.Point(96, 87);
             this.btn_Sua.Name = "btn_Sua";
-            this.btn_Sua.Size = new System.Drawing.Size(415, 28);
+            this.btn_Sua.Size = new System.Drawing.Size(474, 37);
             this.btn_Sua.TabIndex = 0;
             this.btn_Sua.Text = "Sửa";
             this.btn_Sua.UseVisualStyleBackColor = true;
@@ -219,10 +205,9 @@
             // 
             // btn_Them
             // 
-            this.btn_Them.Location = new System.Drawing.Point(84, 31);
-            this.btn_Them.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Them.Location = new System.Drawing.Point(96, 41);
             this.btn_Them.Name = "btn_Them";
-            this.btn_Them.Size = new System.Drawing.Size(415, 28);
+            this.btn_Them.Size = new System.Drawing.Size(474, 37);
             this.btn_Them.TabIndex = 0;
             this.btn_Them.Text = "Thêm";
             this.btn_Them.UseVisualStyleBackColor = true;
@@ -230,15 +215,14 @@
             // 
             // FrmChatLieu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1118, 441);
+            this.ClientSize = new System.Drawing.Size(1278, 588);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn_TimKiem);
             this.Controls.Add(this.txt_TimKiem);
             this.Controls.Add(this.dgrid_ChatLieu);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmChatLieu";
             this.Text = "FrmChatLieu";
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_ChatLieu)).EndInit();
