@@ -12,7 +12,7 @@ namespace _2.BUS.IServices
     {
         string Add(ViewHoaDon obj);
         bool Update(HoaDon obj);
-        string Delete(Guid obj);
+        string Delete(int obj);
         List<HoaDon> GetallHoadon();
         List<ViewHoaDon> GetAll();
     }

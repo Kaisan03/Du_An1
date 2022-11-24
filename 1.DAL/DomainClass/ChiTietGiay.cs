@@ -14,7 +14,7 @@ namespace _1.DAL.DomainClass
         public ChiTietGiay()
         {
             ChiTietKhuyenMais = new HashSet<ChiTietKhuyenMai>();
-            GioHangChiTiets = new HashSet<GioHangChiTiet>();
+            
             HoaDonChiTiets = new HashSet<HoaDonChiTiet>();
         }
 
@@ -73,8 +73,7 @@ namespace _1.DAL.DomainClass
         public virtual Size IdSizeNavigation { get; set; }
         [InverseProperty(nameof(ChiTietKhuyenMai.IdChiTietGiayNavigation))]
         public virtual ICollection<ChiTietKhuyenMai> ChiTietKhuyenMais { get; set; }
-        [InverseProperty(nameof(GioHangChiTiet.IdChiTietGiayNavigation))]
-        public virtual ICollection<GioHangChiTiet> GioHangChiTiets { get; set; }
+       
         [InverseProperty(nameof(HoaDonChiTiet.IdChiTietGiayNavigation))]
         public virtual ICollection<HoaDonChiTiet> HoaDonChiTiets { get; set; }
     }

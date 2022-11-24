@@ -17,7 +17,7 @@ namespace _1.DAL.DomainClass
         [Column("idChiTietGiay")]
         public Guid? IdChiTietGiay { get; set; }
         [Column("idHoaDon")]
-        public Guid? IdHoaDon { get; set; }
+        public int IdHoaDon { get; set; }
         [Column("idTichDIem")]
         public Guid? IdTichDiem { get; set; }
         [Column("idKhuyenMai")]

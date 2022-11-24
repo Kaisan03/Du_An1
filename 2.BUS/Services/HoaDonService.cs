@@ -56,7 +56,7 @@ namespace _2.BUS.Services
             return "thành công";
         }
 
-        public string Delete(Guid obj)
+        public string Delete(int obj)
         {
             var temp = _iHoaDonRepository.GetAll().FirstOrDefault(c => c.Id == obj);
             _iHoaDonRepository.Delete(temp);

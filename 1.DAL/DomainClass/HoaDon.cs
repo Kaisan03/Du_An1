@@ -18,7 +18,7 @@ namespace _1.DAL.DomainClass
 
         [Key]
         [Column("id")]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         [Column("idKhachHang")]
         public Guid? IdKhachHang { get; set; }
         [Column("idNhanVien")]
@@ -50,7 +50,7 @@ namespace _1.DAL.DomainClass
         public DateTime? NgayNhanHang { get; set; }
         [Column(TypeName = "date")]
         public DateTime? NgayTraHang { get; set; }
-
+        
         [ForeignKey(nameof(IdKhachHang))]
         [InverseProperty(nameof(KhachHang.HoaDons))]
         public virtual KhachHang IdKhachHangNavigation { get; set; }

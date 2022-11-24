@@ -24,7 +24,7 @@ namespace _3.PL.Views
         private INhanVienService _Inhanvienservice;
         private IHoaDonService _ihoadonservice;
         private List<ViewHoaDon> _viewHoaDon;
-        private Guid _idhoadon;
+        private int _idhoadon;
 
         public FrmHoadon()
         {
@@ -56,12 +56,12 @@ namespace _3.PL.Views
             dgrid_view.Columns[13].Name = "Giảm GIá";
             dgrid_view.Columns[14].Name = "Trạng Thái";
             dgrid_view.Rows.Clear();
-            foreach (var x in _ihoadonservice.GetAll())
+            foreach (var x in _ihoadonservice.GetallHoadon())
             {
-                dgrid_view.Rows.Add(x.Id, x.Ma, x.khachhang, x.nhanvien, x.TenSp, x.TenNguoiNhan, x.NgayTao, x.NgayGiao, x.NgayThanhToan, x.NgayNhanHang, x.NgayTraHang, x.DiaChi, x.Sdt, x.GiamGia, x.TrangThai == 1 ? "Hoạt động":"Không hoạt động");
+               // dgrid_view.Rows.Add(x.Id, x.Ma, x.khachhang, x.nhanvien, x.TenSp, x.TenNguoiNhan, x.NgayTao, x.NgayGiao, x.NgayThanhToan, x.NgayNhanHang, x.NgayTraHang, x.DiaChi, x.Sdt, x.GiamGia, x.TrangThai == 1 ? "Chờ xử lý":"Hoàn thành");
                 //var kh = _Ikhachhangservice.GetAll().FirstOrDefault(c => c.Id == x.IdKhachHang);
                 //var nv = _Inhanvienservice.GetAllNhanVien().FirstOrDefault(c => c.Id == x.IdNhanVien);
-                //dgrid_view.Rows.Add(x.Id,x.Ma,kh.Ten,nv.Ten,x.TenSp,x.TenNguoiNhan,x.NgayTao,x.NgayGiao,x.NgayThanhToan,x.DiaChi,x.Sdt,x.GiamGia,x.TrangThai);
+                dgrid_view.Rows.Add(x.Id,x.Ma,x.IdKhachHang,x.IdNhanVien,x.TenSp,x.TenNguoiNhan,x.NgayTao,x.NgayGiao,x.NgayThanhToan,x.DiaChi,x.Sdt,x.GiamGia,x.TrangThai);
             };
 
         }
@@ -87,7 +87,7 @@ namespace _3.PL.Views
                 int rowindex = e.RowIndex;
                 if (rowindex == _ihoadonservice.GetallHoadon().Count) return;
                 DataGridViewRow r = dgrid_view.Rows[e.RowIndex];
-                _idhoadon = Guid.Parse(r.Cells[0].Value.ToString());
+                _idhoadon = Convert.ToInt16(r.Cells[0].Value.ToString());
                 var hd = _ihoadonservice.GetAll().FirstOrDefault(c => c.Id == _idhoadon);
                 tbx_ma.Text = r.Cells[1].Value.ToString();
                 cbx_khachhang.Text = r.Cells[2].Value.ToString();
@@ -109,9 +109,11 @@ namespace _3.PL.Views
         }
         public ViewHoaDon dataadd()
         {
+            int id1 = 0;
+            id1 += 1;
             return new ViewHoaDon()
             {
-                Id = Guid.NewGuid(),
+                Id = id1,
                 Ma = tbx_ma.Text,
                 TenSp = tbx_tensanpham.Text,
                 TenNguoiNhan = tbx_tennguoinhan.Text,

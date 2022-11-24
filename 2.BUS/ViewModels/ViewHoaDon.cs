@@ -9,7 +9,7 @@ namespace _2.BUS.ViewModels
 {
     public class ViewHoaDon
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public Guid? IdKhachHang { get; set; }
         public string khachhang { get; set; }
         public Guid? IdSanPham { get; set; }
