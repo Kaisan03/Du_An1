@@ -16,7 +16,7 @@ namespace _3.PL.Views
     {
         private IconButton _iconbuton;
         private Panel Leftboderbtn;
-        private Form _childform;
+       
         public FrmMain2()
         {
             InitializeComponent();
@@ -64,7 +64,7 @@ namespace _3.PL.Views
                 Leftboderbtn.BringToFront();
 
                 IconChange.IconChar = _iconbuton.IconChar;
-                IconChange.IconColor = color; 
+                IconChange.IconColor = color;
 
             }
 
@@ -73,66 +73,106 @@ namespace _3.PL.Views
         {
             if (_iconbuton != null)
             {
-                _iconbuton.BackColor = Color.FromArgb(31, 32, 71);
-                _iconbuton.ForeColor = Color.Gainsboro;
+                _iconbuton.BackColor = Color.FromArgb(192, 255, 255);
+                //_iconbuton.ForeColor = Color.Gainsboro;
                 _iconbuton.TextAlign = ContentAlignment.MiddleLeft;
-                _iconbuton.IconColor = Color.Gainsboro;
+                //_iconbuton.IconColor = Color.Gainsboro;
                 _iconbuton.TextImageRelation = TextImageRelation.ImageBeforeText;
                 _iconbuton.ImageAlign = ContentAlignment.MiddleLeft;
 
             }
         }
-        private void OpenChildForm(Form childform)
+        private Form currentFormChild;
+        private void OpenChildForm(Form formChild)
         {
-            if (_childform != null)
+            if (currentFormChild != null)
             {
-                _childform.Close();
+                currentFormChild.Close();
             }
-            _childform = childform;
-            childform.TopLevel = false;
-            childform.FormBorderStyle = FormBorderStyle.None;
-            childform.Dock = DockStyle.Fill;
-            panel_dektop.Controls.Add(childform);
-            panel_dektop.Tag = childform;
-            childform.BringToFront();
-            childform.Show();
-            lb_change.Text = childform.Text;
+            currentFormChild = formChild;
+            formChild.TopLevel = false;
+            formChild.FormBorderStyle = FormBorderStyle.None;
+            formChild.Dock = DockStyle.Fill;
+            panel_dektop.Controls.Add(formChild);
+            panel_dektop.Tag = formChild;
+            formChild.BringToFront();
+            formChild.Show();
         }
 
         private void btn_trangchu_Click(object sender, EventArgs e)
         {
             ActiveButton(sender, RGBColors.color1);
-            OpenChildForm(new FrmHoadon());
+            lb_change.Text = btn_trangchu.Text;
+            if (currentFormChild != null)
+            {
+                currentFormChild.Close();
+            }
         }
 
         private void btn_orders_Click(object sender, EventArgs e)
         {
+            lb_change.Text = btn_orders.Text;
             ActiveButton(sender, RGBColors.color2);
+            OpenChildForm(new FrmBanHang());
         }
 
         private void btn_sanpham_Click(object sender, EventArgs e)
         {
+            lb_change.Text = btn_sanpham.Text;
             ActiveButton(sender, RGBColors.color3);
+            OpenChildForm(new FrmSanPham());
         }
 
         private void btn_hoadon_Click(object sender, EventArgs e)
         {
+            lb_change.Text = btn_hoadon.Text;
             ActiveButton(sender, RGBColors.color4);
+            OpenChildForm(new FrmHoadon());
         }
 
         private void btn_tuychon_Click(object sender, EventArgs e)
         {
+            lb_change.Text = btn_tuychon.Text;
             ActiveButton(sender, RGBColors.color5);
+            if (iconButton1.Visible == true )
+            {
+                iconButton1.Visible = false;
+                iconButton2.Visible = false;
+                iconButton3.Visible = false;
+                iconButton4.Visible = false;
+                iconButton5.Visible = false;
+                iconButton6.Visible = false;
+                iconButton7.Visible = false;
+                iconButton8.Visible = false;
+                iconButton9.Visible = false;
+                iconButton10.Visible = false;
+                iconButton11.Visible = false;
+            }
+            else
+            {
+                iconButton1.Visible = true;
+                iconButton2.Visible = true;
+                iconButton3.Visible = true;
+                iconButton4.Visible = true;
+                iconButton5.Visible = true;
+                iconButton6.Visible = true;
+                iconButton7.Visible = true;
+                iconButton8.Visible = true;
+                iconButton9.Visible = true;
+                iconButton10.Visible = true;
+                iconButton11.Visible = true;
+            }
         }
 
         private void btn_caidat_Click(object sender, EventArgs e)
         {
+            lb_change.Text = btn_caidat.Text;
             ActiveButton(sender, RGBColors.color6);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            _childform.Close();
+            currentFormChild.Close();
             Reset();
         }
        
@@ -164,6 +204,169 @@ namespace _3.PL.Views
         private void timer1_Tick(object sender, EventArgs e)
         {
             txt_Time.Text = DateTime.Now.ToLongTimeString();
+        }
+
+        private void btn_image_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void panel_menu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            lb_change.Text = iconButton1.Text;
+            OpenChildForm(new FrmChiTietGiay());
+        }
+
+        private void iconButton2_Click(object sender, EventArgs e)
+        {
+            lb_change.Text = iconButton2.Text;
+            OpenChildForm(new FrmAnh());
+        }
+
+        private void iconButton3_Click(object sender, EventArgs e)
+        {
+            lb_change.Text = iconButton3.Text;
+            OpenChildForm(new FrmChatLieu());
+        }
+
+        private void iconButton4_Click(object sender, EventArgs e)
+        {
+            lb_change.Text = iconButton4.Text;
+            OpenChildForm(new FrmChucVu());
+        }
+
+        private void iconButton5_Click(object sender, EventArgs e)
+        {
+            lb_change.Text = iconButton5.Text;
+            OpenChildForm(new FrmDeGiay());
+        }
+
+        private void iconButton6_Click(object sender, EventArgs e)
+        {
+            lb_change.Text = iconButton6.Text;
+            OpenChildForm(new FrmKhachHang());
+        }
+
+        private void iconButton7_Click(object sender, EventArgs e)
+        {
+            lb_change.Text = iconButton7.Text;
+            OpenChildForm(new FrmKieuDang());
+        }
+        private void iconButton8_Click(object sender, EventArgs e)
+        {
+            lb_change.Text = iconButton8.Text;
+            OpenChildForm(new FrmMauSac());
+        }
+        private void iconButton9_Click(object sender, EventArgs e)
+        {
+            lb_change.Text = iconButton9.Text;
+            OpenChildForm(new FrmNhanVien());
+        }
+        private void iconButton10_Click(object sender, EventArgs e)
+        {
+            lb_change.Text = iconButton10.Text;
+            OpenChildForm(new FrmNhaSanXuat());
+        }
+        private void iconButton11_Click(object sender, EventArgs e)
+        {
+            lb_change.Text = iconButton11.Text;
+            OpenChildForm(new FrmSize());
+        }
+        private void iconButton1_MouseHover(object sender, EventArgs e)
+        {
+            iconButton1.BackColor = Color.FromArgb(255, 255, 192);
+        }
+        private void iconButton2_MouseHover(object sender, EventArgs e)
+        {
+            iconButton2.BackColor = Color.FromArgb(255, 255, 192);
+        }
+        private void iconButton3_MouseHover(object sender, EventArgs e)
+        {
+            iconButton3.BackColor = Color.FromArgb(255, 255, 192);
+        }
+        private void iconButton4_MouseHover(object sender, EventArgs e)
+        {
+            iconButton4.BackColor = Color.FromArgb(255, 255, 192);
+        }
+        private void iconButton5_MouseHover(object sender, EventArgs e)
+        {
+            iconButton5.BackColor = Color.FromArgb(255, 255, 192);
+        }
+        private void iconButton6_MouseHover(object sender, EventArgs e)
+        {
+            iconButton6.BackColor = Color.FromArgb(255, 255, 192);
+        }
+        private void iconButton7_MouseHover(object sender, EventArgs e)
+        {
+            iconButton7.BackColor = Color.FromArgb(255, 255, 192);
+        }
+        private void iconButton8_MouseHover(object sender, EventArgs e)
+        {
+            iconButton8.BackColor = Color.FromArgb(255, 255, 192);
+        }
+        private void iconButton9_MouseHover(object sender, EventArgs e)
+        {
+            iconButton9.BackColor = Color.FromArgb(255, 255, 192);
+        }
+        private void iconButton10_MouseHover(object sender, EventArgs e)
+        {
+            iconButton10.BackColor = Color.FromArgb(255, 255, 192);
+        }
+        private void iconButton11_MouseHover(object sender, EventArgs e)
+        {
+            iconButton11.BackColor = Color.FromArgb(255, 255, 192);
+        }
+
+        
+
+        private void iconButton1_MouseLeave(object sender, EventArgs e)
+        {
+            iconButton1.BackColor = Color.White;
+        }
+        private void iconButton2_MouseLeave(object sender, EventArgs e)
+        {
+            iconButton2.BackColor = Color.White;
+        }
+        private void iconButton3_MouseLeave(object sender, EventArgs e)
+        {
+            iconButton3.BackColor = Color.White;
+        }
+        private void iconButton4_MouseLeave(object sender, EventArgs e)
+        {
+            iconButton4.BackColor = Color.White;
+        }
+        private void iconButton5_MouseLeave(object sender, EventArgs e)
+        {
+            iconButton5.BackColor = Color.White;
+        }
+        private void iconButton6_MouseLeave(object sender, EventArgs e)
+        {
+            iconButton6.BackColor = Color.White;
+        }
+        private void iconButton7_MouseLeave(object sender, EventArgs e)
+        {
+            iconButton7.BackColor = Color.White;
+        }
+        private void iconButton8_MouseLeave(object sender, EventArgs e)
+        {
+            iconButton8.BackColor = Color.White;
+        }
+        private void iconButton9_MouseLeave(object sender, EventArgs e)
+        {
+            iconButton9.BackColor = Color.White;
+        }
+        private void iconButton10_MouseLeave(object sender, EventArgs e)
+        {
+            iconButton10.BackColor = Color.White;
+        }
+        private void iconButton11_MouseLeave(object sender, EventArgs e)
+        {
+            iconButton11.BackColor = Color.White;
         }
     }
 }
