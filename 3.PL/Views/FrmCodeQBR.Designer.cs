@@ -31,7 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btn_barcode = new System.Windows.Forms.Button();
             this.txt_barcode = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_qrcode = new System.Windows.Forms.TextBox();
             this.btn_qrcode = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -68,13 +68,13 @@
             this.txt_barcode.Size = new System.Drawing.Size(282, 31);
             this.txt_barcode.TabIndex = 2;
             // 
-            // textBox1
+            // txt_qrcode
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(140, 105);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(282, 31);
-            this.textBox1.TabIndex = 5;
+            this.txt_qrcode.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txt_qrcode.Location = new System.Drawing.Point(140, 105);
+            this.txt_qrcode.Name = "txt_qrcode";
+            this.txt_qrcode.Size = new System.Drawing.Size(282, 31);
+            this.txt_qrcode.TabIndex = 5;
             // 
             // btn_qrcode
             // 
@@ -124,7 +124,7 @@
             this.Controls.Add(this.btn_barcode);
             this.Controls.Add(this.btn_save);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_qrcode);
             this.Controls.Add(this.btn_qrcode);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txt_barcode);
@@ -143,7 +143,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_barcode;
         private System.Windows.Forms.TextBox txt_barcode;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_qrcode;
         private System.Windows.Forms.Button btn_qrcode;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;

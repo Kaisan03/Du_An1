@@ -27,17 +27,17 @@ namespace _3.PL.Views
         private void btn_barcode_Click(object sender, EventArgs e)
         {
             generrated = true;
-            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+           
             Zen.Barcode.Code128BarcodeDraw barcode = Zen.Barcode.BarcodeDrawFactory.Code128WithChecksum;
-            pictureBox1.Image = barcode.Draw(btn_barcode.Text, 200);
+            pictureBox1.Image = barcode.Draw(txt_barcode.Text, 200);
         }
 
         private void btn_qrcode_Click(object sender, EventArgs e)
         {
             generrated = true;
-            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+          
             Zen.Barcode.CodeQrBarcodeDraw qrcode = Zen.Barcode.BarcodeDrawFactory.CodeQr;
-            pictureBox1.Image = qrcode.Draw(btn_barcode.Text, 200);
+            pictureBox1.Image = qrcode.Draw(txt_qrcode.Text, 200);
         }
 
         private void btn_save_Click(object sender, EventArgs e)
