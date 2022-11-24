@@ -52,10 +52,12 @@ namespace _3.PL.Views
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.DarkTurquoise;
             this.groupBox2.Controls.Add(this.btn_Clear);
             this.groupBox2.Controls.Add(this.btn_Xoa);
             this.groupBox2.Controls.Add(this.btn_Sua);
             this.groupBox2.Controls.Add(this.btn_Them);
+            this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox2.Location = new System.Drawing.Point(610, 349);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(608, 257);
@@ -105,6 +107,7 @@ namespace _3.PL.Views
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Aquamarine;
             this.groupBox1.Controls.Add(this.txt_Ten);
             this.groupBox1.Controls.Add(this.txt_Ma);
             this.groupBox1.Controls.Add(this.cbx_KhongHD);
@@ -112,6 +115,7 @@ namespace _3.PL.Views
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(2, 349);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(587, 257);
@@ -138,7 +142,7 @@ namespace _3.PL.Views
             this.cbx_KhongHD.AutoSize = true;
             this.cbx_KhongHD.Location = new System.Drawing.Point(233, 193);
             this.cbx_KhongHD.Name = "cbx_KhongHD";
-            this.cbx_KhongHD.Size = new System.Drawing.Size(147, 24);
+            this.cbx_KhongHD.Size = new System.Drawing.Size(153, 24);
             this.cbx_KhongHD.TabIndex = 2;
             this.cbx_KhongHD.Text = "Không hoạt động";
             this.cbx_KhongHD.UseVisualStyleBackColor = true;
@@ -148,7 +152,7 @@ namespace _3.PL.Views
             this.cbx_HoatDong.AutoSize = true;
             this.cbx_HoatDong.Location = new System.Drawing.Point(233, 163);
             this.cbx_HoatDong.Name = "cbx_HoatDong";
-            this.cbx_HoatDong.Size = new System.Drawing.Size(103, 24);
+            this.cbx_HoatDong.Size = new System.Drawing.Size(105, 24);
             this.cbx_HoatDong.TabIndex = 2;
             this.cbx_HoatDong.Text = "Hoạt động";
             this.cbx_HoatDong.UseVisualStyleBackColor = true;
@@ -158,7 +162,7 @@ namespace _3.PL.Views
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(47, 164);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 20);
+            this.label3.Size = new System.Drawing.Size(84, 20);
             this.label3.TabIndex = 1;
             this.label3.Text = "Trạng thái:";
             // 
@@ -167,7 +171,7 @@ namespace _3.PL.Views
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(47, 104);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 20);
+            this.label2.Size = new System.Drawing.Size(38, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Tên:";
             // 
@@ -176,12 +180,14 @@ namespace _3.PL.Views
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(47, 49);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 20);
+            this.label1.Size = new System.Drawing.Size(35, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã:";
             // 
             // btn_TimKiem
             // 
+            this.btn_TimKiem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_TimKiem.ForeColor = System.Drawing.Color.Red;
             this.btn_TimKiem.Location = new System.Drawing.Point(1097, 297);
             this.btn_TimKiem.Name = "btn_TimKiem";
             this.btn_TimKiem.Size = new System.Drawing.Size(94, 29);
@@ -200,6 +206,7 @@ namespace _3.PL.Views
             // dgrid_ChucVu
             // 
             this.dgrid_ChucVu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgrid_ChucVu.BackgroundColor = System.Drawing.Color.White;
             this.dgrid_ChucVu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrid_ChucVu.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgrid_ChucVu.Location = new System.Drawing.Point(0, 0);

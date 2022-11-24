@@ -55,6 +55,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Aquamarine;
             this.groupBox1.Controls.Add(this.txt_ChieuCao);
             this.groupBox1.Controls.Add(this.txt_ChatLieu);
             this.groupBox1.Controls.Add(this.txt_Ten);
@@ -66,6 +67,7 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(-7, 336);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(601, 257);
@@ -106,7 +108,7 @@
             this.cbx_KhongHD.AutoSize = true;
             this.cbx_KhongHD.Location = new System.Drawing.Point(162, 233);
             this.cbx_KhongHD.Name = "cbx_KhongHD";
-            this.cbx_KhongHD.Size = new System.Drawing.Size(147, 24);
+            this.cbx_KhongHD.Size = new System.Drawing.Size(153, 24);
             this.cbx_KhongHD.TabIndex = 2;
             this.cbx_KhongHD.Text = "Không hoạt động";
             this.cbx_KhongHD.UseVisualStyleBackColor = true;
@@ -117,7 +119,7 @@
             this.cbx_HoatDong.AutoSize = true;
             this.cbx_HoatDong.Location = new System.Drawing.Point(162, 200);
             this.cbx_HoatDong.Name = "cbx_HoatDong";
-            this.cbx_HoatDong.Size = new System.Drawing.Size(103, 24);
+            this.cbx_HoatDong.Size = new System.Drawing.Size(105, 24);
             this.cbx_HoatDong.TabIndex = 2;
             this.cbx_HoatDong.Text = "Hoạt động";
             this.cbx_HoatDong.UseVisualStyleBackColor = true;
@@ -128,7 +130,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(49, 200);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 20);
+            this.label3.Size = new System.Drawing.Size(84, 20);
             this.label3.TabIndex = 1;
             this.label3.Text = "Trạng thái:";
             // 
@@ -137,7 +139,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(49, 163);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 20);
+            this.label5.Size = new System.Drawing.Size(80, 20);
             this.label5.TabIndex = 1;
             this.label5.Text = "Chiều cao:";
             // 
@@ -146,7 +148,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(49, 127);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 20);
+            this.label4.Size = new System.Drawing.Size(74, 20);
             this.label4.TabIndex = 1;
             this.label4.Text = "Chất liệu:";
             // 
@@ -155,7 +157,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(49, 83);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 20);
+            this.label2.Size = new System.Drawing.Size(38, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Tên:";
             // 
@@ -164,12 +166,14 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(49, 41);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 20);
+            this.label1.Size = new System.Drawing.Size(35, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã:";
             // 
             // btn_TimKiem
             // 
+            this.btn_TimKiem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_TimKiem.ForeColor = System.Drawing.Color.Red;
             this.btn_TimKiem.Location = new System.Drawing.Point(1144, 290);
             this.btn_TimKiem.Name = "btn_TimKiem";
             this.btn_TimKiem.Size = new System.Drawing.Size(94, 30);
@@ -188,6 +192,7 @@
             // dgrid_DeGiay
             // 
             this.dgrid_DeGiay.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgrid_DeGiay.BackgroundColor = System.Drawing.Color.White;
             this.dgrid_DeGiay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrid_DeGiay.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgrid_DeGiay.Location = new System.Drawing.Point(0, 0);
@@ -201,10 +206,12 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.DarkTurquoise;
             this.groupBox2.Controls.Add(this.btn_Clear);
             this.groupBox2.Controls.Add(this.btn_Xoa);
             this.groupBox2.Controls.Add(this.btn_Sua);
             this.groupBox2.Controls.Add(this.btn_Them);
+            this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox2.Location = new System.Drawing.Point(600, 336);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(659, 257);
