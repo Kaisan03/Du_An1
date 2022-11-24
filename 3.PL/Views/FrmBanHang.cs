@@ -25,6 +25,7 @@ namespace _3.PL.Views
         
         public ChiTietGiay _chiTietGiay;
         public List<HoaDonChiTiet> _hoaDonChiTiet;
+        public List<HoaDon> _hoaDon;
         public Guid _ctspId;
         public HoaDon _hoaDonCho;
         public List<ViewHoaDon> _ViewHoaDonList;
@@ -34,8 +35,8 @@ namespace _3.PL.Views
             InitializeComponent();
             _ISanPhamService = new SanPhamService();
             _IChiTietSPService = new ChiTietGiayService();
-           
-            _IHoaDonService = new HoaDonService();
+            _hoaDonChiTiet = new List<HoaDonChiTiet>();
+             _IHoaDonService = new HoaDonService();
             _IHoaDonCTService = new _2.BUS.Services.HoaDonChiTiet();
             //Gr_sanpham.Enabled = false;
             //Gr_giohang.Enabled = false;
@@ -81,7 +82,7 @@ namespace _3.PL.Views
             //column.Name = "txt_add";
             //column.UseColumnTextForButtonValue = true;
             //dgrid_GioHang.Columns.Add(column);
-            foreach (var x in _IHoaDonCTService.GetAllHoaDonCT())
+            foreach (var x in _hoaDonChiTiet)
             {
                 var ctsp = _IChiTietSPService.GetAllSPView().FirstOrDefault(c => c.ChiTietGiay.Id == x.IdChiTietGiay);
                 dgrid_GioHang.Rows.Add(
@@ -147,12 +148,10 @@ namespace _3.PL.Views
                 for (int i = 0; i < dgrid_SanPham.RowCount; i++)
                 {
 
-                    foreach (var x in _IChiTietSPService.GetAllSPView().OrderBy(c => c.SanPham.Ma).ToList())
-                    {
-                        Image img2 = Image.FromFile(x.Anh.DuongDan);
+                    var x = _IChiTietSPService.GetAllSPView().FirstOrDefault(c => c.SanPham.Ma== dgrid_SanPham.Rows[i].Cells["Mã"].Value);
+                 
+                        Image img2 = Image.FromFile(x.Anh.DuongDan.ToString());
                         dgrid_SanPham.Rows[i].Cells["img_anh"].Value = img2;
-
-                    }
 
                 }
             }
@@ -168,7 +167,7 @@ namespace _3.PL.Views
         public void AddGioHang(Guid id)
         {
             var sp = _IChiTietSPService.GetAllCTGiay().FirstOrDefault(c => c.Id == id);
-              var data = _IHoaDonCTService.GetAllHoaDonCT().FirstOrDefault(c => c.IdChiTietGiay == id);
+              var data = _hoaDonChiTiet.FirstOrDefault(c => c.IdChiTietGiay == id);
             
             if (sp.SoLuongTon <= 0)
             {
@@ -179,13 +178,14 @@ namespace _3.PL.Views
             {
                 HoaDonChiTiet hoaDonChiTiet = new HoaDonChiTiet()
                 {
-                    IdChiTietGiay = sp.Id,
+                    Id = Guid.NewGuid(),
+                    IdChiTietGiay = id,
                     DonGia = sp.GiaBan,
-                    //IdHoaDon = data.IdHoaDon,
+                   // IdHoaDon = data.IdHoaDon,
                     SoLuong = 1,
 
                 };
-                //_hoaDonChiTiet.Add(hoaDonChiTiet);
+                _hoaDonChiTiet.Add(hoaDonChiTiet);
                 }
             else
             {
@@ -196,13 +196,7 @@ namespace _3.PL.Views
         private void dgrid_SanPham_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             
-                if (e.RowIndex >= 0)
-                {
-                    DataGridViewRow r = dgrid_SanPham.Rows[e.RowIndex];
-                    _ctspId = _IChiTietSPService.GetAllSPView().FirstOrDefault(c => c.ChiTietGiay.Id == Guid.Parse(r.Cells[0].Value.ToString())).ChiTietGiay.Id;
-                    AddGioHang(_ctspId);
-                    return;
-                }
+                
                 
             }
             
@@ -213,13 +207,15 @@ namespace _3.PL.Views
             DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn tạo hóa đơn?", "Thông báo", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                int id11 = _IHoaDonService.GetallHoadon().Max(c => c.Id) + 1;
+                
+                int id11 = _IHoaDonService.GetallHoadon().Select(c=>c.Id).FirstOrDefault()+1;
                 var hoaDon = new ViewHoaDon()
                 {
                     Id = id11,
                     Ma = (_IHoaDonService.GetallHoadon().Count + 1).ToString(),
                     NgayTao = DateTime.Now,
-                    TrangThai = 1
+                    TrangThai = 1,
+                    
                 };
                 _IHoaDonService.Add(hoaDon);
                 MessageBox.Show("Tạo hóa đơn thành công");
@@ -374,6 +370,22 @@ namespace _3.PL.Views
         private void lbl_TongTien_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void dgrid_SanPham_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Bạn có muốn thêm sản phẩm vào giỏ hàng không", "Thông báo",MessageBoxButtons.YesNo);
+
+            if(dialogResult==DialogResult.Yes)
+            {
+                if (e.RowIndex >= 0)
+                {
+                DataGridViewRow r = dgrid_SanPham.Rows[e.RowIndex];
+                _ctspId = _IChiTietSPService.GetAllSPView().FirstOrDefault(c => c.ChiTietGiay.Id == Guid.Parse(r.Cells[0].Value.ToString())).ChiTietGiay.Id;
+                AddGioHang(_ctspId);
+                return;
+                }
+            }
         }
     }
 }
