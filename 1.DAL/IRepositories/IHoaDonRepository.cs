@@ -14,7 +14,7 @@ namespace _1.DAL.IRepositories
         bool Add(HoaDon obj);
         bool Update(HoaDon obj);
         bool Delete(HoaDon obj);
-        HoaDon GetAllById(Guid id);
+        HoaDon GetAllById(int id);
         List<HoaDon> GetAll();
     }
 }

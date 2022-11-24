@@ -36,9 +36,9 @@ namespace _1.DAL.Repositories
             return _dbContext.HoaDons.ToList();
         }
 
-        public HoaDon GetAllById(Guid id)
+        public HoaDon GetAllById(int  id)
         {
-            if (id == Guid.Empty) return null;
+            if (id == null) return null;
             return _dbContext.HoaDons.FirstOrDefault(c => c.Id == id);
         }
 

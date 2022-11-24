@@ -24,7 +24,7 @@ namespace _3.PL.Views
         private INhanVienService _Inhanvienservice;
         private IHoaDonService _ihoadonservice;
         private List<ViewHoaDon> _viewHoaDon;
-        private Guid _idhoadon;
+        private int _idhoadon;
 
         public FrmHoadon()
         {
@@ -87,7 +87,7 @@ namespace _3.PL.Views
                 int rowindex = e.RowIndex;
                 if (rowindex == _ihoadonservice.GetallHoadon().Count) return;
                 DataGridViewRow r = dgrid_view.Rows[e.RowIndex];
-                _idhoadon = Guid.Parse(r.Cells[0].Value.ToString());
+                _idhoadon = Convert.ToInt16(r.Cells[0].Value.ToString());
                 var hd = _ihoadonservice.GetAll().FirstOrDefault(c => c.Id == _idhoadon);
                 tbx_ma.Text = r.Cells[1].Value.ToString();
                 cbx_khachhang.Text = r.Cells[2].Value.ToString();
@@ -109,9 +109,11 @@ namespace _3.PL.Views
         }
         public ViewHoaDon dataadd()
         {
+            int id1 = 0;
+            id1 += 1;
             return new ViewHoaDon()
             {
-                Id = Guid.NewGuid(),
+                Id = id1,
                 Ma = tbx_ma.Text,
                 TenSp = tbx_tensanpham.Text,
                 TenNguoiNhan = tbx_tennguoinhan.Text,

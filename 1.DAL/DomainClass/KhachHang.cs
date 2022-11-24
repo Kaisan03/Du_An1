@@ -13,7 +13,7 @@ namespace _1.DAL.DomainClass
     {
         public KhachHang()
         {
-            GioHangs = new HashSet<GioHang>();
+            
             HoaDons = new HashSet<HoaDon>();
         }
 
@@ -38,8 +38,7 @@ namespace _1.DAL.DomainClass
         public string QuocGia { get; set; }
         public int? TrangThai { get; set; }
 
-        [InverseProperty(nameof(GioHang.IdKhachHangNavigation))]
-        public virtual ICollection<GioHang> GioHangs { get; set; }
+        
         [InverseProperty(nameof(HoaDon.IdKhachHangNavigation))]
         public virtual ICollection<HoaDon> HoaDons { get; set; }
     }
