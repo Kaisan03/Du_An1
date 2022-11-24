@@ -187,7 +187,7 @@ namespace _3.PL.Views
                         Id = Guid.NewGuid(),
                         Ma = dgrid_ChatLieu.Rows[rowIndex].Cells[1].Value.ToString(),
                         Ten = dgrid_ChatLieu.Rows[rowIndex].Cells[2].Value.ToString(),
-                        TrangThai = dgrid_ChatLieu.Rows[rowIndex].Cells[3].Value == "Không sử dụng" ? 1 : 0
+                        TrangThai = dgrid_ChatLieu.Rows[rowIndex].Cells[3].Value == "Không sử dụng" ? 0 : 1
                     };
                     _IChatLieuService.AddChatLieu(chatLieu);
                     LoadData();
@@ -207,7 +207,13 @@ namespace _3.PL.Views
                     x.Id == Guid.Parse(dgrid_ChatLieu.Rows[rowIndex].Cells[0].Value.ToString()));
                     chatlieu.Ma = dgrid_ChatLieu.Rows[rowIndex].Cells[1].Value.ToString();
                     chatlieu.Ten = dgrid_ChatLieu.Rows[rowIndex].Cells[2].Value.ToString();
-                    chatlieu.TrangThai = Convert.ToInt32(dgrid_ChatLieu.Rows[rowIndex].Cells[3].Value);
+                    if(dgrid_ChatLieu.Rows[rowIndex].Cells[3].Value == "Sử dụng" || Convert.ToInt32(dgrid_ChatLieu.Rows[rowIndex].Cells[3].Value) == 1)
+                    {
+                        chatlieu.TrangThai =1;
+                    }
+                    else chatlieu.TrangThai = 0;
+
+
 
 
                     _IChatLieuService.UpdateChatLieu(chatlieu);
