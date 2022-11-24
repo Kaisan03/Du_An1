@@ -51,7 +51,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.LightCoral;
+            this.groupBox1.BackColor = System.Drawing.Color.Aquamarine;
             this.groupBox1.Controls.Add(this.txt_Ten);
             this.groupBox1.Controls.Add(this.txt_Ma);
             this.groupBox1.Controls.Add(this.cbx_KhongHD);
@@ -133,7 +133,7 @@
             // dgrid_Size
             // 
             this.dgrid_Size.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgrid_Size.BackgroundColor = System.Drawing.Color.LightSalmon;
+            this.dgrid_Size.BackgroundColor = System.Drawing.Color.White;
             this.dgrid_Size.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrid_Size.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgrid_Size.Location = new System.Drawing.Point(0, 0);
@@ -149,7 +149,7 @@
             // 
             this.btn_TimKiem.BackColor = System.Drawing.Color.LavenderBlush;
             this.btn_TimKiem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_TimKiem.ForeColor = System.Drawing.Color.DarkOrchid;
+            this.btn_TimKiem.ForeColor = System.Drawing.Color.OrangeRed;
             this.btn_TimKiem.Location = new System.Drawing.Point(1123, 307);
             this.btn_TimKiem.Name = "btn_TimKiem";
             this.btn_TimKiem.Size = new System.Drawing.Size(94, 30);
@@ -167,7 +167,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.BackColor = System.Drawing.Color.Khaki;
+            this.groupBox2.BackColor = System.Drawing.Color.DarkTurquoise;
             this.groupBox2.Controls.Add(this.btn_Clear);
             this.groupBox2.Controls.Add(this.btn_Xoa);
             this.groupBox2.Controls.Add(this.btn_Sua);
@@ -182,7 +182,7 @@
             // 
             // btn_Clear
             // 
-            this.btn_Clear.BackColor = System.Drawing.Color.YellowGreen;
+            this.btn_Clear.BackColor = System.Drawing.Color.MintCream;
             this.btn_Clear.Location = new System.Drawing.Point(96, 175);
             this.btn_Clear.Name = "btn_Clear";
             this.btn_Clear.Size = new System.Drawing.Size(474, 38);
@@ -193,7 +193,7 @@
             // 
             // btn_Xoa
             // 
-            this.btn_Xoa.BackColor = System.Drawing.Color.YellowGreen;
+            this.btn_Xoa.BackColor = System.Drawing.Color.MintCream;
             this.btn_Xoa.Location = new System.Drawing.Point(96, 131);
             this.btn_Xoa.Name = "btn_Xoa";
             this.btn_Xoa.Size = new System.Drawing.Size(474, 38);
@@ -204,7 +204,7 @@
             // 
             // btn_Sua
             // 
-            this.btn_Sua.BackColor = System.Drawing.Color.YellowGreen;
+            this.btn_Sua.BackColor = System.Drawing.Color.Honeydew;
             this.btn_Sua.Location = new System.Drawing.Point(96, 87);
             this.btn_Sua.Name = "btn_Sua";
             this.btn_Sua.Size = new System.Drawing.Size(474, 38);
@@ -215,7 +215,7 @@
             // 
             // btn_Them
             // 
-            this.btn_Them.BackColor = System.Drawing.Color.YellowGreen;
+            this.btn_Them.BackColor = System.Drawing.Color.MintCream;
             this.btn_Them.Location = new System.Drawing.Point(96, 41);
             this.btn_Them.Name = "btn_Them";
             this.btn_Them.Size = new System.Drawing.Size(474, 38);

@@ -52,7 +52,7 @@
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupBox1.BackColor = System.Drawing.Color.PaleGreen;
+            this.groupBox1.BackColor = System.Drawing.Color.Aquamarine;
             this.groupBox1.Controls.Add(this.txt_Ten);
             this.groupBox1.Controls.Add(this.txt_Ma);
             this.groupBox1.Controls.Add(this.cbx_KhongHD);
@@ -135,7 +135,7 @@
             // dgrid_SanPham
             // 
             this.dgrid_SanPham.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgrid_SanPham.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgrid_SanPham.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgrid_SanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrid_SanPham.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgrid_SanPham.Location = new System.Drawing.Point(0, 0);
@@ -143,7 +143,7 @@
             this.dgrid_SanPham.RowHeadersWidth = 51;
             this.dgrid_SanPham.RowTemplate.Height = 29;
             this.dgrid_SanPham.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgrid_SanPham.Size = new System.Drawing.Size(1226, 274);
+            this.dgrid_SanPham.Size = new System.Drawing.Size(1227, 274);
             this.dgrid_SanPham.TabIndex = 20;
             this.dgrid_SanPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_SanPham_CellClick);
             // 
@@ -161,7 +161,7 @@
             // 
             // txt_TimKiem
             // 
-            this.txt_TimKiem.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txt_TimKiem.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txt_TimKiem.Location = new System.Drawing.Point(682, 307);
             this.txt_TimKiem.Name = "txt_TimKiem";
             this.txt_TimKiem.Size = new System.Drawing.Size(429, 27);
@@ -170,7 +170,7 @@
             // groupBox2
             // 
             this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupBox2.BackColor = System.Drawing.Color.LemonChiffon;
+            this.groupBox2.BackColor = System.Drawing.Color.DarkTurquoise;
             this.groupBox2.Controls.Add(this.btn_Clear);
             this.groupBox2.Controls.Add(this.btn_Xoa);
             this.groupBox2.Controls.Add(this.btn_Sua);
@@ -185,7 +185,7 @@
             // 
             // btn_Clear
             // 
-            this.btn_Clear.BackColor = System.Drawing.Color.Plum;
+            this.btn_Clear.BackColor = System.Drawing.Color.Transparent;
             this.btn_Clear.Location = new System.Drawing.Point(96, 175);
             this.btn_Clear.Name = "btn_Clear";
             this.btn_Clear.Size = new System.Drawing.Size(474, 38);
@@ -196,7 +196,7 @@
             // 
             // btn_Xoa
             // 
-            this.btn_Xoa.BackColor = System.Drawing.Color.Plum;
+            this.btn_Xoa.BackColor = System.Drawing.Color.Transparent;
             this.btn_Xoa.Location = new System.Drawing.Point(96, 131);
             this.btn_Xoa.Name = "btn_Xoa";
             this.btn_Xoa.Size = new System.Drawing.Size(474, 38);
@@ -207,7 +207,7 @@
             // 
             // btn_Sua
             // 
-            this.btn_Sua.BackColor = System.Drawing.Color.Plum;
+            this.btn_Sua.BackColor = System.Drawing.Color.Transparent;
             this.btn_Sua.Location = new System.Drawing.Point(96, 87);
             this.btn_Sua.Name = "btn_Sua";
             this.btn_Sua.Size = new System.Drawing.Size(474, 38);
@@ -218,7 +218,7 @@
             // 
             // btn_Them
             // 
-            this.btn_Them.BackColor = System.Drawing.Color.Plum;
+            this.btn_Them.BackColor = System.Drawing.Color.Transparent;
             this.btn_Them.Location = new System.Drawing.Point(96, 41);
             this.btn_Them.Name = "btn_Them";
             this.btn_Them.Size = new System.Drawing.Size(474, 38);
@@ -231,7 +231,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1226, 607);
+            this.ClientSize = new System.Drawing.Size(1227, 607);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgrid_SanPham);
             this.Controls.Add(this.btn_TimKiem);
