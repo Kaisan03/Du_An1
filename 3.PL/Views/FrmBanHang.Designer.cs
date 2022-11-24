@@ -37,23 +37,23 @@
             this.lbl_TongTien = new System.Windows.Forms.Label();
             this.lbl_MahoaDon = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.gr_thanhtoan = new System.Windows.Forms.GroupBox();
+            this.btn_TaoHoaDon = new System.Windows.Forms.Button();
+            this.Gr_hoadoncho = new System.Windows.Forms.GroupBox();
             this.dgrid_HoaDonCho = new System.Windows.Forms.DataGridView();
             this.dgrid_SanPham = new System.Windows.Forms.DataGridView();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btn_TaoHoaDon = new System.Windows.Forms.Button();
+            this.Gr_sanpham = new System.Windows.Forms.GroupBox();
             this.btn_XoaHet = new System.Windows.Forms.Button();
             this.btn_Xoa = new System.Windows.Forms.Button();
             this.dgrid_GioHang = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox4.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.Gr_giohang = new System.Windows.Forms.GroupBox();
+            this.gr_thanhtoan.SuspendLayout();
+            this.Gr_hoadoncho.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_HoaDonCho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_SanPham)).BeginInit();
-            this.groupBox2.SuspendLayout();
+            this.Gr_sanpham.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_GioHang)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.Gr_giohang.SuspendLayout();
             this.SuspendLayout();
             // 
             // txt_TienKhachDua
@@ -76,7 +76,7 @@
             // 
             // btn_ThanhToan
             // 
-            this.btn_ThanhToan.Location = new System.Drawing.Point(111, 135);
+            this.btn_ThanhToan.Location = new System.Drawing.Point(130, 135);
             this.btn_ThanhToan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_ThanhToan.Name = "btn_ThanhToan";
             this.btn_ThanhToan.Size = new System.Drawing.Size(82, 22);
@@ -120,6 +120,7 @@
             this.lbl_TongTien.Size = new System.Drawing.Size(16, 15);
             this.lbl_TongTien.TabIndex = 0;
             this.lbl_TongTien.Text = "...";
+            this.lbl_TongTien.Click += new System.EventHandler(this.lbl_TongTien_Click);
             // 
             // lbl_MahoaDon
             // 
@@ -139,37 +140,49 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã hóa đơn:";
             // 
-            // groupBox4
+            // gr_thanhtoan
             // 
-            this.groupBox4.Controls.Add(this.txt_TienKhachDua);
-            this.groupBox4.Controls.Add(this.label4);
-            this.groupBox4.Controls.Add(this.btn_ThanhToan);
-            this.groupBox4.Controls.Add(this.label3);
-            this.groupBox4.Controls.Add(this.label2);
-            this.groupBox4.Controls.Add(this.lbl_TienThua);
-            this.groupBox4.Controls.Add(this.lbl_TongTien);
-            this.groupBox4.Controls.Add(this.lbl_MahoaDon);
-            this.groupBox4.Controls.Add(this.label1);
-            this.groupBox4.Location = new System.Drawing.Point(801, 277);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox4.Size = new System.Drawing.Size(290, 161);
-            this.groupBox4.TabIndex = 7;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Thanh toán";
+            this.gr_thanhtoan.Controls.Add(this.btn_TaoHoaDon);
+            this.gr_thanhtoan.Controls.Add(this.txt_TienKhachDua);
+            this.gr_thanhtoan.Controls.Add(this.label4);
+            this.gr_thanhtoan.Controls.Add(this.btn_ThanhToan);
+            this.gr_thanhtoan.Controls.Add(this.label3);
+            this.gr_thanhtoan.Controls.Add(this.label2);
+            this.gr_thanhtoan.Controls.Add(this.lbl_TienThua);
+            this.gr_thanhtoan.Controls.Add(this.lbl_TongTien);
+            this.gr_thanhtoan.Controls.Add(this.lbl_MahoaDon);
+            this.gr_thanhtoan.Controls.Add(this.label1);
+            this.gr_thanhtoan.Location = new System.Drawing.Point(801, 359);
+            this.gr_thanhtoan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gr_thanhtoan.Name = "gr_thanhtoan";
+            this.gr_thanhtoan.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gr_thanhtoan.Size = new System.Drawing.Size(424, 286);
+            this.gr_thanhtoan.TabIndex = 7;
+            this.gr_thanhtoan.TabStop = false;
+            this.gr_thanhtoan.Text = "Thanh toán";
             // 
-            // groupBox3
+            // btn_TaoHoaDon
             // 
-            this.groupBox3.Controls.Add(this.dgrid_HoaDonCho);
-            this.groupBox3.Location = new System.Drawing.Point(801, 43);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox3.Size = new System.Drawing.Size(290, 210);
-            this.groupBox3.TabIndex = 6;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Hóa đơn chờ";
+            this.btn_TaoHoaDon.Location = new System.Drawing.Point(16, 135);
+            this.btn_TaoHoaDon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_TaoHoaDon.Name = "btn_TaoHoaDon";
+            this.btn_TaoHoaDon.Size = new System.Drawing.Size(100, 22);
+            this.btn_TaoHoaDon.TabIndex = 1;
+            this.btn_TaoHoaDon.Text = "Tạo hóa đơn";
+            this.btn_TaoHoaDon.UseVisualStyleBackColor = true;
+            this.btn_TaoHoaDon.Click += new System.EventHandler(this.btn_TaoHoaDon_Click);
+            // 
+            // Gr_hoadoncho
+            // 
+            this.Gr_hoadoncho.Controls.Add(this.dgrid_HoaDonCho);
+            this.Gr_hoadoncho.Location = new System.Drawing.Point(801, 35);
+            this.Gr_hoadoncho.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Gr_hoadoncho.Name = "Gr_hoadoncho";
+            this.Gr_hoadoncho.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Gr_hoadoncho.Size = new System.Drawing.Size(430, 320);
+            this.Gr_hoadoncho.TabIndex = 6;
+            this.Gr_hoadoncho.TabStop = false;
+            this.Gr_hoadoncho.Text = "Hóa đơn chờ";
             // 
             // dgrid_HoaDonCho
             // 
@@ -181,50 +194,40 @@
             this.dgrid_HoaDonCho.RowHeadersWidth = 51;
             this.dgrid_HoaDonCho.RowTemplate.Height = 29;
             this.dgrid_HoaDonCho.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgrid_HoaDonCho.Size = new System.Drawing.Size(280, 186);
+            this.dgrid_HoaDonCho.Size = new System.Drawing.Size(419, 291);
             this.dgrid_HoaDonCho.TabIndex = 0;
             this.dgrid_HoaDonCho.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_HoaDonCho_CellClick);
+            this.dgrid_HoaDonCho.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_HoaDonCho_CellContentClick);
             // 
             // dgrid_SanPham
             // 
             this.dgrid_SanPham.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgrid_SanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrid_SanPham.Location = new System.Drawing.Point(5, 10);
+            this.dgrid_SanPham.Location = new System.Drawing.Point(4, 28);
             this.dgrid_SanPham.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgrid_SanPham.Name = "dgrid_SanPham";
             this.dgrid_SanPham.RowHeadersWidth = 51;
             this.dgrid_SanPham.RowTemplate.Height = 29;
             this.dgrid_SanPham.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgrid_SanPham.Size = new System.Drawing.Size(728, 141);
+            this.dgrid_SanPham.Size = new System.Drawing.Size(728, 254);
             this.dgrid_SanPham.TabIndex = 0;
             this.dgrid_SanPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_SanPham_CellClick);
             // 
-            // groupBox2
+            // Gr_sanpham
             // 
-            this.groupBox2.Controls.Add(this.dgrid_SanPham);
-            this.groupBox2.Location = new System.Drawing.Point(47, 270);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(738, 169);
-            this.groupBox2.TabIndex = 5;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Sản phẩm";
-            // 
-            // btn_TaoHoaDon
-            // 
-            this.btn_TaoHoaDon.Location = new System.Drawing.Point(388, 188);
-            this.btn_TaoHoaDon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_TaoHoaDon.Name = "btn_TaoHoaDon";
-            this.btn_TaoHoaDon.Size = new System.Drawing.Size(100, 22);
-            this.btn_TaoHoaDon.TabIndex = 1;
-            this.btn_TaoHoaDon.Text = "Tạo hóa đơn";
-            this.btn_TaoHoaDon.UseVisualStyleBackColor = true;
-            this.btn_TaoHoaDon.Click += new System.EventHandler(this.btn_TaoHoaDon_Click);
+            this.Gr_sanpham.Controls.Add(this.dgrid_SanPham);
+            this.Gr_sanpham.Location = new System.Drawing.Point(47, 359);
+            this.Gr_sanpham.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Gr_sanpham.Name = "Gr_sanpham";
+            this.Gr_sanpham.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Gr_sanpham.Size = new System.Drawing.Size(738, 286);
+            this.Gr_sanpham.TabIndex = 5;
+            this.Gr_sanpham.TabStop = false;
+            this.Gr_sanpham.Text = "Sản phẩm";
             // 
             // btn_XoaHet
             // 
-            this.btn_XoaHet.Location = new System.Drawing.Point(267, 188);
+            this.btn_XoaHet.Location = new System.Drawing.Point(267, 289);
             this.btn_XoaHet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_XoaHet.Name = "btn_XoaHet";
             this.btn_XoaHet.Size = new System.Drawing.Size(82, 22);
@@ -235,7 +238,7 @@
             // 
             // btn_Xoa
             // 
-            this.btn_Xoa.Location = new System.Drawing.Point(145, 188);
+            this.btn_Xoa.Location = new System.Drawing.Point(145, 289);
             this.btn_Xoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Xoa.Name = "btn_Xoa";
             this.btn_Xoa.Size = new System.Drawing.Size(82, 22);
@@ -254,46 +257,45 @@
             this.dgrid_GioHang.RowHeadersWidth = 51;
             this.dgrid_GioHang.RowTemplate.Height = 29;
             this.dgrid_GioHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgrid_GioHang.Size = new System.Drawing.Size(718, 159);
+            this.dgrid_GioHang.Size = new System.Drawing.Size(718, 262);
             this.dgrid_GioHang.TabIndex = 0;
             this.dgrid_GioHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_GioHang_CellClick);
             // 
-            // groupBox1
+            // Gr_giohang
             // 
-            this.groupBox1.Controls.Add(this.btn_TaoHoaDon);
-            this.groupBox1.Controls.Add(this.btn_XoaHet);
-            this.groupBox1.Controls.Add(this.btn_Xoa);
-            this.groupBox1.Controls.Add(this.dgrid_GioHang);
-            this.groupBox1.Location = new System.Drawing.Point(47, 35);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(738, 218);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Giỏ hàng";
+            this.Gr_giohang.Controls.Add(this.btn_XoaHet);
+            this.Gr_giohang.Controls.Add(this.btn_Xoa);
+            this.Gr_giohang.Controls.Add(this.dgrid_GioHang);
+            this.Gr_giohang.Location = new System.Drawing.Point(47, 35);
+            this.Gr_giohang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Gr_giohang.Name = "Gr_giohang";
+            this.Gr_giohang.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Gr_giohang.Size = new System.Drawing.Size(738, 320);
+            this.Gr_giohang.TabIndex = 4;
+            this.Gr_giohang.TabStop = false;
+            this.Gr_giohang.Text = "Giỏ hàng";
             // 
             // FrmBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1138, 475);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(1306, 656);
+            this.Controls.Add(this.gr_thanhtoan);
+            this.Controls.Add(this.Gr_hoadoncho);
+            this.Controls.Add(this.Gr_sanpham);
+            this.Controls.Add(this.Gr_giohang);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmBanHang";
             this.Text = "FrmBanHang";
             this.Leave += new System.EventHandler(this.FrmBanHang_Leave);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
+            this.gr_thanhtoan.ResumeLayout(false);
+            this.gr_thanhtoan.PerformLayout();
+            this.Gr_hoadoncho.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_HoaDonCho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_SanPham)).EndInit();
-            this.groupBox2.ResumeLayout(false);
+            this.Gr_sanpham.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_GioHang)).EndInit();
-            this.groupBox1.ResumeLayout(false);
+            this.Gr_giohang.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -309,15 +311,15 @@
         private System.Windows.Forms.Label lbl_TongTien;
         private System.Windows.Forms.Label lbl_MahoaDon;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox gr_thanhtoan;
+        private System.Windows.Forms.GroupBox Gr_hoadoncho;
         private System.Windows.Forms.DataGridView dgrid_HoaDonCho;
         private System.Windows.Forms.DataGridView dgrid_SanPham;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox Gr_sanpham;
         private System.Windows.Forms.Button btn_TaoHoaDon;
         private System.Windows.Forms.Button btn_XoaHet;
         private System.Windows.Forms.Button btn_Xoa;
         private System.Windows.Forms.DataGridView dgrid_GioHang;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox Gr_giohang;
     }
 }

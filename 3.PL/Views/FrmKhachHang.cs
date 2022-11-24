@@ -52,7 +52,7 @@ namespace _3.PL.Views
             }
             foreach (var x in _lstKhachHang.OrderBy(c => c.Ma).ToList())
             {
-                dgridKhachHang.Rows.Add(x.Id, x.Ma,x.Ho,x.TenDem, x.Ten, x.NgaySinh, x.Sdt,x.DiaChi,x.QuocGia, x.TrangThai == 1 ? "Hoạt động" : "Không hoạt động");
+                dgridKhachHang.Rows.Add(x.Id, x.Ma,x.Ho,x.TenDem, x.Ten, x.NgaySinh, x.Sdt,x.DiaChi,x.QuocGia, x.TrangThai == 1 ? "Khách hàng Mới" : "Khách Hàng Thân Thiết");
             }
 
         }

@@ -26,6 +26,7 @@ namespace _3.PL.Views
         public GioHang _gioHang;
         public Guid _ctspId;
         public HoaDon _hoaDonCho;
+        public List<ViewHoaDon> _ViewHoaDonList;
         int? slt;
         public FrmBanHang()
         {
@@ -44,6 +45,8 @@ namespace _3.PL.Views
             {
                 Id = Guid.NewGuid(),
             };
+            Gr_giohang.Enabled = false;
+            Gr_sanpham.Enabled = false;
         }
         public void LoadHDcho()
         {
@@ -53,9 +56,9 @@ namespace _3.PL.Views
             dgrid_HoaDonCho.Columns[1].Name = "Mã";
             dgrid_HoaDonCho.Columns[2].Name = "Trạng thái";
             dgrid_HoaDonCho.Rows.Clear();
-            foreach (var x in _IHoaDonService.GetallHoadon().Where(c => c.TrangThai == 1).OrderBy(c=>c.Ma).ToList())
+            foreach (var x in _IHoaDonService.GetallHoadon())// .Where(c => c.TrangThai == 1).OrderBy(c => c.Ma).ToList()
             {
-                dgrid_HoaDonCho.Rows.Add(x.Id, x.Ma, x.TrangThai == 1 ? "Chưa thanh toán" : "Đã thanh toán");
+                dgrid_HoaDonCho.Rows.Add(x.Id, x.Ma, x.TrangThai == 1 ? "Chưa Sử Lý" : "Đã thanh toán");
             }
 
         }
@@ -75,15 +78,14 @@ namespace _3.PL.Views
             dgrid_GioHang.Columns[10].Name = "ID ctsp";
             dgrid_GioHang.Columns[10].Visible = false;
             dgrid_GioHang.Rows.Clear();
-            DataGridViewButtonColumn column = new DataGridViewButtonColumn();
-            column.HeaderText = "Add";
-            column.Text = "Add";
-            column.Name = "txt_add";
-            column.UseColumnTextForButtonValue = true;
-            dgrid_GioHang.Columns.Add(column);
+            //DataGridViewButtonColumn column = new DataGridViewButtonColumn();
+            //column.HeaderText = "Add";
+            //column.Text = "Add";
+            //column.Name = "txt_add";
+            //column.UseColumnTextForButtonValue = true;
+            //dgrid_GioHang.Columns.Add(column);
             foreach (var x in _lstGiohang)
             {
-
                 var ctsp = _IChiTietSPService.GetAllSPView().FirstOrDefault(c => c.ChiTietGiay.Id == x.IdChiTietGiay);
                 dgrid_GioHang.Rows.Add(
                     ctsp.SanPham.Ma,
@@ -117,14 +119,11 @@ namespace _3.PL.Views
             
             
             dgrid_SanPham.Rows.Clear();
-            
-            
             foreach (var x in _IChiTietSPService.GetAllSPView().OrderBy(c => c.SanPham.Ma).ToList())
             {
-                Image img2 = Image.FromFile(x.Anh.DuongDan);
-
-                
-                dgrid_SanPham.Rows.Add(x.ChiTietGiay.Id,
+               // Image img2 = Image.FromFile(x.Anh.DuongDan);
+                dgrid_SanPham.Rows.Add(
+                    x.ChiTietGiay.Id,
                     x.SanPham.Ma,
                     x.SanPham.Ten,
                     x.ChiTietGiay.SoLuongTon,
@@ -198,13 +197,25 @@ namespace _3.PL.Views
         }
         private void dgrid_SanPham_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            foreach (var x in _IChiTietSPService.GetViewChiTietGiay())
             {
-            DataGridViewRow r = dgrid_SanPham.Rows[e.RowIndex];
-            _ctspId = _IChiTietSPService.GetAllSPView().FirstOrDefault(c => c.ChiTietGiay.Id == Guid.Parse(r.Cells[0].Value.ToString())).ChiTietGiay.Id;
-                
-            AddGioHang(_ctspId);
+                x.SoLuong -= 1;
+                if (x.SoLuongTon == 0)
+                {
+                     MessageBox.Show("Sản Phẩm đã hết");
+                    return;
+                }
+                if (e.RowIndex >= 0)
+                {
+                    DataGridViewRow r = dgrid_SanPham.Rows[e.RowIndex];
+                    _ctspId = _IChiTietSPService.GetAllSPView().FirstOrDefault(c => c.ChiTietGiay.Id == Guid.Parse(r.Cells[0].Value.ToString())).ChiTietGiay.Id;
+
+                    AddGioHang(_ctspId);
+                    return;
+                }
+                LoadSanPham();
             }
+            
             
         }
         private void btn_TaoHoaDon_Click(object sender, EventArgs e)
@@ -213,56 +224,26 @@ namespace _3.PL.Views
             if (dialogResult == DialogResult.Yes)
             {
 
-                if (_lstGiohang.Any())
+                var hoaDon = new ViewHoaDon()
                 {
+                    Id = Guid.NewGuid(),
+                    Ma = (_IHoaDonService.GetallHoadon().Count + 1).ToString(),
                     
-                    var hoaDon = new ViewHoaDon()
-                    {
-                        Id = Guid.NewGuid(),
-                        Ma = (_IHoaDonService.GetallHoadon().Count + 1).ToString(),
-                        TrangThai = 1
-                    };
-                    _IHoaDonService.Add(hoaDon);
-                    foreach (var item in _lstGiohang)
-                    {
-                        var hdct = new _1.DAL.DomainClass.HoaDonChiTiet()
-                        {
-                            Id = Guid.NewGuid(),
-                            IdHoaDon = hoaDon.Id,
-                            IdChiTietGiay = item.IdChiTietGiay,
-                            SoLuong = item.SoLuong,
-                            DonGia = item.DonGia
-                        };
-                        
-                        var sp = _IChiTietSPService.GetAllCTGiay().FirstOrDefault(x => x.Id == item.IdChiTietGiay);
-                        if(item.SoLuong>sp.SoLuongTon)
-                        {
-                            MessageBox.Show("Số lượng sản phẩm không đủ");
-                            return;
-                        }
-                        else 
-                        {
-                            sp.SoLuongTon -= item.SoLuong;
-                            _IChiTietSPService.UpdateCTGiay2(sp);
-                            _IHoaDonCTService.Add(hdct);
-                        }
-                        
-                    }
-                    MessageBox.Show("Tạo hóa đơn thành công");
-                    _lstGiohang = new List<GioHangChiTiet>();
-                    LoadGioHang();
-                    LoadSanPham();
-                    LoadHDcho();
-                }
-                else
-                {
-                    MessageBox.Show("Chưa có sản phẩm trong giỏ hàng");
-                }
+                    TrangThai = 1
+                };
+                _IHoaDonService.Add(hoaDon);
+                MessageBox.Show("Tạo hóa đơn thành công");
+                _lstGiohang = new List<GioHangChiTiet>();
+                LoadGioHang();
+                LoadSanPham();
+                LoadHDcho();
             }
             if (dialogResult == DialogResult.No)
             {
                 return;
             }
+            Gr_sanpham.Enabled = true;
+            Gr_giohang.Enabled = true;
         }
 
         private void dgrid_GioHang_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -284,7 +265,6 @@ namespace _3.PL.Views
                 lbl_TongTien.Text = _IHoaDonCTService.GetAllHoaDonCT().Where(x => x.IdHoaDon == _hoaDonCho.Id).Sum(x => x.DonGia * x.SoLuong).ToString();
             }
         }
-
         private void txt_TienKhachDua_TextChanged(object sender, EventArgs e)
         {
             if (int.TryParse(txt_TienKhachDua.Text, out int x))
@@ -295,6 +275,44 @@ namespace _3.PL.Views
 
         private void btn_ThanhToan_Click(object sender, EventArgs e)
         {
+            if (_lstGiohang.Any())
+            {
+
+                foreach (var item in _lstGiohang)
+                {
+                    var hoaDon = new ViewHoaDon();
+                    var idhd = _IHoaDonService.GetallHoadon().Max(x => x.Id);
+
+                    var hdct = new _1.DAL.DomainClass.HoaDonChiTiet()
+                    {
+                        Id = Guid.NewGuid(),
+                        IdHoaDon = idhd,
+                        IdChiTietGiay = item.IdChiTietGiay,
+                        SoLuong = item.SoLuong,
+                        DonGia = item.DonGia
+                    };
+
+                    var sp = _IChiTietSPService.GetAllCTGiay().FirstOrDefault(x => x.Id == item.IdChiTietGiay);
+                    if (sp.SoLuongTon<=0)
+                    {
+                        MessageBox.Show("Số lượng sản phẩm không đủ");
+                        return;
+                    }
+                    else
+                    {
+                        sp.SoLuongTon -= item.SoLuong;
+                        _IChiTietSPService.UpdateCTGiay2(sp);
+                        _IHoaDonCTService.Add(hdct);
+                    }
+
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Chưa có sản phẩm trong giỏ hàng");
+            }
+            
             DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn thanh toán?", "Thông báo", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
@@ -356,6 +374,16 @@ namespace _3.PL.Views
         }
 
         private void FrmBanHang_Leave(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void dgrid_HoaDonCho_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void lbl_TongTien_Click(object sender, EventArgs e)
         {
             
         }
