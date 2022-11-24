@@ -72,12 +72,12 @@ namespace _3.PL.Views
                 cbx_khachhang.Items.Add(x.Ten);
 
             }
-            cbx_khachhang.SelectedIndex = 0;
+            //cbx_khachhang.SelectedIndex = 0;
             foreach (var x in _Inhanvienservice.GetAllNhanVien())
             {
                 cbx_nhanvien.Items.Add(x.Ten);
             }
-            cbx_nhanvien.SelectedIndex = 0;
+          //  cbx_nhanvien.SelectedIndex = 0;
         }
 
         private void dgrid_view_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -90,21 +90,21 @@ namespace _3.PL.Views
                 _idhoadon = Convert.ToInt16(r.Cells[0].Value.ToString());
                 var hd = _ihoadonservice.GetAll().FirstOrDefault(c => c.Id == _idhoadon);
                 tbx_ma.Text = r.Cells[1].Value.ToString();
-                cbx_khachhang.Text = r.Cells[2].Value.ToString();
-                //cbx_sanpham.Text = r.Cells[3].Value.ToString();
-                cbx_nhanvien.Text = r.Cells[3].Value.ToString();
-                tbx_tensanpham.Text = r.Cells[4].Value.ToString();
-                tbx_tennguoinhan.Text = r.Cells[5].Value.ToString();
-                date_ngaytao.Value = Convert.ToDateTime(r.Cells[6].Value);
-                date_ngaygiao.Value = Convert.ToDateTime(r.Cells[7].Value);
-                date_ngaythanhtoan.Value = Convert.ToDateTime(r.Cells[8].Value);
-                date_NgayNhan.Value = hd.NgayNhanHang.Value;
-                date_NgayTra.Value = hd.NgayTraHang.Value;
-                tbx_diachi.Text = r.Cells[11].Value.ToString();
-                tbx_sdt.Text = r.Cells[12].Value.ToString();
-                tbx_giamgia.Text = r.Cells[13].Value.ToString();
-                rbtn_hoatdong.Checked = hd.TrangThai == 1;
-                rbtn_khonghoatdong.Checked = hd.TrangThai == 0;
+                //cbx_khachhang.Text =  r.Cells[2].Value.ToString();
+                ////cbx_sanpham.Text = r.Cells[3].Value.ToString();
+                //cbx_nhanvien.Text = r.Cells[3].Value.ToString();
+                //tbx_tensanpham.Text = r.Cells[4].Value.ToString();
+                //tbx_tennguoinhan.Text = r.Cells[5].Value.ToString();
+                //date_ngaytao.Value = Convert.ToDateTime(r.Cells[6].Value);
+                //date_ngaygiao.Value = Convert.ToDateTime(r.Cells[7].Value);
+                //date_ngaythanhtoan.Value = Convert.ToDateTime(r.Cells[8].Value);
+                //date_NgayNhan.Value = hd.NgayNhanHang.Value;
+                //date_NgayTra.Value = hd.NgayTraHang.Value;
+                //tbx_diachi.Text = r.Cells[11].Value.ToString();
+                //tbx_sdt.Text = r.Cells[12].Value.ToString();
+                //tbx_giamgia.Text = r.Cells[13].Value.ToString();
+                //rbtn_hoatdong.Checked = hd.TrangThai == 1;
+                //rbtn_khonghoatdong.Checked = hd.TrangThai == 0;
             }
         }
         public ViewHoaDon dataadd()

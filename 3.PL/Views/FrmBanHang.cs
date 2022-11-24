@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HoaDonChiTiet = _1.DAL.DomainClass.HoaDonChiTiet;
 
 namespace _3.PL.Views
 {
@@ -23,7 +24,7 @@ namespace _3.PL.Views
         private IHoaDonChiTietService _IHoaDonCTService;
         
         public ChiTietGiay _chiTietGiay;
-       
+        public List<HoaDonChiTiet> _hoaDonChiTiet;
         public Guid _ctspId;
         public HoaDon _hoaDonCho;
         public List<ViewHoaDon> _ViewHoaDonList;
@@ -36,7 +37,8 @@ namespace _3.PL.Views
            
             _IHoaDonService = new HoaDonService();
             _IHoaDonCTService = new _2.BUS.Services.HoaDonChiTiet();
-            
+            //Gr_sanpham.Enabled = false;
+            //Gr_giohang.Enabled = false;
             LoadSanPham();
             LoadGioHang();
             LoadHDcho();
@@ -73,29 +75,29 @@ namespace _3.PL.Views
             dgrid_GioHang.Columns[10].Name = "ID ctsp";
             dgrid_GioHang.Columns[10].Visible = false;
             dgrid_GioHang.Rows.Clear();
-            //DataGridViewButtonColumn column = new DataGridViewButtonColumn();
+            DataGridViewButtonColumn column = new DataGridViewButtonColumn();
             //column.HeaderText = "Add";
             //column.Text = "Add";
             //column.Name = "txt_add";
             //column.UseColumnTextForButtonValue = true;
             //dgrid_GioHang.Columns.Add(column);
-            //foreach (var x in _lstGiohang)
-            //{
-            //    var ctsp = _IChiTietSPService.GetAllSPView().FirstOrDefault(c => c.ChiTietGiay.Id == x.IdChiTietGiay);
-            //    dgrid_GioHang.Rows.Add(
-            //        ctsp.SanPham.Ma,
-            //        ctsp.SanPham.Ten,
-            //        x.SoLuong,
-            //        x.DonGia,
-            //        x.SoLuong * x.DonGia,
-            //        ctsp.MauSac.Ten,
-            //        ctsp.KieuDang.Ten,
-            //        ctsp.Nsx.Ten,
-            //        ctsp.Size.Ten,
-            //        ctsp.DeGiay.Ten,
-            //        x.IdChiTietGiay
-            //        );
-            //}
+            foreach (var x in _IHoaDonCTService.GetAllHoaDonCT())
+            {
+                var ctsp = _IChiTietSPService.GetAllSPView().FirstOrDefault(c => c.ChiTietGiay.Id == x.IdChiTietGiay);
+                dgrid_GioHang.Rows.Add(
+                    ctsp.SanPham.Ma,
+                    ctsp.SanPham.Ten,
+                    x.SoLuong,
+                    x.DonGia,
+                    x.SoLuong * x.DonGia,
+                    ctsp.MauSac.Ten,
+                    ctsp.KieuDang.Ten,
+                    ctsp.Nsx.Ten,
+                    ctsp.Size.Ten,
+                    ctsp.DeGiay.Ten,
+                    x.IdChiTietGiay
+                    );
+            }
         }
         public void LoadSanPham()
         {
@@ -165,73 +167,73 @@ namespace _3.PL.Views
 
         public void AddGioHang(Guid id)
         {
-          //  var sp = _IChiTietSPService.GetAllCTGiay().FirstOrDefault(c => c.Id == id);
-          ////  var data = .FirstOrDefault(c => c.IdChiTietGiay == id);
-          //  if (sp.SoLuongTon <= 0)
-          //  {
-          //      MessageBox.Show("Số lượng hàng đã hết");
-          //  }
-          //  else
-          //  if (data == null)
-          //  {
-              
-          //  }
-          //  else
-          //  {
-          //      data.SoLuong++;
-          //  }
+            var sp = _IChiTietSPService.GetAllCTGiay().FirstOrDefault(c => c.Id == id);
+              var data = _IHoaDonCTService.GetAllHoaDonCT().FirstOrDefault(c => c.IdChiTietGiay == id);
             
+            if (sp.SoLuongTon <= 0)
+            {
+                MessageBox.Show("Số lượng hàng đã hết");
+            }
+            else
+            if (data == null)
+            {
+                HoaDonChiTiet hoaDonChiTiet = new HoaDonChiTiet()
+                {
+                    IdChiTietGiay = sp.Id,
+                    DonGia = sp.GiaBan,
+                    //IdHoaDon = data.IdHoaDon,
+                    SoLuong = 1,
+
+                };
+                //_hoaDonChiTiet.Add(hoaDonChiTiet);
+                }
+            else
+            {
+                data.SoLuong++;
+            }
             LoadGioHang();
         }
         private void dgrid_SanPham_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            foreach (var x in _IChiTietSPService.GetViewChiTietGiay())
-            {
-                x.SoLuong -= 1;
-                if (x.SoLuongTon == 0)
-                {
-                     MessageBox.Show("Sản Phẩm đã hết");
-                    return;
-                }
+            
                 if (e.RowIndex >= 0)
                 {
                     DataGridViewRow r = dgrid_SanPham.Rows[e.RowIndex];
                     _ctspId = _IChiTietSPService.GetAllSPView().FirstOrDefault(c => c.ChiTietGiay.Id == Guid.Parse(r.Cells[0].Value.ToString())).ChiTietGiay.Id;
-
                     AddGioHang(_ctspId);
                     return;
                 }
-                LoadSanPham();
+                
             }
             
             
-        }
+        
         private void btn_TaoHoaDon_Click(object sender, EventArgs e)
         {
-            //DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn tạo hóa đơn?", "Thông báo", MessageBoxButtons.YesNo);
-            //if (dialogResult == DialogResult.Yes)
-            //{
-
-            //    var hoaDon = new ViewHoaDon()
-            //    {
-            //        Id = Guid.NewGuid(),
-            //        Ma = (_IHoaDonService.GetallHoadon().Count + 1).ToString(),
-                    
-            //        TrangThai = 1
-            //    };
-            //    _IHoaDonService.Add(hoaDon);
-            //    MessageBox.Show("Tạo hóa đơn thành công");
-            //    _lstGiohang = new List<GioHangChiTiet>();
-            //    LoadGioHang();
-            //    LoadSanPham();
-            //    LoadHDcho();
-            //}
-            //if (dialogResult == DialogResult.No)
-            //{
-            //    return;
-            //}
-            //Gr_sanpham.Enabled = true;
-            //Gr_giohang.Enabled = true;
+            DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn tạo hóa đơn?", "Thông báo", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                int id11 = _IHoaDonService.GetallHoadon().Max(c => c.Id) + 1;
+                var hoaDon = new ViewHoaDon()
+                {
+                    Id = id11,
+                    Ma = (_IHoaDonService.GetallHoadon().Count + 1).ToString(),
+                    NgayTao = DateTime.Now,
+                    TrangThai = 1
+                };
+                _IHoaDonService.Add(hoaDon);
+                MessageBox.Show("Tạo hóa đơn thành công");
+               // _lstGiohang = new List<GioHangChiTiet>();
+                LoadGioHang();
+                LoadSanPham();
+                LoadHDcho();
+            }
+            if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+            Gr_sanpham.Enabled = true;
+            Gr_giohang.Enabled = true;
         }
 
         private void dgrid_GioHang_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -263,8 +265,6 @@ namespace _3.PL.Views
 
         private void btn_ThanhToan_Click(object sender, EventArgs e)
         {
-            //if (_lstGiohang.Any())
-            //{
 
             //    foreach (var item in _lstGiohang)
             //    {
@@ -281,7 +281,7 @@ namespace _3.PL.Views
             //        };
 
             //        var sp = _IChiTietSPService.GetAllCTGiay().FirstOrDefault(x => x.Id == item.IdChiTietGiay);
-            //        if (sp.SoLuongTon<=0)
+            //        if (sp.SoLuongTon <= 0)
             //        {
             //            MessageBox.Show("Số lượng sản phẩm không đủ");
             //            return;
@@ -300,7 +300,7 @@ namespace _3.PL.Views
             //{
             //    MessageBox.Show("Chưa có sản phẩm trong giỏ hàng");
             //}
-            
+
             //DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn thanh toán?", "Thông báo", MessageBoxButtons.YesNo);
             //if (dialogResult == DialogResult.Yes)
             //{
