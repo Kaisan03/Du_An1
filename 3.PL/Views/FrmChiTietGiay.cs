@@ -25,6 +25,7 @@ using iTextSharp.text.pdf;
 using iTextSharp.text;
 using iTextSharp.text.html.simpleparser;
 using Document = iTextSharp.text.Document;
+//using OfficeOpenXml.Core.ExcelPackage;
 
 namespace _3.PL.Views
 {
@@ -42,6 +43,7 @@ namespace _3.PL.Views
         private INhaSanXuatService _INsxService;
         private IAnhService _IAnhService;
         private Guid _idCTGiay;
+        SanPhamService sanPhams;
         public FrmChiTietGiay()
         {
             InitializeComponent();
@@ -55,6 +57,7 @@ namespace _3.PL.Views
             _IMauSacService = new MauSacService();
             _IChatLieuService = new ChatLieuService();
             _IAnhService = new AnhService();
+            
             LoadData();
             LoadComboBox();
             
@@ -71,39 +74,46 @@ namespace _3.PL.Views
         );
         private void LoadComboBox()
         {
-            foreach (var x in _ISanPhamService.GetAllSanPham())
+            var size1 = _ISanPhamService.GetAllSanPham().Select(c => c.Ten.ToString()).Distinct();
+            foreach (var x in size1)
             {
-                cmb_SanPham.Items.Add(x.Ten);
+              
+                cmb_SanPham.Items.Add(x);
             }
-            foreach (var x in _ISizeService.GetAllSize())
+            var size2 = _ISizeService.GetAllSize().Select(c => c.Ten.ToString()).Distinct();
+            foreach (var owner in size2)
             {
-                
-                cmb_TenSize.Items.Add(x.Ten);
-                
+                cmb_TenSize.Items.Add(owner);
             }
-            foreach (var x in _IDeGiayService.GetAllDeGiay())
+            var size3 = _IDeGiayService.GetAllDeGiay().Select(c => c.Ten.ToString()).Distinct();
+            foreach (var x in size3)
             {
-                cmb_LoaiDe.Items.Add(x.Ten);
+                cmb_LoaiDe.Items.Add(x);
             }
-            foreach (var x in _IKieuDangService.GetAllKieuDang())
+            var size4 = _IKieuDangService.GetAllKieuDang().Select(c => c.Ten.ToString()).Distinct();
+            foreach (var x in size4)
             {
-                cmb_KieuDang.Items.Add(x.Ten);
+                cmb_KieuDang.Items.Add(x);
             }
-            foreach (var x in _INsxService.GetAllNSX())
+            var size5 = _INsxService.GetAllNSX().Select(c => c.Ten.ToString()).Distinct();
+            foreach (var x in size5)
             {
-                cmb_Nsx.Items.Add(x.Ten);
+                cmb_Nsx.Items.Add(x);
             }
-            foreach (var x in _IMauSacService.GetAllMauSac())
+            var size6 = _IMauSacService.GetAllMauSac().Select(c => c.Ten.ToString()).Distinct();
+            foreach (var x in size6)
             {
-                cmb_MauSac.Items.Add(x.Ten);
+                cmb_MauSac.Items.Add(x);
             }
-            foreach (var x in _IChatLieuService.GetAllChatLieu())
+            var size7 = _IChatLieuService.GetAllChatLieu().Select(c => c.Ten.ToString()).Distinct();
+            foreach (var x in size7)
             {
-                cmb_ChatLieu.Items.Add(x.Ten);
+                cmb_ChatLieu.Items.Add(x);
             }
-            foreach (var x in _IAnhService.GetAllAnh())
+            var size8 = _IAnhService.GetAllAnh().Select(c => c.TenAnh.ToString()).Distinct();
+            foreach (var x in size8)
             {
-                cmb_Anh.Items.Add(x.DuongDan);
+                cmb_Anh.Items.Add(x);
             }
         }
         private void LoadData()
@@ -505,58 +515,61 @@ namespace _3.PL.Views
         }
         private void ImportExcel(string path)
         {
-            //using (var excelPackage = new ExcelPackage(new FileInfo(path)))
-            //{
-            //    ExcelWorksheet excelWorksheet = excelPackage.Workbook.Worksheets[0];
-            //    DataTable dataTable = new DataTable();
-            //    for (int i = excelWorksheet.Dimension.Start.Column; i <= excelWorksheet.Dimension.End.Column; i++)
-            //    {
-            //        dataTable.Columns.Add(excelWorksheet.Cells[1, i].Value.ToString());
-            //    }
-            //    for (int i = excelWorksheet.Dimension.Start.Row + 1; i <= excelWorksheet.Dimension.End.Row; i++)
-            //    {
-            //        List<string> listRow = new List<string>();
-            //        for (int j = excelWorksheet.Dimension.Start.Column; j <= excelWorksheet.Dimension.End.Column; j++)
-            //        {
-            //            listRow.Add(excelWorksheet.Cells[i, j].Value.ToString());
-            //        }
-            //        dataTable.Rows.Add(listRow.ToArray());
-            //    }
-            //    dgrid_ChiTietGiay.DataSource = dataTable;
-            //}
+            using (var excelPackage = new ExcelPackage(new FileInfo(path)))
+            {
+                ExcelWorksheet excelWorksheet = excelPackage.Workbook.Worksheets[0];
+                DataTable dataTable = new DataTable();
+                for (int i = excelWorksheet.Dimension.Start.Column; i <= excelWorksheet.Dimension.End.Column; i++)
+                {
+                    dataTable.Columns.Add(excelWorksheet.Cells[1, i].Value.ToString());
+                }
+                for (int i = excelWorksheet.Dimension.Start.Row + 1; i <= excelWorksheet.Dimension.End.Row; i++)
+                {
+                    List<string> listRow = new List<string>();
+                    for (int j = excelWorksheet.Dimension.Start.Column; j <= excelWorksheet.Dimension.End.Column; j++)
+                    {
+                        listRow.Add(excelWorksheet.Cells[i, j].Value.ToString());
+                    }
+                    dataTable.Rows.Add(listRow.ToArray());
+                }
+                dgrid_ChiTietGiay.DataSource = dataTable;
+            }
         }
 
         private void btn_NhapExcel_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Import file";
-            openFileDialog.Filter = "Excel (*.xlsx)|*.xlsx|Excel 2003 (*.xls)|*.xls";
-            var conn = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source='" + txt_TimKiem.Text + "';Extended Properties=Excel 12.0 Xml;");
-            conn.Open();
-            OleDbDataAdapter dataAdapter = new OleDbDataAdapter("Select * from[Sheet1$]", conn);
-            DataSet theSD = new DataSet();
-            DataTable dt = new DataTable();
-            dataAdapter.Fill(dt);
-            if (dt.Columns.Count != 22)
-            {
-                MessageBox.Show("Bạn Đã Chọn Sai File Để Thêm Số Lượng Lớn Sản Phẩm Số Cột Không Đáp Ứng Đúng Format", "Thông Báo");
-                txt_TimKiem.Text = "";
-                return;
-            }
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                try
-                {
-                    ImportExcel(openFileDialog.FileName);
-                    MessageBox.Show("OK");
-                }
-                catch (Exception ex)
-                {
+            //OpenFileDialog openFileDialog = new OpenFileDialog();
+            //openFileDialog.Title = "Import file";
+            //openFileDialog.Filter = "Excel Files|*.xls;*.xlsx;*.xlsm";
+            //openFileDialog.ShowDialog();
+            //var conn = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source='" + openFileDialog.FileName + "';Extended Properties=Excel 12.0 Xml;");
+            //conn.Open();
+            //OleDbDataAdapter dataAdapter = new OleDbDataAdapter("Select * from[Sheet1$]", conn);
+            //DataSet theSD = new DataSet();
+            //DataTable dt = new DataTable();
+            //dataAdapter.Fill(dt);
+            //dgrid_ChiTietGiay.DataSource = dt.DefaultView;
+            //if (dt.Columns.Count != 16)
+            //{
+            //    MessageBox.Show("Bạn Đã Chọn Sai File Để Thêm Số Lượng Lớn Sản Phẩm Số Cột Không Đáp Ứng Đúng Format", "Thông Báo");
+            //    txt_TimKiem.Text = "";
+            //    return;
+            //}
+            //if (openFileDialog.ShowDialog() == DialogResult.OK)
+            //{
+            //    try
+            //    {
+            //        ImportExcel(openFileDialog.FileName);
+            //        MessageBox.Show("OK");
+            //    }
+            //    catch (Exception ex)
+            //    {
 
-                    MessageBox.Show("Khong dc roi\n" + ex.Message);
-                }
-            }
-
+            //        MessageBox.Show("Khong dc roi\n" + ex.Message);
+            //    }
+            //}
+            FrmImportExcel frmImportExcel = new FrmImportExcel();
+            frmImportExcel.ShowDialog();
         }
 
         private void btn_Niem_Click(object sender, EventArgs e)

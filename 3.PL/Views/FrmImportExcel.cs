@@ -1,4 +1,8 @@
-﻿using System;
+﻿using _1.DAL.DomainClass;
+using _2.BUS.IServices;
+using _2.BUS.Services;
+using _2.BUS.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,9 +17,54 @@ namespace _3.PL.Views
 {
     public partial class FrmImportExcel : Form
     {
+        Anh anh;
+        ChatLieu chatLieu;
+        ChiTietGiay chiTietGiay;
+        ChucVu chucVu;
+        DeGiay deGiay;
+        HoaDon hoaDon;
+ 
+        MauSac mausac;
+        KieuDang kieuDang;
+        SanPham sp;
+        _1.DAL.DomainClass.Size size1;
+        IChatLieuService _ChatLieu;
+        IChiTietGiayService _ChiTietGiay;
+        IChucVuService _ChucVu;
+        IDeGiayService _DeGiay;
+        IHoaDonService _HoaDon;
+
+        IKieuDangService _KieuDang;
+        IMauSacService _MauSac;
+        ISanPhamService _SanPham;
+        INhaSanXuatService _Nsx;
+        IAnhService anhs;
+        ISizeService _Size;
+        AddChiTietSPView addChiTietSPView;
         public FrmImportExcel()
         {
             InitializeComponent();
+            _ChatLieu = new ChatLieuService();
+            _ChiTietGiay = new ChiTietGiayService();
+            _ChucVu = new ChucVuService();
+            _DeGiay = new DeGiayService();
+            _HoaDon = new HoaDonService();
+            _KieuDang = new KieuDangService();
+            _MauSac = new MauSacService();
+            _SanPham = new SanPhamService();
+            _Nsx = new NhaSanXuatService();
+            anhs = new AnhService();
+            _Size = new SizeService();
+            anh = new Anh();
+            chatLieu = new ChatLieu();
+            chucVu = new ChucVu();
+            deGiay = new DeGiay();
+            hoaDon = new HoaDon();
+            mausac = new MauSac();
+            kieuDang = new KieuDang();
+            addChiTietSPView = new AddChiTietSPView();
+            sp = new SanPham();
+            size1 = new _1.DAL.DomainClass.Size();
         }
 
         private void btn_OpenFile_Click(object sender, EventArgs e)
@@ -23,17 +72,13 @@ namespace _3.PL.Views
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Title = "Selecl file";
             openFileDialog.FileName = txt_TimKiem.Text;
-            openFileDialog.Filter = "Excel Sheet (*.xls)|*.xls|All Files(*.*)|*.*";
+            openFileDialog.Filter = "Excel Files| *.xls; *.xlsx; *.xlsm";
             openFileDialog.FilterIndex = 1;
             openFileDialog.RestoreDirectory = true;
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 txt_TimKiem.Text = openFileDialog.FileName;
             }
-        }
-
-        private void btn_Import_Click(object sender, EventArgs e)
-        {
             OleDbConnection oleDbConnection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source='" + txt_TimKiem.Text + "';Extended Properties=Excel 12.0 Xml;");
             oleDbConnection.Open();
             OleDbDataAdapter oleDbDataAdapter = new OleDbDataAdapter("Select * from[Sheet1$]", oleDbConnection);
@@ -42,5 +87,103 @@ namespace _3.PL.Views
             oleDbDataAdapter.Fill(dt);
             this.dgrid_AddExcel.DataSource = dt.DefaultView;
         }
-    }
+
+        private void btn_Import_Click(object sender, EventArgs e)
+        {
+
+            
+                for (int i = 0; i < dgrid_AddExcel.RowCount; i++)
+                {
+                    var Bu1 = new Anh()
+                    {
+                        Id = Guid.NewGuid(),
+                        DuongDan = @"D:\AnhDuAn1",
+                        MaAnh = $"MA{anhs.GetAllAnh().Count}",
+                        TenAnh = $"Anh{anhs.GetAllAnh().Count}",
+                        TrangThai = 1
+                    };
+                    anhs.AddAnh(Bu1);
+                    var Bu2 = new _1.DAL.DomainClass.Size()
+                    {
+                        Id = Guid.NewGuid(),
+                        Ma = $"S{_Size.GetAllSize().Count}",
+                        Ten = "40",
+                        TrangThai = 1
+                    };
+                    _Size.AddSize(Bu2);
+
+                    var Bu3 = new ChatLieu()
+                    {
+                        Id = Guid.NewGuid(),
+                        Ma = $"CL{_ChatLieu.GetAllChatLieu().Count}",
+                        Ten = "Da",
+                        TrangThai = 1
+                    };
+                    _ChatLieu.AddChatLieu(Bu3);
+                    var Bu4 = new MauSac()
+                    {
+                        Id = Guid.NewGuid(),
+                        Ma = $"MS{_MauSac.GetAllMauSac().Count}",
+                        Ten = "Trắng",
+                        TrangThai = 1
+                    };
+                    _MauSac.AddMauSac(Bu4);
+                    var Bu5 = new Nsx()
+                    {
+                        Id = Guid.NewGuid(),
+                        Ma = $"N{_Nsx.GetAllNSX().Count}",
+                        Ten = "Nike",
+                        TrangThai = 1
+                    };
+                    _Nsx.AddNSX(Bu5);
+                    var Bu6 = new DeGiay()
+                    {
+                        Id = Guid.NewGuid(),
+                        Ma = $"DG{_DeGiay.GetAllDeGiay().Count}",
+                        Ten = "Nhựa cao cấp",
+                        TrangThai = 1
+                    };
+                    _DeGiay.AddDeGiay(Bu6);
+                    var Bu7 = new SanPham()
+                    {
+                        Id = Guid.NewGuid(),
+                        Ma = $"SP{_SanPham.GetAllSanPham().Count}",
+                        Ten = "NIKE air1",
+                        TrangThai = 1
+                    };
+                    _SanPham.AddSanPham(Bu7);
+                    var Bu8 = new KieuDang()
+                    {
+                        Id = Guid.NewGuid(),
+                        Ma = $"KD{_KieuDang.GetAllKieuDang().Count}",
+                        Ten = "Đần đần",
+                        TrangThai = 1
+                    };
+                    _KieuDang.AddKieuDang(Bu8);
+                    var BuHet = new AddChiTietSPView()
+                    {
+                        IdSP = Bu7.Id,
+                        Ma = $"CT{_ChiTietGiay.GetAllCTGiay().Count}",
+                        IdNsx = Bu5.Id,
+                        IdMauSac = Bu4.Id,
+                        IdChatLieu = Bu3.Id,
+                        IdKieuDang = Bu8.Id,
+                        SoLuong = Convert.ToInt32(dgrid_AddExcel.Rows[i].Cells[11].Value.ToString()),
+                        GiaNhap = Convert.ToInt32(dgrid_AddExcel.Rows[i].Cells[9].Value.ToString()),
+                        GiaBan = Convert.ToInt32(dgrid_AddExcel.Rows[i].Cells[10].Value.ToString()),
+                        SoLuongTon = Convert.ToInt32(dgrid_AddExcel.Rows[i].Cells[12].Value.ToString()),
+                        TrangThai = Convert.ToInt32(dgrid_AddExcel.Rows[i].Cells[15].Value.ToString()),
+                        MoTa = dgrid_AddExcel.Rows[i].Cells[14].Value.ToString(),
+                        IdSize = Bu2.Id,
+                        IdDeGiay = Bu6.Id,
+                        IdAnh = Bu1.Id
+                    };
+                    _ChiTietGiay.AddCTGiay(BuHet);
+                }
+            
+           
+
+        }
+        }
+    
 }
