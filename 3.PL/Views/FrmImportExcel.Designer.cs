@@ -40,36 +40,40 @@
             // 
             this.dgrid_AddExcel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrid_AddExcel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgrid_AddExcel.Location = new System.Drawing.Point(0, 256);
+            this.dgrid_AddExcel.Location = new System.Drawing.Point(0, 192);
+            this.dgrid_AddExcel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgrid_AddExcel.Name = "dgrid_AddExcel";
             this.dgrid_AddExcel.RowHeadersWidth = 51;
             this.dgrid_AddExcel.RowTemplate.Height = 29;
-            this.dgrid_AddExcel.Size = new System.Drawing.Size(1020, 271);
+            this.dgrid_AddExcel.Size = new System.Drawing.Size(892, 203);
             this.dgrid_AddExcel.TabIndex = 0;
             // 
             // txt_TimKiem
             // 
             this.txt_TimKiem.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txt_TimKiem.Location = new System.Drawing.Point(0, 229);
+            this.txt_TimKiem.Location = new System.Drawing.Point(0, 169);
+            this.txt_TimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_TimKiem.Name = "txt_TimKiem";
-            this.txt_TimKiem.Size = new System.Drawing.Size(1020, 27);
+            this.txt_TimKiem.Size = new System.Drawing.Size(892, 23);
             this.txt_TimKiem.TabIndex = 1;
             // 
             // btn_OpenFile
             // 
-            this.btn_OpenFile.Location = new System.Drawing.Point(747, 101);
+            this.btn_OpenFile.Location = new System.Drawing.Point(654, 76);
+            this.btn_OpenFile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_OpenFile.Name = "btn_OpenFile";
-            this.btn_OpenFile.Size = new System.Drawing.Size(94, 29);
+            this.btn_OpenFile.Size = new System.Drawing.Size(82, 22);
             this.btn_OpenFile.TabIndex = 2;
             this.btn_OpenFile.Text = "Open";
             this.btn_OpenFile.UseVisualStyleBackColor = true;
-            this.btn_OpenFile.Click += new System.EventHandler(this.btn_OpenFile_Click);
+            this.btn_OpenFile.Click += new System.EventHandler(this.btn_OpenExcel_Click);
             // 
             // btn_Import
             // 
-            this.btn_Import.Location = new System.Drawing.Point(747, 163);
+            this.btn_Import.Location = new System.Drawing.Point(654, 122);
+            this.btn_Import.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Import.Name = "btn_Import";
-            this.btn_Import.Size = new System.Drawing.Size(94, 29);
+            this.btn_Import.Size = new System.Drawing.Size(82, 22);
             this.btn_Import.TabIndex = 2;
             this.btn_Import.Text = "Import";
             this.btn_Import.UseVisualStyleBackColor = true;
@@ -81,13 +85,14 @@
             // 
             // FrmImportExcel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1020, 527);
+            this.ClientSize = new System.Drawing.Size(892, 395);
             this.Controls.Add(this.btn_Import);
             this.Controls.Add(this.btn_OpenFile);
             this.Controls.Add(this.txt_TimKiem);
             this.Controls.Add(this.dgrid_AddExcel);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmImportExcel";
             this.Text = "FrmImportExcel";
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_AddExcel)).EndInit();

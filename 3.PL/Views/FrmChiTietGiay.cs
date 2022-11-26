@@ -144,6 +144,8 @@ namespace _3.PL.Views
             //}
             foreach (var x in _IChiTietGiayService.GetViewChiTietGiay().OrderBy(c => c.Ma).ToList())
             {
+                if (x.SoLuongTon > 0) x.TrangThai = 1;
+                else x.TrangThai = 0;
                 dgrid_ChiTietGiay.Rows.Add(x.Id,
                     x.TenSize,
                     x.TenMauSac,
@@ -159,8 +161,8 @@ namespace _3.PL.Views
                     x.SoLuongTon,
                     x.Anh,
                     x.MoTa,
-                    x.TrangThai == 1 ? "Còn hàng" : "Hết hàng"
-                    );
+                    x.TrangThai ==1? "Còn hàng": "Hết hàng"
+                    ) ;
             }
         }
         private void btn_Them_Click(object sender, EventArgs e)
@@ -234,18 +236,14 @@ namespace _3.PL.Views
 
         private void btn_Xoa_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn cập nhật lại trạng thái?", "Thông báo", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            DialogResult dialogResult = MessageBox.Show("Bạn có muốn cập nhật trạng thái không?", "Thông báo", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.OK)
             {
-                _IChiTietGiayService.DeleteCTGiay(_idCTGiay);
-                FrmThongBao frmThongBao = new FrmThongBao();
-                frmThongBao.ShowDialog();
+               
+
                 LoadData();
             }
-            if (dialogResult == DialogResult.No)
-            {
-                return;
-            }
+           
         }
 
         private void btn_Clear_Click(object sender, EventArgs e)
@@ -289,6 +287,9 @@ namespace _3.PL.Views
                 txt_SoLuongTon.Text = sp.SoLuongTon.ToString();
                 cmb_Anh.Text = r.Cells[13].Value.ToString();
                 txt_moTa.Text = sp.MoTa;
+                if (Convert.ToInt32(r.Cells[12].Value) > 0) sp.TrangThai=1;
+                else sp.TrangThai=0;
+                
                 cbx_HoatDong.Checked = sp.TrangThai == 1;
                 cbx_khongHD.Checked = sp.TrangThai == 0;
                 pic_ImageGiay.ImageLocation = cmb_Anh.Text;
@@ -300,6 +301,10 @@ namespace _3.PL.Views
             {
                 cbx_khongHD.Checked = false;
             }
+            else
+            {
+                cbx_khongHD.Checked = true;
+            }
         }
 
         private void cbx_khongHD_CheckedChanged(object sender, EventArgs e)
@@ -307,6 +312,10 @@ namespace _3.PL.Views
             if (cbx_khongHD.Checked)
             {
                 cbx_HoatDong.Checked = false;
+            }
+            else
+            {
+                cbx_HoatDong.Checked = true;
             }
         }
         private void FrmChiTietGiay_Load_1(object sender, EventArgs e)
@@ -367,9 +376,9 @@ namespace _3.PL.Views
             btn_Sua.Anchor = AnchorStyles.None;
             btn_Sua.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_Sua.Width,
             btn_Sua.Height, 35, 30));
-            btn_Xoa.Anchor = AnchorStyles.None;
-            btn_Xoa.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_Xoa.Width,
-            btn_Xoa.Height, 35, 30));
+            //btn_Xoa.Anchor = AnchorStyles.None;
+            //btn_Xoa.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_Xoa.Width,
+            //btn_Xoa.Height, 35, 30));
         }
         private void LoadData_timKiem(string txt)
         {
@@ -679,6 +688,19 @@ namespace _3.PL.Views
 
                 return;
             }
+        }
+
+        private void txt_SoLuongTon_TextChanged(object sender, EventArgs e)
+        {
+            //if(Convert.ToInt32(txt_NgayBan.Text) > 0)
+            //{
+            //    cbx_HoatDong.Checked = true;
+            //    cbx_khongHD.Checked = false;
+            //}
+            //else {
+            //    cbx_HoatDong.Checked = false;
+            //    cbx_khongHD.Checked = true;
+            //}
         }
     }
 }

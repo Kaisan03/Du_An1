@@ -12,6 +12,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
+using System.IO;
+using OfficeOpenXml;
+using LicenseContext = OfficeOpenXml.LicenseContext;
 
 namespace _3.PL.Views
 {
@@ -67,26 +71,26 @@ namespace _3.PL.Views
             size1 = new _1.DAL.DomainClass.Size();
         }
 
-        private void btn_OpenFile_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Selecl file";
-            openFileDialog.FileName = txt_TimKiem.Text;
-            openFileDialog.Filter = "Excel Files| *.xls; *.xlsx; *.xlsm";
-            openFileDialog.FilterIndex = 1;
-            openFileDialog.RestoreDirectory = true;
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                txt_TimKiem.Text = openFileDialog.FileName;
-            }
-            OleDbConnection oleDbConnection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source='" + txt_TimKiem.Text + "';Extended Properties=Excel 12.0 Xml;");
-            oleDbConnection.Open();
-            OleDbDataAdapter oleDbDataAdapter = new OleDbDataAdapter("Select * from[Sheet1$]", oleDbConnection);
-            DataSet theSd = new DataSet();
-            DataTable dt = new DataTable();
-            oleDbDataAdapter.Fill(dt);
-            this.dgrid_AddExcel.DataSource = dt.DefaultView;
-        }
+        //private void btn_OpenFile_Click(object sender, EventArgs e)
+        //{
+            //OpenFileDialog openFileDialog = new OpenFileDialog();
+            //openFileDialog.Title = "Selecl file";
+            //openFileDialog.FileName = txt_TimKiem.Text;
+            //openFileDialog.Filter = "Excel Files| *.xls; *.xlsx; *.xlsm";
+            //openFileDialog.FilterIndex = 1;
+            //openFileDialog.RestoreDirectory = true;
+            //if (openFileDialog.ShowDialog() == DialogResult.OK)
+            //{
+            //    txt_TimKiem.Text = openFileDialog.FileName;
+            //}
+            //OleDbConnection oleDbConnection = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source='" + txt_TimKiem.Text + "';Extended Properties=Excel 12.0 Xml;");
+            //oleDbConnection.Open();
+            //OleDbDataAdapter oleDbDataAdapter = new OleDbDataAdapter("Select * from[Sheet1$]", oleDbConnection);
+            //DataSet theSd = new DataSet();
+            //DataTable dt = new DataTable();
+            //oleDbDataAdapter.Fill(dt);
+            //this.dgrid_AddExcel.DataSource = dt.DefaultView;
+        //}
 
         private void btn_Import_Click(object sender, EventArgs e)
         {
@@ -168,11 +172,11 @@ namespace _3.PL.Views
                         IdMauSac = Bu4.Id,
                         IdChatLieu = Bu3.Id,
                         IdKieuDang = Bu8.Id,
-                        SoLuong = Convert.ToInt32(dgrid_AddExcel.Rows[i].Cells[11].Value.ToString()),
-                        GiaNhap = Convert.ToInt32(dgrid_AddExcel.Rows[i].Cells[9].Value.ToString()),
-                        GiaBan = Convert.ToInt32(dgrid_AddExcel.Rows[i].Cells[10].Value.ToString()),
-                        SoLuongTon = Convert.ToInt32(dgrid_AddExcel.Rows[i].Cells[12].Value.ToString()),
-                        TrangThai = Convert.ToInt32(dgrid_AddExcel.Rows[i].Cells[15].Value.ToString()),
+                        SoLuong = Convert.ToInt32(dgrid_AddExcel.Rows[i].Cells[11].Value),
+                        GiaNhap = Convert.ToInt32(dgrid_AddExcel.Rows[i].Cells[9].Value),
+                        GiaBan = Convert.ToInt32(dgrid_AddExcel.Rows[i].Cells[10].Value),
+                        SoLuongTon = Convert.ToInt32(dgrid_AddExcel.Rows[i].Cells[12].Value),
+                        TrangThai = Convert.ToInt32(dgrid_AddExcel.Rows[i].Cells[15].Value),
                         MoTa = dgrid_AddExcel.Rows[i].Cells[14].Value.ToString(),
                         IdSize = Bu2.Id,
                         IdDeGiay = Bu6.Id,
@@ -184,6 +188,89 @@ namespace _3.PL.Views
            
 
         }
+        #region Xuất file excel
+        //Xuất file excel
+        private void ExportExcel(string path)
+        {
+            Excel.Application application = new Excel.Application();
+            application.Application.Workbooks.Add(Type.Missing);
+            for (int i = 0; i < dgrid_AddExcel.Columns.Count; i++)
+            {
+                application.Cells[1, i + 1] = dgrid_AddExcel.Columns[i].HeaderText;
+            }
+            for (int i = 0; i < dgrid_AddExcel.RowCount; i++)
+            {
+                for (int j = 0; j < dgrid_AddExcel.Columns.Count; j++)
+                {
+                    application.Cells[i+2, j + 1] = dgrid_AddExcel.Rows[i].Cells[j].Value;
+                }
+            }
+            application.Columns.AutoFit();
+            application.ActiveWorkbook.SaveCopyAs(path);
+            application.ActiveWorkbook.Saved = true;
         }
+        private void btn_Export_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "Export Excel";
+            saveFileDialog.Filter = "Excel (*.xlsx)|.xlsx|Excel 2003 (*.xls)|*.xls";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK) 
+            {
+                try
+                {
+                    ExportExcel(saveFileDialog.FileName);
+                    MessageBox.Show("Xuất file thành công!");
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Ngu thì chết!");
+                }
+            }
+        }
+        #endregion
+        private void ImportExcel(string path)
+        {
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+            using (var excelPackage = new ExcelPackage(new FileInfo(path)))
+            {
+                ExcelWorksheet excelWorksheet = excelPackage.Workbook.Worksheets[0];
+                DataTable dataTable = new DataTable();
+                for (int i = excelWorksheet.Dimension.Start.Column;i<= excelWorksheet.Dimension.End.Column;i++)
+                {
+                    dataTable.Columns.Add(excelWorksheet.Cells[1, i].Value.ToString());
+                }
+                for(int i = excelWorksheet.Dimension.Start.Row+1; i <= excelWorksheet.Dimension.End.Row; i++)
+                {
+                    List<string> lstRows = new List<string>();
+                    for(int j = excelWorksheet.Dimension.Start.Column; j <= excelWorksheet.Dimension.End.Column; j++)
+                    {
+                        lstRows.Add(excelWorksheet.Cells[i, j].Value.ToString());
+                    }
+                    dataTable.Rows.Add(lstRows.ToArray());
+                    
+                }
+                dgrid_AddExcel.DataSource = dataTable;
+            };
+        }
+        private void btn_OpenExcel_Click(object sender, EventArgs e)
+        {
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Export Excel";
+            openFileDialog.Filter = "Excel (*.xlsx)| *.xls; *.xlsx; *.xlsm | Excel 2003 (*.xls)|*.xls";
+            openFileDialog.RestoreDirectory = true;
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                txt_TimKiem.Text = openFileDialog.FileName.ToString();
+                
+                    ImportExcel(txt_TimKiem.Text);
+                    MessageBox.Show("Import file thành công!");
+                
+               
+            }
+        }
+    }
     
 }
