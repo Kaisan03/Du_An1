@@ -44,11 +44,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pic_Images = new System.Windows.Forms.PictureBox();
             this.btn_fileName = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dgrid_Anh = new System.Windows.Forms.DataGridView();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Images)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_Anh)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,6 +80,7 @@
             this.txt_duongDan.Name = "txt_duongDan";
             this.txt_duongDan.Size = new System.Drawing.Size(286, 27);
             this.txt_duongDan.TabIndex = 3;
+            this.txt_duongDan.TextChanged += new System.EventHandler(this.txt_duongDan_TextChanged);
             // 
             // txt_Ten
             // 
@@ -199,6 +202,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Aquamarine;
+            this.groupBox1.Controls.Add(this.pic_Images);
             this.groupBox1.Controls.Add(this.btn_fileName);
             this.groupBox1.Controls.Add(this.txt_duongDan);
             this.groupBox1.Controls.Add(this.txt_Ten);
@@ -217,9 +221,21 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin ảnh";
             // 
+            // pic_Images
+            // 
+            this.pic_Images.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pic_Images.Location = new System.Drawing.Point(399, 157);
+            this.pic_Images.Name = "pic_Images";
+            this.pic_Images.Size = new System.Drawing.Size(148, 94);
+            this.pic_Images.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_Images.TabIndex = 5;
+            this.pic_Images.TabStop = false;
+            this.pic_Images.DragDrop += new System.Windows.Forms.DragEventHandler(this.pic_Images_DragDrop);
+            this.pic_Images.DragEnter += new System.Windows.Forms.DragEventHandler(this.pic_Images_DragEnter);
+            // 
             // btn_fileName
             // 
-            this.btn_fileName.Location = new System.Drawing.Point(456, 127);
+            this.btn_fileName.Location = new System.Drawing.Point(489, 122);
             this.btn_fileName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_fileName.Name = "btn_fileName";
             this.btn_fileName.Size = new System.Drawing.Size(86, 31);
@@ -263,10 +279,13 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgrid_Anh);
             this.Name = "FrmAnh";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmAnh";
+            this.Load += new System.EventHandler(this.FrmAnh_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Images)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_Anh)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -294,5 +313,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgrid_Anh;
         private System.Windows.Forms.Button btn_fileName;
+        private System.Windows.Forms.PictureBox pic_Images;
     }
 }

@@ -15,6 +15,16 @@ using System.Windows.Forms;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 using _1.DAL.DomainClass;
+using System.Data.OleDb;
+using OfficeOpenXml;
+using Excel = Microsoft.Office.Interop.Excel;
+using System.Drawing.Printing;
+using System.Reflection.Metadata;
+using ZXing.OneD;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
+using iTextSharp.text.html.simpleparser;
+using Document = iTextSharp.text.Document;
 
 namespace _3.PL.Views
 {
@@ -291,9 +301,9 @@ namespace _3.PL.Views
         }
         private void FrmChiTietGiay_Load_1(object sender, EventArgs e)
         {
-            groupBox1.Location = new Point(
-            this.ClientSize.Width /10 - groupBox1.Size.Width/7 ,
-            this.ClientSize.Height  - groupBox1.Size.Height );
+            //groupBox1.Location = new Point(
+            //this.ClientSize.Width /10 - groupBox1.Size.Width/7 ,
+            //this.ClientSize.Height  - groupBox1.Size.Height );
             groupBox1.Anchor = AnchorStyles.None;
             groupBox1.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, groupBox1.Width,
             groupBox1.Height, 30, 30));
@@ -492,6 +502,170 @@ namespace _3.PL.Views
             frmAnh.ShowDialog();
             cmb_Anh.Items.Clear();
             LoadComboBox();
+        }
+        private void ImportExcel(string path)
+        {
+            //using (var excelPackage = new ExcelPackage(new FileInfo(path)))
+            //{
+            //    ExcelWorksheet excelWorksheet = excelPackage.Workbook.Worksheets[0];
+            //    DataTable dataTable = new DataTable();
+            //    for (int i = excelWorksheet.Dimension.Start.Column; i <= excelWorksheet.Dimension.End.Column; i++)
+            //    {
+            //        dataTable.Columns.Add(excelWorksheet.Cells[1, i].Value.ToString());
+            //    }
+            //    for (int i = excelWorksheet.Dimension.Start.Row + 1; i <= excelWorksheet.Dimension.End.Row; i++)
+            //    {
+            //        List<string> listRow = new List<string>();
+            //        for (int j = excelWorksheet.Dimension.Start.Column; j <= excelWorksheet.Dimension.End.Column; j++)
+            //        {
+            //            listRow.Add(excelWorksheet.Cells[i, j].Value.ToString());
+            //        }
+            //        dataTable.Rows.Add(listRow.ToArray());
+            //    }
+            //    dgrid_ChiTietGiay.DataSource = dataTable;
+            //}
+        }
+
+        private void btn_NhapExcel_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Import file";
+            openFileDialog.Filter = "Excel (*.xlsx)|*.xlsx|Excel 2003 (*.xls)|*.xls";
+            var conn = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source='" + txt_TimKiem.Text + "';Extended Properties=Excel 12.0 Xml;");
+            conn.Open();
+            OleDbDataAdapter dataAdapter = new OleDbDataAdapter("Select * from[Sheet1$]", conn);
+            DataSet theSD = new DataSet();
+            DataTable dt = new DataTable();
+            dataAdapter.Fill(dt);
+            if (dt.Columns.Count != 22)
+            {
+                MessageBox.Show("Bạn Đã Chọn Sai File Để Thêm Số Lượng Lớn Sản Phẩm Số Cột Không Đáp Ứng Đúng Format", "Thông Báo");
+                txt_TimKiem.Text = "";
+                return;
+            }
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    ImportExcel(openFileDialog.FileName);
+                    MessageBox.Show("OK");
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("Khong dc roi\n" + ex.Message);
+                }
+            }
+
+        }
+
+        private void btn_Niem_Click(object sender, EventArgs e)
+        {
+            //Microsoft.Office.Interop.Excel.Application xlApp;
+            //Microsoft.Office.Interop.Excel.Workbook xlWorkbook;
+            //Microsoft.Office.Interop.Excel.Worksheet xlWorksheet;
+            //Microsoft.Office.Interop.Excel.Range xlRange;
+            //int xlRow;
+            //string strFileName;
+            //openFD.Filter = "Excel Office |*.xls; *xlsx";
+            //openFD.ShowDialog();
+            //strFileName = openFD.FileName;
+            //if (strFileName != "")
+            //{
+            //    xlApp = new Microsoft.Office.Interop.Excel.Application();
+            //    xlWorkbook = xlApp.Workbooks.Open(strFileName);
+            //    xlWorksheet = xlWorkbook.Worksheets["Sheet1"];
+            //    xlRange = xlWorksheet.UsedRange;
+            //    for (xlRow = 2; xlRow <= xlRange.Rows.Count; xlRow++)
+            //    {
+            //        dgrid_ChiTietGiay.Rows.Add(xlRange.Cells[xlRow,1].te)
+            //    };
+            //}
+        }
+        public void exportdata(DataGridView dgw, string filename)
+        {
+            BaseFont bf = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, BaseFont.EMBEDDED);
+            PdfPTable pdfPTable = new PdfPTable(dgw.Columns.Count);
+            pdfPTable.DefaultCell.Padding = 3;
+            pdfPTable.WidthPercentage = 100;
+            pdfPTable.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfPTable.DefaultCell.BorderWidth = 1;
+
+            iTextSharp.text.Font text = new iTextSharp.text.Font(bf, 10, iTextSharp.text.Font.NORMAL);
+            //Add header;
+            foreach (DataGridViewColumn col in dgrid_ChiTietGiay.Columns)
+            {
+                PdfPCell pdfPCell = new PdfPCell(new Phrase(col.HeaderText));
+                pdfPTable.AddCell(pdfPCell);
+            }
+            foreach (DataGridViewRow row in dgrid_ChiTietGiay.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    pdfPTable.AddCell(new Phrase(Convert.ToString(cell.Value), text));
+                }
+
+
+
+            }
+            var savefiledialog = new SaveFileDialog();
+            savefiledialog.FileName = filename;
+            savefiledialog.DefaultExt = ".pdf";
+            if (savefiledialog.ShowDialog() == DialogResult.OK)
+            {
+                using (FileStream stream = new FileStream(savefiledialog.FileName, FileMode.Create))
+                {
+                    Document pdfdoc = new Document(PageSize.A1, 10f, 10f, 10f, 10f);
+                    PdfWriter.GetInstance(pdfdoc, stream);
+                    pdfdoc.Open();
+                    pdfdoc.Add(pdfPTable);
+                    pdfdoc.Close();
+                    stream.Close();
+                }
+            }
+
+
+        }
+        private void btn_XuatPDF_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show("bạn có muốn Xuất Ra File PDF Hay Không", "Thông Báo", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    exportdata(dgrid_ChiTietGiay, "test");
+                    for (int i = 0; i < 2; i++)
+                    {
+
+                        MessageBox.Show("Xuất Ra File PDF Thành Công");
+
+                    }
+                    return;
+                }
+                if (dialogResult == DialogResult.No)
+                {
+                    for (int i = 0; i < 2; i++)
+                    {
+
+                        MessageBox.Show("Xuất Ra File PDF Thất Bại");
+
+                    }
+                    return;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                for (int i = 0; i < 2; i++)
+                {
+
+                    MessageBox.Show("Lỗi Rồi" + ex.Message);
+
+                }
+
+                return;
+            }
         }
     }
 }

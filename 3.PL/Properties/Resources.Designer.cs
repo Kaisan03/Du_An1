@@ -103,6 +103,16 @@ namespace _3.PL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _4844462__1_ {
+            get {
+                object obj = ResourceManager.GetObject("4844462 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _58PIC58PICc58PICBHqjN53VzrbCJ_PIC2018_png_860 {
             get {
                 object obj = ResourceManager.GetObject("58PIC58PICc58PICBHqjN53VzrbCJ_PIC2018.png_860", resourceCulture);
@@ -476,6 +486,26 @@ namespace _3.PL.Properties {
         internal static System.Drawing.Bitmap pexels_ray_piedra_1456706 {
             get {
                 object obj = ResourceManager.GetObject("pexels-ray-piedra-1456706", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap unnamed {
+            get {
+                object obj = ResourceManager.GetObject("unnamed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap unnamed__1_ {
+            get {
+                object obj = ResourceManager.GetObject("unnamed (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
