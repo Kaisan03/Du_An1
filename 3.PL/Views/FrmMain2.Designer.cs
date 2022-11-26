@@ -582,7 +582,7 @@
             // panel_dektop
             // 
             this.panel_dektop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(79)))));
-           // this.panel_dektop.BackgroundImage = global::_3.PL.Properties.Resources.;
+            this.panel_dektop.BackgroundImage = global::_3.PL.Properties.Resources.huhuhu;
             this.panel_dektop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel_dektop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_dektop.Location = new System.Drawing.Point(281, 105);

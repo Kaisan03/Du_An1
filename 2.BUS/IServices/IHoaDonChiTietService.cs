@@ -13,7 +13,7 @@ namespace _2.BUS.IServices
         bool Add(HoaDonChiTiet obj);
         bool Update(HoaDonChiTiet obj);
         bool Delete(HoaDonChiTiet obj);
-        List<HoaDonChiTiet> GetAllHoaDonC1();
-        List<ViewHoaDonChiTiet> GetViewHoaDonCT();
+        List<HoaDonChiTiet> GetAllHoaDonCT();
+        List<ViewHoaDonChiTiet> GetViewHoaDonCT(Guid idHoaDon);
     }
 }

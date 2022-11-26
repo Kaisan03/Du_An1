@@ -56,12 +56,12 @@ namespace _3.PL.Views
             dgrid_view.Columns[13].Name = "Giảm GIá";
             dgrid_view.Columns[14].Name = "Trạng Thái";
             dgrid_view.Rows.Clear();
-            foreach (var x in _ihoadonservice.GetAll())
+            foreach (var x in _ihoadonservice.GetallHoadon())
             {
-                dgrid_view.Rows.Add(x.Id, x.Ma, x.khachhang, x.nhanvien, x.TenSp, x.TenNguoiNhan, x.NgayTao, x.NgayGiao, x.NgayThanhToan, x.NgayNhanHang, x.NgayTraHang, x.DiaChi, x.Sdt, x.GiamGia, x.TrangThai == 1 ? "Chờ xử lý":"Hoàn thành");
+               // dgrid_view.Rows.Add(x.Id, x.Ma, x.khachhang, x.nhanvien, x.TenSp, x.TenNguoiNhan, x.NgayTao, x.NgayGiao, x.NgayThanhToan, x.NgayNhanHang, x.NgayTraHang, x.DiaChi, x.Sdt, x.GiamGia, x.TrangThai == 1 ? "Chờ xử lý":"Hoàn thành");
                 //var kh = _Ikhachhangservice.GetAll().FirstOrDefault(c => c.Id == x.IdKhachHang);
                 //var nv = _Inhanvienservice.GetAllNhanVien().FirstOrDefault(c => c.Id == x.IdNhanVien);
-               // dgrid_view.Rows.Add(x.Id,x.Ma,x.IdKhachHang,x.IdNhanVien,x.TenSp,x.TenNguoiNhan,x.NgayTao,x.NgayGiao,x.NgayThanhToan,x.DiaChi,x.Sdt,x.GiamGia,x.TrangThai);
+                dgrid_view.Rows.Add(x.Id,x.Ma,x.IdKhachHang,x.IdNhanVien,x.TenSp,x.TenNguoiNhan,x.NgayTao,x.NgayGiao,x.NgayThanhToan,x.DiaChi,x.Sdt,x.GiamGia,x.TrangThai);
             };
 
         }

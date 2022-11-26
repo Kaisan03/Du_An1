@@ -19,7 +19,7 @@ namespace _3.PL.Views
         public FrmHoaDonChiTiet()
         {
             InitializeComponent();
-            _IHoaDonChiTiet = new HoaDonChiTietService();
+            _IHoaDonChiTiet = new HoaDonChiTiet();
             loaddata();
         }
         private void loaddata()
