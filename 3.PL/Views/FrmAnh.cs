@@ -28,6 +28,7 @@ namespace _3.PL.Views
             _lstAnh = new List<Anh>();
             LoadData();
             anhcaidmm();
+            // txt_duongDan.Enabled = false;
         }
         public void LoadData()
         {
@@ -207,6 +208,32 @@ namespace _3.PL.Views
                 return;
 
             }
+        }
+
+        private void pic_Images_DragDrop(object sender, DragEventArgs e)
+        {
+            //var data = e.Data.GetData(DataFormats.FileDrop);
+            //if(data != null)
+            //{
+            //    var fileNames = data as string[];
+            //    if (fileNames.Length > 0)
+            //        pic_Images.Image = Image.FromFile(fileNames[0]);
+            //}
+        }
+
+        private void FrmAnh_Load(object sender, EventArgs e)
+        {
+            //pic_Images.AllowDrop = true;
+        }
+
+        private void pic_Images_DragEnter(object sender, DragEventArgs e)
+        {
+            //e.Effect = DragDropEffects.Copy;
+        }
+
+        private void txt_duongDan_TextChanged(object sender, EventArgs e)
+        {
+            //txt_duongDan.Text = pic_Images.ImageLocation;
         }
     }
 }
