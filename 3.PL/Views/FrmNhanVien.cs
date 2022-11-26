@@ -39,7 +39,7 @@ namespace _3.PL.Views
             }
         }
             public void LoadDataNhanVien()
-        {
+              {
             drgid_NhanVien.ColumnCount = 12;
             drgid_NhanVien.Columns[0].Name = "ID";
             drgid_NhanVien.Columns[0].Visible = false; 

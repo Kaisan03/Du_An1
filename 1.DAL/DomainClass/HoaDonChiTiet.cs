@@ -25,9 +25,9 @@ namespace _1.DAL.DomainClass
         public int? SoLuong { get; set; }
         public int? TrangThai { get; set; }
         [Column(TypeName = "decimal(18, 0)")]
-        public decimal? DonGia { get; set; }
+        public int? DonGia { get; set; }
         [Column(TypeName = "decimal(18, 0)")]
-        public decimal? ThanhTien { get; set; }
+        public int? ThanhTien { get; set; }
 
         [ForeignKey(nameof(IdChiTietGiay))]
         [InverseProperty(nameof(ChiTietGiay.HoaDonChiTiets))]

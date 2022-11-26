@@ -11,33 +11,22 @@ using System.Threading.Tasks;
 
 namespace _2.BUS.Services
 {
-    public class HoaDonChiTiet : IHoaDonChiTietService
+    public class HoaDonChiTietService : IHoaDonChiTietService
     {
         private IHoaDonChiTietRipositry _IHoaDonChiTietRp;
         private IChiTietGiayRepository _IChiTietGiayRp;
         private IChiTietKhuyenMaiRepository _IChiTietKhuyenMaiRp;
         private IHoaDonRepository _IHoaDonRp;
 
-        public HoaDonChiTiet()
+        public HoaDonChiTietService()
         {
             _IHoaDonChiTietRp = new HoaDonChiTietRepository();
             _IChiTietGiayRp = new ChiTietGiayRepository();
             _IChiTietKhuyenMaiRp = new ChiTietKhuyenMaiReposity();
             _IHoaDonRp = new HoaDonRepository();
         }
-        public string Add(ViewHoaDonChiTiet obj)
-        {
-            if (obj == null)
-            {
-                return "Không thành công";
-            }
-            var HDCT = obj.HoaDonChiTiet;
-            HDCT.Id = Guid.NewGuid();
-            if (_IHoaDonChiTietRp.Add(HDCT)) return "Thêm thành công";
-            return "không thành công";
-        }
 
-        public bool Add(_1.DAL.DomainClass.HoaDonChiTiet obj)
+        public bool Add(HoaDonChiTiet obj)
         {
             _IHoaDonChiTietRp.Add(obj);
             return true;
@@ -69,18 +58,21 @@ namespace _2.BUS.Services
                        join d in _IHoaDonRp.GetAll() on a.IdHoaDon equals d.Id
                        select new ViewHoaDonChiTiet
                        {
-                           HoaDonChiTiet = a,ChiTietGiay= b,ChiTietKhuyenMai=c,HoaDon=d
-                           
+                           HoaDonChiTiet = a,
+                           ChiTietGiay = b,
+                           ChiTietKhuyenMai = c,
+                           HoaDon = d
+
                        }).ToList();
             return lstHDCT;
         }
 
-        public List<_1.DAL.DomainClass.HoaDonChiTiet> GetAllHoaDonCT()
+        public List<_1.DAL.DomainClass.HoaDonChiTiet> GetAllHoaDonC1()
         {
             return _IHoaDonChiTietRp.GetAll();
         }
 
-        public List<ViewHoaDonChiTiet> GetViewHoaDonCT(Guid idHoaDon)
+        public List<ViewHoaDonChiTiet> GetViewHoaDonCT()
         {
             List<ViewHoaDonChiTiet> lstHDCT = new List<ViewHoaDonChiTiet>();
             lstHDCT = (from a in _IHoaDonChiTietRp.GetAll()
@@ -98,7 +90,7 @@ namespace _2.BUS.Services
             return lstHDCT;
         }
 
-        
+
 
         public bool Update(_1.DAL.DomainClass.HoaDonChiTiet obj)
         {
@@ -107,3 +99,4 @@ namespace _2.BUS.Services
         }
     }
 }
+
