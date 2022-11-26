@@ -45,6 +45,11 @@ namespace _3.PL.Views
         IAnhService anhs;
         ISizeService _Size;
         AddChiTietSPView addChiTietSPView;
+        int sl;
+        int giaNhap;
+        int giaBan;
+        int slt;
+        int trangThai;
         public FrmImportExcel()
         {
             InitializeComponent();
@@ -96,8 +101,13 @@ namespace _3.PL.Views
         {
 
             
-                for (int i = 0; i < dgrid_AddExcel.RowCount; i++)
+                for (int i = 0; i < dgrid_AddExcel.Rows.Count-1; i++)
                 {
+                sl = Convert.ToInt32(dgrid_AddExcel.Rows[i].Cells[11].Value);
+                giaNhap = Convert.ToInt32(dgrid_AddExcel.Rows[i].Cells[9].Value);
+                giaBan = Convert.ToInt32(dgrid_AddExcel.Rows[i].Cells[10].Value);
+                slt = Convert.ToInt32(dgrid_AddExcel.Rows[i].Cells[12].Value);
+                trangThai = Convert.ToInt32(dgrid_AddExcel.Rows[i].Cells[15].Value);
                     var Bu1 = new Anh()
                     {
                         Id = Guid.NewGuid(),
@@ -172,11 +182,11 @@ namespace _3.PL.Views
                         IdMauSac = Bu4.Id,
                         IdChatLieu = Bu3.Id,
                         IdKieuDang = Bu8.Id,
-                        SoLuong = Convert.ToInt32(dgrid_AddExcel.Rows[i].Cells[11].Value),
-                        GiaNhap = Convert.ToInt32(dgrid_AddExcel.Rows[i].Cells[9].Value),
-                        GiaBan = Convert.ToInt32(dgrid_AddExcel.Rows[i].Cells[10].Value),
-                        SoLuongTon = Convert.ToInt32(dgrid_AddExcel.Rows[i].Cells[12].Value),
-                        TrangThai = Convert.ToInt32(dgrid_AddExcel.Rows[i].Cells[15].Value),
+                        SoLuong = sl,
+                        GiaNhap = giaNhap,
+                        GiaBan = giaBan,
+                        SoLuongTon =slt,
+                        TrangThai = trangThai,
                         MoTa = dgrid_AddExcel.Rows[i].Cells[14].Value.ToString(),
                         IdSize = Bu2.Id,
                         IdDeGiay = Bu6.Id,
@@ -184,8 +194,10 @@ namespace _3.PL.Views
                     };
                     _ChiTietGiay.AddCTGiay(BuHet);
                 }
+                
+            MessageBox.Show("Đumacuoidungcximportxong", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             
-           
+            this.Close();
 
         }
         #region Xuất file excel
