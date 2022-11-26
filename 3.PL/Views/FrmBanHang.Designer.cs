@@ -40,19 +40,19 @@
             this.gr_thanhtoan = new System.Windows.Forms.GroupBox();
             this.btn_TaoHoaDon = new System.Windows.Forms.Button();
             this.Gr_hoadoncho = new System.Windows.Forms.GroupBox();
-            this.dgrid_HoaDonCho = new System.Windows.Forms.DataGridView();
-            this.dgrid_SanPham = new System.Windows.Forms.DataGridView();
+            this.dgrid_hoadondatao = new System.Windows.Forms.DataGridView();
+            this.dgrid_chitietgiay = new System.Windows.Forms.DataGridView();
             this.Gr_sanpham = new System.Windows.Forms.GroupBox();
             this.btn_XoaHet = new System.Windows.Forms.Button();
             this.btn_Xoa = new System.Windows.Forms.Button();
-            this.dgrid_GioHang = new System.Windows.Forms.DataGridView();
+            this.dgrid_giaydachon = new System.Windows.Forms.DataGridView();
             this.Gr_giohang = new System.Windows.Forms.GroupBox();
             this.gr_thanhtoan.SuspendLayout();
             this.Gr_hoadoncho.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgrid_HoaDonCho)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgrid_SanPham)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgrid_hoadondatao)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgrid_chitietgiay)).BeginInit();
             this.Gr_sanpham.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgrid_GioHang)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgrid_giaydachon)).BeginInit();
             this.Gr_giohang.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -120,7 +120,7 @@
             this.lbl_TongTien.Size = new System.Drawing.Size(16, 15);
             this.lbl_TongTien.TabIndex = 0;
             this.lbl_TongTien.Text = "...";
-            this.lbl_TongTien.Click += new System.EventHandler(this.lbl_TongTien_Click);
+           
             // 
             // lbl_MahoaDon
             // 
@@ -177,7 +177,7 @@
             // Gr_hoadoncho
             // 
             this.Gr_hoadoncho.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.Gr_hoadoncho.Controls.Add(this.dgrid_HoaDonCho);
+            this.Gr_hoadoncho.Controls.Add(this.dgrid_hoadondatao);
             this.Gr_hoadoncho.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Gr_hoadoncho.Location = new System.Drawing.Point(801, 35);
             this.Gr_hoadoncho.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -188,42 +188,41 @@
             this.Gr_hoadoncho.TabStop = false;
             this.Gr_hoadoncho.Text = "Hóa đơn chờ";
             // 
-            // dgrid_HoaDonCho
+            // dgrid_hoadondatao
             // 
-            this.dgrid_HoaDonCho.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgrid_HoaDonCho.BackgroundColor = System.Drawing.Color.White;
-            this.dgrid_HoaDonCho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrid_HoaDonCho.Location = new System.Drawing.Point(5, 20);
-            this.dgrid_HoaDonCho.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgrid_HoaDonCho.Name = "dgrid_HoaDonCho";
-            this.dgrid_HoaDonCho.RowHeadersWidth = 51;
-            this.dgrid_HoaDonCho.RowTemplate.Height = 29;
-            this.dgrid_HoaDonCho.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgrid_HoaDonCho.Size = new System.Drawing.Size(419, 291);
-            this.dgrid_HoaDonCho.TabIndex = 0;
-            this.dgrid_HoaDonCho.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_HoaDonCho_CellClick);
-            this.dgrid_HoaDonCho.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_HoaDonCho_CellContentClick);
+            this.dgrid_hoadondatao.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgrid_hoadondatao.BackgroundColor = System.Drawing.Color.White;
+            this.dgrid_hoadondatao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgrid_hoadondatao.Location = new System.Drawing.Point(5, 20);
+            this.dgrid_hoadondatao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgrid_hoadondatao.Name = "dgrid_hoadondatao";
+            this.dgrid_hoadondatao.RowHeadersWidth = 51;
+            this.dgrid_hoadondatao.RowTemplate.Height = 29;
+            this.dgrid_hoadondatao.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgrid_hoadondatao.Size = new System.Drawing.Size(419, 291);
+            this.dgrid_hoadondatao.TabIndex = 0;
+            this.dgrid_hoadondatao.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_HoaDonCho_CellClick);
+           
             // 
-            // dgrid_SanPham
+            // dgrid_chitietgiay
             // 
-            this.dgrid_SanPham.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgrid_SanPham.BackgroundColor = System.Drawing.Color.White;
-            this.dgrid_SanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrid_SanPham.Location = new System.Drawing.Point(4, 28);
-            this.dgrid_SanPham.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgrid_SanPham.Name = "dgrid_SanPham";
-            this.dgrid_SanPham.RowHeadersWidth = 51;
-            this.dgrid_SanPham.RowTemplate.Height = 29;
-            this.dgrid_SanPham.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgrid_SanPham.Size = new System.Drawing.Size(728, 254);
-            this.dgrid_SanPham.TabIndex = 0;
-            this.dgrid_SanPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_SanPham_CellClick);
-            this.dgrid_SanPham.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_SanPham_CellDoubleClick);
+            this.dgrid_chitietgiay.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgrid_chitietgiay.BackgroundColor = System.Drawing.Color.White;
+            this.dgrid_chitietgiay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgrid_chitietgiay.Location = new System.Drawing.Point(4, 28);
+            this.dgrid_chitietgiay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgrid_chitietgiay.Name = "dgrid_chitietgiay";
+            this.dgrid_chitietgiay.RowHeadersWidth = 51;
+            this.dgrid_chitietgiay.RowTemplate.Height = 29;
+            this.dgrid_chitietgiay.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgrid_chitietgiay.Size = new System.Drawing.Size(728, 254);
+            this.dgrid_chitietgiay.TabIndex = 0;
+            this.dgrid_chitietgiay.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_SanPham_CellDoubleClick);
             // 
             // Gr_sanpham
             // 
             this.Gr_sanpham.BackColor = System.Drawing.Color.SkyBlue;
-            this.Gr_sanpham.Controls.Add(this.dgrid_SanPham);
+            this.Gr_sanpham.Controls.Add(this.dgrid_chitietgiay);
             this.Gr_sanpham.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Gr_sanpham.Location = new System.Drawing.Point(47, 359);
             this.Gr_sanpham.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -256,27 +255,27 @@
             this.btn_Xoa.UseVisualStyleBackColor = true;
             this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
             // 
-            // dgrid_GioHang
+            // dgrid_giaydachon
             // 
-            this.dgrid_GioHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgrid_GioHang.BackgroundColor = System.Drawing.Color.White;
-            this.dgrid_GioHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrid_GioHang.Location = new System.Drawing.Point(5, 20);
-            this.dgrid_GioHang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgrid_GioHang.Name = "dgrid_GioHang";
-            this.dgrid_GioHang.RowHeadersWidth = 51;
-            this.dgrid_GioHang.RowTemplate.Height = 29;
-            this.dgrid_GioHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgrid_GioHang.Size = new System.Drawing.Size(718, 262);
-            this.dgrid_GioHang.TabIndex = 0;
-            this.dgrid_GioHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_GioHang_CellClick);
+            this.dgrid_giaydachon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgrid_giaydachon.BackgroundColor = System.Drawing.Color.White;
+            this.dgrid_giaydachon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgrid_giaydachon.Location = new System.Drawing.Point(5, 20);
+            this.dgrid_giaydachon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgrid_giaydachon.Name = "dgrid_giaydachon";
+            this.dgrid_giaydachon.RowHeadersWidth = 51;
+            this.dgrid_giaydachon.RowTemplate.Height = 29;
+            this.dgrid_giaydachon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgrid_giaydachon.Size = new System.Drawing.Size(718, 262);
+            this.dgrid_giaydachon.TabIndex = 0;
+            this.dgrid_giaydachon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_GioHang_CellClick);
             // 
             // Gr_giohang
             // 
             this.Gr_giohang.BackColor = System.Drawing.Color.Aquamarine;
             this.Gr_giohang.Controls.Add(this.btn_XoaHet);
             this.Gr_giohang.Controls.Add(this.btn_Xoa);
-            this.Gr_giohang.Controls.Add(this.dgrid_GioHang);
+            this.Gr_giohang.Controls.Add(this.dgrid_giaydachon);
             this.Gr_giohang.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Gr_giohang.Location = new System.Drawing.Point(47, 35);
             this.Gr_giohang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -299,14 +298,14 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmBanHang";
             this.Text = "FrmBanHang";
-            this.Leave += new System.EventHandler(this.FrmBanHang_Leave);
+          
             this.gr_thanhtoan.ResumeLayout(false);
             this.gr_thanhtoan.PerformLayout();
             this.Gr_hoadoncho.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgrid_HoaDonCho)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgrid_SanPham)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgrid_hoadondatao)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgrid_chitietgiay)).EndInit();
             this.Gr_sanpham.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgrid_GioHang)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgrid_giaydachon)).EndInit();
             this.Gr_giohang.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -325,13 +324,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox gr_thanhtoan;
         private System.Windows.Forms.GroupBox Gr_hoadoncho;
-        private System.Windows.Forms.DataGridView dgrid_HoaDonCho;
-        private System.Windows.Forms.DataGridView dgrid_SanPham;
+        private System.Windows.Forms.DataGridView dgrid_hoadondatao;
+        private System.Windows.Forms.DataGridView dgrid_chitietgiay;
         private System.Windows.Forms.GroupBox Gr_sanpham;
         private System.Windows.Forms.Button btn_TaoHoaDon;
         private System.Windows.Forms.Button btn_XoaHet;
         private System.Windows.Forms.Button btn_Xoa;
-        private System.Windows.Forms.DataGridView dgrid_GioHang;
+        private System.Windows.Forms.DataGridView dgrid_giaydachon;
         private System.Windows.Forms.GroupBox Gr_giohang;
     }
 }

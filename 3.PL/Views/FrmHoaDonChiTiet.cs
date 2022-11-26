@@ -1,4 +1,5 @@
-﻿using _2.BUS.IServices;
+﻿using _1.DAL.DomainClass;
+using _2.BUS.IServices;
 using _2.BUS.Services;
 using _2.BUS.ViewModels;
 using System;
@@ -16,29 +17,36 @@ namespace _3.PL.Views
     public partial class FrmHoaDonChiTiet : Form
     {
         private IHoaDonChiTietService _IHoaDonChiTiet;
+        public List<HoaDonChiTiet> _listhoadon;
+        public List<HoaDonChiTiet> _hoadonchitiet;
         public FrmHoaDonChiTiet()
         {
             InitializeComponent();
-            _IHoaDonChiTiet = new HoaDonChiTiet();
+            _IHoaDonChiTiet = new HoaDonChiTietService();
+
             loaddata();
         }
         private void loaddata()
         {
             dgrid_hoaDonCT.ColumnCount = 8;
             dgrid_hoaDonCT.Columns[0].Name = "ID";
-            dgrid_hoaDonCT.Columns[0].Visible = false;
+            //dgrid_hoaDonCT.Columns[0].Visible = false;
             dgrid_hoaDonCT.Columns[1].Name = "IdHoaDon";
-            dgrid_hoaDonCT.Columns[1].Visible = false;
+            //dgrid_hoaDonCT.Columns[1].Visible = false;
             dgrid_hoaDonCT.Columns[2].Name = "IdChiTietKhuyenMai";
-            dgrid_hoaDonCT.Columns[2].Visible = false;
+            //dgrid_hoaDonCT.Columns[2].Visible = false;
             dgrid_hoaDonCT.Columns[3].Name = "IdChiTietGiay";
-            dgrid_hoaDonCT.Columns[3].Visible = false;
+           // dgrid_hoaDonCT.Columns[3].Visible = false;
             dgrid_hoaDonCT.Columns[4].Name = "Số lượng";
             dgrid_hoaDonCT.Columns[5].Name = "Đơn Giá";
             dgrid_hoaDonCT.Columns[6].Name = "Thành tiền";
             dgrid_hoaDonCT.Columns[7].Name = "Trạng thái";
 
-            dgrid_hoaDonCT.Rows.Clear();
+            dgrid_hoaDonCT.Rows.Clear(); 
+            foreach (var x in _IHoaDonChiTiet.GetAllHoaDonCT())
+            {
+                dgrid_hoaDonCT.Rows.Add(x.Id, x.IdHoaDon, x.IdKhuyenMai, x.IdChiTietGiay, x.SoLuong, x.DonGia, x.ThanhTien, x.TrangThai);
+            }
             
         }
         private ViewHoaDonChiTiet GetDataFromGuid()
@@ -76,10 +84,8 @@ namespace _3.PL.Views
             DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn sửa?", "Thông báo", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                var temp = GetDataFromGuid();
-
+                var temp = GetDataFromGuid(); 
                 //temp.Id = _id;
-
                 //_IchucVuService.Update(temp);
                 MessageBox.Show("Sửa thành công");
                 loaddata();
@@ -93,6 +99,7 @@ namespace _3.PL.Views
 
         private void btn_Xoa_Click_1(object sender, EventArgs e)
         {
+
             DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn xóa?", "Thông báo", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
@@ -112,8 +119,8 @@ namespace _3.PL.Views
         private void dgrid_ChatLieu_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             //int rowindex = e.RowIndex;
-            //if (rowindex == _IchucVuService.GetAllChucVu().Count) return;
-            //_id = Guid.Parse(dgrid_ChatLieu.CurrentRow.Cells[0].Value.ToString());
+            
+            //var _id = Guid.Parse(dgrid_ChatLieu.CurrentRow.Cells[0].Value.ToString());
             //var cv = _IchucVuService.GetAllChucVu().FirstOrDefault(c => c.Id == _id);
             //txt_Ten.Text = Convert.ToString(cv.Ma);
             //txt_Ma.Text = cv.Ten;
