@@ -248,11 +248,18 @@ namespace _3.PL.Views
             {
                 ExcelWorksheet excelWorksheet = excelPackage.Workbook.Worksheets[0];
                 DataTable dataTable = new DataTable();
+                if (excelWorksheet.Dimension.End.Column != 16)
+                {
+                    MessageBox.Show("Bạn Đã Chọn Sai File Để Thêm Số Lượng Lớn Sản Phẩm Số Cột Không Đáp Ứng Đúng Format", "Thông Báo");
+                    txt_TimKiem.Text = "";
+                    return;
+                }
                 for (int i = excelWorksheet.Dimension.Start.Column;i<= excelWorksheet.Dimension.End.Column;i++)
                 {
                     dataTable.Columns.Add(excelWorksheet.Cells[1, i].Value.ToString());
                 }
-                for(int i = excelWorksheet.Dimension.Start.Row+1; i <= excelWorksheet.Dimension.End.Row; i++)
+                
+                for (int i = excelWorksheet.Dimension.Start.Row+1; i <= excelWorksheet.Dimension.End.Row; i++)
                 {
                     List<string> lstRows = new List<string>();
                     for(int j = excelWorksheet.Dimension.Start.Column; j <= excelWorksheet.Dimension.End.Column; j++)
@@ -273,15 +280,19 @@ namespace _3.PL.Views
             openFileDialog.Filter = "Excel (*.xlsx)| *.xls; *.xlsx; *.xlsm | Excel 2003 (*.xls)|*.xls";
             openFileDialog.RestoreDirectory = true;
 
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                txt_TimKiem.Text = openFileDialog.FileName.ToString();
+            
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    txt_TimKiem.Text = openFileDialog.FileName.ToString();
                 
-                    ImportExcel(txt_TimKiem.Text);
-                    MessageBox.Show("Import file thành công!");
+                        ImportExcel(txt_TimKiem.Text);
+                if(txt_TimKiem.Text=="")
+                    MessageBox.Show("Import file không thành công!", "Thông báo", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                else
+                MessageBox.Show("Import file thành công!");
                 
                
-            }
+                }
         }
     }
     

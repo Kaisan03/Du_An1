@@ -110,7 +110,7 @@ namespace _3.PL.Views
             {
                 cmb_ChatLieu.Items.Add(x);
             }
-            var size8 = _IAnhService.GetAllAnh().Select(c => c.TenAnh.ToString()).Distinct();
+            var size8 = _IAnhService.GetAllAnh().Select(c => c.DuongDan.ToString()).Distinct();
             foreach (var x in size8)
             {
                 cmb_Anh.Items.Add(x);
