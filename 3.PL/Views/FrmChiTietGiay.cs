@@ -195,7 +195,7 @@ namespace _3.PL.Views
                     GiaBan = Convert.ToInt32(txt_NgayBan.Text),
                     SoLuongTon = Convert.ToInt32(txt_SoLuongTon.Text),
                     MoTa = txt_moTa.Text,
-                    TrangThai = cbx_HoatDong.Checked ? 1 : 0
+                    
                 };
                 _IChiTietGiayService.AddCTGiay(addCTGiay);
                 FrmThongBao frmThongBao = new FrmThongBao();
