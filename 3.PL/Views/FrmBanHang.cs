@@ -30,6 +30,7 @@ namespace _3.PL.Views
         public List<SanPhamCTView> _sanPhamCTView;
         public List<ViewHoaDonChiTiet> _viewHoaDonChiTiets;
         public HoaDon _hoaDonCho;
+        private int rowindex = 0;
         public FrmBanHang()
         {
             InitializeComponent();
@@ -49,51 +50,71 @@ namespace _3.PL.Views
             LoadDataGiay();
             loadGiohang();
             Loaddatahoadon();
+            
         }
 
 
         public void LoadDataGiay()
         {
 
-            while (flp_SanPham.Controls.Count > 0)
-            {
-                flp_SanPham.Controls[0].Dispose();
-            }
+            dgrid_chitietgiay.ColumnCount = 12;
+            dgrid_chitietgiay.Columns[0].Name = "Id";
+            dgrid_chitietgiay.Columns[0].Visible = false;
+            dgrid_chitietgiay.Columns[1].Name = "Mã";
+            dgrid_chitietgiay.Columns[2].Name = "Tên";
+            dgrid_chitietgiay.Columns[3].Name = "Số Lượng tồn";
+            dgrid_chitietgiay.Columns[4].Name = "Đơn giá";
+            dgrid_chitietgiay.Columns[5].Name = "Size";
+            dgrid_chitietgiay.Columns[5].Visible = false;
+            dgrid_chitietgiay.Columns[6].Name = "Chất liệu";
+            dgrid_chitietgiay.Columns[6].Visible = false;
+            dgrid_chitietgiay.Columns[7].Name = "Nhà sản xuất";
+            dgrid_chitietgiay.Columns[7].Visible = false;
+            dgrid_chitietgiay.Columns[8].Name = "Màu sắc";
+            dgrid_chitietgiay.Columns[8].Visible = false;
+            dgrid_chitietgiay.Columns[9].Name = "Đế giày";
+            dgrid_chitietgiay.Columns[9].Visible = false;
+            dgrid_chitietgiay.Columns[10].Name = "Kiểu dáng";
+            dgrid_chitietgiay.Columns[10].Visible = false;
+            dgrid_chitietgiay.Columns[11].Name = "Ảnh";
+            dgrid_chitietgiay.Columns[11].Visible = false;
+            dgrid_chitietgiay.Rows.Clear();
 
-            foreach (var item in _chiTietGiayService.GetViewChiTietGiay())
-            
-            {
-                Button pb = new Button();
 
-                pb.BackgroundImage = Image.FromFile(string.Format(item.Anh));
-                flp_SanPham.Controls.Add(pb);
-                pb.Width = 150;
-                pb.Height = 200;
-                pb.BackgroundImageLayout = ImageLayout.Zoom;
+            foreach (var x in _chiTietGiayService.GetAllSPView().OrderBy(c => c.SanPham.Ma).ToList())
+            {
+                Image img2 = Image.FromFile(x.Anh.DuongDan);
+
+
+                dgrid_chitietgiay.Rows.Add(x.ChiTietGiay.Id,
+                    x.SanPham.Ma,
+                    x.SanPham.Ten,
+                    x.ChiTietGiay.SoLuongTon,
+                    x.ChiTietGiay.GiaBan,
+                    x.Size.Ten, x.ChatLieu.Ten, x.Nsx.Ten, x.MauSac.Ten, x.DeGiay.Ten, x.KieuDang.Ten, x.Anh.DuongDan
+                    );
             }
-            
+            anhcaidmm();
+
         }
         public void loadGiohang()
         {
             dgrid_giaydachon.Rows.Clear();
-            dgrid_giaydachon.ColumnCount = 9;
+            dgrid_giaydachon.ColumnCount = 5;
             dgrid_giaydachon.Columns[0].Name = "id";
             dgrid_giaydachon.Columns[0].Visible = false;
-            dgrid_giaydachon.Columns[1].Name = "Tên Người Nhận";
-            dgrid_giaydachon.Columns[2].Name = "Tên Sản Phẩm";
-            dgrid_giaydachon.Columns[3].Name = "Số Lượng";
-            dgrid_giaydachon.Columns[4].Name = "Giá sản Phẩm";
-            dgrid_giaydachon.Columns[5].Name = "Thành Tiên";
-            dgrid_giaydachon.Columns[6].Name = "Ngày Tạo Hóa Đơn";
-            dgrid_giaydachon.Columns[7].Name = "Trạng Thái";
-            dgrid_giaydachon.Columns[8].Name = "idchitietgiay";
-            dgrid_giaydachon.Columns[8].Visible = false;
+            dgrid_giaydachon.Columns[1].Name = "Tên sản phẩm";
+            dgrid_giaydachon.Columns[2].Name = "Số lượng";
+            dgrid_giaydachon.Columns[3].Name = "Giá sản phẩm";
+            dgrid_giaydachon.Columns[4].Name = "Thành tiền";
+
             //dgrid_giaydachon.Columns[9].Name = "id";
             //dgrid_giaydachon.Columns[10].Name = "id";
             foreach (var x in _hoaDonChiTietService.GetAllHoaDonCT().Where(c => c.IdHoaDon == _hoaDonService.GetallHoadon().Max(c => c.Id)))
             {
                 var hd = _hoaDonService.GetallHoadon().FirstOrDefault(c => c.Id == x.IdHoaDon);
                 var g = _chiTietGiayService.GetViewChiTietGiay().FirstOrDefault(c => c.Id == x.IdChiTietGiay);
+                
                 //dgrid_giaydachon.Rows.Add(
                 //    x.HoaDonChiTiet.Id,
                 //    x.HoaDon.TenNguoiNhan,
@@ -105,7 +126,7 @@ namespace _3.PL.Views
                 //    x.HoaDonChiTiet.TrangThai == 0 ? "Chưa Xử Lý" : x.HoaDon.TrangThai == 1 ? "Đã Thanh Toán" : "Đang Giao",
                 //    x.ChiTietGiay.Id)
                 //    ;
-                dgrid_giaydachon.Rows.Add(x.Id, x.IdHoaDon, hd.TenSp, x.SoLuong, g.GiaBan, g.GiaBan * x.SoLuong, hd.NgayTao, x.TrangThai == 0 ? "Chưa Xử Lý" : x.TrangThai == 1 ? "Đã Thanh Toán" : "Đang Giao", x.IdChiTietGiay);
+                dgrid_giaydachon.Rows.Add(x.Id, g.TenSanPham, x.SoLuong, g.GiaBan, g.GiaBan * x.SoLuong);
             }
         }
         public void Loaddatahoadon()
@@ -137,7 +158,7 @@ namespace _3.PL.Views
                 img.ImageLayout = DataGridViewImageCellLayout.Zoom;
                 dgrid_chitietgiay.Columns.Add(img);
 
-                for (int i = 0; i < dgrid_chitietgiay.RowCount; i++)
+                for (int i = 0; i < dgrid_chitietgiay.RowCount-1; i++)
                 {
 
                     var x = _chiTietGiayService.GetAllSPView().FirstOrDefault(c => c.SanPham.Ma == dgrid_chitietgiay.Rows[i].Cells["Mã"].Value);
@@ -174,6 +195,7 @@ namespace _3.PL.Views
                     IdChiTietGiay = id,
                     DonGia = sp.GiaBan,
                     // IdHoaDon = data.IdHoaDon,
+                    
                     SoLuong = 1,
 
                 };
@@ -207,7 +229,7 @@ namespace _3.PL.Views
                 Loaddatahoadon();
 
                 MessageBox.Show("Mời bạn chọn sản phẩm", Convert.ToString(MessageBoxButtons.OK));
-               // dgrid_hoadondatao.Enabled = false;
+                // dgrid_hoadondatao.Enabled = false;
             }
             if (dialogResult == DialogResult.No)
             {
@@ -339,7 +361,7 @@ namespace _3.PL.Views
             {
                 return;
             }
-        }  
+        }
         private void dgrid_SanPham_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow r = dgrid_chitietgiay.Rows[e.RowIndex];
@@ -347,7 +369,7 @@ namespace _3.PL.Views
             var data = _viewHoaDonChiTiets.FirstOrDefault(c => c.HoaDonChiTiet.IdChiTietGiay == Guid.Parse(r.Cells[0].Value.ToString()));
             if (sp.SoLuongTon <= 0)
             {
-                 
+
             }
 
             if (data == null)
@@ -357,7 +379,7 @@ namespace _3.PL.Views
                     Id = Guid.NewGuid(),
                     IdChiTietGiay = Guid.Parse(r.Cells[0].Value.ToString()),
                     DonGia = sp.GiaBan,
-                    IdHoaDon = _hoaDonService.GetallHoadon().Max(c=>c.Id),
+                    IdHoaDon = _hoaDonService.GetallHoadon().Max(c => c.Id),
                     SoLuong = 1,
                 };
                 _hoaDonChiTietService.Add(hoaDonChiTiet);
@@ -370,7 +392,7 @@ namespace _3.PL.Views
             }
             loadGiohang();
             LoadDataGiay();
-            
+
         }
 
         private void gr_thanhtoan_Enter(object sender, EventArgs e)
@@ -393,23 +415,39 @@ namespace _3.PL.Views
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            string tenhh = Convert.ToString(dgrid_chitietgiay.Rows[rowindex].Cells[2].Value);
+            string size = Convert.ToString(dgrid_chitietgiay.Rows[rowindex].Cells[5].Value);
+            string chatlieu = Convert.ToString(dgrid_chitietgiay.Rows[rowindex].Cells[6].Value);
+            string mausac = Convert.ToString(dgrid_chitietgiay.Rows[rowindex].Cells[8].Value);
+            string kieudang = Convert.ToString(dgrid_chitietgiay.Rows[rowindex].Cells[10].Value);
+            string degiay = Convert.ToString(dgrid_chitietgiay.Rows[rowindex].Cells[9].Value);
+            string giaban = Convert.ToString(dgrid_chitietgiay.Rows[rowindex].Cells[4].Value);
+            string anh = Convert.ToString(dgrid_chitietgiay.Rows[rowindex].Cells[11].Value);
+            FrmThongTinSP frmttSP = new FrmThongTinSP(tenhh, size, chatlieu, mausac, kieudang, degiay, giaban, anh);
+            frmttSP.Show();
         }
 
-        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        private void flp_SanPham_MouseUp(object sender, MouseEventArgs e)
         {
-
+            
         }
 
-
-        private void flp_SanPham_MouseUp_1(object sender, MouseEventArgs e)
+        private void dgrid_chitietgiay_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
-
-        }
-
-        private void contextMenuStrip1_MouseUp(object sender, MouseEventArgs e)
-        {
-
+            if (e.Button == MouseButtons.Right)
+            {
+                this.dgrid_chitietgiay.Rows[e.RowIndex].Selected = true;
+                this.rowindex = e.RowIndex;
+                this.dgrid_chitietgiay.CurrentCell = this.dgrid_chitietgiay.Rows[e.RowIndex].Cells[1];
+                this.contextMenuStrip1.Show(this.dgrid_chitietgiay, e.Location);
+                contextMenuStrip1.Show(Cursor.Position);
+            }
         }
     }
 }
+//dgrid_chitietgiay.Columns[0].Name = "Id";
+//dgrid_chitietgiay.Columns[0].Visible = false;
+//dgrid_chitietgiay.Columns[1].Name = "Mã";
+//dgrid_chitietgiay.Columns[2].Name = "Tên";
+//dgrid_chitietgiay.Columns[3].Name = "Số Lượng tồn";
+//dgrid_chitietgiay.Columns[4].Name = "Đơn giá";
