@@ -93,16 +93,22 @@ namespace _3.PL.Views
             dgrid_giaydachon.Columns[8].Visible = false;
             //dgrid_giaydachon.Columns[9].Name = "id";
             //dgrid_giaydachon.Columns[10].Name = "id";
-            foreach (var x in _hoaDonChiTietService.GetViewHoaDonCT())
+            foreach (var x in _hoaDonChiTietService.GetAllHoaDonCT().Where(c => c.IdHoaDon == _hoaDonService.GetallHoadon().Max(c => c.Id)))
             {
-                dgrid_giaydachon.Rows.Add(x.HoaDonChiTiet.Id,
-                    x.HoaDon.TenNguoiNhan,
-                    x.HoaDon.TenSp,
-                    x.HoaDonChiTiet.SoLuong,
-                    x.ChiTietGiay.GiaBan,
-                    x.ChiTietGiay.GiaBan * x.HoaDonChiTiet.SoLuong,
-                    x.HoaDon.NgayTao, x.HoaDonChiTiet.TrangThai == 0 ? "Chưa Xử Lý" : x.HoaDon.TrangThai == 1 ? "Đã Thanh Toán" : "Đang Giao",
-                    x.ChiTietGiay.Id);
+                var hd = _hoaDonService.GetallHoadon().FirstOrDefault(c => c.Id == x.IdHoaDon);
+                var g = _chiTietGiayService.GetViewChiTietGiay().FirstOrDefault(c => c.Id == x.IdChiTietGiay);
+                //dgrid_giaydachon.Rows.Add(
+                //    x.HoaDonChiTiet.Id,
+                //    x.HoaDon.TenNguoiNhan,
+                //    x.HoaDon.TenSp,
+                //    x.HoaDonChiTiet.SoLuong,
+                //    x.ChiTietGiay.GiaBan,
+                //    x.ChiTietGiay.GiaBan * x.HoaDonChiTiet.SoLuong,
+                //    x.HoaDon.NgayTao, 
+                //    x.HoaDonChiTiet.TrangThai == 0 ? "Chưa Xử Lý" : x.HoaDon.TrangThai == 1 ? "Đã Thanh Toán" : "Đang Giao",
+                //    x.ChiTietGiay.Id)
+                //    ;
+                dgrid_giaydachon.Rows.Add(x.Id, x.IdHoaDon, hd.TenSp, x.SoLuong, g.GiaBan, g.GiaBan * x.SoLuong, hd.NgayTao, x.TrangThai == 0 ? "Chưa Xử Lý" : x.TrangThai == 1 ? "Đã Thanh Toán" : "Đang Giao", x.IdChiTietGiay);
             }
         }
         public void Loaddatahoadon()
