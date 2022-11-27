@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
 using Size = _1.DAL.DomainClass.Size;
 
@@ -19,6 +20,7 @@ namespace _3.PL.Views
         private ISizeService _ISizeService;
         private Size _Size;
         private List<Size> _lstSize;
+        private int rowindex = 0;
         public FrmSize()
         {
             InitializeComponent();
@@ -151,6 +153,34 @@ namespace _3.PL.Views
             if (cbx_KhongHD.Checked)
             {
                 cbx_HoatDong.Checked = false;
+            }
+        }
+
+        private void chiTiếtSảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmThongBao frmThongBao = new FrmThongBao();
+            frmThongBao.ShowDialog();
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //this.dgrid_Size.Rows.RemoveAt(this.rowindex);
+            var size = _ISizeService.GetAllSize().FirstOrDefault(x =>
+            x.Id == Guid.Parse(dgrid_Size.Rows[rowindex].Cells[0].Value.ToString()));
+            _ISizeService.DeleteSize(size);
+            LoadData();
+            return;
+        }
+
+        private void dgrid_Size_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                this.dgrid_Size.Rows[e.RowIndex].Selected = true;
+                this.rowindex = e.RowIndex;
+                this.dgrid_Size.CurrentCell = this.dgrid_Size.Rows[e.RowIndex].Cells[1];
+                this.contextMenuStrip1.Show(this.dgrid_Size, e.Location);
+                contextMenuStrip1.Show(Cursor.Position);
             }
         }
     }
