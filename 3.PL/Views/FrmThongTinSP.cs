@@ -31,7 +31,7 @@ namespace _3.PL.Views
         private KieuDangService _kieuDangService;
         private DeGiayService _degiayService;
         private AnhService _anhService;
-        public FrmThongTinSP(string tenhh, string size, string chatlieu, string mausac, string kieudang, string degiay, string giaban, string anh, ChiTietGiayService ctGiayService, SanPhamService sanPhamService, SizeService sizeService, ChatLieuService chatLieuService, MauSacService mausacService, KieuDangService kieuDangService, DeGiayService degiayService, AnhService anhService, IContainer components, Panel panel1, Panel panel2, Label label7, Label label6, Label label5, Label label4, Label label3, Label label2, Label lbl_Ten, PictureBox pic_Image)
+        public FrmThongTinSP(string tenhh, string size, string chatlieu, string mausac, string kieudang, string degiay, string giaban, string anh)
         {
             InitializeComponent();
             this.tenhh = tenhh;
@@ -52,14 +52,14 @@ namespace _3.PL.Views
             lbl_Anh.Text = anh;
             Image img = Image.FromFile(lbl_Anh.Text);
             pic_Image.Image = img;
-            _ctGiayService = ctGiayService;
-            _sanPhamService = sanPhamService;
-            _sizeService = sizeService;
-            _chatLieuService = chatLieuService;
-            _mausacService = mausacService;
-            _kieuDangService = kieuDangService;
-            _degiayService = degiayService;
-            _anhService = anhService;
+            _ctGiayService = new ChiTietGiayService();
+            _sanPhamService = new SanPhamService();
+            _sizeService = new SizeService();
+            _chatLieuService = new ChatLieuService();
+            _mausacService = new MauSacService();
+            _kieuDangService = new KieuDangService();
+            _degiayService = new DeGiayService();
+            _anhService = new AnhService();
         }
     }
 }
