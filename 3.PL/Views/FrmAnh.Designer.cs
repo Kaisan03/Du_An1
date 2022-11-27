@@ -48,6 +48,7 @@
             this.btn_fileName = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dgrid_Anh = new System.Windows.Forms.DataGridView();
+            this.txt_DuongDan1 = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Images)).BeginInit();
@@ -268,11 +269,22 @@
             this.dgrid_Anh.TabIndex = 10;
             this.dgrid_Anh.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_Anh_CellClick);
             // 
+            // txt_DuongDan1
+            // 
+            this.txt_DuongDan1.AllowDrop = true;
+            this.txt_DuongDan1.Location = new System.Drawing.Point(2, 296);
+            this.txt_DuongDan1.Name = "txt_DuongDan1";
+            this.txt_DuongDan1.Size = new System.Drawing.Size(358, 27);
+            this.txt_DuongDan1.TabIndex = 15;
+            this.txt_DuongDan1.DragDrop += new System.Windows.Forms.DragEventHandler(this.txt_DuongDan1_DragDrop);
+            this.txt_DuongDan1.DragEnter += new System.Windows.Forms.DragEventHandler(this.txt_DuongDan1_DragEnter);
+            // 
             // FrmAnh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1265, 583);
+            this.Controls.Add(this.txt_DuongDan1);
             this.Controls.Add(this.btn_TimKiem);
             this.Controls.Add(this.txt_TimKiem);
             this.Controls.Add(this.groupBox2);
@@ -314,5 +326,6 @@
         private System.Windows.Forms.DataGridView dgrid_Anh;
         private System.Windows.Forms.Button btn_fileName;
         private System.Windows.Forms.PictureBox pic_Images;
+        private System.Windows.Forms.TextBox txt_DuongDan1;
     }
 }

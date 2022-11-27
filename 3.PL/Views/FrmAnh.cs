@@ -235,5 +235,16 @@ namespace _3.PL.Views
         {
             //txt_duongDan.Text = pic_Images.ImageLocation;
         }
+
+        private void txt_DuongDan1_DragDrop(object sender, DragEventArgs e)
+        {
+            string[] FileList = (string[])e.Data.GetData(DataFormats.FileDrop, false);
+            txt_DuongDan1.Text = FileList[0];
+        }
+
+        private void txt_DuongDan1_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.All;
+        }
     }
 }
