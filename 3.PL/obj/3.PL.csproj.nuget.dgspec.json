@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Acer\\Source\\Repos\\Kaisan03\\Du_An1\\3.PL\\3.PL.csproj": {}
+    "C:\\Users\\ADM\\source\\repos\\Du_An1\\3.PL\\3.PL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Acer\\Source\\Repos\\Kaisan03\\Du_An1\\1.DAL\\1.DAL.csproj": {
+    "C:\\Users\\ADM\\source\\repos\\Du_An1\\1.DAL\\1.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Acer\\Source\\Repos\\Kaisan03\\Du_An1\\1.DAL\\1.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\ADM\\source\\repos\\Du_An1\\1.DAL\\1.DAL.csproj",
         "projectName": "1.DAL",
-        "projectPath": "C:\\Users\\Acer\\Source\\Repos\\Kaisan03\\Du_An1\\1.DAL\\1.DAL.csproj",
-        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Acer\\Source\\Repos\\Kaisan03\\Du_An1\\1.DAL\\obj\\",
+        "projectPath": "C:\\Users\\ADM\\source\\repos\\Du_An1\\1.DAL\\1.DAL.csproj",
+        "packagesPath": "C:\\Users\\ADM\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ADM\\source\\repos\\Du_An1\\1.DAL\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\visual\\Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ADM\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -61,8 +65,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -71,21 +74,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Acer\\Source\\Repos\\Kaisan03\\Du_An1\\2.BUS\\2.BUS.csproj": {
+    "C:\\Users\\ADM\\source\\repos\\Du_An1\\2.BUS\\2.BUS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Acer\\Source\\Repos\\Kaisan03\\Du_An1\\2.BUS\\2.BUS.csproj",
+        "projectUniqueName": "C:\\Users\\ADM\\source\\repos\\Du_An1\\2.BUS\\2.BUS.csproj",
         "projectName": "2.BUS",
-        "projectPath": "C:\\Users\\Acer\\Source\\Repos\\Kaisan03\\Du_An1\\2.BUS\\2.BUS.csproj",
-        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Acer\\Source\\Repos\\Kaisan03\\Du_An1\\2.BUS\\obj\\",
+        "projectPath": "C:\\Users\\ADM\\source\\repos\\Du_An1\\2.BUS\\2.BUS.csproj",
+        "packagesPath": "C:\\Users\\ADM\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ADM\\source\\repos\\Du_An1\\2.BUS\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\visual\\Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ADM\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -99,8 +106,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Acer\\Source\\Repos\\Kaisan03\\Du_An1\\1.DAL\\1.DAL.csproj": {
-                "projectPath": "C:\\Users\\Acer\\Source\\Repos\\Kaisan03\\Du_An1\\1.DAL\\1.DAL.csproj"
+              "C:\\Users\\ADM\\source\\repos\\Du_An1\\1.DAL\\1.DAL.csproj": {
+                "projectPath": "C:\\Users\\ADM\\source\\repos\\Du_An1\\1.DAL\\1.DAL.csproj"
               }
             }
           }
@@ -120,8 +127,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -130,25 +136,29 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Acer\\Source\\Repos\\Kaisan03\\Du_An1\\3.PL\\3.PL.csproj": {
+    "C:\\Users\\ADM\\source\\repos\\Du_An1\\3.PL\\3.PL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Acer\\Source\\Repos\\Kaisan03\\Du_An1\\3.PL\\3.PL.csproj",
+        "projectUniqueName": "C:\\Users\\ADM\\source\\repos\\Du_An1\\3.PL\\3.PL.csproj",
         "projectName": "3.PL",
-        "projectPath": "C:\\Users\\Acer\\Source\\Repos\\Kaisan03\\Du_An1\\3.PL\\3.PL.csproj",
-        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Acer\\Source\\Repos\\Kaisan03\\Du_An1\\3.PL\\obj\\",
+        "projectPath": "C:\\Users\\ADM\\source\\repos\\Du_An1\\3.PL\\3.PL.csproj",
+        "packagesPath": "C:\\Users\\ADM\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ADM\\source\\repos\\Du_An1\\3.PL\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\visual\\Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ADM\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net5.0-windows"
+          "net5.0-windows7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -158,8 +168,8 @@
           "net5.0-windows7.0": {
             "targetAlias": "net5.0-windows",
             "projectReferences": {
-              "C:\\Users\\Acer\\Source\\Repos\\Kaisan03\\Du_An1\\2.BUS\\2.BUS.csproj": {
-                "projectPath": "C:\\Users\\Acer\\Source\\Repos\\Kaisan03\\Du_An1\\2.BUS\\2.BUS.csproj"
+              "C:\\Users\\ADM\\source\\repos\\Du_An1\\2.BUS\\2.BUS.csproj": {
+                "projectPath": "C:\\Users\\ADM\\source\\repos\\Du_An1\\2.BUS\\2.BUS.csproj"
               }
             }
           }
@@ -174,9 +184,25 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "dependencies": {
+            "EPPlus": {
+              "target": "Package",
+              "version": "[6.1.1, )"
+            },
             "FontAwesome.Sharp": {
               "target": "Package",
               "version": "[6.1.1, )"
+            },
+            "Microsoft.Office.Interop.Excel": {
+              "target": "Package",
+              "version": "[15.0.4795.1001, )"
+            },
+            "OfficeOpenXml.Core.ExcelPackage": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "System.Data.OleDb": {
+              "target": "Package",
+              "version": "[6.0.0, )"
             },
             "ZXing.Net": {
               "target": "Package",
@@ -185,6 +211,10 @@
             "Zen.Barcode.Rendering.Framework.Web": {
               "target": "Package",
               "version": "[3.1.10729.1, )"
+            },
+            "iTextSharp": {
+              "target": "Package",
+              "version": "[5.5.13.3, )"
             }
           },
           "imports": [
@@ -193,8 +223,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -206,7 +235,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     }
