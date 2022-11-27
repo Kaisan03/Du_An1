@@ -61,7 +61,7 @@ namespace _3.PL.Views
             }
 
             foreach (var item in _chiTietGiayService.GetViewChiTietGiay())
-            
+
             {
                 Button pb = new Button();
 
@@ -71,7 +71,7 @@ namespace _3.PL.Views
                 pb.Height = 200;
                 pb.BackgroundImageLayout = ImageLayout.Zoom;
             }
-            
+
         }
         public void loadGiohang()
         {
@@ -207,7 +207,7 @@ namespace _3.PL.Views
                 Loaddatahoadon();
 
                 MessageBox.Show("Mời bạn chọn sản phẩm", Convert.ToString(MessageBoxButtons.OK));
-               // dgrid_hoadondatao.Enabled = false;
+                // dgrid_hoadondatao.Enabled = false;
             }
             if (dialogResult == DialogResult.No)
             {
@@ -339,7 +339,7 @@ namespace _3.PL.Views
             {
                 return;
             }
-        }  
+        }
         private void dgrid_SanPham_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow r = dgrid_chitietgiay.Rows[e.RowIndex];
@@ -347,7 +347,7 @@ namespace _3.PL.Views
             var data = _viewHoaDonChiTiets.FirstOrDefault(c => c.HoaDonChiTiet.IdChiTietGiay == Guid.Parse(r.Cells[0].Value.ToString()));
             if (sp.SoLuongTon <= 0)
             {
-                 
+
             }
 
             if (data == null)
@@ -357,7 +357,7 @@ namespace _3.PL.Views
                     Id = Guid.NewGuid(),
                     IdChiTietGiay = Guid.Parse(r.Cells[0].Value.ToString()),
                     DonGia = sp.GiaBan,
-                    IdHoaDon = _hoaDonService.GetallHoadon().Max(c=>c.Id),
+                    IdHoaDon = _hoaDonService.GetallHoadon().Max(c => c.Id),
                     SoLuong = 1,
                 };
                 _hoaDonChiTietService.Add(hoaDonChiTiet);
@@ -370,7 +370,7 @@ namespace _3.PL.Views
             }
             loadGiohang();
             LoadDataGiay();
-            
+
         }
 
         private void gr_thanhtoan_Enter(object sender, EventArgs e)
@@ -394,23 +394,23 @@ namespace _3.PL.Views
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            //string tenhh = Convert.ToString(flp_SanPham.);
+            //string size = "";
+            //string chatlieu = "";
+            //string mausac = "";
+            //string kieudang = "";
+            //string degiay = "";
+            //string giaban = "";
+            //string anh = "";
         }
 
-        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        private void flp_SanPham_MouseUp(object sender, MouseEventArgs e)
         {
-
-        }
-
-
-        private void flp_SanPham_MouseUp_1(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void contextMenuStrip1_MouseUp(object sender, MouseEventArgs e)
-        {
-
+            if (e.Button == MouseButtons.Right)
+            {
+                this.contextMenuStrip1.Show(this.flp_SanPham, e.Location);
+                contextMenuStrip1.Show(Cursor.Position);
+            }
         }
     }
 }
