@@ -57,10 +57,11 @@ namespace _3.PL.Views
             _IMauSacService = new MauSacService();
             _IChatLieuService = new ChatLieuService();
             _IAnhService = new AnhService();
-            
             LoadData();
             LoadComboBox();
-            
+            LoadLoc();
+            cbx_HoatDong.Enabled = false;
+            cbx_khongHD.Enabled = false;
         }
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
@@ -72,6 +73,14 @@ namespace _3.PL.Views
             int nWidthEllipse,
             int nHeightEllipse
         );
+        private void LoadLoc()
+        {
+            var size11 = _IChiTietGiayService.GetAllCTGiay().Select(c => c.TrangThai == 1 ? "Hết hàng":"Còn hàng".ToString()).Distinct();
+            foreach (var x in size11)
+            {
+                cmb_Loc.Items.Add(x);
+            }
+        }
         private void LoadComboBox()
         {
             var size1 = _ISanPhamService.GetAllSanPham().Select(c => c.Ten.ToString()).Distinct();
@@ -701,6 +710,59 @@ namespace _3.PL.Views
             //    cbx_HoatDong.Checked = false;
             //    cbx_khongHD.Checked = true;
             //}
+        }
+
+        private void cmb_Loc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dgrid_ChiTietGiay.ColumnCount = 16;
+            dgrid_ChiTietGiay.Columns[0].Name = "ID";
+            dgrid_ChiTietGiay.Columns[0].Visible = false;
+            dgrid_ChiTietGiay.Columns[1].Name = "Size";
+            dgrid_ChiTietGiay.Columns[2].Name = "Màu sắc";
+            dgrid_ChiTietGiay.Columns[3].Name = "Chất liệu";
+            dgrid_ChiTietGiay.Columns[4].Name = "Loại đế";
+            dgrid_ChiTietGiay.Columns[5].Name = "Nhà sản xuất";
+            dgrid_ChiTietGiay.Columns[6].Name = "Kiểu dáng";
+            dgrid_ChiTietGiay.Columns[7].Name = "Tên sản phẩm";
+            dgrid_ChiTietGiay.Columns[8].Name = "Mã sản phẩm";
+            dgrid_ChiTietGiay.Columns[9].Name = "Giá nhập";
+            dgrid_ChiTietGiay.Columns[10].Name = "Giá bán";
+            dgrid_ChiTietGiay.Columns[11].Name = "Số lượng";
+            dgrid_ChiTietGiay.Columns[12].Name = "Số lượng tồn";
+            dgrid_ChiTietGiay.Columns[13].Name = "Ảnh";
+            dgrid_ChiTietGiay.Columns[14].Name = "Mô tả";
+            dgrid_ChiTietGiay.Columns[15].Name = "Trạng thái";
+            dgrid_ChiTietGiay.Rows.Clear();
+            //_lstCTGiay = _IChiTietGiayService.GetViewChiTietGiay();
+            //if (txt_TimKiem.Text != "")
+            //{
+            //    _lstCTGiay = _lstCTGiay.Where(p => p.Ma.ToLower().Contains(txt_Ma.Text.ToLower())).ToList();
+            //}
+            foreach (var x in _IChiTietGiayService.GetViewChiTietGiay().Where(c => c.TrangThai == cmb_Loc.SelectedIndex).OrderBy(c => c.Ma).ToList())
+            {
+                dgrid_ChiTietGiay.Rows.Add(x.Id,
+                    x.TenSize,
+                    x.TenMauSac,
+                    x.TenChatLieu,
+                    x.TenDeGiay,
+                    x.TenNSX,
+                    x.TenKieuDang,
+                    x.TenSanPham,
+                    x.Ma,
+                    x.GiaNhap,
+                    x.GiaBan,
+                    x.SoLuong,
+                    x.SoLuongTon,
+                    x.Anh,
+                    x.MoTa,
+                    x.TrangThai == 1 ? "Còn hàng" : "Hết hàng"
+                    );
+            }
+        }
+
+        private void cmb_Loc_Leave(object sender, EventArgs e)
+        {
+            LoadData();
         }
     }
 }
