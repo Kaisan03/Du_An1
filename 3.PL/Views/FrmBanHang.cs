@@ -383,7 +383,12 @@ namespace _3.PL.Views
                     SoLuong = 1,
                 };
                 _hoaDonChiTietService.Add(hoaDonChiTiet);
-                sp.SoLuong--;
+                ChiTietGiay ct = new ChiTietGiay()
+                {
+                    
+                    SoLuong = -1
+                };
+                _chiTietGiayService.UpdateCTGiay2(ct);
             }
             else
             {
