@@ -120,7 +120,7 @@ namespace _3.PL.Views
         {
             lb_change.Text = btn_sanpham.Text;
             ActiveButton(sender, RGBColors.color3);
-            OpenChildForm(new FrmSanPham());
+            OpenChildForm(new FrmChiTietGiay());
         }
 
         private void btn_hoadon_Click(object sender, EventArgs e)
@@ -219,7 +219,7 @@ namespace _3.PL.Views
         private void iconButton1_Click(object sender, EventArgs e)
         {
             lb_change.Text = iconButton1.Text;
-            OpenChildForm(new FrmChiTietGiay());
+            OpenChildForm(new FrmSanPham());
         }
 
         private void iconButton2_Click(object sender, EventArgs e)
