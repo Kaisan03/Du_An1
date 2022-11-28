@@ -415,7 +415,7 @@ namespace _3.PL.Views
                     SoLuong = 1,
                 };
                 _hoaDonChiTietService.Add(hoaDonChiTiet);
-
+                sp.SoLuong--;
             }
             else
             {
@@ -436,7 +436,6 @@ namespace _3.PL.Views
             pn_HoaDon.BringToFront();
             pn_GiaoHang.Visible = false;
         }
-
         private void button4_Click(object sender, EventArgs e)
         {
             pn_GiaoHang.Visible = true;
