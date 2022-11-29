@@ -403,7 +403,7 @@
             this.pn_HoaDon.Controls.Add(this.label2);
             this.pn_HoaDon.Controls.Add(this.label3);
             this.pn_HoaDon.Controls.Add(this.lbl_MahoaDon);
-            this.pn_HoaDon.Location = new System.Drawing.Point(15, 699);
+            this.pn_HoaDon.Location = new System.Drawing.Point(506, 639);
             this.pn_HoaDon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pn_HoaDon.Name = "pn_HoaDon";
             this.pn_HoaDon.Size = new System.Drawing.Size(1665, 244);
@@ -504,7 +504,7 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(267, 580);
+            this.dataGridView1.Size = new System.Drawing.Size(267, 590);
             this.dataGridView1.TabIndex = 0;
             // 
             // pn_GiaoHang
