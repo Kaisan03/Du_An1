@@ -17,9 +17,8 @@ namespace _1.DAL.Repositories
             _dbConText = new FpolyDBContext();
         }
         public bool Add(HoaDonChiTiet obj)
-        {
-            
-            _dbConText.HoaDonChiTiets.Add(obj);
+        {      
+            _dbConText.Add(obj);
             _dbConText.SaveChanges();
             return true;
         }

@@ -2,6 +2,7 @@
 using _2.BUS.IServices;
 using _2.BUS.Services;
 using _2.BUS.ViewModels;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,6 +33,9 @@ namespace _3.PL.Views
         public HoaDon _hoaDonCho;
         public List<HoaDonChiTiet> hoaDonChiTiets;
         private int rowindex = 0;
+        private INhanVienService _nhanVienService;
+        private IKhachHangService _khachHangService;
+        private List<HoaDonChiTiet> _lstHDCT;
         public FrmBanHang()
         {
             InitializeComponent();
@@ -49,12 +53,22 @@ namespace _3.PL.Views
             _viewHoaDonChiTiets = new List<ViewHoaDonChiTiet>();
             _hoaDonCho = new HoaDon();
             hoaDonChiTiets = new List<HoaDonChiTiet>();
+            _nhanVienService = new NhanVienService();
+            _khachHangService = new KhachHangService();
+            _lstHDCT = new List<HoaDonChiTiet>();
             LoadDataGiay();
             loadGiohang();
             Loaddatahoadon();
             cookroi();
+            LoadNhanVien();
         }
-
+        public void LoadNhanVien()
+        {
+            foreach (var x in _nhanVienService.GetAllNhanVien())
+            {
+                cbx_NhanVien.Items.Add(string.Concat(x.Ho, " ", x.TenDem, " ", x.Ten));
+            }
+        }
 
         public void LoadDataGiay()
         {
@@ -245,7 +259,7 @@ namespace _3.PL.Views
                 MessageBox.Show("Tạo hóa đơn thành công");
                 LoadDataGiay();
                 loadGiohang();
-                Loaddatahoadon();
+                cookroi();
 
                 //MessageBox.Show("Mời bạn chọn sản phẩm", Convert.ToString(MessageBoxButtons.OK));
                 // dgrid_hoadondatao.Enabled = false;
@@ -293,7 +307,7 @@ namespace _3.PL.Views
                 var hoaDon = new ViewHoaDon();
                 var idhd = _hoaDonService.GetallHoadon().Max(x => x.Id);
 
-                var hdct = new _1.DAL.DomainClass.HoaDonChiTiet()
+                var hdct = new HoaDonChiTiet()
                 {
                     Id = Guid.NewGuid(),
                     IdHoaDon = idhd,
@@ -301,7 +315,6 @@ namespace _3.PL.Views
                     SoLuong = item.SoLuong,
                     DonGia = item.DonGia
                 };
-
                 var sp = _chiTietGiayService.GetAllCTGiay().FirstOrDefault(x => x.Id == item.IdChiTietGiay);
                 if (sp.SoLuongTon <= 0)
                 {
@@ -314,6 +327,11 @@ namespace _3.PL.Views
                     _chiTietGiayService.UpdateCTGiay2(sp);
                     _hoaDonChiTietService.Add(hdct);
                 }
+                MessageBox.Show("Tạo hóa đơn thành công");
+                _lstHDCT = new List<HoaDonChiTiet>();
+                loadGiohang();
+                LoadDataGiay();
+                cookroi();
                 //if (sp.s)
                 //{
 
@@ -395,8 +413,7 @@ namespace _3.PL.Views
         }
         public void AddGioHang(Guid id)
         {
-
-
+            string content = Interaction.InputBox("Mời Bạn Nhập Số Lượng Muốn Thêm", "Thêm Vào Giỏ Hàng", "",500, 300);
             var sp = _chiTietGiayService.GetAllCTGiay().FirstOrDefault(c => c.Id == id);
             var data = _hoaDonChiTietService.GetAllHoaDonCT().FirstOrDefault(c => c.IdChiTietGiay == id);
             if (sp.SoLuongTon <= 0)
@@ -412,10 +429,9 @@ namespace _3.PL.Views
                     IdChiTietGiay = id,
                     DonGia = sp.GiaBan,
                     IdHoaDon = _hoaDonService.GetallHoadon().Max(c => c.Id),
-                    SoLuong = 1,
+                    SoLuong = Convert.ToInt32(content)
                 };
                 _hoaDonChiTietService.Add(hoaDonChiTiet);
-                sp.SoLuong--;
             }
             else
             {
@@ -472,6 +488,19 @@ namespace _3.PL.Views
                 this.contextMenuStrip1.Show(this.dgrid_chitietgiay, e.Location);
                 contextMenuStrip1.Show(Cursor.Position);
             }
+        }
+
+        private void txt_Sdt_TextChanged(object sender, EventArgs e)
+        {
+            txt_Khachhang.Text = _khachHangService.GetAll()
+                .Where(x => x.Sdt == txt_SDT.Text)
+                .Select(x => string.Concat(x.Ho, " ", x.TenDem, " ", x.Ten)).FirstOrDefault();
+        }
+
+        private void btn_AddKH_Click(object sender, EventArgs e)
+        {
+            FrmKhachHang frmKH = new FrmKhachHang();
+            frmKH.ShowDialog();
         }
     }
 }

@@ -62,6 +62,7 @@ namespace _3.PL.Views
             LoadLoc();
             cbx_HoatDong.Enabled = false;
             cbx_khongHD.Enabled = false;
+            txt_Ma.Enabled = false;
         }
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
@@ -188,7 +189,7 @@ namespace _3.PL.Views
                     IdDeGiay = cmb_LoaiDe.Text != null ? _IDeGiayService.GetAllDeGiay().FirstOrDefault(c => c.Ten == cmb_LoaiDe.Text).Id : null,
                     IdKieuDang = cmb_KieuDang.Text != null ? _IKieuDangService.GetAllKieuDang().FirstOrDefault(c => c.Ten == cmb_KieuDang.Text).Id : null,
                     IdSize = cmb_TenSize.Text != null ? _ISizeService.GetAllSize().FirstOrDefault(c => c.Ten == cmb_TenSize.Text).Id : null,
-                    Ma = txt_Ma.Text,
+                    Ma = Convert.ToString("ACDKMNS" + Convert.ToString(_ISizeService.GetAllSize().Max(c => c.Ten) + 1)),
                     IdAnh = cmb_Anh.Text != null ? _IAnhService.GetAllAnh().FirstOrDefault(c => c.DuongDan == cmb_Anh.Text).Id : null,
                     SoLuong = Convert.ToInt32(txt_SoLuong.Text),
                     GiaNhap = Convert.ToInt32(txt_NgayNhap.Text),
