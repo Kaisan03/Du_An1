@@ -155,6 +155,7 @@
             this.dgrid_chitietgiay.Location = new System.Drawing.Point(6, 59);
             this.dgrid_chitietgiay.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dgrid_chitietgiay.Name = "dgrid_chitietgiay";
+            this.dgrid_chitietgiay.RowHeadersVisible = false;
             this.dgrid_chitietgiay.RowHeadersWidth = 51;
             this.dgrid_chitietgiay.RowTemplate.Height = 29;
             this.dgrid_chitietgiay.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -198,6 +199,7 @@
             this.dgrid_GioHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrid_GioHang.Location = new System.Drawing.Point(6, 27);
             this.dgrid_GioHang.Name = "dgrid_GioHang";
+            this.dgrid_GioHang.RowHeadersVisible = false;
             this.dgrid_GioHang.RowHeadersWidth = 51;
             this.dgrid_GioHang.RowTemplate.Height = 29;
             this.dgrid_GioHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

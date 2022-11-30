@@ -63,6 +63,7 @@ namespace _3.PL.Views
             cbx_HoatDong.Enabled = false;
             cbx_khongHD.Enabled = false;
             txt_Ma.Enabled = false;
+            dgrid_ChiTietGiay.AllowUserToAddRows = false;
         }
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn

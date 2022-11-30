@@ -125,6 +125,7 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgrid_ChiTietGiay.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgrid_ChiTietGiay.RowHeadersVisible = false;
             this.dgrid_ChiTietGiay.RowHeadersWidth = 51;
             this.dgrid_ChiTietGiay.RowTemplate.Height = 29;
             this.dgrid_ChiTietGiay.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
