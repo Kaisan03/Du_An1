@@ -190,6 +190,7 @@ namespace _3.PL.Views
                 }
                 LoadGioHang();
                 LoadSanPham();
+                anhcaidmm();
             }
             else
             {
@@ -271,7 +272,7 @@ namespace _3.PL.Views
                 dgrid_GioHang.Rows.Add(x.Id, g.TenSanPham, x.SoLuong, g.GiaBan, g.GiaBan * x.SoLuong);
             }
             int n = 0;
-            for (int i = 0; i < dgrid_GioHang.RowCount - 1; i++)
+            for (int i = 0; i < dgrid_GioHang.RowCount; i++)
             {
                 int temp = 0;
                 temp = Convert.ToInt32(dgrid_GioHang.Rows[i].Cells["Số lượng"].Value) * Convert.ToInt32(dgrid_GioHang.Rows[i].Cells["Giá sản phẩm"].Value);
