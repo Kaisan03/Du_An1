@@ -204,6 +204,7 @@ namespace _3.PL.Views
                 btn_HoaDonCho.Name = $"btn_HDCho{i}";
                 flowLayoutPanel1.Controls.Add(btn_HoaDonCho);
                 btn_HoaDonCho.Click += Btn_HoaDonCho_Click;
+                
             }
         }
 
@@ -251,7 +252,7 @@ namespace _3.PL.Views
                     Ma = "HD00" + (_hoaDonService.GetallHoadon().Count + 1).ToString(),
                     NgayTao = DateTime.Now,
                     TrangThai = 0,
-
+                    
                 };
                 cookroi();
 

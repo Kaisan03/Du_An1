@@ -113,7 +113,7 @@ namespace _3.PL.Views
         {
             lb_change.Text = btn_orders.Text;
             ActiveButton(sender, RGBColors.color2);
-            OpenChildForm(new FrmBanHang());
+            OpenChildForm(new FrmBanHang1());
         }
 
         private void btn_sanpham_Click(object sender, EventArgs e)

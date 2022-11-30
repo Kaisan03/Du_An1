@@ -102,7 +102,7 @@ namespace _2.BUS.Services
             }
             public bool Update(HoaDonChiTiet obj)
             {
-                _IHoaDonChiTietRp.Delete(obj);
+                _IHoaDonChiTietRp.Update(obj);
                 return true;
             }
         }
