@@ -60,6 +60,8 @@ namespace _3.PL.Views
             _kieuDangService = new KieuDangService();
             _degiayService = new DeGiayService();
             _anhService = new AnhService();
+            lbl_Anh.Visible = false;
+            label1.Visible = false;
         }
     }
 }

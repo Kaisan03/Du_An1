@@ -37,6 +37,8 @@ namespace _3.PL.Views
         private INhanVienService _nhanVienService;
         private IKhachHangService _khachHangService;
         private List<HoaDonChiTiet> _lstHDCT;
+        private int rowindex = 0;
+        private IKhachHangService _KHService;
         
         public FrmBanHang1()
         {
@@ -51,6 +53,7 @@ namespace _3.PL.Views
 
             dgrid_chitietgiay.AllowUserToAddRows = false;
             this.dgrid_chitietgiay.DefaultCellStyle.ForeColor = Color.Red;
+            _KHService = new KhachHangService();
         }
         public void LoadSanPham()
         {
@@ -294,6 +297,43 @@ namespace _3.PL.Views
                 dgrid_GioHang.Rows[i].Cells["btn_dlt"].Value = img2;
 
             }
+        }
+
+        private void thôngTinChiTiếtSảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string tenhh = Convert.ToString(dgrid_chitietgiay.Rows[rowindex].Cells[2].Value);
+            string size = Convert.ToString(dgrid_chitietgiay.Rows[rowindex].Cells[5].Value);
+            string chatlieu = Convert.ToString(dgrid_chitietgiay.Rows[rowindex].Cells[6].Value);
+            string mausac = Convert.ToString(dgrid_chitietgiay.Rows[rowindex].Cells[8].Value);
+            string kieudang = Convert.ToString(dgrid_chitietgiay.Rows[rowindex].Cells[10].Value);
+            string degiay = Convert.ToString(dgrid_chitietgiay.Rows[rowindex].Cells[9].Value);
+            string giaban = Convert.ToString(dgrid_chitietgiay.Rows[rowindex].Cells[4].Value);
+            string anh = Convert.ToString(dgrid_chitietgiay.Rows[rowindex].Cells[11].Value);
+            FrmThongTinSP frmttSP = new FrmThongTinSP(tenhh, size, chatlieu, mausac, kieudang, degiay, giaban, anh);
+            frmttSP.Show();
+        }
+
+        private void dgrid_chitietgiay_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                this.dgrid_chitietgiay.Rows[e.RowIndex].Selected = true;
+                this.rowindex = e.RowIndex;
+                this.dgrid_chitietgiay.CurrentCell = this.dgrid_chitietgiay.Rows[e.RowIndex].Cells[1];
+                this.contextMenuStrip1.Show(this.dgrid_chitietgiay, e.Location);
+                contextMenuStrip1.Show(Cursor.Position);
+            }
+        }
+
+        private void txt_Sdt_TextChanged(object sender, EventArgs e)
+        {
+            txt_TenKH.Text = _KHService.GetAll().Where(x => x.Sdt == txt_Sdt.Text).Select(x => string.Concat(x.Ho, " ", x.TenDem, " ", x.Ten)).FirstOrDefault();
+        }
+
+        private void btn_AddKH_Click(object sender, EventArgs e)
+        {
+            FrmKhachHang frmKH = new FrmKhachHang();
+            frmKH.ShowDialog();
         }
     }
 }
