@@ -367,7 +367,7 @@ namespace _3.PL.Views
             DialogResult dialogResult = MessageBox.Show($"Bạn có muốn thanh toán hóa Đơn {lbl_MahoaDon} không", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if(dialogResult==DialogResult.Yes)
             {
-                if(string.IsNullOrEmpty(txt_TongTien.Text))
+                if(String.IsNullOrEmpty(txt_TongTien.Text)|| txt_TongTien.Text=="0")
                 {
                     MessageBox.Show("Hóa đơn trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
@@ -413,6 +413,25 @@ namespace _3.PL.Views
         }
 
         private void rbtn_DaTT_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_HoaDon_Click(object sender, EventArgs e)
+        {
+            pn_HoaDon.Visible = true;
+            pn_HoaDon.BringToFront();
+            pn_DatHang.Visible = false;
+        }
+
+        private void btn_DatHang_Click(object sender, EventArgs e)
+        {
+            pn_DatHang.Visible = true;
+            pn_DatHang.BringToFront();
+            pn_HoaDon.Visible = false;
+        }
+
+        private void btn_DatHang2_Click(object sender, EventArgs e)
         {
 
         }
