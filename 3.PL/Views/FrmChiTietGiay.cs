@@ -592,29 +592,7 @@ namespace _3.PL.Views
             frmImportExcel.ShowDialog();
         }
 
-        private void btn_Niem_Click(object sender, EventArgs e)
-        {
-            //Microsoft.Office.Interop.Excel.Application xlApp;
-            //Microsoft.Office.Interop.Excel.Workbook xlWorkbook;
-            //Microsoft.Office.Interop.Excel.Worksheet xlWorksheet;
-            //Microsoft.Office.Interop.Excel.Range xlRange;
-            //int xlRow;
-            //string strFileName;
-            //openFD.Filter = "Excel Office |*.xls; *xlsx";
-            //openFD.ShowDialog();
-            //strFileName = openFD.FileName;
-            //if (strFileName != "")
-            //{
-            //    xlApp = new Microsoft.Office.Interop.Excel.Application();
-            //    xlWorkbook = xlApp.Workbooks.Open(strFileName);
-            //    xlWorksheet = xlWorkbook.Worksheets["Sheet1"];
-            //    xlRange = xlWorksheet.UsedRange;
-            //    for (xlRow = 2; xlRow <= xlRange.Rows.Count; xlRow++)
-            //    {
-            //        dgrid_ChiTietGiay.Rows.Add(xlRange.Cells[xlRow,1].te)
-            //    };
-            //}
-        }
+       
         public void exportdata(DataGridView dgw, string filename)
         {
             BaseFont bf = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, BaseFont.EMBEDDED);
@@ -766,5 +744,7 @@ namespace _3.PL.Views
         {
             LoadData();
         }
+
+       
     }
 }
