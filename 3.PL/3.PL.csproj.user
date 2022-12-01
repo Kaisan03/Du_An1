@@ -8,6 +8,9 @@
     <Compile Update="Views\FrmBanHang.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\FrmBanHang1.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\FrmChatLieu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +62,9 @@
     <Compile Update="Views\FrmNhaSanXuat.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\FrmQuenMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\FrmSanPham.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\FrmThongBao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\FrmThongTinSP.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\Themthongtinkhachhang.cs">

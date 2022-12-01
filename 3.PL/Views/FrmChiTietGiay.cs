@@ -25,6 +25,12 @@ using iTextSharp.text.pdf;
 using iTextSharp.text;
 using iTextSharp.text.html.simpleparser;
 using Document = iTextSharp.text.Document;
+using AForge;
+using AForge.Video;
+using AForge.Video.DirectShow;
+using ZXing;
+using ZXing.Aztec;
+using ZXing.Windows.Compatibility;
 //using OfficeOpenXml.Core.ExcelPackage;
 
 namespace _3.PL.Views
@@ -44,6 +50,8 @@ namespace _3.PL.Views
         private IAnhService _IAnhService;
         private Guid _idCTGiay;
         SanPhamService sanPhams;
+        private FilterInfoCollection CaptureDevice;
+        private VideoCaptureDevice FinalFrame;
         public FrmChiTietGiay()
         {
             InitializeComponent();
@@ -331,6 +339,11 @@ namespace _3.PL.Views
         }
         private void FrmChiTietGiay_Load_1(object sender, EventArgs e)
         {
+            CaptureDevice = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            foreach (FilterInfo Device in CaptureDevice)
+                comboBox1.Items.Add(Device.Name);
+            comboBox1.SelectedIndex = 0;
+            FinalFrame = new VideoCaptureDevice();
             //groupBox1.Location = new Point(
             //this.ClientSize.Width /10 - groupBox1.Size.Width/7 ,
             //this.ClientSize.Height  - groupBox1.Size.Height );
@@ -758,6 +771,47 @@ namespace _3.PL.Views
         private void dgrid_ChiTietGiay_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btn_Start_Click(object sender, EventArgs e)
+        {
+            FinalFrame = new VideoCaptureDevice(CaptureDevice[comboBox1.SelectedIndex].MonikerString);
+            FinalFrame.NewFrame += new NewFrameEventHandler(FinalFrame_NewFrame);
+            FinalFrame.Start();
+        }
+        private void FinalFrame_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        {
+            pic_QuetBarcode.Image = (Bitmap)eventArgs.Frame.Clone();
+        }
+
+        private void FrmChiTietGiay_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (FinalFrame.IsRunning == true)
+                FinalFrame.Stop();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            BarcodeReader reader = new BarcodeReader();
+            Result result = reader.Decode((Bitmap)pic_QuetBarcode.Image);
+            try
+            {
+                string decoded = result?.ToString().Trim();
+                if (decoded != "")
+                {
+                    txt_MaVach.Text = decoded;
+                }
+            }
+            catch (Exception ex)
+            {
+
+
+            }
+        }
+
+        private void btn_read_Click(object sender, EventArgs e)
+        {
+            timer1.Start();
         }
     }
 }

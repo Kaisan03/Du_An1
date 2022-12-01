@@ -56,6 +56,7 @@ namespace _2.BUS.Services
                 Ma = obj.Ma,
                 IdAnh = obj.IdAnh,
                 SoLuong = obj.SoLuong,
+                MaVach = obj.MaVach,
                 GiaNhap = obj.GiaNhap,
                 GiaBan = obj.GiaBan,
                 SoLuongTon = obj.SoLuongTon,
@@ -88,6 +89,7 @@ namespace _2.BUS.Services
             x.Ma = obj.Ma;
             x.IdAnh = obj.IdAnh;
             x.SoLuong = obj.SoLuong;
+            x.MaVach = obj.MaVach;
             x.GiaNhap = obj.GiaNhap;
             x.GiaBan = obj.GiaBan;
             x.SoLuongTon = obj.SoLuongTon;
@@ -126,6 +128,7 @@ namespace _2.BUS.Services
                                       Ma = ctsp.Ma,
                                       Anh = anh.DuongDan,
                                       SoLuong = ctsp.SoLuong,
+                                      MaVach = ctsp.MaVach,
                                       GiaBan = ctsp.GiaBan,
                                       GiaNhap = ctsp.GiaNhap,
                                       SoLuongTon = ctsp.SoLuongTon,
