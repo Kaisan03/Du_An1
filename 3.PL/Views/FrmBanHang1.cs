@@ -343,7 +343,7 @@ namespace _3.PL.Views
         public void FuckYou()
         {
             SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = "Data Source=LAPTOP-OF-KHAI\\SQLEXPRESS;Initial Catalog=Duan1;Persist Security Info=True;User ID=khainq03;Password=123456";
+            connection.ConnectionString = "Data Source=LAPTOP-46F72MJA\\SQLEXPRESS;Initial Catalog=Duan1;Persist Security Info=True;User ID=duyvtph24890;Password=123456";
 
             connection.Open();
             SqlCommand sqlCommand = new SqlCommand("select Sdt FROM KhachHang", connection);

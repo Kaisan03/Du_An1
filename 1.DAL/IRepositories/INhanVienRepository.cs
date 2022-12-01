@@ -14,6 +14,7 @@ namespace _1.DAL.IRepositories
         bool Delete(NhanVien obj);
         //NhanVien GetByid(Guid id);
         List<NhanVien> GetAllNhanVien();
+        bool Save(NhanVien nv);
 
     }
 }
