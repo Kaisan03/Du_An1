@@ -40,10 +40,14 @@ namespace _1.DAL.DomainClass
         [StringLength(100)]
         public string DiaChi { get; set; }
         [Column("SDT")]
+
         [StringLength(50)]
+        
         public string Sdt { get; set; }
         [StringLength(10)]
         public string GiamGia { get; set; }
+        public decimal? TienShip { get; set; }
+        public decimal? TienCoc { get; set; }
         public int? TrangThai { get; set; }
         [Column("idSanPham")]
         public Guid? IdSanPham { get; set; }
