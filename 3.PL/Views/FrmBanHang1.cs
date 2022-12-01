@@ -12,6 +12,7 @@ using _1.DAL.DomainClass;
 using _2.BUS.IServices;
 using _2.BUS.Services;
 using _2.BUS.ViewModels;
+using Microsoft.Data.SqlClient;
 using Microsoft.VisualBasic;
 
 namespace _3.PL.Views
@@ -54,6 +55,7 @@ namespace _3.PL.Views
             dgrid_chitietgiay.AllowUserToAddRows = false;
             this.dgrid_chitietgiay.DefaultCellStyle.ForeColor = Color.Red;
             _KHService = new KhachHangService();
+            FuckYou();
         }
         public void LoadSanPham()
         {
@@ -335,6 +337,27 @@ namespace _3.PL.Views
         {
             FrmKhachHang frmKH = new FrmKhachHang();
             frmKH.ShowDialog();
+        }
+        public void FuckYou()
+        {
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = "Data Source=LAPTOP-46F72MJA\\SQLEXPRESS;Initial Catalog=Duan11;Persist Security Info=True;User ID=duyvtph24890;Password=123456";
+
+            connection.Open();
+            SqlCommand sqlCommand = new SqlCommand("select Sdt FROM KhachHang", connection);
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+            SqlDataReader dr = sqlCommand.ExecuteReader();
+
+            AutoCompleteStringCollection col = new AutoCompleteStringCollection();
+
+            while (dr.Read())
+            {
+                col.Add(dr.GetString(0));
+            }
+
+
+            txt_Sdt.AutoCompleteCustomSource = col;
+            connection.Close();
         }
     }
 }

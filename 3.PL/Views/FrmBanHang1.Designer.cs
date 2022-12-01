@@ -820,6 +820,8 @@
             // 
             // txt_Sdt
             // 
+            this.txt_Sdt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txt_Sdt.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txt_Sdt.Location = new System.Drawing.Point(70, 55);
             this.txt_Sdt.Name = "txt_Sdt";
             this.txt_Sdt.Size = new System.Drawing.Size(239, 27);
