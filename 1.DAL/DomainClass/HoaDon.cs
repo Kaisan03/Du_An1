@@ -14,6 +14,7 @@ namespace _1.DAL.DomainClass
         public HoaDon()
         {
             HoaDonChiTiets = new HashSet<HoaDonChiTiet>();
+            HinhThucThanhToans = new HashSet<HinhThucThanhToan>();
         }
 
         [Key]
@@ -62,5 +63,6 @@ namespace _1.DAL.DomainClass
         public virtual SanPham IdSanPhamNavigation { get; set; }
         [InverseProperty(nameof(HoaDonChiTiet.IdHoaDonNavigation))]
         public virtual ICollection<HoaDonChiTiet> HoaDonChiTiets { get; set; }
+        public virtual ICollection<HinhThucThanhToan> HinhThucThanhToans { get; set; }
     }
 }
