@@ -25,6 +25,7 @@ namespace _2.BUS.ViewModels
         public string DiaChi { get; set; }
 
         public string Sdt { get; set; }
+        public string Email { get; set; }
 
         public string MatKhau { get; set; }
         public Guid? IdChucVu { get; set; }

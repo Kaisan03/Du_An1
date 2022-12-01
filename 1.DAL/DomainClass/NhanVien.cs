@@ -38,6 +38,8 @@ namespace _1.DAL.DomainClass
         [StringLength(50)]
         public string Sdt { get; set; }
         [StringLength(50)]
+        public string Email { get; set; }
+        [StringLength(50)]
         public string MatKhau { get; set; }
         public Guid? IdChucVu { get; set; }
         public int? TrangThai { get; set; }

@@ -1,6 +1,7 @@
 ﻿using _1.DAL.Context;
 using _1.DAL.DomainClass;
 using _1.DAL.IRepositories;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +36,12 @@ namespace _1.DAL.Repositories
         public List<NhanVien> GetAllNhanVien()
         {
            return _dBContext.NhanViens.ToList();
+        }
+
+        public bool Save(NhanVien nv)
+        {
+            _dBContext.SaveChanges();
+            return true;
         }
 
         //public NhanVien GetByid(Guid id)

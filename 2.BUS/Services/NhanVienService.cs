@@ -41,6 +41,7 @@ namespace _2.BUS.Services
                 NgaySinh = obj.NgaySinh,
                 DiaChi = obj.DiaChi,
                 Sdt = obj.Sdt,
+                Email = obj.Email,
                 MatKhau = obj.MatKhau,
                 IdChucVu = obj.IdChucVu,
                 TrangThai = obj.TrangThai,
@@ -67,6 +68,8 @@ namespace _2.BUS.Services
             updateNv.Ma = obj.Ma;
             updateNv.Ten = obj.Ten;
             updateNv.DiaChi = obj.DiaChi;
+            updateNv.Sdt = obj.Sdt;
+            updateNv.Email = obj.Email;
             updateNv.NgaySinh = obj.NgaySinh;
             updateNv.TrangThai = obj.TrangThai;
             _iNhanVienRepository.Update(updateNv);
@@ -109,6 +112,7 @@ namespace _2.BUS.Services
                                     NgaySinh = nv.NgaySinh,
                                     DiaChi = nv.DiaChi,
                                     Sdt = nv.Sdt,
+                                    Email = nv.Email,
                                     MatKhau = nv.MatKhau,
                                     TrangThai = nv.TrangThai,
                                 }).ToList();
