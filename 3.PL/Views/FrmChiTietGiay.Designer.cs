@@ -132,6 +132,7 @@
             this.dgrid_ChiTietGiay.Size = new System.Drawing.Size(1426, 257);
             this.dgrid_ChiTietGiay.TabIndex = 0;
             this.dgrid_ChiTietGiay.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_ChiTietGiay_CellClick);
+            this.dgrid_ChiTietGiay.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_ChiTietGiay_CellContentClick);
             // 
             // txt_TimKiem
             // 
@@ -204,6 +205,7 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin sản phẩm";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // cmb_Loc
             // 
@@ -728,6 +730,7 @@
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Ảnh sản phẩm";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // openFD
             // 

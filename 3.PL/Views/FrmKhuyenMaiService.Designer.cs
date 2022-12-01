@@ -95,6 +95,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(23, 227);
             this.label1.Name = "label1";
@@ -104,6 +105,7 @@
             // 
             // tbx_ma
             // 
+            this.tbx_ma.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.tbx_ma.Location = new System.Drawing.Point(83, 227);
             this.tbx_ma.Name = "tbx_ma";
             this.tbx_ma.Size = new System.Drawing.Size(365, 23);
@@ -111,6 +113,7 @@
             // 
             // tbx_ten
             // 
+            this.tbx_ten.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.tbx_ten.Location = new System.Drawing.Point(83, 293);
             this.tbx_ten.Name = "tbx_ten";
             this.tbx_ten.Size = new System.Drawing.Size(365, 23);
@@ -118,6 +121,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(23, 293);
             this.label2.Name = "label2";
@@ -127,6 +131,7 @@
             // 
             // tbx_mota
             // 
+            this.tbx_mota.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.tbx_mota.Location = new System.Drawing.Point(83, 354);
             this.tbx_mota.Name = "tbx_mota";
             this.tbx_mota.Size = new System.Drawing.Size(365, 23);
@@ -134,6 +139,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(23, 354);
             this.label3.Name = "label3";
@@ -143,6 +149,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(23, 413);
             this.label4.Name = "label4";
@@ -152,6 +159,7 @@
             // 
             // rbtn_hoatdong
             // 
+            this.rbtn_hoatdong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.rbtn_hoatdong.AutoSize = true;
             this.rbtn_hoatdong.Location = new System.Drawing.Point(121, 413);
             this.rbtn_hoatdong.Name = "rbtn_hoatdong";
@@ -163,6 +171,7 @@
             // 
             // rbtn_khonghoatdong
             // 
+            this.rbtn_khonghoatdong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.rbtn_khonghoatdong.AutoSize = true;
             this.rbtn_khonghoatdong.Location = new System.Drawing.Point(289, 413);
             this.rbtn_khonghoatdong.Name = "rbtn_khonghoatdong";

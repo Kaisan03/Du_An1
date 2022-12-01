@@ -52,6 +52,7 @@ namespace _3.PL.Views
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox2.BackColor = System.Drawing.Color.DarkTurquoise;
             this.groupBox2.Controls.Add(this.btn_Clear);
             this.groupBox2.Controls.Add(this.btn_Xoa);
@@ -113,6 +114,7 @@ namespace _3.PL.Views
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.BackColor = System.Drawing.Color.Aquamarine;
             this.groupBox1.Controls.Add(this.txt_Ten);
             this.groupBox1.Controls.Add(this.txt_Ma);
@@ -198,6 +200,7 @@ namespace _3.PL.Views
             // 
             // btn_TimKiem
             // 
+            this.btn_TimKiem.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_TimKiem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_TimKiem.ForeColor = System.Drawing.Color.Red;
             this.btn_TimKiem.Location = new System.Drawing.Point(960, 223);
@@ -211,6 +214,7 @@ namespace _3.PL.Views
             // 
             // txt_TimKiem
             // 
+            this.txt_TimKiem.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txt_TimKiem.Location = new System.Drawing.Point(578, 222);
             this.txt_TimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_TimKiem.Name = "txt_TimKiem";
@@ -219,17 +223,17 @@ namespace _3.PL.Views
             // 
             // dgrid_ChucVu
             // 
+            this.dgrid_ChucVu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgrid_ChucVu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgrid_ChucVu.BackgroundColor = System.Drawing.Color.White;
             this.dgrid_ChucVu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrid_ChucVu.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgrid_ChucVu.Location = new System.Drawing.Point(0, 0);
             this.dgrid_ChucVu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgrid_ChucVu.Name = "dgrid_ChucVu";
             this.dgrid_ChucVu.RowHeadersWidth = 51;
             this.dgrid_ChucVu.RowTemplate.Height = 29;
             this.dgrid_ChucVu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgrid_ChucVu.Size = new System.Drawing.Size(1195, 206);
+            this.dgrid_ChucVu.Size = new System.Drawing.Size(1066, 206);
             this.dgrid_ChucVu.TabIndex = 5;
             this.dgrid_ChucVu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_ChatLieu_CellClick_1);
             // 
@@ -237,7 +241,7 @@ namespace _3.PL.Views
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1195, 665);
+            this.ClientSize = new System.Drawing.Size(1069, 665);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn_TimKiem);

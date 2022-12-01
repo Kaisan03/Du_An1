@@ -61,7 +61,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(18, 313);
+            this.groupBox1.Location = new System.Drawing.Point(2, 268);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -140,25 +140,26 @@
             // 
             // dgrid_SanPham
             // 
+            this.dgrid_SanPham.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgrid_SanPham.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgrid_SanPham.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgrid_SanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrid_SanPham.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dgrid_SanPham.Location = new System.Drawing.Point(0, 0);
+            this.dgrid_SanPham.Location = new System.Drawing.Point(2, -1);
             this.dgrid_SanPham.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgrid_SanPham.Name = "dgrid_SanPham";
             this.dgrid_SanPham.RowHeadersWidth = 51;
             this.dgrid_SanPham.RowTemplate.Height = 29;
             this.dgrid_SanPham.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgrid_SanPham.Size = new System.Drawing.Size(1116, 206);
+            this.dgrid_SanPham.Size = new System.Drawing.Size(1076, 239);
             this.dgrid_SanPham.TabIndex = 20;
             this.dgrid_SanPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_SanPham_CellClick);
             // 
             // btn_TimKiem
             // 
+            this.btn_TimKiem.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_TimKiem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_TimKiem.ForeColor = System.Drawing.Color.OrangeRed;
-            this.btn_TimKiem.Location = new System.Drawing.Point(989, 228);
+            this.btn_TimKiem.Location = new System.Drawing.Point(991, 242);
             this.btn_TimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_TimKiem.Name = "btn_TimKiem";
             this.btn_TimKiem.Size = new System.Drawing.Size(82, 22);
@@ -169,8 +170,9 @@
             // 
             // txt_TimKiem
             // 
+            this.txt_TimKiem.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txt_TimKiem.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.txt_TimKiem.Location = new System.Drawing.Point(597, 230);
+            this.txt_TimKiem.Location = new System.Drawing.Point(599, 244);
             this.txt_TimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_TimKiem.Name = "txt_TimKiem";
             this.txt_TimKiem.Size = new System.Drawing.Size(376, 23);
@@ -185,7 +187,7 @@
             this.groupBox2.Controls.Add(this.btn_Sua);
             this.groupBox2.Controls.Add(this.btn_Them);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox2.Location = new System.Drawing.Point(534, 313);
+            this.groupBox2.Location = new System.Drawing.Point(518, 268);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -246,7 +248,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1116, 557);
+            this.ClientSize = new System.Drawing.Size(1085, 466);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgrid_SanPham);
             this.Controls.Add(this.btn_TimKiem);

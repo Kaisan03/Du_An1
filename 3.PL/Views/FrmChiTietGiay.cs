@@ -745,6 +745,19 @@ namespace _3.PL.Views
             LoadData();
         }
 
-       
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgrid_ChiTietGiay_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

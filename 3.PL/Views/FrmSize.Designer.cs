@@ -56,6 +56,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.BackColor = System.Drawing.Color.Aquamarine;
             this.groupBox1.Controls.Add(this.txt_Ten);
             this.groupBox1.Controls.Add(this.txt_Ma);
@@ -143,18 +144,18 @@
             // 
             // dgrid_Size
             // 
+            this.dgrid_Size.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgrid_Size.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgrid_Size.BackgroundColor = System.Drawing.Color.White;
             this.dgrid_Size.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrid_Size.ContextMenuStrip = this.contextMenuStrip1;
-            this.dgrid_Size.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgrid_Size.Location = new System.Drawing.Point(0, 0);
             this.dgrid_Size.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgrid_Size.Name = "dgrid_Size";
             this.dgrid_Size.RowHeadersWidth = 51;
             this.dgrid_Size.RowTemplate.Height = 29;
             this.dgrid_Size.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgrid_Size.Size = new System.Drawing.Size(1069, 206);
+            this.dgrid_Size.Size = new System.Drawing.Size(1069, 226);
             this.dgrid_Size.TabIndex = 25;
             this.dgrid_Size.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_Size_CellClick);
             this.dgrid_Size.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgrid_Size_CellMouseUp);
@@ -184,6 +185,7 @@
             // 
             // btn_TimKiem
             // 
+            this.btn_TimKiem.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_TimKiem.BackColor = System.Drawing.Color.LavenderBlush;
             this.btn_TimKiem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_TimKiem.ForeColor = System.Drawing.Color.OrangeRed;
@@ -198,6 +200,7 @@
             // 
             // txt_TimKiem
             // 
+            this.txt_TimKiem.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txt_TimKiem.Location = new System.Drawing.Point(591, 232);
             this.txt_TimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_TimKiem.Name = "txt_TimKiem";
@@ -206,6 +209,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox2.BackColor = System.Drawing.Color.DarkTurquoise;
             this.groupBox2.Controls.Add(this.btn_Clear);
             this.groupBox2.Controls.Add(this.btn_Xoa);
