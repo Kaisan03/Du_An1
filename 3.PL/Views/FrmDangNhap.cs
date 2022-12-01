@@ -14,9 +14,11 @@ namespace _3.PL.Views
 {
     public partial class FrmDangNhap : Form
     {
+
         public FrmDangNhap()
         {
             InitializeComponent();
+
         }
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
 
@@ -29,6 +31,7 @@ namespace _3.PL.Views
             int nWidthEllipse,
             int nHeightEllipse
         );
+
         private void FrmTest_Load(object sender, EventArgs e)
         {
             panel1.Location = new Point(
@@ -51,7 +54,7 @@ namespace _3.PL.Views
 
         private void btn_DangNhap_Click_1(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-46F72MJA\SQLEXPRESS;Initial Catalog=Duan11;Persist Security Info=True;User ID=duyvtph24890;Password=123456");
+            SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-OF-KHAI\SQLEXPRESS;Initial Catalog=Duan1;Persist Security Info=True;User ID=khainq03;Password=123456");
             try
             {
                 conn.Open();
@@ -63,7 +66,8 @@ namespace _3.PL.Views
                 if (dta.Read() == true)
                 {
                     MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    FrmMain2 _frmMain = new FrmMain2();
+
+                    FrmMain2 _frmMain = new FrmMain2(taiKhoan);
                     _frmMain.ShowDialog();
                 }
                 else
@@ -81,7 +85,7 @@ namespace _3.PL.Views
         {
             if (txt_mk.PasswordChar == '*')
             {
-                
+
                 txt_mk.PasswordChar = '\0';
             }
             else txt_mk.PasswordChar = '*';

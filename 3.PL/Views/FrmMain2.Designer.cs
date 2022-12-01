@@ -57,10 +57,13 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel_dektop = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
+            this.txt_MaNhanVien = new System.Windows.Forms.Label();
             this.panel_menu.SuspendLayout();
             this.panel_logo.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IconChange)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_menu
@@ -512,6 +515,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.panel1.Controls.Add(this.txt_MaNhanVien);
+            this.panel1.Controls.Add(this.iconPictureBox1);
             this.panel1.Controls.Add(this.txt_Date);
             this.panel1.Controls.Add(this.txt_Time);
             this.panel1.Controls.Add(this.lb_change);
@@ -582,7 +587,6 @@
             // panel_dektop
             // 
             this.panel_dektop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(79)))));
-            //this.panel_dektop.BackgroundImage = global::_3.PL.Properties.Resources.huhuhu;
             this.panel_dektop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel_dektop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_dektop.Location = new System.Drawing.Point(281, 105);
@@ -594,6 +598,28 @@
             // 
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // iconPictureBox1
+            // 
+            this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.iconPictureBox1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.iconPictureBox1.IconColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox1.Location = new System.Drawing.Point(1045, 32);
+            this.iconPictureBox1.Name = "iconPictureBox1";
+            this.iconPictureBox1.Size = new System.Drawing.Size(32, 32);
+            this.iconPictureBox1.TabIndex = 3;
+            this.iconPictureBox1.TabStop = false;
+            // 
+            // txt_MaNhanVien
+            // 
+            this.txt_MaNhanVien.AutoSize = true;
+            this.txt_MaNhanVien.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txt_MaNhanVien.Location = new System.Drawing.Point(962, 39);
+            this.txt_MaNhanVien.Name = "txt_MaNhanVien";
+            this.txt_MaNhanVien.Size = new System.Drawing.Size(0, 25);
+            this.txt_MaNhanVien.TabIndex = 4;
             // 
             // FrmMain2
             // 
@@ -612,6 +638,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IconChange)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -646,5 +673,7 @@
         private FontAwesome.Sharp.IconButton iconButton10;
         private FontAwesome.Sharp.IconButton iconButton9;
         private FontAwesome.Sharp.IconButton iconButton8;
+        private System.Windows.Forms.Label txt_MaNhanVien;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
     }
 }

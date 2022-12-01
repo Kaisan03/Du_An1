@@ -8,6 +8,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using _2.BUS.IServices;
+using _2.BUS.Services;
 using FontAwesome.Sharp;
 
 namespace _3.PL.Views
@@ -16,15 +18,38 @@ namespace _3.PL.Views
     {
         private IconButton _iconbuton;
         private Panel Leftboderbtn;
-       
+        public string Manv;
+
+        INhanVienService nhanVienService;
         public FrmMain2()
         {
             InitializeComponent();
+
             _iconbuton = new IconButton();
             Leftboderbtn = new Panel();
             Leftboderbtn.Size = new Size(10, 63);
             panel_menu.Controls.Add(Leftboderbtn);
+            nhanVienService = new NhanVienService();
+            this.WindowState = FormWindowState.Maximized;
 
+            //this.Text = string.Empty;
+            //this.ControlBox = false;
+            //this.DoubleBuffered = true;
+            //this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+
+        }
+        public FrmMain2(string a)
+        {
+            InitializeComponent();
+            Manv = a;
+            _iconbuton = new IconButton();
+            Leftboderbtn = new Panel();
+            Leftboderbtn.Size = new Size(10, 63);
+            panel_menu.Controls.Add(Leftboderbtn);
+            nhanVienService = new NhanVienService();
+
+            //frmBanHang1.lblNhanVien(a);
+            MaNV(a);
             this.WindowState = FormWindowState.Maximized;
 
             //this.Text = string.Empty;
@@ -41,6 +66,10 @@ namespace _3.PL.Views
             public static Color color4 = Color.FromArgb(95, 77, 221);
             public static Color color5 = Color.FromArgb(249, 88, 155);
             public static Color color6 = Color.FromArgb(24, 161, 251);
+        }
+        public void MaNV(string a)
+        {
+            txt_MaNhanVien.Text = nhanVienService.GetAllNhanVien().FirstOrDefault(c => c.Email == a).Ma;
         }
         private void ActiveButton(object senderbtn, Color color)
         {
@@ -112,13 +141,16 @@ namespace _3.PL.Views
         private void btn_orders_Click(object sender, EventArgs e)
         {
             lb_change.Text = btn_orders.Text;
+
             ActiveButton(sender, RGBColors.color2);
-            OpenChildForm(new FrmBanHang1());
+            OpenChildForm(new FrmBanHang1(txt_MaNhanVien.Text));
         }
 
         private void btn_sanpham_Click(object sender, EventArgs e)
         {
             lb_change.Text = btn_sanpham.Text;
+
+
             ActiveButton(sender, RGBColors.color3);
             OpenChildForm(new FrmChiTietGiay());
         }
@@ -134,7 +166,7 @@ namespace _3.PL.Views
         {
             lb_change.Text = btn_tuychon.Text;
             ActiveButton(sender, RGBColors.color5);
-            if (iconButton1.Visible == true )
+            if (iconButton1.Visible == true)
             {
                 iconButton1.Visible = false;
                 iconButton2.Visible = false;
@@ -175,7 +207,7 @@ namespace _3.PL.Views
             currentFormChild.Close();
             Reset();
         }
-       
+
         private void Reset()
         {
             DisableButton();
@@ -187,11 +219,11 @@ namespace _3.PL.Views
         [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.dll", EntryPoint = "SendMessage")]
-        public extern static void SendMessage(System.IntPtr hWnd,int wMsg, int wParam, int lParam);
+        public extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012,0);
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
         private void FrmMain2_Load(object sender, EventArgs e)
@@ -208,7 +240,7 @@ namespace _3.PL.Views
 
         private void btn_image_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void panel_menu_Paint(object sender, PaintEventArgs e)
@@ -322,7 +354,7 @@ namespace _3.PL.Views
             iconButton11.BackColor = Color.FromArgb(255, 255, 192);
         }
 
-        
+
 
         private void iconButton1_MouseLeave(object sender, EventArgs e)
         {

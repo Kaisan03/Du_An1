@@ -30,7 +30,7 @@ namespace _3.PL.Views
         public ISizeService _sizeService;
         public ISanPhamService _sanPhamService;
         public Guid _ctspId;
-        FpolyDBContext fpolyDBContext;
+
         public List<SanPhamCTView> _sanPhamCTView;
         public List<ViewHoaDonChiTiet> _viewHoaDonChiTiets;
         public HoaDon _hoaDonCho;
@@ -40,17 +40,35 @@ namespace _3.PL.Views
         private List<HoaDonChiTiet> _lstHDCT;
         private int rowindex = 0;
         private IKhachHangService _KHService;
-        
+
         public FrmBanHang1()
         {
             InitializeComponent();
             _chiTietGiayService = new ChiTietGiayService();
             _hoaDonChiTietService = new HoaDonChiTietService();
             _hoaDonService = new HoaDonService();
-         
+
             LoadSanPham();
             anhcaidmm();
             cookroi();
+            cookroi1();
+
+            dgrid_chitietgiay.AllowUserToAddRows = false;
+            this.dgrid_chitietgiay.DefaultCellStyle.ForeColor = Color.Red;
+            _KHService = new KhachHangService();
+            FuckYou();
+        }
+        public FrmBanHang1(string a)
+        {
+            InitializeComponent();
+            _chiTietGiayService = new ChiTietGiayService();
+            _hoaDonChiTietService = new HoaDonChiTietService();
+            _hoaDonService = new HoaDonService();
+            lblNhanVien(a);
+            LoadSanPham();
+            anhcaidmm();
+            cookroi();
+            cookroi1();
 
             dgrid_chitietgiay.AllowUserToAddRows = false;
             this.dgrid_chitietgiay.DefaultCellStyle.ForeColor = Color.Red;
@@ -81,8 +99,12 @@ namespace _3.PL.Views
             dgrid_chitietgiay.Columns[11].Name = "Ảnh";
             dgrid_chitietgiay.Columns[11].Visible = false;
             dgrid_chitietgiay.Rows.Clear();
-            
-            foreach (var x in _chiTietGiayService.GetViewChiTietGiay())
+            var lstCTG = _chiTietGiayService.GetViewChiTietGiay();
+            if (txt_TimKiem.Text != "" && txt_TimKiem.Text != "Tìm kiếm....")
+            {
+                lstCTG = _chiTietGiayService.GetViewChiTietGiay().Where(p => p.Ma.ToLower().Contains(txt_TimKiem.Text.ToLower()) || p.TenSanPham.ToLower().Contains(txt_TimKiem.Text.ToLower())).ToList();
+            }
+            foreach (var x in lstCTG)
             {
                 dgrid_chitietgiay.Rows.Add(x.Id,
                     x.Ma,
@@ -107,9 +129,9 @@ namespace _3.PL.Views
             dgridBtn.HeaderText = "Delete";
             dgridBtn.Name = "btn_dlt";
             dgridBtn.Text = "Xóa";
-            dgridBtn.UseColumnTextForButtonValue=true;
+            dgridBtn.UseColumnTextForButtonValue = true;
             dgrid_GioHang.Columns.Add(dgridBtn);
-            foreach (var x in _hoaDonChiTietService.GetAllHoaDonCT().Where(c=>c.IdHoaDon==_hoaDonService.GetallHoadon().FirstOrDefault(c => c.Ma == lbl_MahoaDon.Text).Id))
+            foreach (var x in _hoaDonChiTietService.GetAllHoaDonCT().Where(c => c.IdHoaDon == _hoaDonService.GetallHoadon().FirstOrDefault(c => c.Ma == lbl_MahoaDon.Text).Id))
             {
                 var g = _chiTietGiayService.GetViewChiTietGiay().FirstOrDefault(c => c.Id == x.IdChiTietGiay);
                 dgrid_GioHang.Rows.Add(x.Id, g.TenSanPham, x.SoLuong, g.GiaBan, g.GiaBan * x.SoLuong);
@@ -143,10 +165,37 @@ namespace _3.PL.Views
                 MessageBox.Show("Không thấy file ảnh ");
             }
         }
+        public void anhcaidmm1()
+        {
 
+            try
+            {
+                DataGridViewImageColumn img = new DataGridViewImageColumn();
+                img.HeaderText = "Ảnh";
+                img.Name = "img_anh";
+                img.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                dgrid_chitietgiay.Columns.Add(img);
+
+                for (int i = 0; i < dgrid_chitietgiay.RowCount; i++)
+                {
+
+                    var x = _chiTietGiayService.GetAllSPView().FirstOrDefault(c => c.Anh.DuongDan == dgrid_chitietgiay.Rows[i].Cells["Ảnh"].Value);
+
+                    Image img2 = Image.FromFile(x.Anh.DuongDan.ToString());
+                    dgrid_chitietgiay.Rows[i].Cells["img_anh"].Value = img2;
+
+                }
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Không thấy file ảnh ");
+            }
+        }
         private void dgrid_chitietgiay_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         private void dgrid_chitietgiay_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -157,6 +206,8 @@ namespace _3.PL.Views
             {
                 _ctspId = Guid.Parse(dgrid_chitietgiay.Rows[rowindex].Cells[0].Value.ToString());
                 AddGioHang(_ctspId);
+                loadTien();
+                loadTien1();
             }
         }
         private void AddGioHang(Guid id)
@@ -164,11 +215,11 @@ namespace _3.PL.Views
             string content = Interaction.InputBox("Mời Bạn Nhập Số Lượng Muốn Thêm", "Thêm Vào Giỏ Hàng", "", 500, 300);
             var sp = _chiTietGiayService.GetAllCTGiay().FirstOrDefault(c => c.Id == id);
             var idTmp = _hoaDonService.GetallHoadon().FirstOrDefault(c => c.Ma == lbl_MahoaDon.Text).Id;
-            var data = _hoaDonChiTietService.GetAllHoaDonCT().FirstOrDefault(c => c.IdChiTietGiay == id && c.IdHoaDon== idTmp);
+            var data = _hoaDonChiTietService.GetAllHoaDonCT().FirstOrDefault(c => c.IdChiTietGiay == id && c.IdHoaDon == idTmp);
             if (Convert.ToInt32(content) <= sp.SoLuongTon)
             {
-                
-                if (data == null|| data.IdHoaDon != idTmp)
+
+                if (data == null || data.IdHoaDon != idTmp)
                 {
                     sp.SoLuongTon -= Convert.ToInt32(content);
                     var hoaDonChiTiet = new HoaDonChiTiet()
@@ -185,14 +236,14 @@ namespace _3.PL.Views
                 else
                 {
                     sp.SoLuongTon -= Convert.ToInt32(content);
-                    data.SoLuong+= Convert.ToInt32(content);
+                    data.SoLuong += Convert.ToInt32(content);
                     _hoaDonChiTietService.Update(data);
                     _chiTietGiayService.UpdateCTGiay2(sp);
 
                 }
                 LoadGioHang();
                 LoadSanPham();
-                anhcaidmm();
+                anhcaidmm1();
             }
             else
             {
@@ -205,20 +256,20 @@ namespace _3.PL.Views
         private void btn_TaoHoaDon_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Bạn có muốn tạo hóa đơn không", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if(dialogResult ==DialogResult.Yes)
+            if (dialogResult == DialogResult.Yes)
             {
-                int i= _hoaDonService.GetallHoadon().Count + 1;
+                int i = _hoaDonService.GetallHoadon().Count + 1;
                 var hoaDon = new ViewHoaDon()
                 {
                     Id = i,
                     Ma = "HD00" + (_hoaDonService.GetallHoadon().Count + 1).ToString(),
                     NgayTao = DateTime.Now,
                     TrangThai = 0,
-                    
+
                 };
                 _hoaDonService.Add(hoaDon);
                 cookroi();
-               
+
             }
         }
         private void cookroi()
@@ -233,7 +284,7 @@ namespace _3.PL.Views
             {
                 Button btn_HoaDonCho = new Button();
 
-                btn_HoaDonCho.Text = i.Ma + Environment.NewLine + (i.TrangThai==0? "Chưa thanh toán" : (i.TrangThai==2? "Đang giao hàng" : "Đã hủy"));
+                btn_HoaDonCho.Text = i.Ma + Environment.NewLine + (i.TrangThai == 0 ? "Chưa thanh toán" : "Đã hủy");
                 btn_HoaDonCho.ForeColor = Color.FromArgb(255, 89, 136);
                 btn_HoaDonCho.Tag = i;
                 btn_HoaDonCho.Width = 60;
@@ -243,6 +294,104 @@ namespace _3.PL.Views
                 btn_HoaDonCho.Click += Btn_HoaDonCho_Click;
 
             }
+        }
+        private void cookroi1()
+        {
+            while (flow_DangGiao.Controls.Count > 0)
+            {
+                flow_DangGiao.Controls[0].Dispose();
+            }
+
+
+            foreach (var i in _hoaDonService.GetallHoadon().Where(c => c.TrangThai == 2 || c.TrangThai == 3))
+            {
+                Button btn_HoaDonCho = new Button();
+
+                btn_HoaDonCho.Text = i.Ma + Environment.NewLine + (i.TrangThai == 2 ? "Đang giao hàng" : (i.TrangThai == 3 ? "Đã đặt cọc" : "Đã hủy"));
+                btn_HoaDonCho.ForeColor = Color.FromArgb(255, 89, 136);
+                switch (i.TrangThai)
+                {
+                    case 2:
+                        {
+                            btn_HoaDonCho.BackColor = Color.Red;
+                            btn_HoaDonCho.ForeColor = Color.White;
+                            break;
+                        }
+                    case 3:
+                        btn_HoaDonCho.BackColor = Color.BlueViolet;
+                        btn_HoaDonCho.ForeColor = Color.White;
+                        break;
+                }
+                btn_HoaDonCho.Tag = i;
+                btn_HoaDonCho.Width = 60;
+                btn_HoaDonCho.Height = 60;
+                btn_HoaDonCho.Name = $"btn_HDCho{i}";
+                flow_DangGiao.Controls.Add(btn_HoaDonCho);
+                btn_HoaDonCho.Click += Btn_HoaDonCho_Click1; ;
+
+            }
+        }
+
+        private void Btn_HoaDonCho_Click1(object? sender, EventArgs e)
+        {
+            string acbc = ((sender as Button).Tag as HoaDon).Ma;
+            lbl_MahoaDon.Text = acbc;
+            dgrid_GioHang.Rows.Clear();
+            dgrid_GioHang.ColumnCount = 5;
+            dgrid_GioHang.Columns[0].Name = "id";
+            dgrid_GioHang.Columns[0].Visible = false;
+            dgrid_GioHang.Columns[1].Name = "Tên sản phẩm";
+            dgrid_GioHang.Columns[2].Name = "Số lượng";
+            dgrid_GioHang.Columns[3].Name = "Giá sản phẩm";
+            dgrid_GioHang.Columns[4].Name = "Thành tiền";
+            dgrid_GioHang.AllowUserToAddRows = false;
+            //DataGridViewButtonColumn dgridBtn = new DataGridViewButtonColumn();
+            //dgridBtn.HeaderText = "Delete";
+            //dgridBtn.Name = "btn_dlt";
+            //dgridBtn.Text = "Xóa";
+            //dgridBtn.UseColumnTextForButtonValue = true;
+            //dgrid_GioHang.Columns.Add(dgridBtn);
+            btn_xoa();
+            pn_DatHang.BringToFront();
+            foreach (var x in _hoaDonChiTietService.GetAllHoaDonCT().Where(c => c.IdHoaDon == Convert.ToInt32(_hoaDonService.GetallHoadon().Where(c => c.Ma == acbc && (c.TrangThai == 2 || c.TrangThai == 3)).Select(c => c.Id).FirstOrDefault())))
+            {
+
+                var g = _chiTietGiayService.GetViewChiTietGiay().FirstOrDefault(c => c.Id == x.IdChiTietGiay);
+
+
+                dgrid_GioHang.Rows.Add(x.Id, g.TenSanPham, x.SoLuong, g.GiaBan, g.GiaBan * x.SoLuong);
+            }
+            var temp = _hoaDonService.GetallHoadon().FirstOrDefault(c => c.Ma == acbc && (c.TrangThai == 2 || c.TrangThai == 3));
+            lbl_TongTienDatHang.Text = temp.TongTien.ToString();
+            txt_TienCoc.Text = temp.TienCoc.ToString();
+            txt_TienShipHang.Text = temp.TienShip.ToString();
+            Date_NgayShip.Value = temp.NgayGiao.Value;
+            Date_NgayNhan.Value = temp.NgayNhanHang.Value;
+            txt_DiaChi.Text = temp.DiaChi;
+            if (temp.TrangThai == 1)
+            {
+                rbtn_DatHangDaTT.Checked = true;
+            }
+            else
+            if (temp.TrangThai == 0)
+            {
+                rbtn_DatHangCTT.Checked = true;
+            }
+            else
+            if (temp.TrangThai == 2)
+            {
+                rbtn_DatHangChoGiaoHang.Checked = true;
+            }
+            else
+            if (temp.TrangThai == 3)
+            {
+                rbtn_DatHangDaCoc.Checked = true;
+            }
+            else rbtn_DatHangDaHuy.Checked = true;
+            txt_DatHangGhiChu.Text = temp.GhiChu;
+            txt_TenKH.Text = temp.TenNguoiNhan;
+            txt_Sdt.Text = temp.Sdt;
+            loadTien1();
         }
 
         private void Btn_HoaDonCho_Click(object? sender, EventArgs e)
@@ -265,8 +414,8 @@ namespace _3.PL.Views
             //dgridBtn.UseColumnTextForButtonValue = true;
             //dgrid_GioHang.Columns.Add(dgridBtn);
             btn_xoa();
-            
-            foreach (var x in _hoaDonChiTietService.GetAllHoaDonCT().Where(c => c.IdHoaDon == Convert.ToInt32(_hoaDonService.GetallHoadon().Where(c => c.Ma == acbc&&c.TrangThai==0).Select(c => c.Id).FirstOrDefault())))
+            pn_HoaDon.BringToFront();
+            foreach (var x in _hoaDonChiTietService.GetAllHoaDonCT().Where(c => c.IdHoaDon == Convert.ToInt32(_hoaDonService.GetallHoadon().Where(c => c.Ma == acbc && c.TrangThai == 0).Select(c => c.Id).FirstOrDefault())))
             {
 
                 var g = _chiTietGiayService.GetViewChiTietGiay().FirstOrDefault(c => c.Id == x.IdChiTietGiay);
@@ -274,6 +423,11 @@ namespace _3.PL.Views
 
                 dgrid_GioHang.Rows.Add(x.Id, g.TenSanPham, x.SoLuong, g.GiaBan, g.GiaBan * x.SoLuong);
             }
+            loadTien();
+            loadTien1();
+        }
+        private void loadTien()
+        {
             int n = 0;
             for (int i = 0; i < dgrid_GioHang.RowCount; i++)
             {
@@ -282,7 +436,17 @@ namespace _3.PL.Views
                 n += temp;
             }
             txt_TongTien.Text = Convert.ToString(n);
-
+        }
+        private void loadTien1()
+        {
+            int n = 0;
+            for (int i = 0; i < dgrid_GioHang.RowCount; i++)
+            {
+                int temp = 0;
+                temp = Convert.ToInt32(dgrid_GioHang.Rows[i].Cells["Số lượng"].Value) * Convert.ToInt32(dgrid_GioHang.Rows[i].Cells["Giá sản phẩm"].Value);
+                n += temp;
+            }
+            lbl_TongTienDatHang.Text = Convert.ToString(n);
         }
         private void btn_xoa()
         {
@@ -291,7 +455,7 @@ namespace _3.PL.Views
             dgridBtn.Name = "btn_dlt";
             dgridBtn.Text = "Xóa";
             dgridBtn.UseColumnTextForButtonValue = true;
-            
+
             dgrid_GioHang.Columns.Add(dgridBtn);
             for (int i = 0; i < dgrid_GioHang.RowCount - 1; i++)
             {
@@ -343,7 +507,7 @@ namespace _3.PL.Views
         public void FuckYou()
         {
             SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = "Data Source=LAPTOP-46F72MJA\\SQLEXPRESS;Initial Catalog=Duan11;Persist Security Info=True;User ID=duyvtph24890;Password=123456";
+            connection.ConnectionString = "Data Source=LAPTOP-OF-KHAI\\SQLEXPRESS;Initial Catalog=Duan1;Persist Security Info=True;User ID=khainq03;Password=123456";
 
             connection.Open();
             SqlCommand sqlCommand = new SqlCommand("select Sdt FROM KhachHang", connection);
@@ -364,15 +528,15 @@ namespace _3.PL.Views
 
         private void btn_ThanhToan_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show($"Bạn có muốn thanh toán hóa Đơn {lbl_MahoaDon} không", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if(dialogResult==DialogResult.Yes)
+            DialogResult dialogResult = MessageBox.Show($"Bạn có muốn thanh toán hóa Đơn {lbl_MahoaDon.Text} không", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (dialogResult == DialogResult.Yes)
             {
-                if(String.IsNullOrEmpty(txt_TongTien.Text)|| txt_TongTien.Text=="0")
+                if (String.IsNullOrEmpty(txt_TongTien.Text) || txt_TongTien.Text == "0")
                 {
                     MessageBox.Show("Hóa đơn trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
-                if(Convert.ToInt32(txt_TienKhachDua.Text)< Convert.ToInt32(txt_TongTien.Text))
+                if (Convert.ToInt32(txt_TienKhachDua.Text) < Convert.ToInt32(txt_TongTien.Text))
                 {
                     MessageBox.Show("Tiền khách đưa không đủ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
@@ -384,9 +548,43 @@ namespace _3.PL.Views
                 updateHoaDon.TrangThai = rbtn_ThanhToanTaiQuay.Checked ? 1 : 0;
                 updateHoaDon.GhiChu = richTextBox1.Text;
                 updateHoaDon.NgayThanhToan = DateTime.Now;
-                
+
                 _hoaDonService.Update(updateHoaDon);
                 cookroi();
+                dgrid_GioHang.Rows.Clear();
+                lbl_MahoaDon.Text = "....";
+            }
+        }
+        private void btn_DatHang2_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show($"Bạn có muốn thanh toán hóa Đơn {lbl_MahoaDon.Text} không", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (dialogResult == DialogResult.Yes)
+            {
+                if (String.IsNullOrEmpty(txt_TongTien.Text) || txt_TongTien.Text == "0")
+                {
+                    MessageBox.Show("Hóa đơn trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                //if (Convert.ToInt32(txt_TienCoc.Text) < (Convert.ToInt32(txt_TongTien.Text)*40/100))
+                //{
+                //    MessageBox.Show("Tiền cọc không đủ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //    return;
+                //}
+                var updateHoaDon = _hoaDonService.GetallHoadon().Where(c => c.Ma == lbl_MahoaDon.Text).FirstOrDefault();
+                updateHoaDon.TenNguoiNhan = txt_TenKH.Text;
+                updateHoaDon.TongTien = Convert.ToInt32(txt_TongTien.Text);
+                updateHoaDon.Sdt = txt_Sdt.Text;
+                updateHoaDon.TrangThai = rbtn_DatHangDaTT.Checked ? 1 : rbtn_DatHangCTT.Checked ? 0 : rbtn_DatHangChoGiaoHang.Checked ? 2 : rbtn_DatHangDaCoc.Checked ? 3 : 4;
+                updateHoaDon.NgayThanhToan = DateTime.Now;
+                updateHoaDon.NgayGiao = Date_NgayShip.Value;
+                updateHoaDon.NgayNhanHang = Date_NgayNhan.Value;
+                updateHoaDon.TienCoc = Convert.ToInt32(txt_TienCoc.Text);
+                updateHoaDon.TienShip = Convert.ToInt32(txt_TienShipHang.Text);
+                updateHoaDon.DiaChi = txt_DiaChi.Text;
+                updateHoaDon.GhiChu = txt_DatHangGhiChu.Text;
+                _hoaDonService.Update(updateHoaDon);
+                cookroi();
+                cookroi1();
                 dgrid_GioHang.Rows.Clear();
                 lbl_MahoaDon.Text = "....";
             }
@@ -394,7 +592,7 @@ namespace _3.PL.Views
 
         private void txt_TienKhachDua_TextAlignChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void txt_TienKhachDua_TextChanged(object sender, EventArgs e)
@@ -402,7 +600,7 @@ namespace _3.PL.Views
             string i = txt_TienKhachDua.Text;
             if (string.IsNullOrEmpty(txt_TienKhachDua.Text))
             {
-               i="0";
+                i = "0";
             }
             lbl_TienThua.Text = Convert.ToString(Convert.ToInt32(i) - Convert.ToInt32(txt_TongTien.Text));
         }
@@ -422,6 +620,8 @@ namespace _3.PL.Views
             pn_HoaDon.Visible = true;
             pn_HoaDon.BringToFront();
             pn_DatHang.Visible = false;
+            ResetControlValues(pn_HoaDon);
+            ResetControlValues(Gr_Thongtin);
         }
 
         private void btn_DatHang_Click(object sender, EventArgs e)
@@ -429,11 +629,45 @@ namespace _3.PL.Views
             pn_DatHang.Visible = true;
             pn_DatHang.BringToFront();
             pn_HoaDon.Visible = false;
+            ResetControlValues(pn_DatHang);
+            ResetControlValues(Gr_Thongtin);
         }
-
-        private void btn_DatHang2_Click(object sender, EventArgs e)
+        private void ResetControlValues(Control Parent)
+        {
+            foreach (Control mycontrols in Parent.Controls)
+                if (mycontrols is TextBox)
+                {
+                    (mycontrols as TextBox).Text = string.Empty;
+                }
+                else if (mycontrols is DateTimePicker)
+                {
+                    (mycontrols as DateTimePicker).Value = DateTime.Now;
+                }
+        }
+        private void rbtn_DatHangDaTT_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_TimKiem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_TimKiem_TextChanged(object sender, EventArgs e)
+        {
+
+            LoadSanPham();
+            anhcaidmm1();
+        }
+
+        private void txt_TimKiem_MouseClick(object sender, MouseEventArgs e)
+        {
+            txt_TimKiem.Text = "";
+        }
+        public void lblNhanVien(string a)
+        {
+            lbl_TenNhanVien.Text = a;
         }
     }
 }
