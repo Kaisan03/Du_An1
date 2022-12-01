@@ -1,4 +1,5 @@
-﻿using _1.DAL.DomainClass;
+﻿using _1.DAL.Context;
+using _1.DAL.DomainClass;
 using _1.DAL.IRepositories;
 using _1.DAL.Repositories;
 using _2.BUS.IServices;
@@ -23,6 +24,9 @@ namespace _3.PL.Views
         private IKhachHangService _Ikhachhangservice;
         private INhanVienService _Inhanvienservice;
         private IHoaDonService _ihoadonservice;
+        private FpolyDBContext fpolyDBContext;
+        private IChiTietGiayService chiTietGiayService;
+        private IHoaDonChiTietService hoaDonChiTietService;
         private List<ViewHoaDon> _viewHoaDon;
         private int _idhoadon;
 
@@ -33,53 +37,44 @@ namespace _3.PL.Views
             _Inhanvienservice = new NhanVienService();
             _ihoadonservice = new HoaDonService();
             _viewHoaDon = new List<ViewHoaDon>();
+            fpolyDBContext = new FpolyDBContext();
+            hoaDonChiTietService = new HoaDonChiTietService();
+            chiTietGiayService = new ChiTietGiayService();
             Loaddata();
-            LoaddataCombobox();
+            cookroi();
+            //LoaddataCombobox();
         }
         public void Loaddata()
         {
-            dgrid_view.ColumnCount = 15;
-            dgrid_view.Columns[0].Name = "id";
-            dgrid_view.Columns[0].Visible = false;
-            dgrid_view.Columns[1].Name = "Ma ";
-            dgrid_view.Columns[2].Name = "Khách Hàng";
-            dgrid_view.Columns[3].Name = "Nhân Viên";
-            dgrid_view.Columns[4].Name = "Tên Sản Phẩm";
-            dgrid_view.Columns[5].Name = "Tên Người Nhận";
-            dgrid_view.Columns[6].Name = "Ngày Tạo";
-            dgrid_view.Columns[7].Name = "Ngày Giao";
-            dgrid_view.Columns[8].Name = "Ngày Thanh Toán";
-            dgrid_view.Columns[9].Name = "Ngày nhận";
-            dgrid_view.Columns[10].Name = "Ngày trả";
-            dgrid_view.Columns[11].Name = "Dịa Chỉ";
-            dgrid_view.Columns[12].Name = "Sdt";
-            dgrid_view.Columns[13].Name = "Giảm GIá";
-            dgrid_view.Columns[14].Name = "Trạng Thái";
-            dgrid_view.Rows.Clear();
-            foreach (var x in _ihoadonservice.GetallHoadon())
-            {
-               // dgrid_view.Rows.Add(x.Id, x.Ma, x.khachhang, x.nhanvien, x.TenSp, x.TenNguoiNhan, x.NgayTao, x.NgayGiao, x.NgayThanhToan, x.NgayNhanHang, x.NgayTraHang, x.DiaChi, x.Sdt, x.GiamGia, x.TrangThai == 1 ? "Chờ xử lý":"Hoàn thành");
-                //var kh = _Ikhachhangservice.GetAll().FirstOrDefault(c => c.Id == x.IdKhachHang);
-                //var nv = _Inhanvienservice.GetAllNhanVien().FirstOrDefault(c => c.Id == x.IdNhanVien);
-                dgrid_view.Rows.Add(x.Id,x.Ma,x.IdKhachHang,x.IdNhanVien,x.TenSp,x.TenNguoiNhan,x.NgayTao,x.NgayGiao,x.NgayThanhToan,x.DiaChi,x.Sdt,x.GiamGia,x.TrangThai);
-            };
+            //dgrid_view.ColumnCount = 15;
+            //dgrid_view.Columns[0].Name = "id";
+            //dgrid_view.Columns[0].Visible = false;
+            //dgrid_view.Columns[1].Name = "Ma ";
+            //dgrid_view.Columns[2].Name = "Khách Hàng";
+            //dgrid_view.Columns[3].Name = "Nhân Viên";
+            //dgrid_view.Columns[4].Name = "Tên Sản Phẩm";
+            //dgrid_view.Columns[5].Name = "Tên Người Nhận";
+            //dgrid_view.Columns[6].Name = "Ngày Tạo";
+            //dgrid_view.Columns[7].Name = "Ngày Giao";
+            //dgrid_view.Columns[8].Name = "Ngày Thanh Toán";
+            //dgrid_view.Columns[9].Name = "Ngày nhận";
+            //dgrid_view.Columns[10].Name = "Ngày trả";
+            //dgrid_view.Columns[11].Name = "Dịa Chỉ";
+            //dgrid_view.Columns[12].Name = "Sdt";
+            //dgrid_view.Columns[13].Name = "Giảm GIá";
+            //dgrid_view.Columns[14].Name = "Trạng Thái";
+            //dgrid_view.Rows.Clear();
+            //foreach (var x in _ihoadonservice.GetallHoadon())
+            //{
+            //   // dgrid_view.Rows.Add(x.Id, x.Ma, x.khachhang, x.nhanvien, x.TenSp, x.TenNguoiNhan, x.NgayTao, x.NgayGiao, x.NgayThanhToan, x.NgayNhanHang, x.NgayTraHang, x.DiaChi, x.Sdt, x.GiamGia, x.TrangThai == 1 ? "Chờ xử lý":"Hoàn thành");
+            //    //var kh = _Ikhachhangservice.GetAll().FirstOrDefault(c => c.Id == x.IdKhachHang);
+            //    //var nv = _Inhanvienservice.GetAllNhanVien().FirstOrDefault(c => c.Id == x.IdNhanVien);
+            //    dgrid_view.Rows.Add(x.Id,x.Ma,x.IdKhachHang,x.IdNhanVien,x.TenSp,x.TenNguoiNhan,x.NgayTao,x.NgayGiao,x.NgayThanhToan,x.DiaChi,x.Sdt,x.GiamGia,x.TrangThai);
+            //};
 
         }
-        public void LoaddataCombobox()
-        {
-            foreach (var x in _Ikhachhangservice.GetAll())
-            {
-                cbx_khachhang.Items.Add(x.Ten);
 
-            }
-            //cbx_khachhang.SelectedIndex = 0;
-            foreach (var x in _Inhanvienservice.GetAllNhanVien())
-            {
-                cbx_nhanvien.Items.Add(x.Ten);
-            }
-          //  cbx_nhanvien.SelectedIndex = 0;
-        }
-
+        #region CellClick
         private void dgrid_view_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -89,7 +84,7 @@ namespace _3.PL.Views
                 DataGridViewRow r = dgrid_view.Rows[e.RowIndex];
                 _idhoadon = Convert.ToInt16(r.Cells[0].Value.ToString());
                 var hd = _ihoadonservice.GetAll().FirstOrDefault(c => c.Id == _idhoadon);
-                tbx_ma.Text = r.Cells[1].Value.ToString();
+                //tbx_ma.Text = r.Cells[1].Value.ToString();
                 //cbx_khachhang.Text =  r.Cells[2].Value.ToString();
                 ////cbx_sanpham.Text = r.Cells[3].Value.ToString();
                 //cbx_nhanvien.Text = r.Cells[3].Value.ToString();
@@ -107,80 +102,80 @@ namespace _3.PL.Views
                 //rbtn_khonghoatdong.Checked = hd.TrangThai == 0;
             }
         }
-        public ViewHoaDon dataadd()
-        {
-            int id1 = 0;
-            id1 += 1;
-            return new ViewHoaDon()
-            {
-                Id = id1,
-                Ma = tbx_ma.Text,
-                TenSp = tbx_tensanpham.Text,
-                TenNguoiNhan = tbx_tennguoinhan.Text,
-                NgayTao = date_ngaytao.Value,
-                NgayGiao = date_ngaytao.Value,
-                NgayThanhToan = date_ngaytao.Value,
-                NgayNhanHang = date_NgayNhan.Value,
-                NgayTraHang = date_NgayTra.Value,
-                DiaChi = tbx_diachi.Text,
-                Sdt = tbx_sdt.Text,
-                GiamGia = tbx_giamgia.Text,
-                TrangThai = rbtn_hoatdong.Checked ? 1 : 0,
-                //IdSanOham  = cbx_sanpham.Text != null ? _iSanphamService.GetAllSanPham().FirstOrDefault(c => c.Ten == cbx_sanpham.Text).Id : null,
-                IdKhachHang = cbx_khachhang.Text != null ? _Ikhachhangservice.GetAll().FirstOrDefault(c => c.Ten == cbx_khachhang.Text).Id : null,
-                IdNhanVien = cbx_nhanvien.Text != null ? _Inhanvienservice.GetAllNhanVien().FirstOrDefault(c => c.Ten == cbx_nhanvien.Text).Id : null,
+        //public ViewHoaDon dataadd()
+        //{
+        //    int id1 = 0;
+        //    id1 += 1;
+        //    return new ViewHoaDon()
+        //    {
+        //        //Id = id1,
+        //        //Ma = tbx_ma.Text,
+        //        //TenSp = tbx_tensanpham.Text,
+        //        //TenNguoiNhan = tbx_tennguoinhan.Text,
+        //        //NgayTao = date_ngaytao.Value,
+        //        //NgayGiao = date_ngaytao.Value,
+        //        //NgayThanhToan = date_ngaytao.Value,
+        //        //NgayNhanHang = date_NgayNhan.Value,
+        //        //NgayTraHang = date_NgayTra.Value,
+        //        //DiaChi = tbx_diachi.Text,
+        //        //Sdt = tbx_sdt.Text,
+        //        //GiamGia = tbx_giamgia.Text,
+        //        //TrangThai = rbtn_hoatdong.Checked ? 1 : 0,
+        //        ////IdSanOham  = cbx_sanpham.Text != null ? _iSanphamService.GetAllSanPham().FirstOrDefault(c => c.Ten == cbx_sanpham.Text).Id : null,
+        //        //IdKhachHang = cbx_khachhang.Text != null ? _Ikhachhangservice.GetAll().FirstOrDefault(c => c.Ten == cbx_khachhang.Text).Id : null,
+        //        //IdNhanVien = cbx_nhanvien.Text != null ? _Inhanvienservice.GetAllNhanVien().FirstOrDefault(c => c.Ten == cbx_nhanvien.Text).Id : null,
 
-            };
-        }
-        private void btn_them_Click(object sender, EventArgs e)
-        {
-            DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn thêm?", "Thông báo", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                _ihoadonservice.Add(dataadd());
-                MessageBox.Show("Thêm thành công");
-                Loaddata();
-            }
-            if (dialogResult == DialogResult.No)
-            {
-                return;
-            }
-        }
+        //    };
+        //}
+        //private void btn_them_Click(object sender, EventArgs e)
+        //{
+        //    DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn thêm?", "Thông báo", MessageBoxButtons.YesNo);
+        //    if (dialogResult == DialogResult.Yes)
+        //    {
+        //        _ihoadonservice.Add(dataadd());
+        //        MessageBox.Show("Thêm thành công");
+        //        Loaddata();
+        //    }
+        //    if (dialogResult == DialogResult.No)
+        //    {
+        //        return;
+        //    }
+        //}
 
-        private void btn_sua_Click(object sender, EventArgs e)
-        {
-            DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn Sửa?", "Thông báo", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                HoaDon hoadonview = new HoaDon()
-                {
-                    Id = _idhoadon,
-                    Ma = dataadd().Ma,
-                    TenSp = dataadd().TenSp,
-                    TenNguoiNhan = dataadd().TenNguoiNhan,
-                    NgayGiao = dataadd().NgayGiao,
-                    NgayTao = dataadd().NgayTao,
-                    NgayThanhToan = dataadd().NgayThanhToan,
-                    NgayNhanHang = dataadd().NgayNhanHang,
-                    NgayTraHang = dataadd().NgayTraHang,
-                    DiaChi = dataadd().DiaChi,
-                    Sdt = dataadd().Sdt,
-                    GiamGia = dataadd().GiamGia,
-                    TrangThai = dataadd().TrangThai,
-                    IdKhachHang = dataadd().IdKhachHang,
-                    IdNhanVien = dataadd().IdNhanVien,
+        //private void btn_sua_Click(object sender, EventArgs e)
+        //{
+        //    DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn Sửa?", "Thông báo", MessageBoxButtons.YesNo);
+        //    if (dialogResult == DialogResult.Yes)
+        //    {
+        //        HoaDon hoadonview = new HoaDon()
+        //        {
+        //            Id = _idhoadon,
+        //            Ma = dataadd().Ma,
+        //            TenSp = dataadd().TenSp,
+        //            TenNguoiNhan = dataadd().TenNguoiNhan,
+        //            NgayGiao = dataadd().NgayGiao,
+        //            NgayTao = dataadd().NgayTao,
+        //            NgayThanhToan = dataadd().NgayThanhToan,
+        //            NgayNhanHang = dataadd().NgayNhanHang,
+        //            NgayTraHang = dataadd().NgayTraHang,
+        //            DiaChi = dataadd().DiaChi,
+        //            Sdt = dataadd().Sdt,
+        //            GiamGia = dataadd().GiamGia,
+        //            TrangThai = dataadd().TrangThai,
+        //            IdKhachHang = dataadd().IdKhachHang,
+        //            IdNhanVien = dataadd().IdNhanVien,
 
-                };
-                _ihoadonservice.Update(hoadonview);
-                MessageBox.Show("Sửa thành công");
-                Loaddata();
-            }
-            if (dialogResult == DialogResult.No)
-            {
-                return;
-            }
-        }
-
+        //        };
+        //        _ihoadonservice.Update(hoadonview);
+        //        MessageBox.Show("Sửa thành công");
+        //        Loaddata();
+        //    }
+        //    if (dialogResult == DialogResult.No)
+        //    {
+        //        return;
+        //    }
+        //}
+        #endregion
         private void btn_xoa_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn xóa?", "Thông báo", MessageBoxButtons.YesNo);
@@ -195,8 +190,57 @@ namespace _3.PL.Views
                 return;
             }
         }
+        private void cookroi()
+        {
+            while (flp_HoaDon.Controls.Count > 0)
+            {
+                flp_HoaDon.Controls[0].Dispose();
+            }
 
-        private void dgrid_view_MouseClick(object sender, MouseEventArgs e)
+
+            foreach (var i in _ihoadonservice.GetallHoadon().Where(c => c.TrangThai == 1))
+            {
+                Button btn_HoaDonCho = new Button();
+
+                btn_HoaDonCho.Text = i.Ma + Environment.NewLine + (i.TrangThai == 0 ? "Chưa thanh toán" : (i.TrangThai == 2 ? "Đang giao hàng" : (i.TrangThai==1? "Đã thanh toán" : "Đã hủy")));
+                btn_HoaDonCho.ForeColor = Color.FromArgb(255, 89, 136);
+                btn_HoaDonCho.Tag = i;
+                btn_HoaDonCho.Width = 60;
+                btn_HoaDonCho.Height = 60;
+                btn_HoaDonCho.Name = $"btn_HDCho{i}";
+                flp_HoaDon.Controls.Add(btn_HoaDonCho);
+                btn_HoaDonCho.Click += Btn_HoaDonCho_Click;
+
+            }
+        }
+
+        private void Btn_HoaDonCho_Click(object? sender, EventArgs e)
+        {
+            string acbc = ((sender as Button).Tag as HoaDon).Ma;
+            
+            dgrid_view.Rows.Clear();
+            dgrid_view.ColumnCount = 7;
+            dgrid_view.Columns[0].Name = "id";
+            dgrid_view.Columns[0].Visible = false;
+            dgrid_view.Columns[1].Name = "Tên khách hàng";
+            dgrid_view.Columns[2].Name = "Số điện thoại";
+            dgrid_view.Columns[3].Name = "Tổng tiền";
+            dgrid_view.Columns[4].Name = "Hình thức thanh toán";
+            dgrid_view.Columns[5].Name = "Ngày thanh toán";
+            dgrid_view.Columns[6].Name = "Ghi chú";
+            dgrid_view.AllowUserToAddRows = false;
+            
+            
+
+            foreach (var x in _ihoadonservice.GetallHoadon().Where(c => c.Ma == acbc && c.TrangThai == 1))
+            {
+                var g = 
+                dgrid_view.Rows.Add(x.Id, x.TenNguoiNhan, x.Sdt, x.TongTien, "Đã thanh toán", x.NgayThanhToan, x.GhiChu);
+            }
+            
+        }
+        #region MouseClick
+        /*private void dgrid_view_MouseClick(object sender, MouseEventArgs e)
         {
 
             ContextMenuStrip _newmenu = new System.Windows.Forms.ContextMenuStrip();
@@ -225,7 +269,7 @@ namespace _3.PL.Views
                     DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn thêm?", "Thông báo", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        _ihoadonservice.Add(dataadd());
+                        //_ihoadonservice.Add(dataadd());
                         MessageBox.Show("Thêm thành công");
                         Loaddata();
                     }
@@ -253,19 +297,19 @@ namespace _3.PL.Views
                     {
                         HoaDon hoadonview = new HoaDon()
                         {
-                            Id = _idhoadon,
-                            Ma = dataadd().Ma,
-                            TenSp = dataadd().TenSp,
-                            TenNguoiNhan = dataadd().TenNguoiNhan,
-                            NgayGiao = dataadd().NgayGiao,
-                            NgayTao = dataadd().NgayTao,
-                            NgayThanhToan = dataadd().NgayThanhToan,
-                            DiaChi = dataadd().DiaChi,
-                            Sdt = dataadd().Sdt,
-                            GiamGia = dataadd().GiamGia,
-                            TrangThai = dataadd().TrangThai,
-                            IdKhachHang = dataadd().IdKhachHang,
-                            IdNhanVien = dataadd().IdNhanVien,
+                            //Id = _idhoadon,
+                            //Ma = dataadd().Ma,
+                            //TenSp = dataadd().TenSp,
+                            //TenNguoiNhan = dataadd().TenNguoiNhan,
+                            //NgayGiao = dataadd().NgayGiao,
+                            //NgayTao = dataadd().NgayTao,
+                            //NgayThanhToan = dataadd().NgayThanhToan,
+                            //DiaChi = dataadd().DiaChi,
+                            //Sdt = dataadd().Sdt,
+                            //GiamGia = dataadd().GiamGia,
+                            //TrangThai = dataadd().TrangThai,
+                            //IdKhachHang = dataadd().IdKhachHang,
+                            //IdNhanVien = dataadd().IdNhanVien,
 
                         };
                         _ihoadonservice.Update(hoadonview);
@@ -278,8 +322,8 @@ namespace _3.PL.Views
                     }
                     break;
             }
-        }
+        }*/
 
-       
+        #endregion
     }
 }

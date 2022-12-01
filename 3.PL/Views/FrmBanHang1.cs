@@ -218,7 +218,7 @@ namespace _3.PL.Views
                 };
                 _hoaDonService.Add(hoaDon);
                 cookroi();
-                LoadGioHang();
+               
             }
         }
         private void cookroi()
@@ -265,7 +265,8 @@ namespace _3.PL.Views
             //dgridBtn.UseColumnTextForButtonValue = true;
             //dgrid_GioHang.Columns.Add(dgridBtn);
             btn_xoa();
-            foreach (var x in _hoaDonChiTietService.GetAllHoaDonCT().Where(c => c.IdHoaDon == Convert.ToInt32(_hoaDonService.GetallHoadon().Where(c => c.Ma == acbc).Select(c => c.Id).FirstOrDefault())))
+            
+            foreach (var x in _hoaDonChiTietService.GetAllHoaDonCT().Where(c => c.IdHoaDon == Convert.ToInt32(_hoaDonService.GetallHoadon().Where(c => c.Ma == acbc&&c.TrangThai==0).Select(c => c.Id).FirstOrDefault())))
             {
 
                 var g = _chiTietGiayService.GetViewChiTietGiay().FirstOrDefault(c => c.Id == x.IdChiTietGiay);
@@ -281,6 +282,7 @@ namespace _3.PL.Views
                 n += temp;
             }
             txt_TongTien.Text = Convert.ToString(n);
+
         }
         private void btn_xoa()
         {
@@ -341,7 +343,7 @@ namespace _3.PL.Views
         public void FuckYou()
         {
             SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = "Data Source=LAPTOP-46F72MJA\\SQLEXPRESS;Initial Catalog=Duan11;Persist Security Info=True;User ID=duyvtph24890;Password=123456";
+            connection.ConnectionString = "Data Source=LAPTOP-OF-KHAI\\SQLEXPRESS;Initial Catalog=Duan1;Persist Security Info=True;User ID=khainq03;Password=123456";
 
             connection.Open();
             SqlCommand sqlCommand = new SqlCommand("select Sdt FROM KhachHang", connection);
@@ -358,6 +360,61 @@ namespace _3.PL.Views
 
             txt_Sdt.AutoCompleteCustomSource = col;
             connection.Close();
+        }
+
+        private void btn_ThanhToan_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show($"Bạn có muốn thanh toán hóa Đơn {lbl_MahoaDon} không", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if(dialogResult==DialogResult.Yes)
+            {
+                if(string.IsNullOrEmpty(txt_TongTien.Text))
+                {
+                    MessageBox.Show("Hóa đơn trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                if(Convert.ToInt32(txt_TienKhachDua.Text)< Convert.ToInt32(txt_TongTien.Text))
+                {
+                    MessageBox.Show("Tiền khách đưa không đủ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                var updateHoaDon = _hoaDonService.GetallHoadon().Where(c => c.Ma == lbl_MahoaDon.Text).FirstOrDefault();
+                updateHoaDon.TenNguoiNhan = txt_TenKH.Text;
+                updateHoaDon.TongTien = Convert.ToInt32(txt_TongTien.Text);
+                updateHoaDon.Sdt = txt_Sdt.Text;
+                updateHoaDon.TrangThai = rbtn_ThanhToanTaiQuay.Checked ? 1 : 0;
+                updateHoaDon.GhiChu = richTextBox1.Text;
+                updateHoaDon.NgayThanhToan = DateTime.Now;
+                
+                _hoaDonService.Update(updateHoaDon);
+                cookroi();
+                dgrid_GioHang.Rows.Clear();
+                lbl_MahoaDon.Text = "....";
+            }
+        }
+
+        private void txt_TienKhachDua_TextAlignChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txt_TienKhachDua_TextChanged(object sender, EventArgs e)
+        {
+            string i = txt_TienKhachDua.Text;
+            if (string.IsNullOrEmpty(txt_TienKhachDua.Text))
+            {
+               i="0";
+            }
+            lbl_TienThua.Text = Convert.ToString(Convert.ToInt32(i) - Convert.ToInt32(txt_TongTien.Text));
+        }
+
+        private void txt_TienKhachDua_MouseClick(object sender, MouseEventArgs e)
+        {
+            txt_TienKhachDua.Text = string.Empty;
+        }
+
+        private void rbtn_DaTT_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

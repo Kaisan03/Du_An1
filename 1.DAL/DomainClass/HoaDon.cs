@@ -46,6 +46,9 @@ namespace _1.DAL.DomainClass
         public string Sdt { get; set; }
         [StringLength(10)]
         public string GiamGia { get; set; }
+        [StringLength(250)]
+        public string GhiChu { get; set; }
+        public decimal? TongTien { get; set; }
         public decimal? TienShip { get; set; }
         public decimal? TienCoc { get; set; }
         public int? TrangThai { get; set; }
