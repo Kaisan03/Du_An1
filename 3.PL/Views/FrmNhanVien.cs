@@ -33,14 +33,16 @@ namespace _3.PL.Views
         }
         public void LoadComboBox()
         {
-            foreach (var x in _IChucVuService.GetAllChucVu())
+            var cv = _IChucVuService.GetAllChucVu().Select(c => c.Ten.ToString()).Distinct();
+            foreach (var x in cv)
             {
-                cmb_idChucVu.Items.Add(x.Ten);
+
+                cmb_idChucVu.Items.Add(x);
             }
         }
             public void LoadDataNhanVien()
         {
-            drgid_NhanVien.ColumnCount = 12;
+            drgid_NhanVien.ColumnCount = 13;
             drgid_NhanVien.Columns[0].Name = "ID";
             drgid_NhanVien.Columns[0].Visible = false; 
             drgid_NhanVien.Columns[1].Name = "Mã";
@@ -50,12 +52,13 @@ namespace _3.PL.Views
             drgid_NhanVien.Columns[5].Name = "Giới Tính";
             drgid_NhanVien.Columns[6].Name = "Ngày Sinh";
             drgid_NhanVien.Columns[7].Name = "Địa Chỉ";
-            drgid_NhanVien.Columns[8].Name = "SDt ";
-            drgid_NhanVien.Columns[9].Name = "Mật Khẩu ";
-            drgid_NhanVien.Columns[10].Name = "Ten chức Vụ ";
+            drgid_NhanVien.Columns[8].Name = "Sdt ";
+            drgid_NhanVien.Columns[9].Name = "Email";
+            drgid_NhanVien.Columns[10].Name = "Mật Khẩu ";
+            drgid_NhanVien.Columns[11].Name = "Ten chức Vụ ";
             
             //drgid_NhanVien.Columns[13].Name = "ID GuiBC ";
-            drgid_NhanVien.Columns[11].Name = "Trạng Thái ";
+            drgid_NhanVien.Columns[12].Name = "Trạng Thái ";
             drgid_NhanVien.Rows.Clear();
             var lstNhanVien = _iNhanVienService.GetViewNhanVien();
             if (txt_TimKiem.Text != "")
@@ -66,7 +69,7 @@ namespace _3.PL.Views
             {
 
                 drgid_NhanVien.Rows.Add(x.Id, x.Ma, x.Ho, x.TenDem, x.Ten, x.GioiTinh == "Nam" ? 0: 1, x.NgaySinh, x.DiaChi, x.Sdt,
-                  x.MatKhau, x.TenChuCVu, x.TrangThai == 1 ? "Hoat dong":"Khong hoat dong");
+                  x.Email ,x.MatKhau, x.TenChuCVu, x.TrangThai == 1 ? "Hoat dong":"Khong hoat dong");
             }
 
         }
@@ -98,6 +101,7 @@ namespace _3.PL.Views
                     NgaySinh = dateTime_NgaySinh.Value,
                     DiaChi = txt_DiaChi.Text,
                     Sdt = txt_Sdt.Text,
+                    Email = txt_Email.Text, 
                     MatKhau = txt_MatKhau.Text,
                     TrangThai = cbx_HoatDong.Checked ? 1 : 0
                 };
@@ -128,6 +132,7 @@ namespace _3.PL.Views
                     NgaySinh = dateTime_NgaySinh.Value,
                     DiaChi = txt_DiaChi.Text,
                     Sdt = txt_Sdt.Text,
+                    Email = txt_Email.Text,
                     MatKhau = txt_MatKhau.Text,
                     TrangThai = cbx_HoatDong.Checked ? 1 : 0
                 };
@@ -177,36 +182,39 @@ namespace _3.PL.Views
 
         private void drgid_NhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow r = drgid_NhanVien.Rows[e.RowIndex];
-            _Idnhanvien = Guid.Parse(r.Cells[0].Value.ToString());
-            cmb_idChucVu.Text = r.Cells[10].Value.ToString();
-            var x = _iNhanVienService.GetViewNhanVien().FirstOrDefault(c => c.Id == _Idnhanvien);
-            txt_Ma.Text = x.Ma;
-            txt_Ho.Text = x.Ho;
-            txt_TenDem.Text = x.TenDem;
-            cmb_idChucVu.Text = x.TenChuCVu;
-            txt_Ten.Text = x.Ten;
-            txt_Sdt.Text = x.Sdt;
-            txt_MatKhau.Text = x.MatKhau;
-            txt_DiaChi.Text = x.DiaChi;
-            dateTime_NgaySinh.Value = x.NgaySinh.Value;
-            if (int.Parse(r.Cells[5].Value.ToString()) == 0)
+            if (e.RowIndex >= 0)
             {
-                rbtn_Nam.Checked = true;
+                int rowindex = e.RowIndex;
+                if (rowindex == _iNhanVienService.GetAllNhanVien().Count) return;
+                DataGridViewRow r = drgid_NhanVien.Rows[e.RowIndex];
+                _Idnhanvien = Guid.Parse(r.Cells[0].Value.ToString());
+                cmb_idChucVu.Text = r.Cells[10].Value.ToString();
+                var x = _iNhanVienService.GetViewNhanVien().FirstOrDefault(c => c.Id == _Idnhanvien);
+                txt_Ma.Text = x.Ma;
+                txt_Ho.Text = x.Ho;
+                txt_TenDem.Text = x.TenDem;
+                cmb_idChucVu.Text = x.TenChuCVu;
+                txt_Ten.Text = x.Ten;
+                txt_Sdt.Text = x.Sdt;
+                txt_Email.Text = x.Email;
+                txt_MatKhau.Text = x.MatKhau;
+                txt_DiaChi.Text = x.DiaChi;
+                dateTime_NgaySinh.Value = x.NgaySinh.Value;
+                if (int.Parse(r.Cells[5].Value.ToString()) == 0)
+                {
+                    rbtn_Nam.Checked = true;
+                }
+                else rbtn_Nu.Checked = true;
+                if (x.TrangThai == 1)
+                {
+                    cbx_HoatDong.Checked = true;
+                    return;
+                }
+                else
+                {
+                    cbx_KhongHoatDong.Checked = true;
+                }
             }
-            else rbtn_Nu.Checked = true;
-            if (x.TrangThai == 1)
-            {
-                cbx_HoatDong.Checked = true;
-                return;
-            }
-            else
-            {
-                cbx_KhongHoatDong.Checked = true;
-            }
-
-
-
         }
         private void cbx_HoatDong_CheckedChanged(object sender, EventArgs e)
         {
@@ -291,6 +299,14 @@ namespace _3.PL.Views
                 saringan.BringToFront();
                 txt_MatKhau.PasswordChar = '*';
             }
+        }
+
+        private void btn_AddCV_Click(object sender, EventArgs e)
+        {
+            FrmChucVu frmcv = new FrmChucVu();
+            frmcv.ShowDialog();
+            cmb_idChucVu.Items.Clear();
+            LoadComboBox();
         }
     }
 }

@@ -51,13 +51,13 @@ namespace _3.PL.Views
 
         private void btn_DangNhap_Click_1(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-OF-KHAI\SQLEXPRESS;Initial Catalog=Duan1;Persist Security Info=True;User ID=khainq03;Password=123456");
+            SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-46F72MJA\SQLEXPRESS;Initial Catalog=Duan11;Persist Security Info=True;User ID=duyvtph24890;Password=123456");
             try
             {
                 conn.Open();
                 string taiKhoan = txt_tk.Text;
                 string matKhau = txt_mk.Text;
-                string sql = "select Ma,Matkhau from NhanVien where ma='" + taiKhoan + "' and Matkhau='" + matKhau + "'";
+                string sql = "select Email,Matkhau from NhanVien where Email='" + taiKhoan + "' and Matkhau='" + matKhau + "'";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 SqlDataReader dta = cmd.ExecuteReader();
                 if (dta.Read() == true)
@@ -85,6 +85,13 @@ namespace _3.PL.Views
                 txt_mk.PasswordChar = '\0';
             }
             else txt_mk.PasswordChar = '*';
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            FrmQuenMatKhau frmquenMk = new FrmQuenMatKhau();
+            this.Hide();
+            frmquenMk.Show();
         }
     }
 }

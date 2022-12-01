@@ -40,6 +40,7 @@
             this.rbtn_Nu = new System.Windows.Forms.RadioButton();
             this.rbtn_Nam = new System.Windows.Forms.RadioButton();
             this.txt_MatKhau = new System.Windows.Forms.TextBox();
+            this.txt_Email = new System.Windows.Forms.TextBox();
             this.txt_Sdt = new System.Windows.Forms.TextBox();
             this.txt_DiaChi = new System.Windows.Forms.TextBox();
             this.txt_Ten = new System.Windows.Forms.TextBox();
@@ -48,6 +49,7 @@
             this.txt_Ma = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -65,6 +67,7 @@
             this.btn_Sua = new System.Windows.Forms.Button();
             this.btn_Them = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btn_AddCV = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.drgid_NhanVien)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -91,6 +94,7 @@
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.Color.Aquamarine;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btn_AddCV);
             this.panel1.Controls.Add(this.saringan);
             this.panel1.Controls.Add(this.saringanfake);
             this.panel1.Controls.Add(this.cmb_idChucVu);
@@ -101,6 +105,7 @@
             this.panel1.Controls.Add(this.rbtn_Nu);
             this.panel1.Controls.Add(this.rbtn_Nam);
             this.panel1.Controls.Add(this.txt_MatKhau);
+            this.panel1.Controls.Add(this.txt_Email);
             this.panel1.Controls.Add(this.txt_Sdt);
             this.panel1.Controls.Add(this.txt_DiaChi);
             this.panel1.Controls.Add(this.txt_Ten);
@@ -109,6 +114,7 @@
             this.panel1.Controls.Add(this.txt_Ma);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
@@ -128,7 +134,7 @@
             // saringan
             // 
             this.saringan.BackgroundImage = global::_3.PL.Properties.Resources.icons8_sharingan_32;
-            this.saringan.Location = new System.Drawing.Point(859, 271);
+            this.saringan.Location = new System.Drawing.Point(869, 325);
             this.saringan.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.saringan.Name = "saringan";
             this.saringan.Size = new System.Drawing.Size(39, 35);
@@ -139,7 +145,7 @@
             // saringanfake
             // 
             this.saringanfake.BackgroundImage = global::_3.PL.Properties.Resources.icons8_sharingan_321;
-            this.saringanfake.Location = new System.Drawing.Point(859, 271);
+            this.saringanfake.Location = new System.Drawing.Point(869, 325);
             this.saringanfake.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.saringanfake.Name = "saringanfake";
             this.saringanfake.Size = new System.Drawing.Size(39, 35);
@@ -181,7 +187,7 @@
             this.cbx_KhongHoatDong.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbx_KhongHoatDong.AutoSize = true;
             this.cbx_KhongHoatDong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cbx_KhongHoatDong.Location = new System.Drawing.Point(592, 367);
+            this.cbx_KhongHoatDong.Location = new System.Drawing.Point(592, 413);
             this.cbx_KhongHoatDong.Name = "cbx_KhongHoatDong";
             this.cbx_KhongHoatDong.Size = new System.Drawing.Size(157, 24);
             this.cbx_KhongHoatDong.TabIndex = 22;
@@ -193,7 +199,7 @@
             this.cbx_HoatDong.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbx_HoatDong.AutoSize = true;
             this.cbx_HoatDong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cbx_HoatDong.Location = new System.Drawing.Point(592, 328);
+            this.cbx_HoatDong.Location = new System.Drawing.Point(592, 383);
             this.cbx_HoatDong.Name = "cbx_HoatDong";
             this.cbx_HoatDong.Size = new System.Drawing.Size(107, 24);
             this.cbx_HoatDong.TabIndex = 21;
@@ -229,11 +235,19 @@
             // txt_MatKhau
             // 
             this.txt_MatKhau.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txt_MatKhau.Location = new System.Drawing.Point(592, 271);
+            this.txt_MatKhau.Location = new System.Drawing.Point(592, 327);
             this.txt_MatKhau.Name = "txt_MatKhau";
             this.txt_MatKhau.PasswordChar = '*';
             this.txt_MatKhau.Size = new System.Drawing.Size(259, 27);
             this.txt_MatKhau.TabIndex = 18;
+            // 
+            // txt_Email
+            // 
+            this.txt_Email.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txt_Email.Location = new System.Drawing.Point(592, 267);
+            this.txt_Email.Name = "txt_Email";
+            this.txt_Email.Size = new System.Drawing.Size(259, 27);
+            this.txt_Email.TabIndex = 17;
             // 
             // txt_Sdt
             // 
@@ -288,7 +302,7 @@
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(465, 330);
+            this.label10.Location = new System.Drawing.Point(466, 383);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(83, 20);
             this.label10.TabIndex = 11;
@@ -299,18 +313,29 @@
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(465, 274);
+            this.label9.Location = new System.Drawing.Point(468, 330);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(81, 20);
             this.label9.TabIndex = 10;
             this.label9.Text = "Mật Khẩu:";
+            // 
+            // label12
+            // 
+            this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label12.Location = new System.Drawing.Point(466, 277);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(51, 20);
+            this.label12.TabIndex = 9;
+            this.label12.Text = "Email:";
             // 
             // label8
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(465, 215);
+            this.label8.Location = new System.Drawing.Point(465, 222);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(109, 20);
             this.label8.TabIndex = 9;
@@ -506,6 +531,18 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chức Năng";
             // 
+            // btn_AddCV
+            // 
+            this.btn_AddCV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btn_AddCV.BackgroundImage = global::_3.PL.Properties.Resources.icons8_sum_384;
+            this.btn_AddCV.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_AddCV.Location = new System.Drawing.Point(297, 398);
+            this.btn_AddCV.Name = "btn_AddCV";
+            this.btn_AddCV.Size = new System.Drawing.Size(39, 31);
+            this.btn_AddCV.TabIndex = 28;
+            this.btn_AddCV.UseVisualStyleBackColor = false;
+            this.btn_AddCV.Click += new System.EventHandler(this.btn_AddCV_Click);
+            // 
             // FrmNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -566,5 +603,8 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button saringan;
         private System.Windows.Forms.Button saringanfake;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txt_Email;
+        private System.Windows.Forms.Button btn_AddCV;
     }
 }
