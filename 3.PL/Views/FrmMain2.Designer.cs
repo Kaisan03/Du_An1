@@ -616,7 +616,7 @@
             // 
             this.txt_MaNhanVien.AutoSize = true;
             this.txt_MaNhanVien.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txt_MaNhanVien.Location = new System.Drawing.Point(962, 39);
+            this.txt_MaNhanVien.Location = new System.Drawing.Point(929, 39);
             this.txt_MaNhanVien.Name = "txt_MaNhanVien";
             this.txt_MaNhanVien.Size = new System.Drawing.Size(0, 25);
             this.txt_MaNhanVien.TabIndex = 4;

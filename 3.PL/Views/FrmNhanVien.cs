@@ -30,6 +30,7 @@ namespace _3.PL.Views
             LoadComboBox();
             saringan.BackgroundImageLayout = ImageLayout.Zoom;
             saringanfake.BackgroundImageLayout = ImageLayout.Zoom;
+            txt_Ma.Enabled = false;
         }
         public void LoadComboBox()
         {
@@ -40,11 +41,11 @@ namespace _3.PL.Views
                 cmb_idChucVu.Items.Add(x);
             }
         }
-            public void LoadDataNhanVien()
+        public void LoadDataNhanVien()
         {
             drgid_NhanVien.ColumnCount = 13;
             drgid_NhanVien.Columns[0].Name = "ID";
-            drgid_NhanVien.Columns[0].Visible = false; 
+            drgid_NhanVien.Columns[0].Visible = false;
             drgid_NhanVien.Columns[1].Name = "Mã";
             drgid_NhanVien.Columns[2].Name = "Họ";
             drgid_NhanVien.Columns[3].Name = "Tên Đệm";
@@ -56,7 +57,7 @@ namespace _3.PL.Views
             drgid_NhanVien.Columns[9].Name = "Email";
             drgid_NhanVien.Columns[10].Name = "Mật Khẩu ";
             drgid_NhanVien.Columns[11].Name = "Ten chức Vụ ";
-            
+
             //drgid_NhanVien.Columns[13].Name = "ID GuiBC ";
             drgid_NhanVien.Columns[12].Name = "Trạng Thái ";
             drgid_NhanVien.Rows.Clear();
@@ -68,8 +69,8 @@ namespace _3.PL.Views
             foreach (var x in lstNhanVien)
             {
 
-                drgid_NhanVien.Rows.Add(x.Id, x.Ma, x.Ho, x.TenDem, x.Ten, x.GioiTinh == "Nam" ? 0: 1, x.NgaySinh, x.DiaChi, x.Sdt,
-                  x.Email ,x.MatKhau, x.TenChuCVu, x.TrangThai == 1 ? "Hoat dong":"Khong hoat dong");
+                drgid_NhanVien.Rows.Add(x.Id, x.Ma, x.Ho, x.TenDem, x.Ten, x.GioiTinh == "Nam" ? 0 : 1, x.NgaySinh, x.DiaChi, x.Sdt,
+                  x.Email, x.MatKhau, x.TenChuCVu, x.TrangThai == 1 ? "Hoat dong" : "Khong hoat dong");
             }
 
         }
@@ -89,21 +90,23 @@ namespace _3.PL.Views
             DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn thêm?", "Thông báo", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
+                txt_Ma.Text = MaNhanVien();
                 AddNhanVienView addNhanVienView = new AddNhanVienView()
                 {
-                   
+
                     IdChucVu = cmb_idChucVu.Text != null ? _IChucVuService.GetAllChucVu().FirstOrDefault(c => c.Ten == cmb_idChucVu.Text).Id : null,
                     Ma = txt_Ma.Text,
                     Ho = txt_Ho.Text,
                     TenDem = txt_TenDem.Text,
                     Ten = txt_Ten.Text,
-                    GioiTinh = rbtn_Nam.Checked ?"Nam":"Nu",
+                    GioiTinh = rbtn_Nam.Checked ? "Nam" : "Nu",
                     NgaySinh = dateTime_NgaySinh.Value,
                     DiaChi = txt_DiaChi.Text,
                     Sdt = txt_Sdt.Text,
-                    Email = txt_Email.Text, 
+                    Email = txt_Email.Text,
                     MatKhau = txt_MatKhau.Text,
                     TrangThai = cbx_HoatDong.Checked ? 1 : 0
+
                 };
                 _iNhanVienService.AddNhanVien(addNhanVienView);
                 MessageBox.Show("Thêm thành công");
@@ -120,6 +123,7 @@ namespace _3.PL.Views
             DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn sua?", "Thông báo", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
+                txt_Ma.Text = MaNhanVien();
                 UpdateNhanVienView updateNhanVienView = new UpdateNhanVienView()
                 {
                     Id = _Idnhanvien,
@@ -176,21 +180,22 @@ namespace _3.PL.Views
 
         private void drgid_NhanVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
-  
+
 
         private void drgid_NhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
+
                 int rowindex = e.RowIndex;
                 if (rowindex == _iNhanVienService.GetAllNhanVien().Count) return;
                 DataGridViewRow r = drgid_NhanVien.Rows[e.RowIndex];
                 _Idnhanvien = Guid.Parse(r.Cells[0].Value.ToString());
                 cmb_idChucVu.Text = r.Cells[10].Value.ToString();
                 var x = _iNhanVienService.GetViewNhanVien().FirstOrDefault(c => c.Id == _Idnhanvien);
-                txt_Ma.Text = x.Ma;
+
                 txt_Ho.Text = x.Ho;
                 txt_TenDem.Text = x.TenDem;
                 cmb_idChucVu.Text = x.TenChuCVu;
@@ -200,6 +205,8 @@ namespace _3.PL.Views
                 txt_MatKhau.Text = x.MatKhau;
                 txt_DiaChi.Text = x.DiaChi;
                 dateTime_NgaySinh.Value = x.NgaySinh.Value;
+                txt_Ma.Text = MaNhanVien();
+                txt_Ma.Text = x.Ma;
                 if (int.Parse(r.Cells[5].Value.ToString()) == 0)
                 {
                     rbtn_Nam.Checked = true;
@@ -232,7 +239,7 @@ namespace _3.PL.Views
             }
         }
 
-       
+
         private void cmb_idChucVu_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -307,6 +314,32 @@ namespace _3.PL.Views
             frmcv.ShowDialog();
             cmb_idChucVu.Items.Clear();
             LoadComboBox();
+        }
+        public string MaNhanVien()
+        {
+            string name = string.Concat(ConvertToUnsign(txt_Ten.Text), ChuCaiDau(txt_Ho.Text), ChuCaiDau(txt_TenDem.Text), _iNhanVienService.GetAllNhanVien().Count + 1);
+            return name;
+        }
+        public string ChuCaiDau(string value)
+        {
+            return Convert.ToString(value[0]);
+        }
+        public string ConvertToUnsign(string str)
+        {
+            string strFormD = str.Normalize(NormalizationForm.FormD);
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < strFormD.Length; i++)
+            {
+                System.Globalization.UnicodeCategory uc =
+                    System.Globalization.CharUnicodeInfo.GetUnicodeCategory(strFormD[i]);
+                if (uc != System.Globalization.UnicodeCategory.NonSpacingMark)
+                {
+                    sb.Append(strFormD[i]);
+                }
+            }
+            sb = sb.Replace('Đ', 'D');
+            sb = sb.Replace('đ', 'd');
+            return (sb.ToString().Normalize(NormalizationForm.FormD));
         }
     }
 }

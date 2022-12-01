@@ -255,6 +255,7 @@
             this.dgrid_Anh.Location = new System.Drawing.Point(0, 0);
             this.dgrid_Anh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgrid_Anh.Name = "dgrid_Anh";
+            this.dgrid_Anh.RowHeadersVisible = false;
             this.dgrid_Anh.RowHeadersWidth = 51;
             this.dgrid_Anh.RowTemplate.Height = 29;
             this.dgrid_Anh.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

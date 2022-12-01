@@ -29,6 +29,7 @@ namespace _3.PL.Views
             LoadData();
             anhcaidmm();
             // txt_duongDan.Enabled = false;
+            dgrid_Anh.AllowUserToAddRows = false;
         }
         public void LoadData()
         {
