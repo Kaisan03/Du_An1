@@ -4,6 +4,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.NetworkInformation;
+using System.Security.Cryptography;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,7 +16,10 @@ using _2.BUS.IServices;
 using _2.BUS.Services;
 using _2.BUS.ViewModels;
 using Microsoft.Data.SqlClient;
+using Microsoft.Office.Interop.Excel;
 using Microsoft.VisualBasic;
+using Button = System.Windows.Forms.Button;
+using TextBox = System.Windows.Forms.TextBox;
 
 namespace _3.PL.Views
 {
@@ -57,6 +63,7 @@ namespace _3.PL.Views
             this.dgrid_chitietgiay.DefaultCellStyle.ForeColor = Color.Red;
             _KHService = new KhachHangService();
             FuckYou();
+            AutoDiaChi();
         }
         public FrmBanHang1(string a)
         {
@@ -507,7 +514,7 @@ namespace _3.PL.Views
         public void FuckYou()
         {
             SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = "Data Source=LAPTOP-OF-KHAI\\SQLEXPRESS;Initial Catalog=Duan1;Persist Security Info=True;User ID=khainq03;Password=123456";
+            connection.ConnectionString = "Data Source=LAPTOP-46F72MJA\\SQLEXPRESS;Initial Catalog=Duan11;Persist Security Info=True;User ID=duyvtph24890;Password=123456";
 
             connection.Open();
             SqlCommand sqlCommand = new SqlCommand("select Sdt FROM KhachHang", connection);
@@ -668,6 +675,27 @@ namespace _3.PL.Views
         public void lblNhanVien(string a)
         {
             lbl_TenNhanVien.Text = a;
+        }
+        public void AutoDiaChi()
+        {
+            //SqlConnection connection = new SqlConnection();
+            //connection.ConnectionString = "Data Source=LAPTOP-46F72MJA\\SQLEXPRESS;Initial Catalog=Duan11;Persist Security Info=True;User ID=duyvtph24890;Password=123456";
+
+            //connection.Open();
+            //SqlCommand sqlCommand = new SqlCommand("select Sdt FROM KhachHang", connection);
+            //SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+            //SqlDataReader dr = sqlCommand.ExecuteReader();
+            txt_DiaChi.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txt_DiaChi.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            AutoCompleteStringCollection col = new AutoCompleteStringCollection();
+            string[] DiaChi = new string[] {"An Giang" , "Kon Tum",  "Bà Rịa – Vũng Tàu" , "Lai Châu ",  "Bắc Giang" , "Lâm Đồng" , "Bắc Kạn" , "Lạng Sơn", " Bạc Liêu" , "Lào Cai" , "Bắc Ninh" , "Long An" , "Bến Tre" , "Nam Định","Bình Định","Nghệ An",
+                                            "Bình Dương","Ninh Bình" ,"Bình Phước" , "Ninh Thuận","Bình Thuận" , "Phú Thọ","Cà Mau" , "Phú Yên" , "Cần Thơ" , "Quảng Bình","Cao Bằng" , "Quảng Nam", "Đà Nẵng" , "Quảng Ngãi",
+                                            "Đắk Lắk" , "Quảng Ninh","Đắk Nông" , "Quảng Trị", "Điện Biên" , "Sóc Trăng","Đồng Nai" , "Sơn La",   "Đồng Tháp" , "Tây Ninh","  Gia Lai" , "Thái Bình", "Hà Giang" , "Thái Nguyên",
+                                            "Hà Nam" , "Thanh Hóa",  "Hà Nội" , "Thừa Thiên Huế", "Hà Tĩnh" , "Tiền Giang", "Hải Dương" , "TP Hồ Chí Minh", "Hải Phòng" , "Trà Vinh",  "Hậu Giang" , "Tuyên Quang",
+                                            "Hòa Bình" , "Vĩnh Long","Hưng Yên" , "Vĩnh Phúc", "Khánh Hòa" , "Yên Bái", "Kiên Giang"
+            };
+            col.AddRange(DiaChi);
+            txt_DiaChi.AutoCompleteCustomSource = col;
         }
     }
 }
