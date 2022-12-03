@@ -508,7 +508,6 @@ C:\Users\ADM\source\repos\Du_An1\3.PL\obj\Debug\net5.0-windows\3.PL.csproj.CoreC
 C:\Users\ADM\source\repos\Du_An1\3.PL\obj\Debug\net5.0-windows\3.PL.dll
 C:\Users\ADM\source\repos\Du_An1\3.PL\obj\Debug\net5.0-windows\ref\3.PL.dll
 C:\Users\ADM\source\repos\Du_An1\3.PL\obj\Debug\net5.0-windows\3.PL.pdb
-C:\Users\Acer\Source\Repos\Du_An1\3.PL\bin\Debug\net5.0-windows\3.PL.dll.config
 C:\Users\Acer\Source\Repos\Du_An1\3.PL\bin\Debug\net5.0-windows\BouncyCastle.Crypto.dll
 C:\Users\Acer\Source\Repos\Du_An1\3.PL\bin\Debug\net5.0-windows\Microsoft.Practices.ServiceLocation.dll
 C:\Users\Acer\Source\Repos\Du_An1\3.PL\bin\Debug\net5.0-windows\EPPlus.dll
@@ -554,3 +553,4 @@ C:\Users\Acer\Source\Repos\Du_An1\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.Them
 C:\Users\Acer\source\repos\Du_An1\3.PL\bin\Debug\net5.0-windows\AForge.dll
 C:\Users\Acer\source\repos\Du_An1\3.PL\bin\Debug\net5.0-windows\AForge.Video.dll
 C:\Users\Acer\source\repos\Du_An1\3.PL\bin\Debug\net5.0-windows\AForge.Video.DirectShow.dll
+C:\Users\Acer\source\repos\Du_An1\3.PL\bin\Debug\net5.0-windows\3.PL.dll.config

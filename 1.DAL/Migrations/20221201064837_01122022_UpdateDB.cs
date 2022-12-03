@@ -277,8 +277,7 @@ namespace _1.DAL.Migrations
                 name: "HoaDon",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    id = table.Column<int>(type: "int", nullable: false),
                     idKhachHang = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     idNhanVien = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     Ma = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: true),

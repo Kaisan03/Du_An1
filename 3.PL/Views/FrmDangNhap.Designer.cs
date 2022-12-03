@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDangNhap));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.cbx_NhoMk = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_DangNhap = new System.Windows.Forms.Button();
@@ -45,7 +46,6 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.cbx_NhoMk = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -86,6 +86,19 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(503, 504);
             this.panel3.TabIndex = 1;
+            // 
+            // cbx_NhoMk
+            // 
+            this.cbx_NhoMk.AutoSize = true;
+            this.cbx_NhoMk.BackColor = System.Drawing.SystemColors.Window;
+            this.cbx_NhoMk.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbx_NhoMk.ForeColor = System.Drawing.Color.Gray;
+            this.cbx_NhoMk.Location = new System.Drawing.Point(46, 352);
+            this.cbx_NhoMk.Name = "cbx_NhoMk";
+            this.cbx_NhoMk.Size = new System.Drawing.Size(138, 21);
+            this.cbx_NhoMk.TabIndex = 10;
+            this.cbx_NhoMk.Text = "Nhớ mật khẩu";
+            this.cbx_NhoMk.UseVisualStyleBackColor = false;
             // 
             // label4
             // 
@@ -181,6 +194,8 @@
             // 
             // txt_tk
             // 
+            this.txt_tk.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txt_tk.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txt_tk.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_tk.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(61)))), ((int)(((byte)(86)))));
             this.txt_tk.Location = new System.Drawing.Point(46, 196);
@@ -245,19 +260,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // cbx_NhoMk
-            // 
-            this.cbx_NhoMk.AutoSize = true;
-            this.cbx_NhoMk.BackColor = System.Drawing.SystemColors.Window;
-            this.cbx_NhoMk.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cbx_NhoMk.ForeColor = System.Drawing.Color.Gray;
-            this.cbx_NhoMk.Location = new System.Drawing.Point(46, 352);
-            this.cbx_NhoMk.Name = "cbx_NhoMk";
-            this.cbx_NhoMk.Size = new System.Drawing.Size(138, 21);
-            this.cbx_NhoMk.TabIndex = 10;
-            this.cbx_NhoMk.Text = "Nhớ mật khẩu";
-            this.cbx_NhoMk.UseVisualStyleBackColor = false;
             // 
             // FrmDangNhap
             // 

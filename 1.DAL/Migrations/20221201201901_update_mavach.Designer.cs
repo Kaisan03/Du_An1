@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using _1.DAL.Context;
 
 namespace _1.DAL.Migrations
 {
     [DbContext(typeof(FpolyDBContext))]
-    partial class FpolyDBContextModelSnapshot : ModelSnapshot
+    [Migration("20221201201901_update_mavach")]
+    partial class update_mavach
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

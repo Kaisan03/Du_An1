@@ -18,6 +18,7 @@ namespace _3.PL.Views
         public FrmDangNhap()
         {
             InitializeComponent();
+            FuckYou1();
 
         }
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
@@ -34,11 +35,11 @@ namespace _3.PL.Views
 
         private void FrmTest_Load(object sender, EventArgs e)
         {
-            //            if (Properties.Settings.Default.UserName != string.Empty)
-            //{
-            //    txt_username.Text = Properties.Settings.Default.UserName;
-            //    txt_password.Text = Properties.Settings.Default.Password;
-            //}
+            if (Properties.Settings.Default.UserName != string.Empty)
+            {
+                txt_tk.Text = Properties.Settings.Default.UserName;
+                txt_mk.Text = Properties.Settings.Default.Password;
+            }
             panel1.Location = new Point(
             this.ClientSize.Width / 2 - panel1.Size.Width / 2,
             this.ClientSize.Height / 2 - panel1.Size.Height / 2);
@@ -59,6 +60,18 @@ namespace _3.PL.Views
 
         private void btn_DangNhap_Click_1(object sender, EventArgs e)
         {
+            if (cbx_NhoMk.Checked == true)
+            {
+                Properties.Settings.Default.UserName = txt_tk.Text;
+                Properties.Settings.Default.Password = txt_mk.Text;
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                Properties.Settings.Default.UserName = "";
+                Properties.Settings.Default.UserName = "";
+                Properties.Settings.Default.Save();
+            }
             SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-46F72MJA\SQLEXPRESS;Initial Catalog=Duan11;Persist Security Info=True;User ID=duyvtph24890;Password=123456");
             try
             {
@@ -101,6 +114,24 @@ namespace _3.PL.Views
             FrmQuenMatKhau frmquenMk = new FrmQuenMatKhau();
             this.Hide();
             frmquenMk.Show();
+        }
+        public void FuckYou1()
+        {
+            //SqlConnection connection = new SqlConnection();
+            //connection.ConnectionString = @"Data Source=LAPTOP-46F72MJA\SQLEXPRESS;Initial Catalog=Duan11;Persist Security Info=True;User ID=duyvtph24890;Password=123456";
+            //connection.Open();
+            //SqlCommand sqlCommand = new SqlCommand("select Email FROM NhanVien", connection);
+            //SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+            //SqlDataReader dr = sqlCommand.ExecuteReader();
+
+            //AutoCompleteStringCollection col = new AutoCompleteStringCollection();
+
+            //while (dr.Read())
+            //{
+            //    col.Add(dr.GetString(0));
+            //}
+            //txt_tk.AutoCompleteCustomSource = col;
+            //connection.Close();
         }
     }
 }

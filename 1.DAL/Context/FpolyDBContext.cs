@@ -11,7 +11,7 @@ namespace _1.DAL.Context
     {
         protected override void OnConfiguring(DbContextOptionsBuilder OptionBuilder)
         {
-            OptionBuilder.UseSqlServer("Data Source=LAPTOP-OF-KHAI\\SQLEXPRESS;Initial Catalog=Duan1A;Persist Security Info=True;User ID=khainq03;Password=123456");
+            OptionBuilder.UseSqlServer("Data Source=LAPTOP-46F72MJA\\SQLEXPRESS;Initial Catalog=Duan11;Persist Security Info=True;User ID=duyvtph24890;Password=123456");
         }
 
         public  DbSet<Anh> Anhs { get; set; }
