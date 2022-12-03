@@ -554,3 +554,4 @@ C:\Users\Acer\source\repos\Du_An1\3.PL\bin\Debug\net5.0-windows\AForge.dll
 C:\Users\Acer\source\repos\Du_An1\3.PL\bin\Debug\net5.0-windows\AForge.Video.dll
 C:\Users\Acer\source\repos\Du_An1\3.PL\bin\Debug\net5.0-windows\AForge.Video.DirectShow.dll
 C:\Users\Acer\source\repos\Du_An1\3.PL\bin\Debug\net5.0-windows\3.PL.dll.config
+C:\Users\Acer\source\repos\Du_An1\3.PL\obj\Debug\net5.0-windows\_3.PL.Views.FrmXacNhanGiaoCa.resources
