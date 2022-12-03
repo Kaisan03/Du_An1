@@ -64,7 +64,7 @@ namespace _3.PL.Views
             writer.Options = options;
             var text = txt_qrcode.Text;
             var result = writer.Write(text);
-            pic_qrcode.Image = result;
+            //pic_qrcode.Image = result;
         }
 
         private void btn_saveqrcode_Click(object sender, EventArgs e)

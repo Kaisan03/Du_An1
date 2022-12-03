@@ -34,6 +34,11 @@ namespace _3.PL.Views
 
         private void FrmTest_Load(object sender, EventArgs e)
         {
+            //            if (Properties.Settings.Default.UserName != string.Empty)
+            //{
+            //    txt_username.Text = Properties.Settings.Default.UserName;
+            //    txt_password.Text = Properties.Settings.Default.Password;
+            //}
             panel1.Location = new Point(
             this.ClientSize.Width / 2 - panel1.Size.Width / 2,
             this.ClientSize.Height / 2 - panel1.Size.Height / 2);

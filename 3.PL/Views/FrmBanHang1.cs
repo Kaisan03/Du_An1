@@ -15,9 +15,12 @@ using _1.DAL.DomainClass;
 using _2.BUS.IServices;
 using _2.BUS.Services;
 using _2.BUS.ViewModels;
+using AForge.Video;
+using AForge.Video.DirectShow;
 using Microsoft.Data.SqlClient;
 using Microsoft.Office.Interop.Excel;
 using Microsoft.VisualBasic;
+using ZXing.Windows.Compatibility;
 using Button = System.Windows.Forms.Button;
 using TextBox = System.Windows.Forms.TextBox;
 
@@ -46,6 +49,8 @@ namespace _3.PL.Views
         private List<HoaDonChiTiet> _lstHDCT;
         private int rowindex = 0;
         private IKhachHangService _KHService;
+        private FilterInfoCollection filterInfoCollection;
+        private VideoCaptureDevice videoCaptureDevice;
 
         public FrmBanHang1()
         {
@@ -696,6 +701,146 @@ namespace _3.PL.Views
             };
             col.AddRange(DiaChi);
             txt_DiaChi.AutoCompleteCustomSource = col;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show("Bạn Có Muốn Mở Camera Hay Không ?", "Thông Báo", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+
+
+                    videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[cmb_QRCode.SelectedIndex].MonikerString);
+                    videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
+                    videoCaptureDevice.Start();
+                    for (int i = 0; i < 1; i++)
+                    {
+                        MessageBox.Show("Mở Camera Thành Công");
+                    }
+                };
+
+                if (dialogResult == DialogResult.No)
+                {
+
+                    for (int i = 0; i < 2; i++)
+                    {
+                        MessageBox.Show("Mở Camera Thất Bại");
+                    }
+                    return;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Convert.ToString(ex), "Liên Hệ Với 19008198 để sửa lỗi");
+                return;
+            }
+        }
+        private void VideoCaptureDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        {
+            try
+            {
+                videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[cmb_QRCode.SelectedIndex].MonikerString);
+                videoCaptureDevice.NewFrame += new NewFrameEventHandler(FinalFrame_NewFrame);
+                videoCaptureDevice.Start();
+                Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone();
+                BarcodeReader reader = new BarcodeReader();
+                var result = reader.Decode(bitmap);
+                pic_qrcode.Image = bitmap;
+                string content = Interaction.InputBox("Mời Bạn Nhập Số Lượng Muốn Thêm", "Thêm Vào Giỏ Hàng", "", 500, 300);
+                var sp = _chiTietGiayService.GetAllCTGiay().FirstOrDefault(c => c.Id == _ctspId);
+                var idTmp = _hoaDonService.GetallHoadon().FirstOrDefault(c => c.Ma == lbl_MahoaDon.Text).Id;
+                var data = _hoaDonChiTietService.GetAllHoaDonCT().FirstOrDefault(c => c.IdChiTietGiay == _ctspId && c.IdHoaDon == idTmp);
+                if (Convert.ToString(result) == _chiTietGiayService.GetAllCTGiay()
+                            .Where(c => c.MaVach == Convert.ToString(result))
+                            .Select(c => c.MaVach).FirstOrDefault())
+                {
+                    if (Convert.ToInt32(content) <= sp.SoLuongTon)
+                    {
+
+                        if (data == null || data.IdHoaDon != idTmp)
+                        {
+                            sp.SoLuongTon -= Convert.ToInt32(content);
+                            var hoaDonChiTiet = new HoaDonChiTiet()
+                            {
+                                Id = Guid.NewGuid(),
+                                IdChiTietGiay = _ctspId,
+                                IdHoaDon = _hoaDonService.GetallHoadon().FirstOrDefault(c => c.Ma == lbl_MahoaDon.Text).Id,
+                                DonGia = sp.GiaBan,
+                                SoLuong = Convert.ToInt32(content)
+                            };
+                            _hoaDonChiTietService.Add(hoaDonChiTiet);
+                            _chiTietGiayService.UpdateCTGiay2(sp);
+                        }
+                        else
+                        {
+                            sp.SoLuongTon -= Convert.ToInt32(content);
+                            data.SoLuong += Convert.ToInt32(content);
+                            _hoaDonChiTietService.Update(data);
+                            _chiTietGiayService.UpdateCTGiay2(sp);
+
+                        }
+                        LoadGioHang();
+                        LoadSanPham();
+                        anhcaidmm1();
+                        refreshcam();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Số lượng sản phẩm không đủ");
+                    }
+                }
+                if (Convert.ToInt32(content) >= Convert.ToInt32(_chiTietGiayService.GetAllCTGiay().Where(c => c.MaVach == Convert.ToString(result)).Select(c => c.SoLuong).FirstOrDefault()))
+                {
+                    MessageBox.Show("Số Lượng Không Đủ", "ERR");
+                    return;
+                }
+            }
+            catch
+            {
+
+            }
+        }
+        void refreshcam()
+        {
+            try
+            {
+                if (InvokeRequired)
+                {
+                    this.Invoke(new MethodInvoker(refreshcam));
+                    return;
+                }
+                if (pic_qrcode.Image != null)
+                {
+                    pic_qrcode.Image = null;
+                    pic_qrcode.ImageLocation = null;
+                    //pic_cam.Image = null;
+                    pic_qrcode.Update();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(Convert.ToString(ex), "Liên Hệ Với 19008198 để sửa lỗi");
+                return;
+
+            }
+        }
+
+        private void FrmBanHang1_Load(object sender, EventArgs e)
+        {
+            filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            foreach (FilterInfo Device in filterInfoCollection)
+                cmb_QRCode.Items.Add(Device.Name);
+            cmb_QRCode.SelectedIndex = 0;
+            videoCaptureDevice = new VideoCaptureDevice();
+        }
+        private void FinalFrame_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        {
+            pic_qrcode.Image = (Bitmap)eventArgs.Frame.Clone();
         }
     }
 }

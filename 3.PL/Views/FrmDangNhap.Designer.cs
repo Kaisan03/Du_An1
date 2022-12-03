@@ -45,6 +45,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cbx_NhoMk = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -68,6 +69,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.cbx_NhoMk);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.btn_DangNhap);
@@ -244,6 +246,19 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // cbx_NhoMk
+            // 
+            this.cbx_NhoMk.AutoSize = true;
+            this.cbx_NhoMk.BackColor = System.Drawing.SystemColors.Window;
+            this.cbx_NhoMk.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbx_NhoMk.ForeColor = System.Drawing.Color.Gray;
+            this.cbx_NhoMk.Location = new System.Drawing.Point(46, 352);
+            this.cbx_NhoMk.Name = "cbx_NhoMk";
+            this.cbx_NhoMk.Size = new System.Drawing.Size(138, 21);
+            this.cbx_NhoMk.TabIndex = 10;
+            this.cbx_NhoMk.Text = "Nhớ mật khẩu";
+            this.cbx_NhoMk.UseVisualStyleBackColor = false;
+            // 
             // FrmDangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -286,5 +301,6 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.CheckBox cbx_NhoMk;
     }
 }

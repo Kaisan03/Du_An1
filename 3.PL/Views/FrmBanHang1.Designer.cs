@@ -37,6 +37,8 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.thôngTinChiTiếtSảnPhẩmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Gr_GioHang = new System.Windows.Forms.GroupBox();
+            this.pic_qrcode = new System.Windows.Forms.PictureBox();
+            this.dgrid_GioHang = new System.Windows.Forms.DataGridView();
             this.pn_HoaDon = new System.Windows.Forms.Panel();
             this.btn_ThanhToan = new System.Windows.Forms.Button();
             this.cbx_In = new System.Windows.Forms.CheckBox();
@@ -51,7 +53,6 @@
             this.lbl_TienThua = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.dgrid_GioHang = new System.Windows.Forms.DataGridView();
             this.Gr_HDChuaTT = new System.Windows.Forms.GroupBox();
             this.flow_HDChuaTT = new System.Windows.Forms.FlowLayoutPanel();
             this.Gr_HDDangGiao = new System.Windows.Forms.GroupBox();
@@ -92,12 +93,15 @@
             this.pic_sdt = new System.Windows.Forms.PictureBox();
             this.btn_TaoHoaDon = new System.Windows.Forms.Button();
             this.lbl_MahoaDon = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.cmb_QRCode = new System.Windows.Forms.ComboBox();
             this.Gr_SanPham.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_chitietgiay)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.Gr_GioHang.SuspendLayout();
-            this.pn_HoaDon.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_qrcode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_GioHang)).BeginInit();
+            this.pn_HoaDon.SuspendLayout();
             this.Gr_HDChuaTT.SuspendLayout();
             this.Gr_HDDangGiao.SuspendLayout();
             this.Gr_TaoHD.SuspendLayout();
@@ -183,6 +187,7 @@
             this.Gr_GioHang.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.Gr_GioHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(242)))), ((int)(((byte)(161)))));
+            this.Gr_GioHang.Controls.Add(this.pic_qrcode);
             this.Gr_GioHang.Controls.Add(this.dgrid_GioHang);
             this.Gr_GioHang.Location = new System.Drawing.Point(17, 64);
             this.Gr_GioHang.Name = "Gr_GioHang";
@@ -190,6 +195,32 @@
             this.Gr_GioHang.TabIndex = 4;
             this.Gr_GioHang.TabStop = false;
             this.Gr_GioHang.Text = "Giỏ hàng";
+            // 
+            // pic_qrcode
+            // 
+            this.pic_qrcode.BackColor = System.Drawing.Color.Aqua;
+            this.pic_qrcode.Location = new System.Drawing.Point(846, 61);
+            this.pic_qrcode.Name = "pic_qrcode";
+            this.pic_qrcode.Size = new System.Drawing.Size(191, 156);
+            this.pic_qrcode.TabIndex = 12;
+            this.pic_qrcode.TabStop = false;
+            // 
+            // dgrid_GioHang
+            // 
+            this.dgrid_GioHang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgrid_GioHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgrid_GioHang.BackgroundColor = System.Drawing.Color.White;
+            this.dgrid_GioHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgrid_GioHang.Location = new System.Drawing.Point(6, 27);
+            this.dgrid_GioHang.Name = "dgrid_GioHang";
+            this.dgrid_GioHang.RowHeadersVisible = false;
+            this.dgrid_GioHang.RowHeadersWidth = 51;
+            this.dgrid_GioHang.RowTemplate.Height = 29;
+            this.dgrid_GioHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgrid_GioHang.Size = new System.Drawing.Size(1061, 245);
+            this.dgrid_GioHang.TabIndex = 0;
             // 
             // pn_HoaDon
             // 
@@ -356,23 +387,6 @@
             this.label17.Size = new System.Drawing.Size(75, 23);
             this.label17.TabIndex = 0;
             this.label17.Text = "Ghi chú:";
-            // 
-            // dgrid_GioHang
-            // 
-            this.dgrid_GioHang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgrid_GioHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgrid_GioHang.BackgroundColor = System.Drawing.Color.White;
-            this.dgrid_GioHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrid_GioHang.Location = new System.Drawing.Point(6, 27);
-            this.dgrid_GioHang.Name = "dgrid_GioHang";
-            this.dgrid_GioHang.RowHeadersVisible = false;
-            this.dgrid_GioHang.RowHeadersWidth = 51;
-            this.dgrid_GioHang.RowTemplate.Height = 29;
-            this.dgrid_GioHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgrid_GioHang.Size = new System.Drawing.Size(1061, 245);
-            this.dgrid_GioHang.TabIndex = 0;
             // 
             // Gr_HDChuaTT
             // 
@@ -834,11 +848,31 @@
             this.lbl_MahoaDon.TabIndex = 9;
             this.lbl_MahoaDon.Text = ".......";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(416, 14);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(83, 29);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "OpenCam";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // cmb_QRCode
+            // 
+            this.cmb_QRCode.FormattingEnabled = true;
+            this.cmb_QRCode.Location = new System.Drawing.Point(505, 14);
+            this.cmb_QRCode.Name = "cmb_QRCode";
+            this.cmb_QRCode.Size = new System.Drawing.Size(151, 28);
+            this.cmb_QRCode.TabIndex = 11;
+            // 
             // FrmBanHang1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 828);
+            this.Controls.Add(this.cmb_QRCode);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lbl_MahoaDon);
             this.Controls.Add(this.btn_TaoHoaDon);
             this.Controls.Add(this.Gr_TaoHD);
@@ -848,14 +882,16 @@
             this.Controls.Add(this.Gr_SanPham);
             this.Name = "FrmBanHang1";
             this.Text = "FrmBanHang1";
+            this.Load += new System.EventHandler(this.FrmBanHang1_Load);
             this.Gr_SanPham.ResumeLayout(false);
             this.Gr_SanPham.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_chitietgiay)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.Gr_GioHang.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pic_qrcode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgrid_GioHang)).EndInit();
             this.pn_HoaDon.ResumeLayout(false);
             this.pn_HoaDon.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgrid_GioHang)).EndInit();
             this.Gr_HDChuaTT.ResumeLayout(false);
             this.Gr_HDDangGiao.ResumeLayout(false);
             this.Gr_TaoHD.ResumeLayout(false);
@@ -936,5 +972,8 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem thôngTinChiTiếtSảnPhẩmToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cmb_QRCode;
+        private System.Windows.Forms.PictureBox pic_qrcode;
     }
 }

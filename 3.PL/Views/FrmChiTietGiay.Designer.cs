@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmChiTietGiay));
             this.dgrid_ChiTietGiay = new System.Windows.Forms.DataGridView();
             this.txt_TimKiem = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_read = new System.Windows.Forms.Button();
-            this.btn_Start = new System.Windows.Forms.Button();
+            this.btn_Save = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.pic_QuetBarcode = new System.Windows.Forms.PictureBox();
             this.cmb_Loc = new System.Windows.Forms.ComboBox();
@@ -106,33 +106,33 @@
             this.dgrid_ChiTietGiay.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgrid_ChiTietGiay.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgrid_ChiTietGiay.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(122)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(122)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgrid_ChiTietGiay.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(122)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(122)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgrid_ChiTietGiay.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgrid_ChiTietGiay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Turquoise;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgrid_ChiTietGiay.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Turquoise;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgrid_ChiTietGiay.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgrid_ChiTietGiay.EnableHeadersVisualStyles = false;
             this.dgrid_ChiTietGiay.GridColor = System.Drawing.Color.LightGray;
             this.dgrid_ChiTietGiay.Location = new System.Drawing.Point(14, 5);
             this.dgrid_ChiTietGiay.Name = "dgrid_ChiTietGiay";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgrid_ChiTietGiay.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgrid_ChiTietGiay.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgrid_ChiTietGiay.RowHeadersVisible = false;
             this.dgrid_ChiTietGiay.RowHeadersWidth = 51;
             this.dgrid_ChiTietGiay.RowTemplate.Height = 29;
@@ -157,7 +157,7 @@
             // 
             this.groupBox1.BackColor = System.Drawing.Color.DarkTurquoise;
             this.groupBox1.Controls.Add(this.btn_read);
-            this.groupBox1.Controls.Add(this.btn_Start);
+            this.groupBox1.Controls.Add(this.btn_Save);
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.pic_QuetBarcode);
             this.groupBox1.Controls.Add(this.cmb_Loc);
@@ -228,15 +228,15 @@
             this.btn_read.UseVisualStyleBackColor = true;
             this.btn_read.Click += new System.EventHandler(this.btn_read_Click);
             // 
-            // btn_Start
+            // btn_Save
             // 
-            this.btn_Start.Location = new System.Drawing.Point(980, 369);
-            this.btn_Start.Name = "btn_Start";
-            this.btn_Start.Size = new System.Drawing.Size(44, 29);
-            this.btn_Start.TabIndex = 10;
-            this.btn_Start.Text = "st";
-            this.btn_Start.UseVisualStyleBackColor = true;
-            this.btn_Start.Click += new System.EventHandler(this.btn_Start_Click);
+            this.btn_Save.Location = new System.Drawing.Point(535, 443);
+            this.btn_Save.Name = "btn_Save";
+            this.btn_Save.Size = new System.Drawing.Size(61, 29);
+            this.btn_Save.TabIndex = 10;
+            this.btn_Save.Text = "Save";
+            this.btn_Save.UseVisualStyleBackColor = true;
+            this.btn_Save.Click += new System.EventHandler(this.btn_Start_Click);
             // 
             // comboBox1
             // 
@@ -249,9 +249,9 @@
             // pic_QuetBarcode
             // 
             this.pic_QuetBarcode.BackColor = System.Drawing.Color.White;
-            this.pic_QuetBarcode.Location = new System.Drawing.Point(982, 176);
+            this.pic_QuetBarcode.Location = new System.Drawing.Point(406, 371);
             this.pic_QuetBarcode.Name = "pic_QuetBarcode";
-            this.pic_QuetBarcode.Size = new System.Drawing.Size(200, 183);
+            this.pic_QuetBarcode.Size = new System.Drawing.Size(114, 101);
             this.pic_QuetBarcode.TabIndex = 8;
             this.pic_QuetBarcode.TabStop = false;
             // 
@@ -469,6 +469,7 @@
             this.txt_MaVach.Name = "txt_MaVach";
             this.txt_MaVach.Size = new System.Drawing.Size(239, 27);
             this.txt_MaVach.TabIndex = 1;
+            this.txt_MaVach.Leave += new System.EventHandler(this.txt_MaVach_Leave);
             // 
             // txt_NgayBan
             // 
@@ -854,7 +855,7 @@
         private System.Windows.Forms.Button btn_XuatPdf;
         private System.Windows.Forms.ComboBox cmb_Loc;
         private System.Windows.Forms.Button btn_read;
-        private System.Windows.Forms.Button btn_Start;
+        private System.Windows.Forms.Button btn_Save;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.PictureBox pic_QuetBarcode;
         private System.Windows.Forms.TextBox txt_MaVach;

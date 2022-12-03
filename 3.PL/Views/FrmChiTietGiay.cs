@@ -31,6 +31,7 @@ using AForge.Video.DirectShow;
 using ZXing;
 using ZXing.Aztec;
 using ZXing.Windows.Compatibility;
+using ZXing.QrCode;
 //using OfficeOpenXml.Core.ExcelPackage;
 
 namespace _3.PL.Views
@@ -137,7 +138,7 @@ namespace _3.PL.Views
         }
         private void LoadData()
         {
-            dgrid_ChiTietGiay.ColumnCount = 16;
+            dgrid_ChiTietGiay.ColumnCount = 17;
             dgrid_ChiTietGiay.Columns[0].Name = "ID";
             dgrid_ChiTietGiay.Columns[0].Visible = false;
             dgrid_ChiTietGiay.Columns[1].Name = "Size";
@@ -155,6 +156,7 @@ namespace _3.PL.Views
             dgrid_ChiTietGiay.Columns[13].Name = "Ảnh";
             dgrid_ChiTietGiay.Columns[14].Name = "Mô tả";
             dgrid_ChiTietGiay.Columns[15].Name = "Trạng thái";
+            dgrid_ChiTietGiay.Columns[16].Name = "Mã vạch";
             dgrid_ChiTietGiay.Rows.Clear();
             //_lstCTGiay = _IChiTietGiayService.GetViewChiTietGiay();
             //if (txt_TimKiem.Text != "")
@@ -180,7 +182,8 @@ namespace _3.PL.Views
                     x.SoLuongTon,
                     x.Anh,
                     x.MoTa,
-                    x.TrangThai ==1? "Còn hàng": "Hết hàng"
+                    x.TrangThai ==1? "Còn hàng": "Hết hàng",
+                    x.MaVach
                     ) ;
             }
         }
@@ -204,6 +207,7 @@ namespace _3.PL.Views
                     GiaNhap = Convert.ToInt32(txt_NgayNhap.Text),
                     GiaBan = Convert.ToInt32(txt_NgayBan.Text),
                     SoLuongTon = Convert.ToInt32(txt_SoLuongTon.Text),
+                    MaVach = txt_MaVach.Text,
                     MoTa = txt_moTa.Text,
                     
                 };
@@ -240,7 +244,8 @@ namespace _3.PL.Views
                     GiaBan = Convert.ToInt32(txt_NgayBan.Text),
                     SoLuongTon = Convert.ToInt32(txt_SoLuongTon.Text),
                     MoTa = txt_moTa.Text,  
-                    TrangThai = cbx_HoatDong.Checked ? 1 : 0
+                    TrangThai = cbx_HoatDong.Checked ? 1 : 0,
+                    MaVach = txt_MaVach.Text
                 };
                 _IChiTietGiayService.UpdateCTGiay(updateGiay);
                 FrmThongBao frmThongBao = new FrmThongBao();
@@ -312,6 +317,8 @@ namespace _3.PL.Views
                 cbx_HoatDong.Checked = sp.TrangThai == 1;
                 cbx_khongHD.Checked = sp.TrangThai == 0;
                 pic_ImageGiay.ImageLocation = cmb_Anh.Text;
+                txt_MaVach.Text = sp.MaVach;
+                //pic_QuetBarcode.Image = cmb_Anh.Text;
             }
         }
         private void cbx_HoatDong_CheckedChanged(object sender, EventArgs e)
@@ -775,9 +782,17 @@ namespace _3.PL.Views
 
         private void btn_Start_Click(object sender, EventArgs e)
         {
-            FinalFrame = new VideoCaptureDevice(CaptureDevice[comboBox1.SelectedIndex].MonikerString);
-            FinalFrame.NewFrame += new NewFrameEventHandler(FinalFrame_NewFrame);
-            FinalFrame.Start();
+            string DuongDan = @"D:\PRO131\QRCode";
+            var dialog = new SaveFileDialog();
+            dialog.InitialDirectory = DuongDan;
+            dialog.Filter = "PNG|*.png|JPEG|*.jpg|BMP|*.bmp|GIF|*.gif";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                pic_QuetBarcode.Image.Save(dialog.FileName);
+            }
+            //FinalFrame = new VideoCaptureDevice(CaptureDevice[comboBox1.SelectedIndex].MonikerString);
+            //FinalFrame.NewFrame += new NewFrameEventHandler(FinalFrame_NewFrame);
+            //FinalFrame.Start();
         }
         private void FinalFrame_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
@@ -812,6 +827,21 @@ namespace _3.PL.Views
         private void btn_read_Click(object sender, EventArgs e)
         {
             timer1.Start();
+        }
+
+        private void txt_MaVach_Leave(object sender, EventArgs e)
+        {
+            var options = new QrCodeEncodingOptions
+            {
+                Height = pic_QuetBarcode.Height,
+                Width = pic_QuetBarcode.Width,
+            };
+            var writer = new BarcodeWriter();
+            writer.Format = BarcodeFormat.QR_CODE;
+            writer.Options = options;
+            var text = txt_MaVach.Text;
+            var result = writer.Write(text);
+            pic_QuetBarcode.Image = result;
         }
     }
 }
