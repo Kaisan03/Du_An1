@@ -240,6 +240,67 @@ namespace _1.DAL.Migrations
                     b.ToTable("DeGiay");
                 });
 
+            modelBuilder.Entity("_1.DAL.DomainClass.GiaoCa", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("GhiChuPhatSinh")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("IdChuCuaHang")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IdNhanVienTiepTheo")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("IdNhanVienTrongCa")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Ma")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ThoiGianGiaoCa")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("ThoiGianNhanCa")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("ThoiGianReset")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("TienBatDauCa")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TongTienKhac")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TongTienMat")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TongTienMatCaTruoc")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TongTienMatRut")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TongTienPhatSinh")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("TongTienTrongCa")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("TrangThai")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdNhanVienTrongCa");
+
+                    b.ToTable("GiaoCa");
+                });
+
             modelBuilder.Entity("_1.DAL.DomainClass.HinhThucThanhToan", b =>
                 {
                     b.Property<Guid>("Id")
@@ -725,6 +786,17 @@ namespace _1.DAL.Migrations
                     b.Navigation("IdKhuyenMaiNavigation");
                 });
 
+            modelBuilder.Entity("_1.DAL.DomainClass.GiaoCa", b =>
+                {
+                    b.HasOne("_1.DAL.DomainClass.NhanVien", "IdNhanViennNavigation")
+                        .WithMany("GiaoCas")
+                        .HasForeignKey("IdNhanVienTrongCa")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("IdNhanViennNavigation");
+                });
+
             modelBuilder.Entity("_1.DAL.DomainClass.HinhThucThanhToan", b =>
                 {
                     b.HasOne("_1.DAL.DomainClass.HoaDon", "IdHoaDonNavigation")
@@ -839,6 +911,8 @@ namespace _1.DAL.Migrations
 
             modelBuilder.Entity("_1.DAL.DomainClass.NhanVien", b =>
                 {
+                    b.Navigation("GiaoCas");
+
                     b.Navigation("HoaDons");
                 });
 

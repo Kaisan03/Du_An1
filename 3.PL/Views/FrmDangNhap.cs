@@ -85,8 +85,8 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    FrmMain2 _frmMain = new FrmMain2(taiKhoan);
-                    _frmMain.ShowDialog();
+                    FrmXacNhanGiaoCa _frmMain = new FrmXacNhanGiaoCa();
+                    _frmMain.Show();
                 }
                 else
                 {
