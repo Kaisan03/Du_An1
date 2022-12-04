@@ -453,6 +453,16 @@ namespace _3.PL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_send_to_printer_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-send-to-printer-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_sharingan_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-sharingan-32", resourceCulture);
