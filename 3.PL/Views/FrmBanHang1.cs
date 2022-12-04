@@ -22,6 +22,8 @@ using Microsoft.Office.Interop.Excel;
 using Microsoft.VisualBasic;
 using ZXing.Windows.Compatibility;
 using Button = System.Windows.Forms.Button;
+using Font = System.Drawing.Font;
+using Point = System.Drawing.Point;
 using TextBox = System.Windows.Forms.TextBox;
 
 namespace _3.PL.Views
@@ -39,7 +41,7 @@ namespace _3.PL.Views
         public ISizeService _sizeService;
         public ISanPhamService _sanPhamService;
         public Guid _ctspId;
-
+        public IKieuDangService _kieuDangService;
         public List<SanPhamCTView> _sanPhamCTView;
         public List<ViewHoaDonChiTiet> _viewHoaDonChiTiets;
         public HoaDon _hoaDonCho;
@@ -51,6 +53,7 @@ namespace _3.PL.Views
         private IKhachHangService _KHService;
         private FilterInfoCollection filterInfoCollection;
         private VideoCaptureDevice videoCaptureDevice;
+        private Guid _idCTG;
 
         public FrmBanHang1()
         {
@@ -58,7 +61,10 @@ namespace _3.PL.Views
             _chiTietGiayService = new ChiTietGiayService();
             _hoaDonChiTietService = new HoaDonChiTietService();
             _hoaDonService = new HoaDonService();
-
+            _sizeService = new SizeService();
+            _MausacService = new MauSacService();
+            _kieuDangService = new KieuDangService();
+            _nhaSanXuatService = new NhaSanXuatService();
             LoadSanPham();
             anhcaidmm();
             cookroi();
@@ -69,6 +75,7 @@ namespace _3.PL.Views
             _KHService = new KhachHangService();
             FuckYou();
             AutoDiaChi();
+            LoadDataLoc();
         }
         public FrmBanHang1(string a)
         {
@@ -86,6 +93,29 @@ namespace _3.PL.Views
             this.dgrid_chitietgiay.DefaultCellStyle.ForeColor = Color.Red;
             _KHService = new KhachHangService();
             FuckYou();
+        }
+        public void LoadDataLoc()
+        {
+            var size = _sizeService.GetAllSize().Select(c => c.Ten.ToString()).Distinct();
+            foreach (var x in size)
+            {
+                cmb_LocSize.Items.Add(x);
+            }
+            var mausac = _MausacService.GetAllMauSac().Select(c => c.Ten.ToString()).Distinct();
+            foreach (var x in mausac)
+            {
+                cmb_LocMau.Items.Add(x);
+            }
+            var kieudang = _kieuDangService.GetAllKieuDang().Select(c => c.Ten.ToString()).Distinct();
+            foreach (var x in kieudang)
+            {
+                cmb_LocKieuDang.Items.Add(x);
+            }
+            var nsx = _nhaSanXuatService.GetAllNSX().Select(c => c.Ten.ToString()).Distinct();
+            foreach (var x in nsx)
+            {
+                cmb_LocNsx.Items.Add(x);
+            }
         }
         public void LoadSanPham()
         {
@@ -108,15 +138,16 @@ namespace _3.PL.Views
             dgrid_chitietgiay.Columns[9].Visible = false;
             dgrid_chitietgiay.Columns[10].Name = "Kiểu dáng";
             dgrid_chitietgiay.Columns[10].Visible = false;
+            dgrid_chitietgiay.Columns[10].Visible = false;
             dgrid_chitietgiay.Columns[11].Name = "Ảnh";
             dgrid_chitietgiay.Columns[11].Visible = false;
             dgrid_chitietgiay.Rows.Clear();
-            var lstCTG = _chiTietGiayService.GetViewChiTietGiay();
-            if (txt_TimKiem.Text != "" && txt_TimKiem.Text != "Tìm kiếm....")
-            {
-                lstCTG = _chiTietGiayService.GetViewChiTietGiay().Where(p => p.Ma.ToLower().Contains(txt_TimKiem.Text.ToLower()) || p.TenSanPham.ToLower().Contains(txt_TimKiem.Text.ToLower())).ToList();
-            }
-            foreach (var x in lstCTG)
+            //var lstCTG = _chiTietGiayService.GetViewChiTietGiay();
+            //if (txt_TimKiem.Text != "" && txt_TimKiem.Text != "Tìm kiếm....")
+            //{
+            //    lstCTG = _chiTietGiayService.GetViewChiTietGiay().Where(p => p.Ma.ToLower().Contains(txt_TimKiem.Text.ToLower()) || p.TenSanPham.ToLower().Contains(txt_TimKiem.Text.ToLower())).ToList();
+            //}
+            foreach (var x in _chiTietGiayService.GetViewChiTietGiay().OrderBy(c => c.Ma).ToList())
             {
                 dgrid_chitietgiay.Rows.Add(x.Id,
                     x.Ma,
@@ -490,8 +521,9 @@ namespace _3.PL.Views
             string kieudang = Convert.ToString(dgrid_chitietgiay.Rows[rowindex].Cells[10].Value);
             string degiay = Convert.ToString(dgrid_chitietgiay.Rows[rowindex].Cells[9].Value);
             string giaban = Convert.ToString(dgrid_chitietgiay.Rows[rowindex].Cells[4].Value);
+            string nsx = Convert.ToString(dgrid_chitietgiay.Rows[rowindex].Cells[7].Value);
             string anh = Convert.ToString(dgrid_chitietgiay.Rows[rowindex].Cells[11].Value);
-            FrmThongTinSP frmttSP = new FrmThongTinSP(tenhh, size, chatlieu, mausac, kieudang, degiay, giaban, anh);
+            FrmThongTinSP frmttSP = new FrmThongTinSP(tenhh, size, chatlieu, mausac, kieudang, degiay, giaban, nsx, anh);
             frmttSP.Show();
         }
 
@@ -520,7 +552,7 @@ namespace _3.PL.Views
         public void FuckYou()
         {
             SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = "Data Source=LAPTOP-OF-KHAI\\SQLEXPRESS;Initial Catalog=Duan1;Persist Security Info=True;User ID=khainq03;Password=123456";
+            connection.ConnectionString = "Data Source=LAPTOP-46F72MJA\\SQLEXPRESS;Initial Catalog=Duan11;Persist Security Info=True;User ID=duyvtph24890;Password=123456";
 
             connection.Open();
             SqlCommand sqlCommand = new SqlCommand("select Sdt FROM KhachHang", connection);
@@ -566,6 +598,7 @@ namespace _3.PL.Views
                 
                 if (cb_inHoaDon.Checked)
                 {
+                    //inHoaDon();
                     FrmPrint frmPrint = new FrmPrint(updateHoaDon);
                     frmPrint.ShowDialog();
                 }
@@ -890,6 +923,255 @@ namespace _3.PL.Views
             {
                 lbl_tenKhachHang.Text = "Khách lẻ";
             }
+        }
+        public void LoadSanPham_TimKiem(string txt)
+        {
+            dgrid_chitietgiay.ColumnCount = 12;
+            dgrid_chitietgiay.Columns[0].Name = "IdCtg";
+            dgrid_chitietgiay.Columns[0].Visible = false;
+            dgrid_chitietgiay.Columns[1].Name = "Mã";
+            dgrid_chitietgiay.Columns[2].Name = "Tên";
+            dgrid_chitietgiay.Columns[3].Name = "Số Lượng tồn";
+            dgrid_chitietgiay.Columns[4].Name = "Đơn giá";
+            dgrid_chitietgiay.Columns[5].Name = "Size";
+            dgrid_chitietgiay.Columns[5].Visible = false;
+            dgrid_chitietgiay.Columns[6].Name = "Chất liệu";
+            dgrid_chitietgiay.Columns[6].Visible = false;
+            dgrid_chitietgiay.Columns[7].Name = "Nhà sản xuất";
+            dgrid_chitietgiay.Columns[7].Visible = false;
+            dgrid_chitietgiay.Columns[8].Name = "Màu sắc";
+            dgrid_chitietgiay.Columns[8].Visible = false;
+            dgrid_chitietgiay.Columns[9].Name = "Đế giày";
+            dgrid_chitietgiay.Columns[9].Visible = false;
+            dgrid_chitietgiay.Columns[10].Name = "Kiểu dáng";
+            dgrid_chitietgiay.Columns[10].Visible = false;
+            dgrid_chitietgiay.Columns[11].Name = "Ảnh";
+            dgrid_chitietgiay.Columns[11].Visible = false;
+            dgrid_chitietgiay.Rows.Clear();
+            foreach (var x in _chiTietGiayService.GetViewChiTietGiay().Where(c => c.Ma.ToLower().Contains(txt_TimKiem.Text.ToLower()) || c.TenSanPham.ToLower().Contains(txt_TimKiem.Text)).ToList())
+            {
+                dgrid_chitietgiay.Rows.Add(x.Id,
+                    x.Ma,
+                    x.TenSanPham,
+                    x.SoLuongTon,
+                    x.GiaBan,
+                    x.TenSize, x.TenChatLieu, x.TenNSX, x.TenMauSac, x.TenDeGiay, x.TenKieuDang, x.Anh);
+            }
+        }
+
+        private void txt_TimKiem_KeyUp(object sender, KeyEventArgs e)
+        {
+            LoadSanPham_TimKiem(txt_TimKiem.Text);
+            anhcaidmm1();
+        }
+
+        private void txt_TimKiem_Leave(object sender, EventArgs e)
+        {
+            if (txt_TimKiem.Text == "")
+            {
+                txt_TimKiem.Text = "Tìm kiếm ở đây....";
+                LoadSanPham();
+                anhcaidmm1();
+                return;
+            }
+        }
+
+        private void txt_TimKiem_MouseUp(object sender, MouseEventArgs e)
+        {
+            txt_TimKiem.Text = "";
+        }
+
+        private void cmb_LocSize_SelectedValueChanged(object sender, EventArgs e)
+        {
+              dgrid_chitietgiay.ColumnCount = 12;
+              dgrid_chitietgiay.Columns[0].Name = "IdCtg";
+              dgrid_chitietgiay.Columns[0].Visible = false;
+              dgrid_chitietgiay.Columns[1].Name = "Mã";
+              dgrid_chitietgiay.Columns[2].Name = "Tên";
+              dgrid_chitietgiay.Columns[3].Name = "Số Lượng tồn";
+              dgrid_chitietgiay.Columns[4].Name = "Đơn giá";
+              dgrid_chitietgiay.Columns[5].Name = "Size";
+              dgrid_chitietgiay.Columns[5].Visible = false;
+              dgrid_chitietgiay.Columns[6].Name = "Chất liệu";
+              dgrid_chitietgiay.Columns[6].Visible = false;
+              dgrid_chitietgiay.Columns[7].Name = "Nhà sản xuất";
+              dgrid_chitietgiay.Columns[7].Visible = false;
+              dgrid_chitietgiay.Columns[8].Name = "Màu sắc";
+              dgrid_chitietgiay.Columns[8].Visible = false;
+              dgrid_chitietgiay.Columns[9].Name = "Đế giày";
+              dgrid_chitietgiay.Columns[9].Visible = false;
+              dgrid_chitietgiay.Columns[10].Name = "Kiểu dáng";
+              dgrid_chitietgiay.Columns[10].Visible = false;
+              dgrid_chitietgiay.Columns[11].Name = "Ảnh";
+              dgrid_chitietgiay.Columns[11].Visible = false;
+              dgrid_chitietgiay.Rows.Clear();
+              foreach (var x in _chiTietGiayService.GetViewChiTietGiay().Where(c => c.TenSize == cmb_LocSize.Text).OrderBy(c => c.Ma).ToList())
+              {
+                  dgrid_chitietgiay.Rows.Add(x.Id,
+                      x.Ma,
+                      x.TenSanPham,
+                      x.SoLuongTon,
+                      x.GiaBan,
+                      x.TenSize, x.TenChatLieu, x.TenNSX, x.TenMauSac, x.TenDeGiay, x.TenKieuDang, x.Anh);
+              }
+            anhcaidmm1();
+        }
+
+        private void cmb_LocSize_Leave(object sender, EventArgs e)
+        {
+            LoadSanPham();
+            anhcaidmm1();
+            cmb_LocSize.Text = "Lọc size";
+        }
+
+        private void cmb_LocMau_SelectedValueChanged(object sender, EventArgs e)
+        {
+            dgrid_chitietgiay.ColumnCount = 12;
+            dgrid_chitietgiay.Columns[0].Name = "IdCtg";
+            dgrid_chitietgiay.Columns[0].Visible = false;
+            dgrid_chitietgiay.Columns[1].Name = "Mã";
+            dgrid_chitietgiay.Columns[2].Name = "Tên";
+            dgrid_chitietgiay.Columns[3].Name = "Số Lượng tồn";
+            dgrid_chitietgiay.Columns[4].Name = "Đơn giá";
+            dgrid_chitietgiay.Columns[5].Name = "Size";
+            dgrid_chitietgiay.Columns[5].Visible = false;
+            dgrid_chitietgiay.Columns[6].Name = "Chất liệu";
+            dgrid_chitietgiay.Columns[6].Visible = false;
+            dgrid_chitietgiay.Columns[7].Name = "Nhà sản xuất";
+            dgrid_chitietgiay.Columns[7].Visible = false;
+            dgrid_chitietgiay.Columns[8].Name = "Màu sắc";
+            dgrid_chitietgiay.Columns[8].Visible = false;
+            dgrid_chitietgiay.Columns[9].Name = "Đế giày";
+            dgrid_chitietgiay.Columns[9].Visible = false;
+            dgrid_chitietgiay.Columns[10].Name = "Kiểu dáng";
+            dgrid_chitietgiay.Columns[10].Visible = false;
+            dgrid_chitietgiay.Columns[11].Name = "Ảnh";
+            dgrid_chitietgiay.Columns[11].Visible = false;
+            dgrid_chitietgiay.Rows.Clear();
+            foreach (var x in _chiTietGiayService.GetViewChiTietGiay().Where(c => c.TenMauSac == cmb_LocMau.Text).OrderBy(c => c.Ma).ToList())
+            {
+                dgrid_chitietgiay.Rows.Add(x.Id,
+                    x.Ma,
+                    x.TenSanPham,
+                    x.SoLuongTon,
+                    x.GiaBan,
+                    x.TenSize, x.TenChatLieu, x.TenNSX, x.TenMauSac, x.TenDeGiay, x.TenKieuDang, x.Anh);
+            }
+            anhcaidmm1();
+        }
+
+        private void cmb_LocMau_Leave(object sender, EventArgs e)
+        {
+            LoadSanPham();
+            anhcaidmm1();
+            cmb_LocMau.Text = "Lọc màu";
+        }
+
+        private void cmb_LocKieuDang_SelectedValueChanged(object sender, EventArgs e)
+        {
+            dgrid_chitietgiay.ColumnCount = 12;
+            dgrid_chitietgiay.Columns[0].Name = "IdCtg";
+            dgrid_chitietgiay.Columns[0].Visible = false;
+            dgrid_chitietgiay.Columns[1].Name = "Mã";
+            dgrid_chitietgiay.Columns[2].Name = "Tên";
+            dgrid_chitietgiay.Columns[3].Name = "Số Lượng tồn";
+            dgrid_chitietgiay.Columns[4].Name = "Đơn giá";
+            dgrid_chitietgiay.Columns[5].Name = "Size";
+            dgrid_chitietgiay.Columns[5].Visible = false;
+            dgrid_chitietgiay.Columns[6].Name = "Chất liệu";
+            dgrid_chitietgiay.Columns[6].Visible = false;
+            dgrid_chitietgiay.Columns[7].Name = "Nhà sản xuất";
+            dgrid_chitietgiay.Columns[7].Visible = false;
+            dgrid_chitietgiay.Columns[8].Name = "Màu sắc";
+            dgrid_chitietgiay.Columns[8].Visible = false;
+            dgrid_chitietgiay.Columns[9].Name = "Đế giày";
+            dgrid_chitietgiay.Columns[9].Visible = false;
+            dgrid_chitietgiay.Columns[10].Name = "Kiểu dáng";
+            dgrid_chitietgiay.Columns[10].Visible = false;
+            dgrid_chitietgiay.Columns[11].Name = "Ảnh";
+            dgrid_chitietgiay.Columns[11].Visible = false;
+            dgrid_chitietgiay.Rows.Clear();
+            foreach (var x in _chiTietGiayService.GetViewChiTietGiay().Where(c => c.TenKieuDang == cmb_LocKieuDang.Text).OrderBy(c => c.Ma).ToList())
+            {
+                dgrid_chitietgiay.Rows.Add(x.Id,
+                    x.Ma,
+                    x.TenSanPham,
+                    x.SoLuongTon,
+                    x.GiaBan,
+                    x.TenSize, x.TenChatLieu, x.TenNSX, x.TenMauSac, x.TenDeGiay, x.TenKieuDang, x.Anh);
+            }
+            anhcaidmm1();
+        }
+
+        private void cmb_LocKieuDang_Leave(object sender, EventArgs e)
+        {
+            LoadSanPham();
+            anhcaidmm1();
+            cmb_LocMau.Text = "Lọc kiểu dáng";
+        }
+
+        private void cmb_LocNsx_SelectedValueChanged(object sender, EventArgs e)
+        {
+            dgrid_chitietgiay.ColumnCount = 12;
+            dgrid_chitietgiay.Columns[0].Name = "IdCtg";
+            dgrid_chitietgiay.Columns[0].Visible = false;
+            dgrid_chitietgiay.Columns[1].Name = "Mã";
+            dgrid_chitietgiay.Columns[2].Name = "Tên";
+            dgrid_chitietgiay.Columns[3].Name = "Số Lượng tồn";
+            dgrid_chitietgiay.Columns[4].Name = "Đơn giá";
+            dgrid_chitietgiay.Columns[5].Name = "Size";
+            dgrid_chitietgiay.Columns[5].Visible = false;
+            dgrid_chitietgiay.Columns[6].Name = "Chất liệu";
+            dgrid_chitietgiay.Columns[6].Visible = false;
+            dgrid_chitietgiay.Columns[7].Name = "Nhà sản xuất";
+            dgrid_chitietgiay.Columns[7].Visible = false;
+            dgrid_chitietgiay.Columns[8].Name = "Màu sắc";
+            dgrid_chitietgiay.Columns[8].Visible = false;
+            dgrid_chitietgiay.Columns[9].Name = "Đế giày";
+            dgrid_chitietgiay.Columns[9].Visible = false;
+            dgrid_chitietgiay.Columns[10].Name = "Kiểu dáng";
+            dgrid_chitietgiay.Columns[10].Visible = false;
+            dgrid_chitietgiay.Columns[11].Name = "Ảnh";
+            dgrid_chitietgiay.Columns[11].Visible = false;
+            dgrid_chitietgiay.Rows.Clear();
+            foreach (var x in _chiTietGiayService.GetViewChiTietGiay().Where(c => c.TenNSX == cmb_LocNsx.Text).OrderBy(c => c.Ma).ToList())
+            {
+                dgrid_chitietgiay.Rows.Add(x.Id,
+                    x.Ma,
+                    x.TenSanPham,
+                    x.SoLuongTon,
+                    x.GiaBan,
+                    x.TenSize, x.TenChatLieu, x.TenNSX, x.TenMauSac, x.TenDeGiay, x.TenKieuDang, x.Anh);
+            }
+            anhcaidmm1();
+        }
+
+        private void cmb_LocNsx_Leave(object sender, EventArgs e)
+        {
+            LoadSanPham();
+            anhcaidmm1();
+            cmb_LocMau.Text = "Lọc nsx";
+        }
+
+        private void dgrid_GioHang_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                this.dgrid_GioHang.Rows[e.RowIndex].Selected = true;
+                this.rowindex = e.RowIndex;
+                this.dgrid_GioHang.CurrentCell = this.dgrid_GioHang.Rows[e.RowIndex].Cells[1];
+                this.contextMenuStrip2.Show(this.dgrid_chitietgiay, e.Location);
+                contextMenuStrip2.Show(Cursor.Position);
+            }
+        }
+        private void sửaSốLượngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ////this.dgrid_Size.Rows.RemoveAt(this.rowindex);
+            //var size = _hoaDonChiTietService.ge().FirstOrDefault(x =>
+            //x.Id == Guid.Parse(dgrid_Size.Rows[rowindex].Cells[0].Value.ToString()));
+            //_ISizeService.DeleteSize(size);
+            //LoadData();
+            //return;
         }
     }
 }

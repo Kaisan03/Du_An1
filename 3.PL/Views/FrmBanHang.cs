@@ -469,8 +469,9 @@ namespace _3.PL.Views
             string kieudang = Convert.ToString(dgrid_chitietgiay.Rows[rowindex].Cells[10].Value);
             string degiay = Convert.ToString(dgrid_chitietgiay.Rows[rowindex].Cells[9].Value);
             string giaban = Convert.ToString(dgrid_chitietgiay.Rows[rowindex].Cells[4].Value);
+            string nsx = Convert.ToString(dgrid_chitietgiay.Rows[rowindex].Cells[7].Value);
             string anh = Convert.ToString(dgrid_chitietgiay.Rows[rowindex].Cells[11].Value);
-            FrmThongTinSP frmttSP = new FrmThongTinSP(tenhh, size, chatlieu, mausac, kieudang, degiay, giaban, anh);
+            FrmThongTinSP frmttSP = new FrmThongTinSP(tenhh, size, chatlieu, mausac, kieudang, degiay, giaban, nsx, anh);
             frmttSP.Show();
         }
 

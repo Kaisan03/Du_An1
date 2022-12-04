@@ -21,6 +21,7 @@ namespace _3.PL.Views
         private string kieudang = "";
         private string degiay = "";
         private string giaban = "";
+        private string nsx = "";
         private string anh = "";
         //
         private ChiTietGiayService _ctGiayService;
@@ -30,8 +31,9 @@ namespace _3.PL.Views
         private MauSacService _mausacService;
         private KieuDangService _kieuDangService;
         private DeGiayService _degiayService;
+        private NhaSanXuatService _nsxService;
         private AnhService _anhService;
-        public FrmThongTinSP(string tenhh, string size, string chatlieu, string mausac, string kieudang, string degiay, string giaban, string anh)
+        public FrmThongTinSP(string tenhh, string size, string chatlieu, string mausac, string kieudang, string degiay, string giaban, string nsx, string anh)
         {
             InitializeComponent();
             this.tenhh = tenhh;
@@ -41,6 +43,7 @@ namespace _3.PL.Views
             this.kieudang = kieudang;
             this.degiay = degiay;
             this.giaban = giaban;
+            this.nsx = nsx;
             this.anh = anh;
             lbl_TenSp.Text = tenhh;
             lbl_Size.Text = size;
@@ -49,6 +52,7 @@ namespace _3.PL.Views
             lbl_KieuDang.Text = kieudang;
             lbl_LoaiDe.Text = degiay;
             lbl_GiaBan.Text = giaban;
+            lbl_Nsx.Text = nsx;
             lbl_Anh.Text = anh;
             Image img = Image.FromFile(lbl_Anh.Text);
             pic_Image.Image = img;
@@ -59,6 +63,7 @@ namespace _3.PL.Views
             _mausacService = new MauSacService();
             _kieuDangService = new KieuDangService();
             _degiayService = new DeGiayService();
+            _nsxService = new NhaSanXuatService();
             _anhService = new AnhService();
             lbl_Anh.Visible = false;
             label1.Visible = false;

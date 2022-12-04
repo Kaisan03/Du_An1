@@ -19,6 +19,7 @@ namespace _2.BUS.Services
         private IKhachHangRepository _ikhachHangRepository;
         private List<HoaDon> _lstHoadon;
         private List<ViewHoaDon> _viewHoaDons;
+        private List<ViewHoaDon1> _viewHoaDons1;
         public HoaDonService()
         {
             _iHoaDonRepository = new HoaDonRepository();
@@ -26,6 +27,7 @@ namespace _2.BUS.Services
             _ikhachHangRepository = new KhachHangRepository();
             _lstHoadon = new List<HoaDon>();
             _viewHoaDons = new List<ViewHoaDon>();
+            _viewHoaDons1 = new List<ViewHoaDon1>();
         }
 
         public string Add(ViewHoaDon obj)
@@ -111,6 +113,21 @@ namespace _2.BUS.Services
         {
             _iHoaDonRepository.Update(obj);
             return true;
+        }
+
+        public List<ViewHoaDon1> GetAll1()
+        {
+            List<ViewHoaDon1> _viewHoaDons1 = new List<ViewHoaDon1>();
+            _viewHoaDons = (from hd in _iHoaDonRepository.GetAll()
+                            join kh in _ikhachHangRepository.GetAll() on hd.IdKhachHang equals kh.Id
+                            join nv in _INhanVienRepository.GetAllNhanVien() on hd.IdNhanVien equals nv.Id
+                            select new ViewHoaDon
+                            {
+                                HoaDon = hd,
+                                NhanVien = nv,
+                                KhachHang = kh,
+                            }).ToList();
+            return _viewHoaDons1;
         }
     }
 }

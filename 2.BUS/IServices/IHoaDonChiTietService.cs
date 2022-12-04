@@ -15,5 +15,6 @@ namespace _2.BUS.IServices
         bool Delete(HoaDonChiTiet obj);
         List<HoaDonChiTiet> GetAllHoaDonCT();
         List<ViewHoaDonChiTiet> GetViewHoaDonCT();
+        List<ViewHoaDonChiTiet> GetAll();
     }
 }

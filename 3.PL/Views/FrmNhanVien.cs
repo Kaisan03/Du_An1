@@ -31,6 +31,7 @@ namespace _3.PL.Views
             saringan.BackgroundImageLayout = ImageLayout.Zoom;
             saringanfake.BackgroundImageLayout = ImageLayout.Zoom;
             txt_Ma.Enabled = false;
+            drgid_NhanVien.AllowUserToAddRows = false;
         }
         public void LoadComboBox()
         {
