@@ -12,7 +12,7 @@ namespace _1.DAL.DomainClass
     public partial class GiaoCa
     {
         [Key]
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Ma { get; set; }
         public Guid IdNhanVienTrongCa { get; set; }
         public Guid IdNhanVienTiepTheo { get; set; }
