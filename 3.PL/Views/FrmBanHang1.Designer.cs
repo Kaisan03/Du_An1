@@ -51,15 +51,16 @@
             this.Gr_TaoHD = new System.Windows.Forms.GroupBox();
             this.Gr_BanHang = new System.Windows.Forms.GroupBox();
             this.pn_DatHang = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.btn_DatHang2 = new System.Windows.Forms.Button();
+            this.lbl_TienThuaTraKhach = new System.Windows.Forms.Label();
+            this.lbl_COD = new System.Windows.Forms.Label();
+            this.lbl_TongTienDatHang = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cb_cod = new System.Windows.Forms.CheckBox();
             this.txt_DatHangGhiChu = new System.Windows.Forms.RichTextBox();
             this.txt_DiaChi = new System.Windows.Forms.TextBox();
             this.Date_NgayNhan = new System.Windows.Forms.DateTimePicker();
             this.Date_NgayShip = new System.Windows.Forms.DateTimePicker();
-            this.txt_COD = new System.Windows.Forms.TextBox();
             this.txt_TienCoc = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -68,7 +69,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.lbl_TongTienDatHang = new System.Windows.Forms.Label();
+            this.btn_HuyDon = new System.Windows.Forms.Button();
+            this.btn_xacNhanThanhCong = new System.Windows.Forms.Button();
+            this.btn_TraHang = new System.Windows.Forms.Button();
             this.Gr_Thongtin = new System.Windows.Forms.GroupBox();
             this.lbl_TenNhanVien = new System.Windows.Forms.Label();
             this.pic_NhanVien = new System.Windows.Forms.PictureBox();
@@ -82,7 +85,6 @@
             this.toolStripDropDownButton3 = new System.Windows.Forms.ToolStripDropDownButton();
             this.Gr_HDDangGiao = new System.Windows.Forms.GroupBox();
             this.flow_DangGiao = new System.Windows.Forms.FlowLayoutPanel();
-            this.pic_qrcode = new System.Windows.Forms.PictureBox();
             this.Gr_HDChuaTT = new System.Windows.Forms.GroupBox();
             this.flow_HDChuaTT = new System.Windows.Forms.FlowLayoutPanel();
             this.Gr_View = new System.Windows.Forms.GroupBox();
@@ -106,6 +108,7 @@
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.sửaSốLượngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xóaSảnPhẩmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_traHangThanhCong = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             this.pn_HoaDon.SuspendLayout();
             this.Gr_TaoHD.SuspendLayout();
@@ -117,8 +120,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_sdt)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.Gr_HDDangGiao.SuspendLayout();
-            this.flow_DangGiao.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_qrcode)).BeginInit();
             this.Gr_HDChuaTT.SuspendLayout();
             this.Gr_View.SuspendLayout();
             this.gr_timKiem.SuspendLayout();
@@ -172,6 +173,7 @@
             this.pn_HoaDon.Name = "pn_HoaDon";
             this.pn_HoaDon.Size = new System.Drawing.Size(328, 591);
             this.pn_HoaDon.TabIndex = 11;
+            this.pn_HoaDon.Paint += new System.Windows.Forms.PaintEventHandler(this.pn_HoaDon_Paint);
             // 
             // cb_inHoaDon
             // 
@@ -186,12 +188,13 @@
             // btn_ThanhToan
             // 
             this.btn_ThanhToan.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btn_ThanhToan.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btn_ThanhToan.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_ThanhToan.ForeColor = System.Drawing.Color.White;
-            this.btn_ThanhToan.Location = new System.Drawing.Point(43, 349);
+            this.btn_ThanhToan.Location = new System.Drawing.Point(0, 551);
             this.btn_ThanhToan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_ThanhToan.Name = "btn_ThanhToan";
-            this.btn_ThanhToan.Size = new System.Drawing.Size(266, 40);
+            this.btn_ThanhToan.Size = new System.Drawing.Size(328, 40);
             this.btn_ThanhToan.TabIndex = 11;
             this.btn_ThanhToan.Text = "Thanh toán";
             this.btn_ThanhToan.UseVisualStyleBackColor = false;
@@ -384,8 +387,8 @@
             // 
             // Gr_BanHang
             // 
-            this.Gr_BanHang.Controls.Add(this.pn_HoaDon);
             this.Gr_BanHang.Controls.Add(this.pn_DatHang);
+            this.Gr_BanHang.Controls.Add(this.pn_HoaDon);
             this.Gr_BanHang.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Gr_BanHang.Location = new System.Drawing.Point(3, 176);
             this.Gr_BanHang.Name = "Gr_BanHang";
@@ -396,15 +399,17 @@
             // pn_DatHang
             // 
             this.pn_DatHang.BackColor = System.Drawing.Color.White;
-            this.pn_DatHang.Controls.Add(this.textBox1);
-            this.pn_DatHang.Controls.Add(this.label3);
-            this.pn_DatHang.Controls.Add(this.checkBox1);
+            this.pn_DatHang.Controls.Add(this.btn_traHangThanhCong);
             this.pn_DatHang.Controls.Add(this.btn_DatHang2);
+            this.pn_DatHang.Controls.Add(this.lbl_TienThuaTraKhach);
+            this.pn_DatHang.Controls.Add(this.lbl_COD);
+            this.pn_DatHang.Controls.Add(this.lbl_TongTienDatHang);
+            this.pn_DatHang.Controls.Add(this.label3);
+            this.pn_DatHang.Controls.Add(this.cb_cod);
             this.pn_DatHang.Controls.Add(this.txt_DatHangGhiChu);
             this.pn_DatHang.Controls.Add(this.txt_DiaChi);
             this.pn_DatHang.Controls.Add(this.Date_NgayNhan);
             this.pn_DatHang.Controls.Add(this.Date_NgayShip);
-            this.pn_DatHang.Controls.Add(this.txt_COD);
             this.pn_DatHang.Controls.Add(this.txt_TienCoc);
             this.pn_DatHang.Controls.Add(this.label1);
             this.pn_DatHang.Controls.Add(this.label6);
@@ -413,7 +418,9 @@
             this.pn_DatHang.Controls.Add(this.label5);
             this.pn_DatHang.Controls.Add(this.label2);
             this.pn_DatHang.Controls.Add(this.label4);
-            this.pn_DatHang.Controls.Add(this.lbl_TongTienDatHang);
+            this.pn_DatHang.Controls.Add(this.btn_HuyDon);
+            this.pn_DatHang.Controls.Add(this.btn_xacNhanThanhCong);
+            this.pn_DatHang.Controls.Add(this.btn_TraHang);
             this.pn_DatHang.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_DatHang.ForeColor = System.Drawing.Color.Black;
             this.pn_DatHang.Location = new System.Drawing.Point(3, 19);
@@ -422,14 +429,52 @@
             this.pn_DatHang.Size = new System.Drawing.Size(328, 591);
             this.pn_DatHang.TabIndex = 0;
             // 
-            // textBox1
+            // btn_DatHang2
             // 
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(150, 115);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(159, 22);
-            this.textBox1.TabIndex = 13;
+            this.btn_DatHang2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_DatHang2.BackColor = System.Drawing.Color.Yellow;
+            this.btn_DatHang2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_DatHang2.Location = new System.Drawing.Point(0, 549);
+            this.btn_DatHang2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_DatHang2.Name = "btn_DatHang2";
+            this.btn_DatHang2.Size = new System.Drawing.Size(320, 40);
+            this.btn_DatHang2.TabIndex = 10;
+            this.btn_DatHang2.Text = "Đặt hàng";
+            this.btn_DatHang2.UseVisualStyleBackColor = false;
+            this.btn_DatHang2.Click += new System.EventHandler(this.btn_DatHang2_Click);
+            // 
+            // lbl_TienThuaTraKhach
+            // 
+            this.lbl_TienThuaTraKhach.AutoSize = true;
+            this.lbl_TienThuaTraKhach.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl_TienThuaTraKhach.ForeColor = System.Drawing.Color.Black;
+            this.lbl_TienThuaTraKhach.Location = new System.Drawing.Point(150, 116);
+            this.lbl_TienThuaTraKhach.Name = "lbl_TienThuaTraKhach";
+            this.lbl_TienThuaTraKhach.Size = new System.Drawing.Size(14, 15);
+            this.lbl_TienThuaTraKhach.TabIndex = 1;
+            this.lbl_TienThuaTraKhach.Text = "0";
+            // 
+            // lbl_COD
+            // 
+            this.lbl_COD.AutoSize = true;
+            this.lbl_COD.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl_COD.ForeColor = System.Drawing.Color.Black;
+            this.lbl_COD.Location = new System.Drawing.Point(150, 84);
+            this.lbl_COD.Name = "lbl_COD";
+            this.lbl_COD.Size = new System.Drawing.Size(14, 15);
+            this.lbl_COD.TabIndex = 1;
+            this.lbl_COD.Text = "0";
+            // 
+            // lbl_TongTienDatHang
+            // 
+            this.lbl_TongTienDatHang.AutoSize = true;
+            this.lbl_TongTienDatHang.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl_TongTienDatHang.ForeColor = System.Drawing.Color.Black;
+            this.lbl_TongTienDatHang.Location = new System.Drawing.Point(150, 21);
+            this.lbl_TongTienDatHang.Name = "lbl_TongTienDatHang";
+            this.lbl_TongTienDatHang.Size = new System.Drawing.Size(14, 15);
+            this.lbl_TongTienDatHang.TabIndex = 1;
+            this.lbl_TongTienDatHang.Text = "0";
             // 
             // label3
             // 
@@ -442,27 +487,15 @@
             this.label3.TabIndex = 12;
             this.label3.Text = "Tiền thừa trả khách:";
             // 
-            // checkBox1
+            // cb_cod
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(134, 85);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 11;
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // btn_DatHang2
-            // 
-            this.btn_DatHang2.BackColor = System.Drawing.Color.Yellow;
-            this.btn_DatHang2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_DatHang2.Location = new System.Drawing.Point(28, 551);
-            this.btn_DatHang2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_DatHang2.Name = "btn_DatHang2";
-            this.btn_DatHang2.Size = new System.Drawing.Size(266, 40);
-            this.btn_DatHang2.TabIndex = 10;
-            this.btn_DatHang2.Text = "Đặt hàng";
-            this.btn_DatHang2.UseVisualStyleBackColor = false;
-            this.btn_DatHang2.Click += new System.EventHandler(this.btn_DatHang2_Click);
+            this.cb_cod.AutoSize = true;
+            this.cb_cod.Location = new System.Drawing.Point(134, 85);
+            this.cb_cod.Name = "cb_cod";
+            this.cb_cod.Size = new System.Drawing.Size(15, 14);
+            this.cb_cod.TabIndex = 11;
+            this.cb_cod.UseVisualStyleBackColor = true;
+            this.cb_cod.CheckedChanged += new System.EventHandler(this.cb_cod_CheckedChanged);
             // 
             // txt_DatHangGhiChu
             // 
@@ -507,15 +540,6 @@
             this.Date_NgayShip.Size = new System.Drawing.Size(159, 22);
             this.Date_NgayShip.TabIndex = 5;
             // 
-            // txt_COD
-            // 
-            this.txt_COD.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txt_COD.Location = new System.Drawing.Point(150, 77);
-            this.txt_COD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_COD.Name = "txt_COD";
-            this.txt_COD.Size = new System.Drawing.Size(159, 22);
-            this.txt_COD.TabIndex = 4;
-            // 
             // txt_TienCoc
             // 
             this.txt_TienCoc.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -524,6 +548,8 @@
             this.txt_TienCoc.Name = "txt_TienCoc";
             this.txt_TienCoc.Size = new System.Drawing.Size(159, 22);
             this.txt_TienCoc.TabIndex = 4;
+            this.txt_TienCoc.Text = "0";
+            this.txt_TienCoc.TextChanged += new System.EventHandler(this.txt_TienCoc_TextChanged);
             // 
             // label1
             // 
@@ -602,16 +628,47 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Khách thanh toán:";
             // 
-            // lbl_TongTienDatHang
+            // btn_HuyDon
             // 
-            this.lbl_TongTienDatHang.AutoSize = true;
-            this.lbl_TongTienDatHang.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbl_TongTienDatHang.ForeColor = System.Drawing.Color.White;
-            this.lbl_TongTienDatHang.Location = new System.Drawing.Point(151, 21);
-            this.lbl_TongTienDatHang.Name = "lbl_TongTienDatHang";
-            this.lbl_TongTienDatHang.Size = new System.Drawing.Size(16, 15);
-            this.lbl_TongTienDatHang.TabIndex = 1;
-            this.lbl_TongTienDatHang.Text = "...";
+            this.btn_HuyDon.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_HuyDon.BackColor = System.Drawing.Color.Red;
+            this.btn_HuyDon.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_HuyDon.Location = new System.Drawing.Point(0, 549);
+            this.btn_HuyDon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_HuyDon.Name = "btn_HuyDon";
+            this.btn_HuyDon.Size = new System.Drawing.Size(320, 40);
+            this.btn_HuyDon.TabIndex = 13;
+            this.btn_HuyDon.Text = "Hủy đơn hàng";
+            this.btn_HuyDon.UseVisualStyleBackColor = false;
+            this.btn_HuyDon.Click += new System.EventHandler(this.btn_HuyDon_Click);
+            // 
+            // btn_xacNhanThanhCong
+            // 
+            this.btn_xacNhanThanhCong.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_xacNhanThanhCong.BackColor = System.Drawing.Color.Lime;
+            this.btn_xacNhanThanhCong.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_xacNhanThanhCong.Location = new System.Drawing.Point(0, 549);
+            this.btn_xacNhanThanhCong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_xacNhanThanhCong.Name = "btn_xacNhanThanhCong";
+            this.btn_xacNhanThanhCong.Size = new System.Drawing.Size(320, 40);
+            this.btn_xacNhanThanhCong.TabIndex = 15;
+            this.btn_xacNhanThanhCong.Text = "Xác nhận";
+            this.btn_xacNhanThanhCong.UseVisualStyleBackColor = false;
+            this.btn_xacNhanThanhCong.Click += new System.EventHandler(this.btn_xacNhanThanhCong_Click);
+            // 
+            // btn_TraHang
+            // 
+            this.btn_TraHang.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_TraHang.BackColor = System.Drawing.Color.Gold;
+            this.btn_TraHang.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_TraHang.Location = new System.Drawing.Point(3, 549);
+            this.btn_TraHang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_TraHang.Name = "btn_TraHang";
+            this.btn_TraHang.Size = new System.Drawing.Size(320, 40);
+            this.btn_TraHang.TabIndex = 14;
+            this.btn_TraHang.Text = "Xác nhận trả hàng";
+            this.btn_TraHang.UseVisualStyleBackColor = false;
+            this.btn_TraHang.Click += new System.EventHandler(this.btn_TraHang_Click);
             // 
             // Gr_Thongtin
             // 
@@ -762,23 +819,11 @@
             this.flow_DangGiao.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.flow_DangGiao.BackColor = System.Drawing.Color.White;
-            this.flow_DangGiao.Controls.Add(this.pic_qrcode);
             this.flow_DangGiao.Location = new System.Drawing.Point(5, 19);
             this.flow_DangGiao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flow_DangGiao.Name = "flow_DangGiao";
             this.flow_DangGiao.Size = new System.Drawing.Size(201, 1322);
             this.flow_DangGiao.TabIndex = 0;
-            // 
-            // pic_qrcode
-            // 
-            this.pic_qrcode.BackColor = System.Drawing.Color.Red;
-            this.pic_qrcode.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pic_qrcode.Location = new System.Drawing.Point(3, 2);
-            this.pic_qrcode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pic_qrcode.Name = "pic_qrcode";
-            this.pic_qrcode.Size = new System.Drawing.Size(167, 117);
-            this.pic_qrcode.TabIndex = 12;
-            this.pic_qrcode.TabStop = false;
             // 
             // Gr_HDChuaTT
             // 
@@ -856,7 +901,7 @@
             this.dgrid_chitietgiay.ContextMenuStrip = this.contextMenuStrip1;
             this.dgrid_chitietgiay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgrid_chitietgiay.Location = new System.Drawing.Point(3, 18);
-            this.dgrid_chitietgiay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgrid_chitietgiay.Margin = new System.Windows.Forms.Padding(2);
             this.dgrid_chitietgiay.Name = "dgrid_chitietgiay";
             this.dgrid_chitietgiay.RowHeadersVisible = false;
             this.dgrid_chitietgiay.RowHeadersWidth = 51;
@@ -1067,6 +1112,20 @@
             this.xóaSảnPhẩmToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.xóaSảnPhẩmToolStripMenuItem.Text = "Xóa sản phẩm";
             // 
+            // btn_traHangThanhCong
+            // 
+            this.btn_traHangThanhCong.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_traHangThanhCong.BackColor = System.Drawing.Color.YellowGreen;
+            this.btn_traHangThanhCong.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_traHangThanhCong.Location = new System.Drawing.Point(2, 493);
+            this.btn_traHangThanhCong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_traHangThanhCong.Name = "btn_traHangThanhCong";
+            this.btn_traHangThanhCong.Size = new System.Drawing.Size(320, 40);
+            this.btn_traHangThanhCong.TabIndex = 16;
+            this.btn_traHangThanhCong.Text = "Trả hàng thành công";
+            this.btn_traHangThanhCong.UseVisualStyleBackColor = false;
+            this.btn_traHangThanhCong.Click += new System.EventHandler(this.btn_traHangThanhCong_Click);
+            // 
             // FrmBanHang1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1097,8 +1156,6 @@
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.Gr_HDDangGiao.ResumeLayout(false);
-            this.flow_DangGiao.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pic_qrcode)).EndInit();
             this.Gr_HDChuaTT.ResumeLayout(false);
             this.Gr_View.ResumeLayout(false);
             this.gr_timKiem.ResumeLayout(false);
@@ -1163,10 +1220,8 @@
         private System.Windows.Forms.Label lbl_tenKhachHang;
         private System.Windows.Forms.RadioButton rbtn_the;
         private System.Windows.Forms.GroupBox Gr_BanHang;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.TextBox txt_COD;
+        private System.Windows.Forms.CheckBox cb_cod;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox Gr_HDDangGiao;
         private System.Windows.Forms.FlowLayoutPanel flow_DangGiao;
@@ -1180,7 +1235,6 @@
         private System.Windows.Forms.GroupBox Gr_ViewGioHang;
         private System.Windows.Forms.Label lbl_MahoaDon;
         private System.Windows.Forms.GroupBox Gr_GioHang;
-        private System.Windows.Forms.PictureBox pic_qrcode;
         private System.Windows.Forms.DataGridView dgrid_GioHang;
         private System.Windows.Forms.GroupBox gr_timKiem;
         private System.Windows.Forms.GroupBox Gr_ViewSanPham;
@@ -1195,5 +1249,11 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem sửaSốLượngToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem xóaSảnPhẩmToolStripMenuItem;
+        private System.Windows.Forms.Label lbl_COD;
+        private System.Windows.Forms.Label lbl_TienThuaTraKhach;
+        private System.Windows.Forms.Button btn_HuyDon;
+        private System.Windows.Forms.Button btn_xacNhanThanhCong;
+        private System.Windows.Forms.Button btn_TraHang;
+        private System.Windows.Forms.Button btn_traHangThanhCong;
     }
 }
