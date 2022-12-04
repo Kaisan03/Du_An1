@@ -1,8 +1,7 @@
-﻿using _1.DAL.Repositories;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +12,7 @@ namespace _1.DAL.DomainClass
     public partial class GiaoCa
     {
         [Key]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Ma { get; set; }
         public Guid IdNhanVienTrongCa { get; set; }
         public Guid IdNhanVienTiepTheo { get; set; }
@@ -33,12 +32,6 @@ namespace _1.DAL.DomainClass
         [ForeignKey(nameof(IdNhanVienTrongCa))]
         [InverseProperty(nameof(NhanVien.GiaoCas))]
         public virtual NhanVien IdNhanViennNavigation { get; set; }
-        //[ForeignKey(nameof(IdChuCuaHang))]
-        //[InverseProperty(nameof(NhanVien.GiaoCas))]
-        //public virtual NhanVien IdNhanViennNavigation { get; set; }
-        //[ForeignKey(nameof(IdNhanVienTiepTheo))]
-        //[InverseProperty(nameof(NhanVien.GiaoCas))]
-        //public virtual NhanVien IdNhanViennNavigation { get; set; }
-     
     }
 }
+

@@ -52,6 +52,7 @@ namespace _1.DAL.DomainClass
         [InverseProperty(nameof(HoaDon.IdNhanVienNavigation))]
         public virtual ICollection<HoaDon> HoaDons { get; set; }
 
+        [InverseProperty(nameof(GiaoCa.IdNhanViennNavigation))]
         public virtual ICollection<GiaoCa> GiaoCas { get; set; }
     }
 }
