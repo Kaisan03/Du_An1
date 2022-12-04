@@ -57,31 +57,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="printDocument1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>172, 17</value>
+  <metadata name="printPreviewDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>158, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btn_TimKiem.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="printPreviewDialog1.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAqBJREFUaEPt
-        2bmKFFEUh/FBcNfcRIzcNXIBDfQBjDR0TU2NBN/AfUPUTIxUFCNBUCN9AxXcAw0FcVfcvw+m4XC5XXWr
-        bakaqT/8oGeqL3Oq5txleib69OnT57/LKpzAA3yc5Gu/57XOZgbO4Cd+D/EDp+F7OxULuoNc0Tm30amb
-        8MnnCq1yCp2IfW1r5Iqs4piVaD0nkSuwxDG0nofIFVfiPlrPB+SKK/EerccicsWVeIfWM+Vb6DhyxZU4
-        gtbjUjjqMroCnYjHg1yRVTwbdSYeCzwe5ArNuYXp6FS8CY8HVe30HT75zhUf45xwh3WFcY+Qr4+iMz3f
-        p0+f8WQ2duIKHmPwN7SvL2MHZqGT2YNXyC230Uvswj/LNKzGXrgP3IRP8DW+YANi3APOI1dslXMY2/4x
-        D9txHW+Q+4G6gDSjFD9wFn8VN6mL+IzcD0ilG5dtk77Hnj+INZg7aS0O4RPS9ztnGmcRrqLqM5/UXcQ4
-        YdOef4rFGJaleIY4xjnRaGJvQ1WbDHMAMT65eN0nvwR18SbS34TtW5R9iAOb2IQYl8p43bYpzWHEsZdQ
-        m41o0jKphYh5gnjdni/NOsSxrnK1uYE4qKk5iEk/vXAlK818xLFFn2a8RRzU1EzEjPMGnBO1iQNGsQAx
-        42yh56hNHDCKzYjxbBOvu86Xxj+G4lgXhNrEAaPYjxgPZvG6y6hLZF2WId04d6M2ccAo7iHGzcdNKL7H
-        TarqJizedoljPGMVzZ84aBS/sBwxnirT9zkh/YBrPQZHCV/bNrkjS+v/V/BAlhbVxDdsRWvxSDzlb8J4
-        NkrnRI49b9tYdPy+X3tOazVObA9mnm0ewZXJOfECLpWuNoMJ6xNPb6LoTNSlbMFXWPw1dPoTvmGxbXzy
-        FD8x8QcJ/GVCUVBVoAAAAABJRU5ErkJggg==
+        AAABAAEAEBAAAAAAIAAoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA
+        AAD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////APb29v/29vb/9vb2//b29v/29vb/9vb2//b2
+        9v////8A////AP///wD///8A9vb2//b29v/29vb/9vb2//b29v/29vb/QkJC/0JCQv9CQkL/QkJC/0JC
+        Qv/29vb/////AP///wD///8A////APb29v9CQkL/QkJC/0JCQv9CQkL/9vb2/0JCQv9CQkL/QkJC/0JC
+        Qv9CQkL/9vb2/////wD///8A////AP///wD29vb/QkJC/0JCQv9CQkL/QkJC//b29v9CQkL/QkJC/0JC
+        Qv9CQkL/QkJC//b29v////8A////AP///wD///8A9vb2/0JCQv9CQkL/QkJC/0JCQv/29vb/9vb2//b2
+        9v/29vb/9vb2//b29v/29vb/9vb2//b29v////8A////APb29v9CQkL/QkJC/0JCQv9CQkL/9vb2/0JC
+        Qv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv/29vb/////AP///wD29vb/QkJC/0JCQv9CQkL/QkJC//b2
+        9v9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/9vb2/////wD///8A9vb2/0JCQv9CQkL/QkJC/0JC
+        Qv/29vb/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC//b29v////8A////APb29v/29vb/9vb2//b2
+        9v/29vb/9vb2/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv/29vb/////AP///wD///8A////AP//
+        /wD///8A////APb29v9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/9vb2/////wD///8A////AP//
+        /wD///8A////AP///wD29vb/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC//b29v////8A////AP//
+        /wD///8A////AP///wD///8A9vb2/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv/29vb/////AP//
+        /wD///8A////AP///wD///8A////APb29v/29vb/9vb2//b29v/29vb/9vb2//b29v/29vb/9vb2////
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A
 </value>
   </data>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>25</value>
-  </metadata>
 </root>
