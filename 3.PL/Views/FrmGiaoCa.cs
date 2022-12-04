@@ -33,22 +33,9 @@ namespace _3.PL.Views
 
         private void FrmGiaoCa_Load(object sender, EventArgs e)
         {
-            GiaoCa Giaoca = new GiaoCa()
-            {
-                Id = Guid.NewGuid(),
-                Ma = "CA00" + (_iGiaoCaService.GetAllGiaoca().Count + 1),
-                ThoiGianNhanCa = DateTime.Now,
-                TienBatDauCa = 1000000,
-                TrangThai = 0,
-            };
-            _iGiaoCaService.Add(Giaoca);
-            return;
-            foreach (var x in _iGiaoCaService.GetAllGiaoca())
-            {
-                lb_maca.Text = x.Ma;
-                lb_thoigianbatdau.Text = Convert.ToString(x.ThoiGianNhanCa);
-            }
-            
+            lb_maca.Text = Convert.ToString(_iGiaoCaService.GetAllGiaoca().Max(c => c.Id));
+           // lb_thoigianbatdau;
+
         }
     }
 }

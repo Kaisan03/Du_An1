@@ -1,4 +1,8 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using _1.DAL.DomainClass;
+using _1.DAL.IRepositories;
+using _2.BUS.IServices;
+using _2.BUS.Services;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,10 +18,11 @@ namespace _3.PL.Views
 {
     public partial class FrmDangNhap : Form
     {
-
+        public IGiaoCaService _igiaocaservice;
         public FrmDangNhap()
         {
             InitializeComponent();
+            _igiaocaservice = new GiaoCaService();
             FuckYou1();
 
         }
@@ -72,7 +77,7 @@ namespace _3.PL.Views
                 Properties.Settings.Default.UserName = "";
                 Properties.Settings.Default.Save();
             }
-            SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-46F72MJA\SQLEXPRESS;Initial Catalog=Duan11;Persist Security Info=True;User ID=duyvtph24890;Password=123456");
+            SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-59BFCFR;Initial Catalog=Duan1A;Persist Security Info=True;User ID=ph24903;Password=12345678");
             try
             {
                 conn.Open();
@@ -84,9 +89,19 @@ namespace _3.PL.Views
                 if (dta.Read() == true)
                 {
                     MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    FrmXacNhanGiaoCa _frmMain = new FrmXacNhanGiaoCa();
-                    _frmMain.Show();
+                    int id11 = _igiaocaservice.GetAllGiaoca().Count + 1;
+                    GiaoCa Giaoca = new GiaoCa()
+                    {
+                        Id = id11,
+                        Ma = "CA00" + (_igiaocaservice.GetAllGiaoca().Count + 1),
+                        ThoiGianNhanCa = DateTime.Now,
+                        TienBatDauCa = 1000000,
+                        TrangThai = 0,
+                    };
+                    _igiaocaservice.Add(Giaoca);
+                    FrmXacNhanGiaoCa frmgiaoca = new FrmXacNhanGiaoCa();
+                    frmgiaoca.Show();
+                    this.Close();
                 }
                 else
                 {
@@ -97,6 +112,7 @@ namespace _3.PL.Views
             {
                 MessageBox.Show(ex.Message);
             }
+           
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
@@ -112,7 +128,7 @@ namespace _3.PL.Views
         private void label4_Click(object sender, EventArgs e)
         {
             FrmQuenMatKhau frmquenMk = new FrmQuenMatKhau();
-            this.Hide();
+            this.Close();
             frmquenMk.Show();
         }
         public void FuckYou1()

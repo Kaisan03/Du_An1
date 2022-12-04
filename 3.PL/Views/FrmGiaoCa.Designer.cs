@@ -50,7 +50,6 @@
             this.label20 = new System.Windows.Forms.Label();
             this.tbx_tienphatsinh = new System.Windows.Forms.TextBox();
             this.tbx_ghichu = new System.Windows.Forms.RichTextBox();
-            this.btn_resettien = new FontAwesome.Sharp.IconButton();
             this.btn_xacnhan = new FontAwesome.Sharp.IconButton();
             this.btn_huy = new FontAwesome.Sharp.IconButton();
             this.SuspendLayout();
@@ -69,18 +68,18 @@
             this.lb_maca.AutoSize = true;
             this.lb_maca.Location = new System.Drawing.Point(226, 27);
             this.lb_maca.Name = "lb_maca";
-            this.lb_maca.Size = new System.Drawing.Size(38, 15);
+            this.lb_maca.Size = new System.Drawing.Size(42, 15);
             this.lb_maca.TabIndex = 1;
-            this.lb_maca.Text = "label2";
+            this.lb_maca.Text = "ma  ca";
             // 
             // lb_thoigianbatdau
             // 
             this.lb_thoigianbatdau.AutoSize = true;
             this.lb_thoigianbatdau.Location = new System.Drawing.Point(226, 67);
             this.lb_thoigianbatdau.Name = "lb_thoigianbatdau";
-            this.lb_thoigianbatdau.Size = new System.Drawing.Size(38, 15);
+            this.lb_thoigianbatdau.Size = new System.Drawing.Size(107, 15);
             this.lb_thoigianbatdau.TabIndex = 3;
-            this.lb_thoigianbatdau.Text = "label3";
+            this.lb_thoigianbatdau.Text = "thoi gian ban hang";
             // 
             // label4
             // 
@@ -96,9 +95,9 @@
             this.lb_thoigianketthuc.AutoSize = true;
             this.lb_thoigianketthuc.Location = new System.Drawing.Point(226, 107);
             this.lb_thoigianketthuc.Name = "lb_thoigianketthuc";
-            this.lb_thoigianketthuc.Size = new System.Drawing.Size(38, 15);
+            this.lb_thoigianketthuc.Size = new System.Drawing.Size(100, 15);
             this.lb_thoigianketthuc.TabIndex = 5;
-            this.lb_thoigianketthuc.Text = "label5";
+            this.lb_thoigianketthuc.Text = "thoi gian ket thuc";
             // 
             // label6
             // 
@@ -114,9 +113,9 @@
             this.lb_tienbandau.AutoSize = true;
             this.lb_tienbandau.Location = new System.Drawing.Point(226, 147);
             this.lb_tienbandau.Name = "lb_tienbandau";
-            this.lb_tienbandau.Size = new System.Drawing.Size(38, 15);
+            this.lb_tienbandau.Size = new System.Drawing.Size(73, 15);
             this.lb_tienbandau.TabIndex = 7;
-            this.lb_tienbandau.Text = "label7";
+            this.lb_tienbandau.Text = "tien ban dau";
             // 
             // label8
             // 
@@ -132,9 +131,9 @@
             this.lb_tienmat.AutoSize = true;
             this.lb_tienmat.Location = new System.Drawing.Point(226, 267);
             this.lb_tienmat.Name = "lb_tienmat";
-            this.lb_tienmat.Size = new System.Drawing.Size(44, 15);
+            this.lb_tienmat.Size = new System.Drawing.Size(51, 15);
             this.lb_tienmat.TabIndex = 13;
-            this.lb_tienmat.Text = "label11";
+            this.lb_tienmat.Text = "tien mat";
             // 
             // label12
             // 
@@ -150,9 +149,9 @@
             this.lb_tienchuyenkhoan.AutoSize = true;
             this.lb_tienchuyenkhoan.Location = new System.Drawing.Point(226, 227);
             this.lb_tienchuyenkhoan.Name = "lb_tienchuyenkhoan";
-            this.lb_tienchuyenkhoan.Size = new System.Drawing.Size(44, 15);
+            this.lb_tienchuyenkhoan.Size = new System.Drawing.Size(105, 15);
             this.lb_tienchuyenkhoan.TabIndex = 11;
-            this.lb_tienchuyenkhoan.Text = "label13";
+            this.lb_tienchuyenkhoan.Text = "tien chuyen khoan";
             // 
             // label14
             // 
@@ -168,9 +167,9 @@
             this.lb_tongdoanhthutrongca.AutoSize = true;
             this.lb_tongdoanhthutrongca.Location = new System.Drawing.Point(226, 187);
             this.lb_tongdoanhthutrongca.Name = "lb_tongdoanhthutrongca";
-            this.lb_tongdoanhthutrongca.Size = new System.Drawing.Size(44, 15);
+            this.lb_tongdoanhthutrongca.Size = new System.Drawing.Size(137, 15);
             this.lb_tongdoanhthutrongca.TabIndex = 9;
-            this.lb_tongdoanhthutrongca.Text = "label15";
+            this.lb_tongdoanhthutrongca.Text = "tong doanh thu trong ca";
             // 
             // label16
             // 
@@ -195,18 +194,18 @@
             this._tongtienmat.AutoSize = true;
             this._tongtienmat.Location = new System.Drawing.Point(226, 307);
             this._tongtienmat.Name = "_tongtienmat";
-            this._tongtienmat.Size = new System.Drawing.Size(38, 15);
+            this._tongtienmat.Size = new System.Drawing.Size(73, 15);
             this._tongtienmat.TabIndex = 15;
-            this._tongtienmat.Text = "label9";
+            this._tongtienmat.Text = "tong tin mat";
             // 
             // lb_tongdoanhthu
             // 
             this.lb_tongdoanhthu.AutoSize = true;
             this.lb_tongdoanhthu.Location = new System.Drawing.Point(226, 347);
             this.lb_tongdoanhthu.Name = "lb_tongdoanhthu";
-            this.lb_tongdoanhthu.Size = new System.Drawing.Size(44, 15);
+            this.lb_tongdoanhthu.Size = new System.Drawing.Size(90, 15);
             this.lb_tongdoanhthu.TabIndex = 17;
-            this.lb_tongdoanhthu.Text = "label17";
+            this.lb_tongdoanhthu.Text = "tong doanh thu";
             // 
             // label18
             // 
@@ -250,24 +249,12 @@
             this.tbx_ghichu.TabIndex = 21;
             this.tbx_ghichu.Text = "";
             // 
-            // btn_resettien
-            // 
-            this.btn_resettien.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btn_resettien.IconColor = System.Drawing.Color.Black;
-            this.btn_resettien.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_resettien.Location = new System.Drawing.Point(34, 564);
-            this.btn_resettien.Name = "btn_resettien";
-            this.btn_resettien.Size = new System.Drawing.Size(121, 47);
-            this.btn_resettien.TabIndex = 22;
-            this.btn_resettien.Text = " Rút Tiền";
-            this.btn_resettien.UseVisualStyleBackColor = true;
-            // 
             // btn_xacnhan
             // 
             this.btn_xacnhan.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_xacnhan.IconColor = System.Drawing.Color.Black;
             this.btn_xacnhan.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_xacnhan.Location = new System.Drawing.Point(161, 564);
+            this.btn_xacnhan.Location = new System.Drawing.Point(70, 562);
             this.btn_xacnhan.Name = "btn_xacnhan";
             this.btn_xacnhan.Size = new System.Drawing.Size(121, 47);
             this.btn_xacnhan.TabIndex = 23;
@@ -279,7 +266,7 @@
             this.btn_huy.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_huy.IconColor = System.Drawing.Color.Black;
             this.btn_huy.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_huy.Location = new System.Drawing.Point(288, 564);
+            this.btn_huy.Location = new System.Drawing.Point(271, 562);
             this.btn_huy.Name = "btn_huy";
             this.btn_huy.Size = new System.Drawing.Size(121, 47);
             this.btn_huy.TabIndex = 24;
@@ -290,10 +277,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(461, 650);
+            this.ClientSize = new System.Drawing.Size(460, 650);
             this.Controls.Add(this.btn_huy);
             this.Controls.Add(this.btn_xacnhan);
-            this.Controls.Add(this.btn_resettien);
             this.Controls.Add(this.tbx_ghichu);
             this.Controls.Add(this.tbx_tienphatsinh);
             this.Controls.Add(this.label20);
@@ -348,7 +334,6 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox tbx_tienphatsinh;
         private System.Windows.Forms.RichTextBox tbx_ghichu;
-        private FontAwesome.Sharp.IconButton btn_resettien;
         private FontAwesome.Sharp.IconButton btn_xacnhan;
         private FontAwesome.Sharp.IconButton btn_huy;
     }

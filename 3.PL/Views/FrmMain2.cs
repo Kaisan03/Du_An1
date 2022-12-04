@@ -8,9 +8,11 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using _1.DAL.DomainClass;
 using _2.BUS.IServices;
 using _2.BUS.Services;
 using FontAwesome.Sharp;
+using Size = System.Drawing.Size;
 
 namespace _3.PL.Views
 {
@@ -19,12 +21,13 @@ namespace _3.PL.Views
         private IconButton _iconbuton;
         private Panel Leftboderbtn;
         public string Manv;
-
+        public IGiaoCaService _igiaocaservice;
         INhanVienService nhanVienService;
         public FrmMain2()
         {
             InitializeComponent();
 
+            _igiaocaservice = new GiaoCaService();
             _iconbuton = new IconButton();
             Leftboderbtn = new Panel();
             Leftboderbtn.Size = new Size(10, 63);
@@ -399,6 +402,14 @@ namespace _3.PL.Views
         private void iconButton11_MouseLeave(object sender, EventArgs e)
         {
             iconButton11.BackColor = Color.White;
+        }
+
+        private void btn_caidat_Click_1(object sender, EventArgs e)
+        {
+           
+            FrmGiaoCa frmGiaoCa = new FrmGiaoCa();
+            frmGiaoCa.ShowDialog();
+
         }
     }
 }
