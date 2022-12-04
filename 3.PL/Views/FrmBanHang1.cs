@@ -552,7 +552,7 @@ namespace _3.PL.Views
         public void FuckYou()
         {
             SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = "Data Source=DESKTOP-59BFCFR;Initial Catalog=Duan1A;Persist Security Info=True;User ID=ph24903;Password=12345678";
+            connection.ConnectionString = "Data Source=LAPTOP-OF-KHAI\\SQLEXPRESS;Initial Catalog=Duan1;Persist Security Info=True;User ID=khainq03;Password=123456";
 
             connection.Open();
             SqlCommand sqlCommand = new SqlCommand("select Sdt FROM KhachHang", connection);
