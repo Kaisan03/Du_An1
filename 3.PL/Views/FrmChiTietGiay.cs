@@ -141,14 +141,14 @@ namespace _3.PL.Views
             dgrid_ChiTietGiay.ColumnCount = 17;
             dgrid_ChiTietGiay.Columns[0].Name = "ID";
             dgrid_ChiTietGiay.Columns[0].Visible = false;
-            dgrid_ChiTietGiay.Columns[1].Name = "Size";
+            dgrid_ChiTietGiay.Columns[1].Name = "Mã sản phẩm";
             dgrid_ChiTietGiay.Columns[2].Name = "Màu sắc";
             dgrid_ChiTietGiay.Columns[3].Name = "Chất liệu";
             dgrid_ChiTietGiay.Columns[4].Name = "Loại đế";
             dgrid_ChiTietGiay.Columns[5].Name = "Nhà sản xuất";
             dgrid_ChiTietGiay.Columns[6].Name = "Kiểu dáng";
             dgrid_ChiTietGiay.Columns[7].Name = "Tên sản phẩm";
-            dgrid_ChiTietGiay.Columns[8].Name = "Mã sản phẩm";
+            dgrid_ChiTietGiay.Columns[8].Name = "Size";
             dgrid_ChiTietGiay.Columns[9].Name = "Giá nhập";
             dgrid_ChiTietGiay.Columns[10].Name = "Giá bán";
             dgrid_ChiTietGiay.Columns[11].Name = "Số lượng";
@@ -168,14 +168,14 @@ namespace _3.PL.Views
                 if (x.SoLuongTon > 0) x.TrangThai = 1;
                 else x.TrangThai = 0;
                 dgrid_ChiTietGiay.Rows.Add(x.Id,
-                    x.TenSize,
+                    x.Ma,
                     x.TenMauSac,
                     x.TenChatLieu,
                     x.TenDeGiay,
                     x.TenNSX,
                     x.TenKieuDang,
                     x.TenSanPham,
-                    x.Ma,
+                    x.TenSize,
                     x.GiaNhap,
                     x.GiaBan,
                     x.SoLuong,
@@ -192,6 +192,7 @@ namespace _3.PL.Views
             DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn thêm?", "Thông báo", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
+                txt_Ma.Text = MaCTGiay();
                 AddChiTietSPView addCTGiay = new AddChiTietSPView()
                 {
                     IdSP = cmb_SanPham.Text != null ? _ISanPhamService.GetAllSanPham().FirstOrDefault(c => c.Ten == cmb_SanPham.Text).Id : null,
@@ -201,7 +202,7 @@ namespace _3.PL.Views
                     IdDeGiay = cmb_LoaiDe.Text != null ? _IDeGiayService.GetAllDeGiay().FirstOrDefault(c => c.Ten == cmb_LoaiDe.Text).Id : null,
                     IdKieuDang = cmb_KieuDang.Text != null ? _IKieuDangService.GetAllKieuDang().FirstOrDefault(c => c.Ten == cmb_KieuDang.Text).Id : null,
                     IdSize = cmb_TenSize.Text != null ? _ISizeService.GetAllSize().FirstOrDefault(c => c.Ten == cmb_TenSize.Text).Id : null,
-                    Ma = Convert.ToString("ACDKMNS" + Convert.ToString(_ISizeService.GetAllSize().Max(c => c.Ten) + 1)),
+                    Ma = txt_Ma.Text,
                     IdAnh = cmb_Anh.Text != null ? _IAnhService.GetAllAnh().FirstOrDefault(c => c.DuongDan == cmb_Anh.Text).Id : null,
                     SoLuong = Convert.ToInt32(txt_SoLuong.Text),
                     GiaNhap = Convert.ToInt32(txt_NgayNhap.Text),
@@ -227,6 +228,7 @@ namespace _3.PL.Views
             DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn sửa?", "Thông báo", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
+                txt_Ma.Text = MaCTGiay();
                 UpdateChiTietSPView updateGiay = new UpdateChiTietSPView()
                 {
                     Id = _idCTGiay,
@@ -843,5 +845,17 @@ namespace _3.PL.Views
             var result = writer.Write(text);
             pic_QuetBarcode.Image = result;
         }
+        public string ChuCaiDau(string value)
+        {
+            return Convert.ToString(value[0]);
+        }
+        public string MaCTGiay()
+        {
+            string name = string.Concat(ChuCaiDau(cmb_MauSac.Text), ChuCaiDau(cmb_Nsx.Text), ChuCaiDau(cmb_ChatLieu.Text), ChuCaiDau(cmb_LoaiDe.Text), ChuCaiDau(cmb_KieuDang.Text),
+                ChuCaiDau(cmb_SanPham.Text)/* ,cmb_TenSize.Text ,*/,_IChiTietGiayService.GetAllCTGiay().Count + 1);
+            return name;
+        }
     }
 }
+//XNVĐsV4
+//CNVĐsV4

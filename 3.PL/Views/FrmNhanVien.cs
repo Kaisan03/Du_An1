@@ -69,7 +69,7 @@ namespace _3.PL.Views
             foreach (var x in lstNhanVien)
             {
 
-                drgid_NhanVien.Rows.Add(x.Id, x.Ma, x.Ho, x.TenDem, x.Ten, x.GioiTinh == "Nam" ? 0 : 1, x.NgaySinh, x.DiaChi, x.Sdt,
+                drgid_NhanVien.Rows.Add(x.Id, x.Ma, x.Ho, x.TenDem, x.Ten, x.GioiTinh == "Nam" ? "Nam" : "Nữ", x.NgaySinh, x.DiaChi, x.Sdt,
                   x.Email, x.MatKhau, x.TenChuCVu, x.TrangThai == 1 ? "Hoạt động" : "Không hoạt động", x.duongDan);
             }
 
@@ -99,7 +99,7 @@ namespace _3.PL.Views
                     Ho = txt_Ho.Text,
                     TenDem = txt_TenDem.Text,
                     Ten = txt_Ten.Text,
-                    GioiTinh = rbtn_Nam.Checked ? "Nam" : "Nu",
+                    GioiTinh = rbtn_Nam.Checked ? "Nam" : "Nữ",
                     NgaySinh = dateTime_NgaySinh.Value,
                     DiaChi = txt_DiaChi.Text,
                     Sdt = txt_Sdt.Text,
@@ -121,7 +121,7 @@ namespace _3.PL.Views
 
         private void btn_Sua_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn sua?", "Thông báo", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn sửa?", "Thông báo", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 txt_Ma.Text = MaNhanVien();
@@ -133,7 +133,7 @@ namespace _3.PL.Views
                     Ho = txt_Ho.Text,
                     TenDem = txt_TenDem.Text,
                     Ten = txt_Ten.Text,
-                    GioiTinh = rbtn_Nam.Checked ? "Nam" : "Nu",
+                    GioiTinh = rbtn_Nam.Checked ? "Nam" : "Nữ",
                     NgaySinh = dateTime_NgaySinh.Value,
                     DiaChi = txt_DiaChi.Text,
                     Sdt = txt_Sdt.Text,
@@ -210,11 +210,12 @@ namespace _3.PL.Views
                 txt_Ma.Text = x.Ma;
                 txt_DuongDan.Text = x.duongDan;
                 pic_Image.ImageLocation = r.Cells[13].Value.ToString();
-                if (int.Parse(r.Cells[5].Value.ToString()) == 0)
+                if (x.GioiTinh == "Nam")
                 {
                     rbtn_Nam.Checked = true;
+                    return;
                 }
-                else rbtn_Nu.Checked = true;
+                rbtn_Nu.Checked = true;
                 if (x.TrangThai == 1)
                 {
                     cbx_HoatDong.Checked = true;
