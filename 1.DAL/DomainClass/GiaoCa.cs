@@ -19,9 +19,9 @@ namespace _1.DAL.DomainClass
         public Guid IdNhanVienTiepTheo { get; set; }
         public DateTime ThoiGianNhanCa { get; set; }
         public DateTime ThoiGianGiaoCa { get; set; }
-        public decimal TienBatDauCa{ get; set; }
+        public decimal TienBatDauCa { get; set; }
         public decimal TongTienMat { get; set; }
-        public decimal TongTienTrongCa   { get; set; }
+        public decimal TongTienTrongCa { get; set; }
         public decimal TongTienKhac { get; set; }
         public decimal TongTienPhatSinh { get; set; }
         public string GhiChuPhatSinh { get; set; }
@@ -33,5 +33,12 @@ namespace _1.DAL.DomainClass
         [ForeignKey(nameof(IdNhanVienTrongCa))]
         [InverseProperty(nameof(NhanVien.GiaoCas))]
         public virtual NhanVien IdNhanViennNavigation { get; set; }
+        //[ForeignKey(nameof(IdChuCuaHang))]
+        //[InverseProperty(nameof(NhanVien.GiaoCas))]
+        //public virtual NhanVien IdNhanViennNavigation { get; set; }
+        //[ForeignKey(nameof(IdNhanVienTiepTheo))]
+        //[InverseProperty(nameof(NhanVien.GiaoCas))]
+        //public virtual NhanVien IdNhanViennNavigation { get; set; }
+     
     }
 }
