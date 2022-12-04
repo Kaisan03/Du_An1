@@ -526,19 +526,6 @@ namespace _3.PL.Views
             FrmThongTinSP frmttSP = new FrmThongTinSP(tenhh, size, chatlieu, mausac, kieudang, degiay, giaban, nsx, anh);
             frmttSP.Show();
         }
-
-        private void dgrid_chitietgiay_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right)
-            {
-                this.dgrid_chitietgiay.Rows[e.RowIndex].Selected = true;
-                this.rowindex = e.RowIndex;
-                this.dgrid_chitietgiay.CurrentCell = this.dgrid_chitietgiay.Rows[e.RowIndex].Cells[1];
-                this.contextMenuStrip1.Show(this.dgrid_chitietgiay, e.Location);
-                contextMenuStrip1.Show(Cursor.Position);
-            }
-        }
-
         private void txt_Sdt_TextChanged(object sender, EventArgs e)
         {
             txt_TenKH.Text = _KHService.GetAll().Where(x => x.Sdt == txt_Sdt.Text).Select(x => string.Concat(x.Ho, " ", x.TenDem, " ", x.Ten)).FirstOrDefault();
@@ -552,7 +539,7 @@ namespace _3.PL.Views
         public void FuckYou()
         {
             SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = "Data Source=LAPTOP-OF-KHAI\\SQLEXPRESS;Initial Catalog=Duan1;Persist Security Info=True;User ID=khainq03;Password=123456";
+            connection.ConnectionString = "Data Source=LAPTOP-46F72MJA\\SQLEXPRESS;Initial Catalog=Duan11;Persist Security Info=True;User ID=duyvtph24890;Password=123456";
 
             connection.Open();
             SqlCommand sqlCommand = new SqlCommand("select Sdt FROM KhachHang", connection);
@@ -981,42 +968,6 @@ namespace _3.PL.Views
             txt_TimKiem.Text = "";
         }
 
-        private void cmb_LocSize_SelectedValueChanged(object sender, EventArgs e)
-        {
-              dgrid_chitietgiay.ColumnCount = 12;
-              dgrid_chitietgiay.Columns[0].Name = "IdCtg";
-              dgrid_chitietgiay.Columns[0].Visible = false;
-              dgrid_chitietgiay.Columns[1].Name = "Mã";
-              dgrid_chitietgiay.Columns[2].Name = "Tên";
-              dgrid_chitietgiay.Columns[3].Name = "Số Lượng tồn";
-              dgrid_chitietgiay.Columns[4].Name = "Đơn giá";
-              dgrid_chitietgiay.Columns[5].Name = "Size";
-              dgrid_chitietgiay.Columns[5].Visible = false;
-              dgrid_chitietgiay.Columns[6].Name = "Chất liệu";
-              dgrid_chitietgiay.Columns[6].Visible = false;
-              dgrid_chitietgiay.Columns[7].Name = "Nhà sản xuất";
-              dgrid_chitietgiay.Columns[7].Visible = false;
-              dgrid_chitietgiay.Columns[8].Name = "Màu sắc";
-              dgrid_chitietgiay.Columns[8].Visible = false;
-              dgrid_chitietgiay.Columns[9].Name = "Đế giày";
-              dgrid_chitietgiay.Columns[9].Visible = false;
-              dgrid_chitietgiay.Columns[10].Name = "Kiểu dáng";
-              dgrid_chitietgiay.Columns[10].Visible = false;
-              dgrid_chitietgiay.Columns[11].Name = "Ảnh";
-              dgrid_chitietgiay.Columns[11].Visible = false;
-              dgrid_chitietgiay.Rows.Clear();
-              foreach (var x in _chiTietGiayService.GetViewChiTietGiay().Where(c => c.TenSize == cmb_LocSize.Text).OrderBy(c => c.Ma).ToList())
-              {
-                  dgrid_chitietgiay.Rows.Add(x.Id,
-                      x.Ma,
-                      x.TenSanPham,
-                      x.SoLuongTon,
-                      x.GiaBan,
-                      x.TenSize, x.TenChatLieu, x.TenNSX, x.TenMauSac, x.TenDeGiay, x.TenKieuDang, x.Anh);
-              }
-            anhcaidmm1();
-        }
-
         private void cmb_LocSize_Leave(object sender, EventArgs e)
         {
             LoadSanPham();
@@ -1107,7 +1058,7 @@ namespace _3.PL.Views
         {
             LoadSanPham();
             anhcaidmm1();
-            cmb_LocMau.Text = "Lọc kiểu dáng";
+            cmb_LocKieuDang.Text = "Lọc kiểu dáng";
         }
 
         private void cmb_LocNsx_SelectedValueChanged(object sender, EventArgs e)
@@ -1150,7 +1101,7 @@ namespace _3.PL.Views
         {
             LoadSanPham();
             anhcaidmm1();
-            cmb_LocMau.Text = "Lọc nsx";
+            cmb_LocNsx.Text = "Lọc nsx";
         }
 
         private void dgrid_GioHang_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
@@ -1172,6 +1123,54 @@ namespace _3.PL.Views
             //_ISizeService.DeleteSize(size);
             //LoadData();
             //return;
+        }
+
+        private void cmb_LocSize_SelectedValueChanged_1(object sender, EventArgs e)
+        {
+            dgrid_chitietgiay.ColumnCount = 12;
+            dgrid_chitietgiay.Columns[0].Name = "IdCtg";
+            dgrid_chitietgiay.Columns[0].Visible = false;
+            dgrid_chitietgiay.Columns[1].Name = "Mã";
+            dgrid_chitietgiay.Columns[2].Name = "Tên";
+            dgrid_chitietgiay.Columns[3].Name = "Số Lượng tồn";
+            dgrid_chitietgiay.Columns[4].Name = "Đơn giá";
+            dgrid_chitietgiay.Columns[5].Name = "Size";
+            dgrid_chitietgiay.Columns[5].Visible = false;
+            dgrid_chitietgiay.Columns[6].Name = "Chất liệu";
+            dgrid_chitietgiay.Columns[6].Visible = false;
+            dgrid_chitietgiay.Columns[7].Name = "Nhà sản xuất";
+            dgrid_chitietgiay.Columns[7].Visible = false;
+            dgrid_chitietgiay.Columns[8].Name = "Màu sắc";
+            dgrid_chitietgiay.Columns[8].Visible = false;
+            dgrid_chitietgiay.Columns[9].Name = "Đế giày";
+            dgrid_chitietgiay.Columns[9].Visible = false;
+            dgrid_chitietgiay.Columns[10].Name = "Kiểu dáng";
+            dgrid_chitietgiay.Columns[10].Visible = false;
+            dgrid_chitietgiay.Columns[11].Name = "Ảnh";
+            dgrid_chitietgiay.Columns[11].Visible = false;
+            dgrid_chitietgiay.Rows.Clear();
+            foreach (var x in _chiTietGiayService.GetViewChiTietGiay().Where(c => c.TenSize == cmb_LocSize.Text).OrderBy(c => c.Ma).ToList())
+            {
+                dgrid_chitietgiay.Rows.Add(x.Id,
+                    x.Ma,
+                    x.TenSanPham,
+                    x.SoLuongTon,
+                    x.GiaBan,
+                    x.TenSize, x.TenChatLieu, x.TenNSX, x.TenMauSac, x.TenDeGiay, x.TenKieuDang, x.Anh);
+            }
+            anhcaidmm1();
+        }
+
+        private void dgrid_chitietgiay_CellMouseUp_1(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                this.dgrid_chitietgiay.Rows[e.RowIndex].Selected = true;
+                this.rowindex = e.RowIndex;
+                this.dgrid_chitietgiay.CurrentCell = this.dgrid_chitietgiay.Rows[e.RowIndex].Cells[1];
+                this.contextMenuStrip1.Show(this.dgrid_chitietgiay, e.Location);
+                contextMenuStrip1.Show(Cursor.Position);
+            }
         }
     }
 }
