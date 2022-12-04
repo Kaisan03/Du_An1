@@ -38,13 +38,12 @@ namespace _3.PL.Views
             var cv = _IChucVuService.GetAllChucVu().Select(c => c.Ten.ToString()).Distinct();
             foreach (var x in cv)
             {
-
                 cmb_idChucVu.Items.Add(x);
             }
         }
         public void LoadDataNhanVien()
         {
-            drgid_NhanVien.ColumnCount = 13;
+            drgid_NhanVien.ColumnCount = 14;
             drgid_NhanVien.Columns[0].Name = "ID";
             drgid_NhanVien.Columns[0].Visible = false;
             drgid_NhanVien.Columns[1].Name = "Mã";
@@ -57,10 +56,10 @@ namespace _3.PL.Views
             drgid_NhanVien.Columns[8].Name = "Sdt ";
             drgid_NhanVien.Columns[9].Name = "Email";
             drgid_NhanVien.Columns[10].Name = "Mật Khẩu ";
-            drgid_NhanVien.Columns[11].Name = "Ten chức Vụ ";
-
+            drgid_NhanVien.Columns[11].Name = "Tên chức Vụ ";
             //drgid_NhanVien.Columns[13].Name = "ID GuiBC ";
             drgid_NhanVien.Columns[12].Name = "Trạng Thái ";
+            drgid_NhanVien.Columns[13].Name = "Ảnh";
             drgid_NhanVien.Rows.Clear();
             var lstNhanVien = _iNhanVienService.GetViewNhanVien();
             if (txt_TimKiem.Text != "")
@@ -71,7 +70,7 @@ namespace _3.PL.Views
             {
 
                 drgid_NhanVien.Rows.Add(x.Id, x.Ma, x.Ho, x.TenDem, x.Ten, x.GioiTinh == "Nam" ? 0 : 1, x.NgaySinh, x.DiaChi, x.Sdt,
-                  x.Email, x.MatKhau, x.TenChuCVu, x.TrangThai == 1 ? "Hoat dong" : "Khong hoat dong");
+                  x.Email, x.MatKhau, x.TenChuCVu, x.TrangThai == 1 ? "Hoạt động" : "Không hoạt động", x.duongDan);
             }
 
         }
@@ -82,7 +81,7 @@ namespace _3.PL.Views
 
         private void FrmNhanVien_Load(object sender, EventArgs e)
         {
-
+            //pic_Image.AllowDrop = true;
         }
 
         private void btn_Them_Click(object sender, EventArgs e)
@@ -106,7 +105,8 @@ namespace _3.PL.Views
                     Sdt = txt_Sdt.Text,
                     Email = txt_Email.Text,
                     MatKhau = txt_MatKhau.Text,
-                    TrangThai = cbx_HoatDong.Checked ? 1 : 0
+                    TrangThai = cbx_HoatDong.Checked ? 1 : 0,
+                    duongDan = txt_DuongDan.Text
 
                 };
                 _iNhanVienService.AddNhanVien(addNhanVienView);
@@ -139,7 +139,8 @@ namespace _3.PL.Views
                     Sdt = txt_Sdt.Text,
                     Email = txt_Email.Text,
                     MatKhau = txt_MatKhau.Text,
-                    TrangThai = cbx_HoatDong.Checked ? 1 : 0
+                    TrangThai = cbx_HoatDong.Checked ? 1 : 0,
+                    duongDan = txt_DuongDan.Text
                 };
                 _iNhanVienService.UpdateNhanVien(updateNhanVienView);
                 MessageBox.Show("Sửa thành công");
@@ -196,7 +197,6 @@ namespace _3.PL.Views
                 _Idnhanvien = Guid.Parse(r.Cells[0].Value.ToString());
                 cmb_idChucVu.Text = r.Cells[10].Value.ToString();
                 var x = _iNhanVienService.GetViewNhanVien().FirstOrDefault(c => c.Id == _Idnhanvien);
-
                 txt_Ho.Text = x.Ho;
                 txt_TenDem.Text = x.TenDem;
                 cmb_idChucVu.Text = x.TenChuCVu;
@@ -208,6 +208,8 @@ namespace _3.PL.Views
                 dateTime_NgaySinh.Value = x.NgaySinh.Value;
                 txt_Ma.Text = MaNhanVien();
                 txt_Ma.Text = x.Ma;
+                txt_DuongDan.Text = x.duongDan;
+                pic_Image.ImageLocation = r.Cells[13].Value.ToString();
                 if (int.Parse(r.Cells[5].Value.ToString()) == 0)
                 {
                     rbtn_Nam.Checked = true;
@@ -341,6 +343,33 @@ namespace _3.PL.Views
             sb = sb.Replace('Đ', 'D');
             sb = sb.Replace('đ', 'd');
             return (sb.ToString().Normalize(NormalizationForm.FormD));
+        }
+
+        private void pic_Image_DragDrop(object sender, DragEventArgs e)
+        {
+            var data = e.Data.GetData(DataFormats.FileDrop);
+            if (data != null)
+            {
+                var fileNames = data as string[];
+                if (fileNames.Length > 0)
+                    pic_Image.Image = Image.FromFile(fileNames[0]);
+            }
+        }
+
+        private void pic_Image_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Copy;
+        }
+
+        private void txt_DuongDan_DragDrop(object sender, DragEventArgs e)
+        {
+            string[] FileList = (string[])e.Data.GetData(DataFormats.FileDrop, false);
+            txt_DuongDan.Text = FileList[0];
+        }
+
+        private void txt_DuongDan_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.All;
         }
     }
 }

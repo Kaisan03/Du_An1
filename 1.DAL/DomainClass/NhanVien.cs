@@ -40,6 +40,9 @@ namespace _1.DAL.DomainClass
         public string Sdt { get; set; }
         [StringLength(50)]
         public string Email { get; set; }
+        [Column("duongDan")]
+        [StringLength(100)]
+        public string DuongDan { get; set; }
         [StringLength(50)]
         public string MatKhau { get; set; }
         public Guid? IdChucVu { get; set; }

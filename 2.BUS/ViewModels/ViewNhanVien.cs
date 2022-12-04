@@ -29,6 +29,7 @@ namespace _2.BUS.ViewModels
         public string Email { get; set; }
 
         public string MatKhau { get; set; }
+        public string duongDan { get; set; }
         public Guid? IdChucVu { get; set; }
         public int? TrangThai { get; set; }
     }

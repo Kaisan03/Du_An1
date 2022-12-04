@@ -43,6 +43,7 @@ namespace _2.BUS.Services
                 Sdt = obj.Sdt,
                 Email = obj.Email,
                 MatKhau = obj.MatKhau,
+                DuongDan = obj.duongDan,
                 IdChucVu = obj.IdChucVu,
                 TrangThai = obj.TrangThai,
             };
@@ -66,11 +67,15 @@ namespace _2.BUS.Services
             updateNv.Id = obj.Id;
             updateNv.IdChucVu = obj.IdChucVu;
             updateNv.Ma = obj.Ma;
+            updateNv.Ho = obj.Ho;
+            updateNv.TenDem = obj.TenDem;
             updateNv.Ten = obj.Ten;
             updateNv.DiaChi = obj.DiaChi;
             updateNv.Sdt = obj.Sdt;
             updateNv.Email = obj.Email;
             updateNv.NgaySinh = obj.NgaySinh;
+            updateNv.MatKhau = obj.MatKhau;
+            updateNv.DuongDan = obj.duongDan;
             updateNv.TrangThai = obj.TrangThai;
             _iNhanVienRepository.Update(updateNv);
             return true;
@@ -114,6 +119,7 @@ namespace _2.BUS.Services
                                     Sdt = nv.Sdt,
                                     Email = nv.Email,
                                     MatKhau = nv.MatKhau,
+                                    duongDan = nv.DuongDan,
                                     TrangThai = nv.TrangThai,
                                 }).ToList();
             return _lstNhanVienView;
