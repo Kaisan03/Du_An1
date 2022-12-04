@@ -61,10 +61,10 @@ namespace _3.PL.Views
             this.lbl_Nam = new System.Windows.Forms.Label();
             this.lbl_Thang = new System.Windows.Forms.Label();
             this.lbl_Ngay = new System.Windows.Forms.Label();
+            this.lbl_tienChu = new System.Windows.Forms.Label();
             this.lbl_DiaChi = new System.Windows.Forms.Label();
             this.lbl_SdtKhachHang = new System.Windows.Forms.Label();
             this.lbl_KhachHang = new System.Windows.Forms.Label();
-            this.lbl_tienChu = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelPrint.SuspendLayout();
             this.SuspendLayout();
@@ -73,7 +73,7 @@ namespace _3.PL.Views
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(664, 69);
+            this.label1.Location = new System.Drawing.Point(637, 71);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(117, 19);
             this.label1.TabIndex = 0;
@@ -83,7 +83,7 @@ namespace _3.PL.Views
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(555, 102);
+            this.label2.Location = new System.Drawing.Point(528, 104);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(339, 20);
             this.label2.TabIndex = 0;
@@ -93,7 +93,7 @@ namespace _3.PL.Views
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(610, 138);
+            this.label3.Location = new System.Drawing.Point(583, 140);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 20);
             this.label3.TabIndex = 0;
@@ -103,7 +103,7 @@ namespace _3.PL.Views
             // 
             this.lbl_Sdt.AutoSize = true;
             this.lbl_Sdt.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_Sdt.Location = new System.Drawing.Point(696, 138);
+            this.lbl_Sdt.Location = new System.Drawing.Point(669, 140);
             this.lbl_Sdt.Name = "lbl_Sdt";
             this.lbl_Sdt.Size = new System.Drawing.Size(79, 20);
             this.lbl_Sdt.TabIndex = 0;
@@ -113,7 +113,7 @@ namespace _3.PL.Views
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(641, 177);
+            this.label5.Location = new System.Drawing.Point(614, 179);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(175, 19);
             this.label5.TabIndex = 0;
@@ -123,7 +123,7 @@ namespace _3.PL.Views
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(610, 211);
+            this.label6.Location = new System.Drawing.Point(583, 213);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 20);
             this.label6.TabIndex = 0;
@@ -133,7 +133,7 @@ namespace _3.PL.Views
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(591, 257);
+            this.label7.Location = new System.Drawing.Point(564, 259);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(40, 20);
             this.label7.TabIndex = 0;
@@ -143,7 +143,7 @@ namespace _3.PL.Views
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(655, 257);
+            this.label8.Location = new System.Drawing.Point(628, 259);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(45, 20);
             this.label8.TabIndex = 0;
@@ -153,7 +153,7 @@ namespace _3.PL.Views
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(730, 257);
+            this.label9.Location = new System.Drawing.Point(703, 259);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(36, 20);
             this.label9.TabIndex = 0;
@@ -164,7 +164,7 @@ namespace _3.PL.Views
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(769, 32);
+            this.label10.Location = new System.Drawing.Point(742, 34);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(185, 20);
             this.label10.TabIndex = 0;
@@ -174,7 +174,7 @@ namespace _3.PL.Views
             // 
             this.lbl_SOHd.AutoSize = true;
             this.lbl_SOHd.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_SOHd.Location = new System.Drawing.Point(664, 211);
+            this.lbl_SOHd.Location = new System.Drawing.Point(637, 213);
             this.lbl_SOHd.Name = "lbl_SOHd";
             this.lbl_SOHd.Size = new System.Drawing.Size(65, 20);
             this.lbl_SOHd.TabIndex = 0;
@@ -184,7 +184,7 @@ namespace _3.PL.Views
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label12.Location = new System.Drawing.Point(301, 288);
+            this.label12.Location = new System.Drawing.Point(274, 290);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(83, 20);
             this.label12.TabIndex = 0;
@@ -194,7 +194,7 @@ namespace _3.PL.Views
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label13.Location = new System.Drawing.Point(301, 323);
+            this.label13.Location = new System.Drawing.Point(274, 325);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(38, 20);
             this.label13.TabIndex = 0;
@@ -204,7 +204,7 @@ namespace _3.PL.Views
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label14.Location = new System.Drawing.Point(301, 356);
+            this.label14.Location = new System.Drawing.Point(274, 358);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(65, 20);
             this.label14.TabIndex = 0;
@@ -215,7 +215,8 @@ namespace _3.PL.Views
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(301, 377);
+            this.dataGridView1.Location = new System.Drawing.Point(274, 379);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
@@ -226,12 +227,13 @@ namespace _3.PL.Views
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(817, 12);
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.Image = global::_3.PL.Properties.Resources.icons8_send_to_printer_32;
+            this.button1.Location = new System.Drawing.Point(961, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(44, 40);
             this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // printDocument1
@@ -292,7 +294,7 @@ namespace _3.PL.Views
             // 
             this.lbl_ThanhChu.AutoSize = true;
             this.lbl_ThanhChu.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_ThanhChu.Location = new System.Drawing.Point(1003, 668);
+            this.lbl_ThanhChu.Location = new System.Drawing.Point(976, 670);
             this.lbl_ThanhChu.Name = "lbl_ThanhChu";
             this.lbl_ThanhChu.Size = new System.Drawing.Size(16, 20);
             this.lbl_ThanhChu.TabIndex = 2;
@@ -302,7 +304,7 @@ namespace _3.PL.Views
             // 
             this.lbl_ThanhToan.AutoSize = true;
             this.lbl_ThanhToan.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_ThanhToan.Location = new System.Drawing.Point(1003, 635);
+            this.lbl_ThanhToan.Location = new System.Drawing.Point(976, 637);
             this.lbl_ThanhToan.Name = "lbl_ThanhToan";
             this.lbl_ThanhToan.Size = new System.Drawing.Size(16, 20);
             this.lbl_ThanhToan.TabIndex = 2;
@@ -312,7 +314,7 @@ namespace _3.PL.Views
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label25.Location = new System.Drawing.Point(1003, 608);
+            this.label25.Location = new System.Drawing.Point(976, 610);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(16, 20);
             this.label25.TabIndex = 2;
@@ -322,7 +324,7 @@ namespace _3.PL.Views
             // 
             this.lbl_TongTienHang.AutoSize = true;
             this.lbl_TongTienHang.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_TongTienHang.Location = new System.Drawing.Point(1003, 578);
+            this.lbl_TongTienHang.Location = new System.Drawing.Point(976, 580);
             this.lbl_TongTienHang.Name = "lbl_TongTienHang";
             this.lbl_TongTienHang.Size = new System.Drawing.Size(16, 20);
             this.lbl_TongTienHang.TabIndex = 2;
@@ -332,7 +334,7 @@ namespace _3.PL.Views
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.label27.Location = new System.Drawing.Point(591, 710);
+            this.label27.Location = new System.Drawing.Point(564, 712);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(252, 19);
             this.label27.TabIndex = 0;
@@ -342,7 +344,7 @@ namespace _3.PL.Views
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(831, 668);
+            this.label4.Location = new System.Drawing.Point(804, 670);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(75, 20);
             this.label4.TabIndex = 0;
@@ -352,7 +354,7 @@ namespace _3.PL.Views
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label23.Location = new System.Drawing.Point(830, 635);
+            this.label23.Location = new System.Drawing.Point(803, 637);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(77, 20);
             this.label23.TabIndex = 0;
@@ -362,7 +364,7 @@ namespace _3.PL.Views
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label22.Location = new System.Drawing.Point(831, 608);
+            this.label22.Location = new System.Drawing.Point(804, 610);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(78, 20);
             this.label22.TabIndex = 0;
@@ -372,7 +374,7 @@ namespace _3.PL.Views
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label21.Location = new System.Drawing.Point(831, 578);
+            this.label21.Location = new System.Drawing.Point(804, 580);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(103, 20);
             this.label21.TabIndex = 0;
@@ -382,7 +384,7 @@ namespace _3.PL.Views
             // 
             this.lbl_Nam.AutoSize = true;
             this.lbl_Nam.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_Nam.Location = new System.Drawing.Point(769, 257);
+            this.lbl_Nam.Location = new System.Drawing.Point(742, 259);
             this.lbl_Nam.Name = "lbl_Nam";
             this.lbl_Nam.Size = new System.Drawing.Size(65, 20);
             this.lbl_Nam.TabIndex = 0;
@@ -393,7 +395,7 @@ namespace _3.PL.Views
             // 
             this.lbl_Thang.AutoSize = true;
             this.lbl_Thang.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_Thang.Location = new System.Drawing.Point(696, 257);
+            this.lbl_Thang.Location = new System.Drawing.Point(669, 259);
             this.lbl_Thang.Name = "lbl_Thang";
             this.lbl_Thang.Size = new System.Drawing.Size(33, 20);
             this.lbl_Thang.TabIndex = 0;
@@ -404,18 +406,28 @@ namespace _3.PL.Views
             // 
             this.lbl_Ngay.AutoSize = true;
             this.lbl_Ngay.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_Ngay.Location = new System.Drawing.Point(623, 257);
+            this.lbl_Ngay.Location = new System.Drawing.Point(596, 259);
             this.lbl_Ngay.Name = "lbl_Ngay";
             this.lbl_Ngay.Size = new System.Drawing.Size(37, 20);
             this.lbl_Ngay.TabIndex = 0;
             this.lbl_Ngay.Text = ".......";
             this.lbl_Ngay.Click += new System.EventHandler(this.label15_Click);
             // 
+            // lbl_tienChu
+            // 
+            this.lbl_tienChu.AutoSize = true;
+            this.lbl_tienChu.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_tienChu.Location = new System.Drawing.Point(274, 598);
+            this.lbl_tienChu.Name = "lbl_tienChu";
+            this.lbl_tienChu.Size = new System.Drawing.Size(65, 20);
+            this.lbl_tienChu.TabIndex = 0;
+            this.lbl_tienChu.Text = "..............";
+            // 
             // lbl_DiaChi
             // 
             this.lbl_DiaChi.AutoSize = true;
             this.lbl_DiaChi.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_DiaChi.Location = new System.Drawing.Point(403, 356);
+            this.lbl_DiaChi.Location = new System.Drawing.Point(376, 358);
             this.lbl_DiaChi.Name = "lbl_DiaChi";
             this.lbl_DiaChi.Size = new System.Drawing.Size(65, 20);
             this.lbl_DiaChi.TabIndex = 0;
@@ -425,7 +437,7 @@ namespace _3.PL.Views
             // 
             this.lbl_SdtKhachHang.AutoSize = true;
             this.lbl_SdtKhachHang.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_SdtKhachHang.Location = new System.Drawing.Point(403, 323);
+            this.lbl_SdtKhachHang.Location = new System.Drawing.Point(376, 325);
             this.lbl_SdtKhachHang.Name = "lbl_SdtKhachHang";
             this.lbl_SdtKhachHang.Size = new System.Drawing.Size(65, 20);
             this.lbl_SdtKhachHang.TabIndex = 0;
@@ -435,21 +447,11 @@ namespace _3.PL.Views
             // 
             this.lbl_KhachHang.AutoSize = true;
             this.lbl_KhachHang.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_KhachHang.Location = new System.Drawing.Point(403, 288);
+            this.lbl_KhachHang.Location = new System.Drawing.Point(376, 290);
             this.lbl_KhachHang.Name = "lbl_KhachHang";
             this.lbl_KhachHang.Size = new System.Drawing.Size(65, 20);
             this.lbl_KhachHang.TabIndex = 0;
             this.lbl_KhachHang.Text = "..............";
-            // 
-            // lbl_tienChu
-            // 
-            this.lbl_tienChu.AutoSize = true;
-            this.lbl_tienChu.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_tienChu.Location = new System.Drawing.Point(301, 596);
-            this.lbl_tienChu.Name = "lbl_tienChu";
-            this.lbl_tienChu.Size = new System.Drawing.Size(65, 20);
-            this.lbl_tienChu.TabIndex = 0;
-            this.lbl_tienChu.Text = "..............";
             // 
             // FrmPrint
             // 
