@@ -36,6 +36,8 @@
             this.tbx_Tiendauca = new System.Windows.Forms.TextBox();
             this.lb_thoigianbatdau = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lb_maca = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -112,6 +114,7 @@
             this.lb_thoigianbatdau.Size = new System.Drawing.Size(123, 20);
             this.lb_thoigianbatdau.TabIndex = 6;
             this.lb_thoigianbatdau.Text = "thoi gian bat dau";
+          
             // 
             // label4
             // 
@@ -123,12 +126,34 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "VND";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Sitka Small", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(41, 78);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(69, 23);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Mã Ca :";
+            // 
+            // lb_maca
+            // 
+            this.lb_maca.AutoSize = true;
+            this.lb_maca.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_maca.Location = new System.Drawing.Point(259, 80);
+            this.lb_maca.Name = "lb_maca";
+            this.lb_maca.Size = new System.Drawing.Size(49, 20);
+            this.lb_maca.TabIndex = 9;
+            this.lb_maca.Text = "ma ca";
+            // 
             // FrmXacNhanGiaoCa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(452, 276);
+            this.Controls.Add(this.lb_maca);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lb_thoigianbatdau);
             this.Controls.Add(this.tbx_Tiendauca);
@@ -156,5 +181,7 @@
         private System.Windows.Forms.TextBox tbx_Tiendauca;
         private System.Windows.Forms.Label lb_thoigianbatdau;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lb_maca;
     }
 }

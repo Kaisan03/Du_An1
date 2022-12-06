@@ -176,7 +176,7 @@ namespace _3.PL.Views
                 iconButton3.Visible = false;
                 iconButton4.Visible = false;
                 iconButton5.Visible = false;
-                iconButton6.Visible = false;
+                
                 iconButton7.Visible = false;
                 iconButton8.Visible = false;
                 iconButton9.Visible = false;
@@ -190,7 +190,7 @@ namespace _3.PL.Views
                 iconButton3.Visible = true;
                 iconButton4.Visible = true;
                 iconButton5.Visible = true;
-                iconButton6.Visible = true;
+                
                 iconButton7.Visible = true;
                 iconButton8.Visible = true;
                 iconButton9.Visible = true;
@@ -201,7 +201,7 @@ namespace _3.PL.Views
 
         private void btn_caidat_Click(object sender, EventArgs e)
         {
-            lb_change.Text = btn_caidat.Text;
+            lb_change.Text = btn_nhanvien.Text;
             ActiveButton(sender, RGBColors.color6);
         }
 
@@ -283,7 +283,7 @@ namespace _3.PL.Views
 
         private void iconButton6_Click(object sender, EventArgs e)
         {
-            lb_change.Text = iconButton6.Text;
+            lb_change.Text = btn_khachhang.Text;
             OpenChildForm(new FrmKhachHang());
         }
 
@@ -334,7 +334,7 @@ namespace _3.PL.Views
         }
         private void iconButton6_MouseHover(object sender, EventArgs e)
         {
-            iconButton6.BackColor = Color.FromArgb(255, 255, 192);
+            btn_khachhang.BackColor = Color.FromArgb(255, 255, 192);
         }
         private void iconButton7_MouseHover(object sender, EventArgs e)
         {
@@ -381,7 +381,7 @@ namespace _3.PL.Views
         }
         private void iconButton6_MouseLeave(object sender, EventArgs e)
         {
-            iconButton6.BackColor = Color.White;
+            btn_khachhang.BackColor = Color.White;
         }
         private void iconButton7_MouseLeave(object sender, EventArgs e)
         {
@@ -406,10 +406,6 @@ namespace _3.PL.Views
 
         private void btn_caidat_Click_1(object sender, EventArgs e)
         {
-           
-            FrmGiaoCa frmGiaoCa = new FrmGiaoCa();
-            frmGiaoCa.ShowDialog();
-
         }
     }
 }

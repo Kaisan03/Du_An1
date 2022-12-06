@@ -19,10 +19,12 @@ namespace _3.PL.Views
     public partial class FrmDangNhap : Form
     {
         public IGiaoCaService _igiaocaservice;
+        public INhanVienService _inhanvienservice;
         public FrmDangNhap()
         {
             InitializeComponent();
             _igiaocaservice = new GiaoCaService();
+            _inhanvienservice = new NhanVienService();
             FuckYou1();
 
         }
@@ -89,6 +91,7 @@ namespace _3.PL.Views
                 if (dta.Read() == true)
                 {
                     MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                     var nv = _inhanvienservice.GetAllNhanVien().FirstOrDefault(x => x.Email == taiKhoan);
                     int id11 = _igiaocaservice.GetAllGiaoca().Count + 1;
                     GiaoCa Giaoca = new GiaoCa()
                     {
@@ -97,11 +100,11 @@ namespace _3.PL.Views
                         ThoiGianNhanCa = DateTime.Now,
                         TienBatDauCa = 1000000,
                         TrangThai = 0,
+                        IdNhanVienTrongCa = nv.Id,
                     };
                     _igiaocaservice.Add(Giaoca);
                     FrmXacNhanGiaoCa frmgiaoca = new FrmXacNhanGiaoCa();
                     frmgiaoca.Show();
-                    this.Close();
                 }
                 else
                 {
