@@ -232,7 +232,7 @@ namespace _3.PL.Views
             
             
 
-            foreach (var x in _ihoadonservice.GetallHoadon().Where(c => c.Ma == acbc && c.TrangThai == 1|| c.TrangThai == 2|| c.TrangThai == 3))
+            foreach (var x in _ihoadonservice.GetallHoadon().Where(c => c.Ma == acbc && (c.TrangThai == 1|| c.TrangThai == 2|| c.TrangThai == 3)))
             {
                 var g = 
                 dgrid_view.Rows.Add(x.Id, x.TenNguoiNhan, x.Sdt, x.TongTien, x.TrangThai==1? "Tiền mặt":x.TrangThai==2? "Chuyển khoản": "Chuyển khoản và tiền mặt", x.NgayThanhToan, x.GhiChu);
