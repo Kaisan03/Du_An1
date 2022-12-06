@@ -22,6 +22,7 @@ using AForge.Video.DirectShow;
 using Microsoft.Data.SqlClient;
 using Microsoft.Office.Interop.Excel;
 using Microsoft.VisualBasic;
+using XAct;
 using ZXing.Windows.Compatibility;
 using Button = System.Windows.Forms.Button;
 using Font = System.Drawing.Font;
@@ -269,6 +270,10 @@ namespace _3.PL.Views
             var sp = _chiTietGiayService.GetAllCTGiay().FirstOrDefault(c => c.Id == id);
             var idTmp = _hoaDonService.GetallHoadon().FirstOrDefault(c => c.Ma == lbl_MahoaDon.Text).Id;
             var data = _hoaDonChiTietService.GetAllHoaDonCT().FirstOrDefault(c => c.IdChiTietGiay == id && c.IdHoaDon == idTmp);
+            if (content == "")
+            {
+                return;
+            }else
             if (Convert.ToInt32(content) <= sp.SoLuongTon)
             {
 
@@ -595,7 +600,7 @@ namespace _3.PL.Views
         public void FuckYou()
         {
             SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = "Data Source=LAPTOP-OF-KHAI\\SQLEXPRESS;Initial Catalog=Duan1;Persist Security Info=True;User ID=khainq03;Password=123456";
+            connection.ConnectionString = "Data Source=LAPTOP-46F72MJA\\SQLEXPRESS;Initial Catalog=Duan11;Persist Security Info=True;User ID=duyvtph24890;Password=123456";
 
             connection.Open();
             SqlCommand sqlCommand = new SqlCommand("select Sdt FROM KhachHang", connection);
@@ -624,6 +629,11 @@ namespace _3.PL.Views
                     MessageBox.Show("Hóa đơn trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
+                if (Regex.IsMatch(txt_Sdt.Text, @"^[0-9]") == false)
+                {
+                    MessageBox.Show("Số điện thoại không được chứa chữ");
+                    return;
+                }
                 //if (Convert.ToInt32(txt_TienKhachDua.Text) < Convert.ToInt32(txt_TongTien.Text))
                 //{
                 //    MessageBox.Show("Tiền khách đưa không đủ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -631,6 +641,10 @@ namespace _3.PL.Views
                 //}
                 var updateHoaDon = _hoaDonService.GetallHoadon().Where(c => c.Ma == lbl_MahoaDon.Text).FirstOrDefault();
                 updateHoaDon.TenNguoiNhan = txt_TenKH.Text;
+                if (txt_TenKH.Text == "")
+                {
+                    updateHoaDon.TenNguoiNhan = "Khách vãng lai";
+                }
                 updateHoaDon.TongTien = Convert.ToInt32(txt_TongTien.Text);
                 updateHoaDon.Sdt = txt_Sdt.Text;
                 updateHoaDon.TienMat = Convert.ToInt32(txt_TienMat.Text);
@@ -673,6 +687,11 @@ namespace _3.PL.Views
                 if (String.IsNullOrEmpty(txt_TongTien.Text) || txt_TongTien.Text == "0")
                 {
                     MessageBox.Show("Hóa đơn trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                if (txt_TenKH.Text == "" || txt_DiaChi.Text == "")
+                {
+                    MessageBox.Show("Bạn phải điền đầy đủ thông tin");
                     return;
                 }
                 //if (Convert.ToInt32(txt_TienCoc.Text) < (Convert.ToInt32(txt_TongTien.Text)*40/100))
