@@ -272,6 +272,7 @@
             this.btn_huy.TabIndex = 24;
             this.btn_huy.Text = "Hủy";
             this.btn_huy.UseVisualStyleBackColor = true;
+            this.btn_huy.Click += new System.EventHandler(this.btn_huy_Click);
             // 
             // FrmGiaoCa
             // 

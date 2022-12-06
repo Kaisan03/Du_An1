@@ -1,4 +1,6 @@
-﻿namespace _3.PL.Views
+﻿using Org.BouncyCastle.Bcpg;
+
+namespace _3.PL.Views
 {
     partial class FrmMain2
     {
@@ -30,13 +32,14 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel_menu = new System.Windows.Forms.Panel();
-            this.btn_caidat = new FontAwesome.Sharp.IconButton();
+            this.btn_ketthuc = new FontAwesome.Sharp.IconButton();
+            this.btn_khachhang = new FontAwesome.Sharp.IconButton();
+            this.btn_nhanvien = new FontAwesome.Sharp.IconButton();
             this.iconButton11 = new FontAwesome.Sharp.IconButton();
             this.iconButton10 = new FontAwesome.Sharp.IconButton();
             this.iconButton9 = new FontAwesome.Sharp.IconButton();
             this.iconButton8 = new FontAwesome.Sharp.IconButton();
             this.iconButton7 = new FontAwesome.Sharp.IconButton();
-            this.iconButton6 = new FontAwesome.Sharp.IconButton();
             this.iconButton5 = new FontAwesome.Sharp.IconButton();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
@@ -60,23 +63,26 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel_dektop = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.panel_menu.SuspendLayout();
             this.panel_logo.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconChange)).BeginInit();
+            this.panel_dektop.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_menu
             // 
             this.panel_menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.panel_menu.Controls.Add(this.btn_caidat);
+            this.panel_menu.Controls.Add(this.btn_ketthuc);
+            this.panel_menu.Controls.Add(this.btn_khachhang);
+            this.panel_menu.Controls.Add(this.btn_nhanvien);
             this.panel_menu.Controls.Add(this.iconButton11);
             this.panel_menu.Controls.Add(this.iconButton10);
             this.panel_menu.Controls.Add(this.iconButton9);
             this.panel_menu.Controls.Add(this.iconButton8);
             this.panel_menu.Controls.Add(this.iconButton7);
-            this.panel_menu.Controls.Add(this.iconButton6);
             this.panel_menu.Controls.Add(this.iconButton5);
             this.panel_menu.Controls.Add(this.iconButton4);
             this.panel_menu.Controls.Add(this.iconButton3);
@@ -91,30 +97,70 @@
             this.panel_menu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel_menu.Location = new System.Drawing.Point(0, 0);
             this.panel_menu.Name = "panel_menu";
-            this.panel_menu.Size = new System.Drawing.Size(281, 852);
+            this.panel_menu.Size = new System.Drawing.Size(281, 969);
             this.panel_menu.TabIndex = 0;
-            this.panel_menu.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_menu_Paint);
             // 
-            // btn_caidat
+            // btn_ketthuc
             // 
-            this.btn_caidat.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_caidat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_caidat.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_caidat.ForeColor = System.Drawing.Color.Black;
-            this.btn_caidat.IconChar = FontAwesome.Sharp.IconChar.Cog;
-            this.btn_caidat.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btn_caidat.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_caidat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_caidat.Location = new System.Drawing.Point(0, 804);
-            this.btn_caidat.Name = "btn_caidat";
-            this.btn_caidat.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btn_caidat.Size = new System.Drawing.Size(281, 63);
-            this.btn_caidat.TabIndex = 19;
-            this.btn_caidat.Text = "Cài Đặt";
-            this.btn_caidat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_caidat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_caidat.UseVisualStyleBackColor = true;
-            this.btn_caidat.Click += new System.EventHandler(this.btn_caidat_Click_1);
+            this.btn_ketthuc.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_ketthuc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ketthuc.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_ketthuc.ForeColor = System.Drawing.Color.Black;
+            this.btn_ketthuc.IconChar = FontAwesome.Sharp.IconChar.RightFromBracket;
+            this.btn_ketthuc.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(79)))));
+            this.btn_ketthuc.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_ketthuc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_ketthuc.Location = new System.Drawing.Point(0, 896);
+            this.btn_ketthuc.Name = "btn_ketthuc";
+            this.btn_ketthuc.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btn_ketthuc.Size = new System.Drawing.Size(281, 63);
+            this.btn_ketthuc.TabIndex = 21;
+            this.btn_ketthuc.Text = "Kết Thúc";
+            this.btn_ketthuc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_ketthuc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_ketthuc.UseVisualStyleBackColor = true;
+            this.btn_ketthuc.Click += new System.EventHandler(this.btn_ketthuc_Click);
+            // 
+            // btn_khachhang
+            // 
+            this.btn_khachhang.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_khachhang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_khachhang.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_khachhang.ForeColor = System.Drawing.Color.Black;
+            this.btn_khachhang.IconChar = FontAwesome.Sharp.IconChar.AddressBook;
+            this.btn_khachhang.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(79)))));
+            this.btn_khachhang.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_khachhang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_khachhang.Location = new System.Drawing.Point(0, 833);
+            this.btn_khachhang.Name = "btn_khachhang";
+            this.btn_khachhang.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btn_khachhang.Size = new System.Drawing.Size(281, 63);
+            this.btn_khachhang.TabIndex = 20;
+            this.btn_khachhang.Text = "Khách Hàng";
+            this.btn_khachhang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_khachhang.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_khachhang.UseVisualStyleBackColor = true;
+            this.btn_khachhang.Click += new System.EventHandler(this.btn_khachhang_Click);
+            // 
+            // btn_nhanvien
+            // 
+            this.btn_nhanvien.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_nhanvien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_nhanvien.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_nhanvien.ForeColor = System.Drawing.Color.Black;
+            this.btn_nhanvien.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.btn_nhanvien.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(79)))));
+            this.btn_nhanvien.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_nhanvien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_nhanvien.Location = new System.Drawing.Point(0, 770);
+            this.btn_nhanvien.Name = "btn_nhanvien";
+            this.btn_nhanvien.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btn_nhanvien.Size = new System.Drawing.Size(281, 63);
+            this.btn_nhanvien.TabIndex = 19;
+            this.btn_nhanvien.Text = "Nhân Viên";
+            this.btn_nhanvien.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_nhanvien.UseVisualStyleBackColor = true;
+            this.btn_nhanvien.Click += new System.EventHandler(this.btn_nhanvien_Click);
             // 
             // iconButton11
             // 
@@ -127,7 +173,7 @@
             this.iconButton11.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.iconButton11.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton11.Location = new System.Drawing.Point(0, 766);
+            this.iconButton11.Location = new System.Drawing.Point(0, 732);
             this.iconButton11.Name = "iconButton11";
             this.iconButton11.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.iconButton11.Size = new System.Drawing.Size(281, 38);
@@ -151,7 +197,7 @@
             this.iconButton10.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.iconButton10.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton10.Location = new System.Drawing.Point(0, 728);
+            this.iconButton10.Location = new System.Drawing.Point(0, 694);
             this.iconButton10.Name = "iconButton10";
             this.iconButton10.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.iconButton10.Size = new System.Drawing.Size(281, 38);
@@ -175,7 +221,7 @@
             this.iconButton9.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.iconButton9.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton9.Location = new System.Drawing.Point(0, 694);
+            this.iconButton9.Location = new System.Drawing.Point(0, 660);
             this.iconButton9.Name = "iconButton9";
             this.iconButton9.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.iconButton9.Size = new System.Drawing.Size(281, 34);
@@ -199,7 +245,7 @@
             this.iconButton8.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.iconButton8.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton8.Location = new System.Drawing.Point(0, 660);
+            this.iconButton8.Location = new System.Drawing.Point(0, 626);
             this.iconButton8.Name = "iconButton8";
             this.iconButton8.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.iconButton8.Size = new System.Drawing.Size(281, 34);
@@ -223,7 +269,7 @@
             this.iconButton7.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.iconButton7.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton7.Location = new System.Drawing.Point(0, 626);
+            this.iconButton7.Location = new System.Drawing.Point(0, 592);
             this.iconButton7.Name = "iconButton7";
             this.iconButton7.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.iconButton7.Size = new System.Drawing.Size(281, 34);
@@ -235,30 +281,6 @@
             this.iconButton7.Click += new System.EventHandler(this.iconButton7_Click);
             this.iconButton7.MouseLeave += new System.EventHandler(this.iconButton7_MouseLeave);
             this.iconButton7.MouseHover += new System.EventHandler(this.iconButton7_MouseHover);
-            // 
-            // iconButton6
-            // 
-            this.iconButton6.BackColor = System.Drawing.Color.White;
-            this.iconButton6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.iconButton6.ForeColor = System.Drawing.Color.Black;
-            this.iconButton6.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton6.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton6.Location = new System.Drawing.Point(0, 592);
-            this.iconButton6.Name = "iconButton6";
-            this.iconButton6.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.iconButton6.Size = new System.Drawing.Size(281, 34);
-            this.iconButton6.TabIndex = 13;
-            this.iconButton6.Text = "Khách hàng";
-            this.iconButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton6.UseVisualStyleBackColor = false;
-            this.iconButton6.Visible = false;
-            this.iconButton6.Click += new System.EventHandler(this.iconButton6_Click);
-            this.iconButton6.MouseLeave += new System.EventHandler(this.iconButton6_MouseLeave);
-            this.iconButton6.MouseHover += new System.EventHandler(this.iconButton6_MouseHover);
             // 
             // iconButton5
             // 
@@ -387,7 +409,7 @@
             this.btn_tuychon.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_tuychon.ForeColor = System.Drawing.Color.Black;
             this.btn_tuychon.IconChar = FontAwesome.Sharp.IconChar.Navicon;
-            this.btn_tuychon.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_tuychon.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(79)))));
             this.btn_tuychon.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_tuychon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_tuychon.Location = new System.Drawing.Point(0, 356);
@@ -407,7 +429,7 @@
             this.btn_hoadon.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_hoadon.ForeColor = System.Drawing.Color.Black;
             this.btn_hoadon.IconChar = FontAwesome.Sharp.IconChar.Wallet;
-            this.btn_hoadon.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_hoadon.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(79)))));
             this.btn_hoadon.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_hoadon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_hoadon.Location = new System.Drawing.Point(0, 293);
@@ -428,7 +450,7 @@
             this.btn_sanpham.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_sanpham.ForeColor = System.Drawing.Color.Black;
             this.btn_sanpham.IconChar = FontAwesome.Sharp.IconChar.StoreAlt;
-            this.btn_sanpham.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_sanpham.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(79)))));
             this.btn_sanpham.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_sanpham.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_sanpham.Location = new System.Drawing.Point(0, 230);
@@ -449,7 +471,7 @@
             this.btn_orders.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_orders.ForeColor = System.Drawing.Color.Black;
             this.btn_orders.IconChar = FontAwesome.Sharp.IconChar.ShoppingCart;
-            this.btn_orders.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_orders.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(79)))));
             this.btn_orders.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_orders.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_orders.Location = new System.Drawing.Point(0, 167);
@@ -470,7 +492,7 @@
             this.btn_trangchu.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_trangchu.ForeColor = System.Drawing.Color.Black;
             this.btn_trangchu.IconChar = FontAwesome.Sharp.IconChar.Home;
-            this.btn_trangchu.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_trangchu.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(79)))));
             this.btn_trangchu.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btn_trangchu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_trangchu.Location = new System.Drawing.Point(0, 104);
@@ -512,7 +534,6 @@
             this.btn_image.Text = "  Shoes for you";
             this.btn_image.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_image.UseVisualStyleBackColor = false;
-            this.btn_image.Click += new System.EventHandler(this.btn_image_Click);
             // 
             // panel1
             // 
@@ -599,9 +620,9 @@
             // IconChange
             // 
             this.IconChange.BackColor = System.Drawing.Color.Transparent;
-            this.IconChange.ForeColor = System.Drawing.Color.DarkOrange;
+            this.IconChange.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(79)))));
             this.IconChange.IconChar = FontAwesome.Sharp.IconChar.Home;
-            this.IconChange.IconColor = System.Drawing.Color.DarkOrange;
+            this.IconChange.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(79)))));
             this.IconChange.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.IconChange.IconSize = 52;
             this.IconChange.Location = new System.Drawing.Point(60, 12);
@@ -623,10 +644,11 @@
             // 
             this.panel_dektop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(79)))));
             this.panel_dektop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel_dektop.Controls.Add(this.button1);
             this.panel_dektop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_dektop.Location = new System.Drawing.Point(281, 105);
             this.panel_dektop.Name = "panel_dektop";
-            this.panel_dektop.Size = new System.Drawing.Size(1200, 747);
+            this.panel_dektop.Size = new System.Drawing.Size(1200, 864);
             this.panel_dektop.TabIndex = 3;
             // 
             // timer1
@@ -634,11 +656,30 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(79)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Monotype Corsiva", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.Color.OrangeRed;
+            this.button1.Image = global::_3.PL.Properties.Resources.icons8_shoes_64;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(539, 349);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(281, 106);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "  Shoes for you";
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // FrmMain2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1481, 852);
+            this.ClientSize = new System.Drawing.Size(1481, 969);
             this.Controls.Add(this.panel_dektop);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -652,6 +693,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconChange)).EndInit();
+            this.panel_dektop.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -679,9 +721,8 @@
         private FontAwesome.Sharp.IconButton iconButton2;
         private FontAwesome.Sharp.IconButton iconButton1;
         private FontAwesome.Sharp.IconButton iconButton7;
-        private FontAwesome.Sharp.IconButton iconButton6;
         private FontAwesome.Sharp.IconButton iconButton5;
-        private FontAwesome.Sharp.IconButton btn_caidat;
+        private FontAwesome.Sharp.IconButton btn_nhanvien;
         private FontAwesome.Sharp.IconButton iconButton11;
         private FontAwesome.Sharp.IconButton iconButton10;
         private FontAwesome.Sharp.IconButton iconButton9;
@@ -689,5 +730,8 @@
         private System.Windows.Forms.Label txt_MaNhanVien;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private System.Windows.Forms.Label label1;
+        private FontAwesome.Sharp.IconButton btn_ketthuc;
+        private FontAwesome.Sharp.IconButton btn_khachhang;
+        private System.Windows.Forms.Button button1;
     }
 }
