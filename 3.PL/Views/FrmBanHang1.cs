@@ -633,7 +633,9 @@ namespace _3.PL.Views
                 updateHoaDon.TenNguoiNhan = txt_TenKH.Text;
                 updateHoaDon.TongTien = Convert.ToInt32(txt_TongTien.Text);
                 updateHoaDon.Sdt = txt_Sdt.Text;
-                if(updateHoaDon.TienMat>0&& updateHoaDon.ChuyenKhoan > 0)
+                updateHoaDon.TienMat = Convert.ToInt32(txt_TienMat.Text);
+                updateHoaDon.ChuyenKhoan = Convert.ToInt32(txt_TienCK.Text);
+                if (updateHoaDon.TienMat>0&& updateHoaDon.ChuyenKhoan > 0)
                 {
                     updateHoaDon.TrangThai = 3;
                 }
@@ -649,17 +651,16 @@ namespace _3.PL.Views
                 }
                 updateHoaDon.GhiChu = richTextBox1.Text;
                 updateHoaDon.NgayThanhToan = DateTime.Now;
-                updateHoaDon.TienMat = Convert.ToInt32(txt_TienMat.Text);
-                updateHoaDon.ChuyenKhoan = Convert.ToInt32(txt_TienCK.Text);
-                _hoaDonService.Update(updateHoaDon);
                 
+                _hoaDonService.Update(updateHoaDon);
+                cookroi();
                 if (cb_inHoaDon.Checked)
                 {
                     //inHoaDon();
                     FrmPrint frmPrint = new FrmPrint(updateHoaDon);
                     frmPrint.ShowDialog();
                 }
-                cookroi();
+                
                 dgrid_GioHang.Rows.Clear();
                 lbl_MahoaDon.Text = "....";
             }
