@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -165,6 +166,7 @@ namespace _3.PL.Views
             OpenChildForm(new FrmHoadon());
         }
 
+
         private void btn_tuychon_Click(object sender, EventArgs e)
         {
             lb_change.Text = btn_tuychon.Text;
@@ -198,13 +200,22 @@ namespace _3.PL.Views
                 iconButton11.Visible = true;
             }
         }
-
-        private void btn_caidat_Click(object sender, EventArgs e)
+        private void btn_ketthuc_Click(object sender, EventArgs e)
         {
-            lb_change.Text = btn_nhanvien.Text;
-            ActiveButton(sender, RGBColors.color6);
+            //lb_change.Text = btn_ketthuc.Text;
+            //ActiveButton(sender, RGBColors.color4);
+            //OpenChildForm(new FrmGiaoCa());
+            FrmGiaoCa giaoca = new FrmGiaoCa();
+            giaoca.ShowDialog();
+
         }
 
+        private void btn_nhanvien_Click(object sender, EventArgs e)
+        {
+            lb_change.Text = btn_nhanvien.Text;
+            ActiveButton(sender, RGBColors.color3);
+            OpenChildForm(new FrmNhanVien());
+        }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             currentFormChild.Close();
@@ -240,17 +251,6 @@ namespace _3.PL.Views
         {
             txt_Time.Text = DateTime.Now.ToLongTimeString();
         }
-
-        private void btn_image_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel_menu_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void iconButton1_Click(object sender, EventArgs e)
         {
             lb_change.Text = iconButton1.Text;
@@ -356,9 +356,6 @@ namespace _3.PL.Views
         {
             iconButton11.BackColor = Color.FromArgb(255, 255, 192);
         }
-
-
-
         private void iconButton1_MouseLeave(object sender, EventArgs e)
         {
             iconButton1.BackColor = Color.White;
@@ -404,8 +401,13 @@ namespace _3.PL.Views
             iconButton11.BackColor = Color.White;
         }
 
-        private void btn_caidat_Click_1(object sender, EventArgs e)
+        private void btn_khachhang_Click(object sender, EventArgs e)
         {
+            lb_change.Text = btn_khachhang.Text;
+            ActiveButton(sender, RGBColors.color2);
+            OpenChildForm(new FrmKhachHang());
         }
+
+        
     }
 }

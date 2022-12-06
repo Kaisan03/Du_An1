@@ -19,12 +19,12 @@ namespace _3.PL.Views
         public INhanVienService _iNhanVienservice;
         public IHoaDonChiTietService _iHoaDonchitietservice;
         public IHoaDonService _ihoadonservice;
-        public IGiaoCaService _iGiaoCaService;
-
+        public IGiaoCaService _iGiaocaService;
+        public GiaoCa _idgiaoca;
         public FrmGiaoCa()
         {
             InitializeComponent();
-            _iGiaoCaService= new GiaoCaService();
+            _iGiaocaService = new GiaoCaService();
             _ihoadonservice = new HoaDonService();
             _iHoaDonchitietservice = new HoaDonChiTietService();
             _iNhanVienservice = new NhanVienService();
@@ -33,9 +33,20 @@ namespace _3.PL.Views
 
         private void FrmGiaoCa_Load(object sender, EventArgs e)
         {
-            lb_maca.Text = Convert.ToString(_iGiaoCaService.GetAllGiaoca().Max(c => c.Id));
-           // lb_thoigianbatdau;
+            var x = _iGiaocaService.GetAllGiaoca().Max(c => c.Id);
+            var giaoca = _iGiaocaService.GetAllGiaoca().FirstOrDefault(c => c.Id == x);
+            _idgiaoca = giaoca;
+            lb_maca.Text =giaoca.Ma;
+            lb_thoigianbatdau.Text = Convert.ToString(giaoca.ThoiGianNhanCa);
+            lb_thoigianketthuc.Text = Convert.ToString(DateTime.Now);
+            lb_tienbandau.Text = Convert.ToString(giaoca.TienBatDauCa);
 
+
+        }
+
+        private void btn_huy_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
