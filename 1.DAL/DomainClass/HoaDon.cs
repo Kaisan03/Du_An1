@@ -51,6 +51,9 @@ namespace _1.DAL.DomainClass
         public decimal? TongTien { get; set; }
         public decimal? TienShip { get; set; }
         public decimal? TienCoc { get; set; }
+        public decimal? TienKhachDua { get; set; }
+        public decimal? TienMat { get; set; }
+        public decimal? ChuyenKhoan { get; set; }
         public int? TrangThai { get; set; }
         [Column("idSanPham")]
         public Guid? IdSanPham { get; set; }

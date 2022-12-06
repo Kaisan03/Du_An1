@@ -198,11 +198,11 @@ namespace _3.PL.Views
             }
 
 
-            foreach (var i in _ihoadonservice.GetallHoadon().Where(c => c.TrangThai == 1))
+            foreach (var i in _ihoadonservice.GetallHoadon().Where(c => c.TrangThai == 1 || c.TrangThai == 2 || c.TrangThai == 3))
             {
                 Button btn_HoaDonCho = new Button();
 
-                btn_HoaDonCho.Text = i.Ma + Environment.NewLine + (i.TrangThai == 0 ? "Chưa thanh toán" : (i.TrangThai == 2 ? "Đang giao hàng" : (i.TrangThai==1? "Đã thanh toán" : "Đã hủy")));
+                btn_HoaDonCho.Text = i.Ma + Environment.NewLine + "Đã thanh toán";
                 btn_HoaDonCho.ForeColor = Color.FromArgb(255, 89, 136);
                 btn_HoaDonCho.Tag = i;
                 btn_HoaDonCho.Width = 60;
@@ -232,10 +232,10 @@ namespace _3.PL.Views
             
             
 
-            foreach (var x in _ihoadonservice.GetallHoadon().Where(c => c.Ma == acbc && c.TrangThai == 1))
+            foreach (var x in _ihoadonservice.GetallHoadon().Where(c => c.Ma == acbc && c.TrangThai == 1|| c.TrangThai == 2|| c.TrangThai == 3))
             {
                 var g = 
-                dgrid_view.Rows.Add(x.Id, x.TenNguoiNhan, x.Sdt, x.TongTien, "Đã thanh toán", x.NgayThanhToan, x.GhiChu);
+                dgrid_view.Rows.Add(x.Id, x.TenNguoiNhan, x.Sdt, x.TongTien, x.TrangThai==1? "Tiền mặt":x.TrangThai==2? "Chuyển khoản": "Chuyển khoản và tiền mặt", x.NgayThanhToan, x.GhiChu);
             }
             
         }
