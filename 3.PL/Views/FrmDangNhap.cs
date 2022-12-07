@@ -26,7 +26,7 @@ namespace _3.PL.Views
             _igiaocaservice = new GiaoCaService();
             _inhanvienservice = new NhanVienService();
             FuckYou1();
-
+            this.WindowState = FormWindowState.Maximized;
         }
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
 
@@ -79,7 +79,7 @@ namespace _3.PL.Views
                 Properties.Settings.Default.UserName = "";
                 Properties.Settings.Default.Save();
             }
-            SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-46F72MJA\SQLEXPRESS;Initial Catalog=Duan11;Persist Security Info=True;User ID=duyvtph24890;Password=123456");
+            SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-59BFCFR;Initial Catalog=Duan1A;Persist Security Info=True;User ID=ph24903;Password=12345678");
             try
             {
                 conn.Open();
@@ -91,22 +91,24 @@ namespace _3.PL.Views
                 if (dta.Read() == true)
                 {
                     MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    FrmMain2 frmMain2 = new FrmMain2();
-                    frmMain2.Show();
-                    // var nv = _inhanvienservice.GetAllNhanVien().FirstOrDefault(x => x.Email == taiKhoan);
-                    //int id11 = _igiaocaservice.GetAllGiaoca().Count + 1;
-                    //GiaoCa Giaoca = new GiaoCa()
-                    //{
-                    //    Id = id11,
-                    //    Ma = "CA00" + (_igiaocaservice.GetAllGiaoca().Count + 1),
-                    //    ThoiGianNhanCa = DateTime.Now,
-                    //    TienBatDauCa = 1000000,
-                    //    TrangThai = 0,
-                    //    IdNhanVienTrongCa = nv.Id,
-                    //};
-                    //_igiaocaservice.Add(Giaoca);
-                    //FrmXacNhanGiaoCa frmgiaoca = new FrmXacNhanGiaoCa();
-                    //frmgiaoca.Show();
+                   
+                    var nv = _inhanvienservice.GetAllNhanVien().FirstOrDefault(x => x.Email == taiKhoan);
+                    int id11 = _igiaocaservice.GetAllGiaoca().Count + 1;
+                    GiaoCa Giaoca = new GiaoCa()
+                    {
+                        Id = id11,
+                        Ma = "CA00" + (_igiaocaservice.GetAllGiaoca().Count + 1),
+                        ThoiGianNhanCa = DateTime.Now,
+                        TienBatDauCa = 1000000,
+                        TrangThai = 0,
+                        IdNhanVienTrongCa = nv.Id,
+                    };
+                    _igiaocaservice.Add(Giaoca);
+                    
+                    FrmXacNhanGiaoCa frmgiaoca = new FrmXacNhanGiaoCa();
+                    frmgiaoca.Show();
+                    this.Hide();
+                   
                 }
                 else
                 {

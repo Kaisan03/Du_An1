@@ -89,7 +89,7 @@ namespace _3.PL.Views
             var size11 = _IChiTietGiayService.GetAllCTGiay().Select(c => c.TrangThai == 1 ? "Hết hàng":"Còn hàng".ToString()).Distinct();
             foreach (var x in size11)
             {
-                cmb_Loc.Items.Add(x);
+                //cmb_Loc.Items.Add(x);
             }
         }
         private void LoadComboBox()
@@ -348,70 +348,70 @@ namespace _3.PL.Views
         }
         private void FrmChiTietGiay_Load_1(object sender, EventArgs e)
         {
-            CaptureDevice = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-            foreach (FilterInfo Device in CaptureDevice)
-                comboBox1.Items.Add(Device.Name);
-            comboBox1.SelectedIndex = 0;
-            FinalFrame = new VideoCaptureDevice();
-            //groupBox1.Location = new Point(
-            //this.ClientSize.Width /10 - groupBox1.Size.Width/7 ,
-            //this.ClientSize.Height  - groupBox1.Size.Height );
-            groupBox1.Anchor = AnchorStyles.None;
-            groupBox1.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, groupBox1.Width,
-            groupBox1.Height, 30, 30));
+            //CaptureDevice = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            //foreach (FilterInfo Device in CaptureDevice)
+            ////    comboBox1.Items.Add(Device.Name);
+            ////comboBox1.SelectedIndex = 0;
+            //FinalFrame = new VideoCaptureDevice();
+            ////groupBox1.Location = new Point(
+            ////this.ClientSize.Width /10 - groupBox1.Size.Width/7 ,
+            ////this.ClientSize.Height  - groupBox1.Size.Height );
+            //groupBox1.Anchor = AnchorStyles.None;
+            //groupBox1.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, groupBox1.Width,
+            //groupBox1.Height, 30, 30));
             
-            //
-            //dgrid_ChiTietGiay.Location = new Point(
-            //this.ClientSize.Width / 2 - dgrid_ChiTietGiay.Size.Width / 2,
-            //this.ClientSize.Height / 2 - dgrid_ChiTietGiay.Size.Height / 2);
-            dgrid_ChiTietGiay.Anchor = AnchorStyles.None;
-            dgrid_ChiTietGiay.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, dgrid_ChiTietGiay.Width,
-            dgrid_ChiTietGiay.Height, 35, 30));
+            ////
+            ////dgrid_ChiTietGiay.Location = new Point(
+            ////this.ClientSize.Width / 2 - dgrid_ChiTietGiay.Size.Width / 2,
+            ////this.ClientSize.Height / 2 - dgrid_ChiTietGiay.Size.Height / 2);
+            //dgrid_ChiTietGiay.Anchor = AnchorStyles.None;
+            //dgrid_ChiTietGiay.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, dgrid_ChiTietGiay.Width,
+            //dgrid_ChiTietGiay.Height, 35, 30));
             
-            //
-            //groupBox2.Location = new Point(
-            //this.ClientSize.Width / 1 - groupBox2.Size.Width / 2.5,
-            //this.ClientSize.Height  - groupBox2.Size.Height );
-            groupBox2.Anchor = AnchorStyles.None;
-            groupBox2.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, groupBox2.Width,
-            groupBox2.Height, 30, 30));
-            //
-            btn_AddSize.FlatStyle = FlatStyle.Flat;
-            btn_AddSize.FlatAppearance.BorderSize = 0;
-            btn_AddNsx.FlatStyle = FlatStyle.Flat;
-            btn_AddNsx.FlatAppearance.BorderSize = 0;
-            btn_AddMauSac.FlatStyle = FlatStyle.Flat;
-            btn_AddMauSac.FlatAppearance.BorderSize = 0;
-            btn_DeGiay.FlatStyle = FlatStyle.Flat;
-            btn_DeGiay.FlatAppearance.BorderSize = 0;
-            btn_KieuDang.FlatStyle = FlatStyle.Flat;
-            btn_KieuDang.FlatAppearance.BorderSize = 0;
-            btn_addchatLieu.FlatStyle = FlatStyle.Flat;
-            btn_addchatLieu.FlatAppearance.BorderSize = 0;
-            btn_AddSp.FlatStyle = FlatStyle.Flat;
-            btn_AddSp.FlatAppearance.BorderSize = 0;
-            btn_AddAnh1.FlatStyle = FlatStyle.Flat;
-            btn_AddAnh1.FlatAppearance.BorderSize = 0;
-            //
-            cmb_TenSize.FlatStyle = FlatStyle.Flat;
-            cmb_Nsx.FlatStyle = FlatStyle.Flat;
-            cmb_MauSac.FlatStyle = FlatStyle.Flat;
-            cmb_LoaiDe.FlatStyle = FlatStyle.Flat;
-            cmb_KieuDang.FlatStyle = FlatStyle.Flat;
-            cmb_ChatLieu.FlatStyle = FlatStyle.Flat;
-            cmb_Anh.FlatStyle = FlatStyle.Flat;
-            cmb_SanPham.FlatStyle = FlatStyle.Flat;
-            //txt_NgayNhap.FlatStyle = FlatStyle.Flat;
-            //
-            btn_Them.Anchor = AnchorStyles.None;
-            btn_Them.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_Them.Width,
-            btn_Them.Height, 35, 30));
-            btn_Sua.Anchor = AnchorStyles.None;
-            btn_Sua.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_Sua.Width,
-            btn_Sua.Height, 35, 30));
-            //btn_Xoa.Anchor = AnchorStyles.None;
-            //btn_Xoa.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_Xoa.Width,
-            //btn_Xoa.Height, 35, 30));
+            ////
+            ////groupBox2.Location = new Point(
+            ////this.ClientSize.Width / 1 - groupBox2.Size.Width / 2.5,
+            ////this.ClientSize.Height  - groupBox2.Size.Height );
+            //groupBox2.Anchor = AnchorStyles.None;
+            //groupBox2.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, groupBox2.Width,
+            //groupBox2.Height, 30, 30));
+            ////
+            //btn_AddSize.FlatStyle = FlatStyle.Flat;
+            //btn_AddSize.FlatAppearance.BorderSize = 0;
+            //btn_AddNsx.FlatStyle = FlatStyle.Flat;
+            //btn_AddNsx.FlatAppearance.BorderSize = 0;
+            //btn_AddMauSac.FlatStyle = FlatStyle.Flat;
+            //btn_AddMauSac.FlatAppearance.BorderSize = 0;
+            //btn_DeGiay.FlatStyle = FlatStyle.Flat;
+            //btn_DeGiay.FlatAppearance.BorderSize = 0;
+            //btn_KieuDang.FlatStyle = FlatStyle.Flat;
+            //btn_KieuDang.FlatAppearance.BorderSize = 0;
+            //btn_addchatLieu.FlatStyle = FlatStyle.Flat;
+            //btn_addchatLieu.FlatAppearance.BorderSize = 0;
+            //btn_AddSp.FlatStyle = FlatStyle.Flat;
+            //btn_AddSp.FlatAppearance.BorderSize = 0;
+            //btn_AddAnh1.FlatStyle = FlatStyle.Flat;
+            //btn_AddAnh1.FlatAppearance.BorderSize = 0;
+            ////
+            //cmb_TenSize.FlatStyle = FlatStyle.Flat;
+            //cmb_Nsx.FlatStyle = FlatStyle.Flat;
+            //cmb_MauSac.FlatStyle = FlatStyle.Flat;
+            //cmb_LoaiDe.FlatStyle = FlatStyle.Flat;
+            //cmb_KieuDang.FlatStyle = FlatStyle.Flat;
+            //cmb_ChatLieu.FlatStyle = FlatStyle.Flat;
+            //cmb_Anh.FlatStyle = FlatStyle.Flat;
+            //cmb_SanPham.FlatStyle = FlatStyle.Flat;
+            ////txt_NgayNhap.FlatStyle = FlatStyle.Flat;
+            ////
+            //btn_Them.Anchor = AnchorStyles.None;
+            //btn_Them.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_Them.Width,
+            //btn_Them.Height, 35, 30));
+            //btn_Sua.Anchor = AnchorStyles.None;
+            //btn_Sua.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_Sua.Width,
+            //btn_Sua.Height, 35, 30));
+            ////btn_Xoa.Anchor = AnchorStyles.None;
+            ////btn_Xoa.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_Xoa.Width,
+            ////btn_Xoa.Height, 35, 30));
         }
         private void LoadData_timKiem(string txt)
         {
@@ -716,50 +716,50 @@ namespace _3.PL.Views
 
         private void cmb_Loc_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dgrid_ChiTietGiay.ColumnCount = 16;
-            dgrid_ChiTietGiay.Columns[0].Name = "ID";
-            dgrid_ChiTietGiay.Columns[0].Visible = false;
-            dgrid_ChiTietGiay.Columns[1].Name = "Size";
-            dgrid_ChiTietGiay.Columns[2].Name = "Màu sắc";
-            dgrid_ChiTietGiay.Columns[3].Name = "Chất liệu";
-            dgrid_ChiTietGiay.Columns[4].Name = "Loại đế";
-            dgrid_ChiTietGiay.Columns[5].Name = "Nhà sản xuất";
-            dgrid_ChiTietGiay.Columns[6].Name = "Kiểu dáng";
-            dgrid_ChiTietGiay.Columns[7].Name = "Tên sản phẩm";
-            dgrid_ChiTietGiay.Columns[8].Name = "Mã sản phẩm";
-            dgrid_ChiTietGiay.Columns[9].Name = "Giá nhập";
-            dgrid_ChiTietGiay.Columns[10].Name = "Giá bán";
-            dgrid_ChiTietGiay.Columns[11].Name = "Số lượng";
-            dgrid_ChiTietGiay.Columns[12].Name = "Số lượng tồn";
-            dgrid_ChiTietGiay.Columns[13].Name = "Ảnh";
-            dgrid_ChiTietGiay.Columns[14].Name = "Mô tả";
-            dgrid_ChiTietGiay.Columns[15].Name = "Trạng thái";
-            dgrid_ChiTietGiay.Rows.Clear();
-            //_lstCTGiay = _IChiTietGiayService.GetViewChiTietGiay();
-            //if (txt_TimKiem.Text != "")
+            //dgrid_ChiTietGiay.ColumnCount = 16;
+            //dgrid_ChiTietGiay.Columns[0].Name = "ID";
+            //dgrid_ChiTietGiay.Columns[0].Visible = false;
+            //dgrid_ChiTietGiay.Columns[1].Name = "Size";
+            //dgrid_ChiTietGiay.Columns[2].Name = "Màu sắc";
+            //dgrid_ChiTietGiay.Columns[3].Name = "Chất liệu";
+            //dgrid_ChiTietGiay.Columns[4].Name = "Loại đế";
+            //dgrid_ChiTietGiay.Columns[5].Name = "Nhà sản xuất";
+            //dgrid_ChiTietGiay.Columns[6].Name = "Kiểu dáng";
+            //dgrid_ChiTietGiay.Columns[7].Name = "Tên sản phẩm";
+            //dgrid_ChiTietGiay.Columns[8].Name = "Mã sản phẩm";
+            //dgrid_ChiTietGiay.Columns[9].Name = "Giá nhập";
+            //dgrid_ChiTietGiay.Columns[10].Name = "Giá bán";
+            //dgrid_ChiTietGiay.Columns[11].Name = "Số lượng";
+            //dgrid_ChiTietGiay.Columns[12].Name = "Số lượng tồn";
+            //dgrid_ChiTietGiay.Columns[13].Name = "Ảnh";
+            //dgrid_ChiTietGiay.Columns[14].Name = "Mô tả";
+            //dgrid_ChiTietGiay.Columns[15].Name = "Trạng thái";
+            //dgrid_ChiTietGiay.Rows.Clear();
+            ////_lstCTGiay = _IChiTietGiayService.GetViewChiTietGiay();
+            ////if (txt_TimKiem.Text != "")
+            ////{
+            ////    _lstCTGiay = _lstCTGiay.Where(p => p.Ma.ToLower().Contains(txt_Ma.Text.ToLower())).ToList();
+            ////}
+            //foreach (var x in _IChiTietGiayService.GetViewChiTietGiay().Where(c => c.TrangThai == cmb_Loc.SelectedIndex).OrderBy(c => c.Ma).ToList())
             //{
-            //    _lstCTGiay = _lstCTGiay.Where(p => p.Ma.ToLower().Contains(txt_Ma.Text.ToLower())).ToList();
+            //    dgrid_ChiTietGiay.Rows.Add(x.Id,
+            //        x.TenSize,
+            //        x.TenMauSac,
+            //        x.TenChatLieu,
+            //        x.TenDeGiay,
+            //        x.TenNSX,
+            //        x.TenKieuDang,
+            //        x.TenSanPham,
+            //        x.Ma,
+            //        x.GiaNhap,
+            //        x.GiaBan,
+            //        x.SoLuong,
+            //        x.SoLuongTon,
+            //        x.Anh,
+            //        x.MoTa,
+            //        x.TrangThai == 1 ? "Còn hàng" : "Hết hàng"
+            //        );
             //}
-            foreach (var x in _IChiTietGiayService.GetViewChiTietGiay().Where(c => c.TrangThai == cmb_Loc.SelectedIndex).OrderBy(c => c.Ma).ToList())
-            {
-                dgrid_ChiTietGiay.Rows.Add(x.Id,
-                    x.TenSize,
-                    x.TenMauSac,
-                    x.TenChatLieu,
-                    x.TenDeGiay,
-                    x.TenNSX,
-                    x.TenKieuDang,
-                    x.TenSanPham,
-                    x.Ma,
-                    x.GiaNhap,
-                    x.GiaBan,
-                    x.SoLuong,
-                    x.SoLuongTon,
-                    x.Anh,
-                    x.MoTa,
-                    x.TrangThai == 1 ? "Còn hàng" : "Hết hàng"
-                    );
-            }
         }
 
         private void cmb_Loc_Leave(object sender, EventArgs e)
@@ -803,8 +803,8 @@ namespace _3.PL.Views
 
         private void FrmChiTietGiay_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (FinalFrame.IsRunning == true)
-                FinalFrame.Stop();
+        //    if (FinalFrame.IsRunning == true)
+        //        FinalFrame.Stop();
         }
 
         private void timer1_Tick(object sender, EventArgs e)

@@ -14,7 +14,7 @@ namespace _1.DAL.DomainClass
         [Key]
         public int? Id { get; set; }
         public string Ma { get; set; }
-        public Guid IdNhanVienTrongCa { get; set; }
+        public Guid? IdNhanVienTrongCa { get; set; }
         public Guid IdNhanVienTiepTheo { get; set; }
         public DateTime ThoiGianNhanCa { get; set; }
         public DateTime ThoiGianGiaoCa { get; set; }

@@ -39,8 +39,8 @@ namespace _3.PL.Views
             _idgiaoca.TienBatDauCa = Convert.ToDecimal(tbx_Tiendauca.Text);
             _iGiaocaService.Update(_idgiaoca);
             FrmMain2 frmm = new FrmMain2();
-            frmm.ShowDialog(); 
-            
+             frmm.ShowDialog();
+            this.Close();
         }
 
         private void btn_Huy_Click(object sender, EventArgs e)

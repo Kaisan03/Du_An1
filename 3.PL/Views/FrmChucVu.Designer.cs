@@ -52,14 +52,15 @@ namespace _3.PL.Views
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.BackColor = System.Drawing.Color.DarkTurquoise;
             this.groupBox2.Controls.Add(this.btn_Clear);
             this.groupBox2.Controls.Add(this.btn_Xoa);
             this.groupBox2.Controls.Add(this.btn_Sua);
             this.groupBox2.Controls.Add(this.btn_Them);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox2.Location = new System.Drawing.Point(534, 262);
+            this.groupBox2.Location = new System.Drawing.Point(534, 275);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -70,6 +71,8 @@ namespace _3.PL.Views
             // 
             // btn_Clear
             // 
+            this.btn_Clear.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Clear.Location = new System.Drawing.Point(84, 131);
             this.btn_Clear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Clear.Name = "btn_Clear";
@@ -81,6 +84,8 @@ namespace _3.PL.Views
             // 
             // btn_Xoa
             // 
+            this.btn_Xoa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Xoa.Location = new System.Drawing.Point(84, 98);
             this.btn_Xoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Xoa.Name = "btn_Xoa";
@@ -92,6 +97,8 @@ namespace _3.PL.Views
             // 
             // btn_Sua
             // 
+            this.btn_Sua.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Sua.Location = new System.Drawing.Point(84, 65);
             this.btn_Sua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Sua.Name = "btn_Sua";
@@ -103,6 +110,8 @@ namespace _3.PL.Views
             // 
             // btn_Them
             // 
+            this.btn_Them.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Them.Location = new System.Drawing.Point(84, 31);
             this.btn_Them.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Them.Name = "btn_Them";
@@ -114,7 +123,7 @@ namespace _3.PL.Views
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.BackColor = System.Drawing.Color.Aquamarine;
             this.groupBox1.Controls.Add(this.txt_Ten);
             this.groupBox1.Controls.Add(this.txt_Ma);
@@ -124,11 +133,11 @@ namespace _3.PL.Views
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(2, 262);
+            this.groupBox1.Location = new System.Drawing.Point(0, 275);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(514, 193);
+            this.groupBox1.Size = new System.Drawing.Size(535, 193);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin chất liệu";
@@ -200,40 +209,42 @@ namespace _3.PL.Views
             // 
             // btn_TimKiem
             // 
-            this.btn_TimKiem.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_TimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_TimKiem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_TimKiem.ForeColor = System.Drawing.Color.Red;
-            this.btn_TimKiem.Location = new System.Drawing.Point(960, 223);
+            this.btn_TimKiem.Location = new System.Drawing.Point(984, 249);
             this.btn_TimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_TimKiem.Name = "btn_TimKiem";
-            this.btn_TimKiem.Size = new System.Drawing.Size(82, 22);
+            this.btn_TimKiem.Size = new System.Drawing.Size(82, 23);
             this.btn_TimKiem.TabIndex = 7;
             this.btn_TimKiem.Text = "Tìm kiếm";
             this.btn_TimKiem.UseVisualStyleBackColor = true;
-            this.btn_TimKiem.Click += new System.EventHandler(this.btn_TimKiem_Click);
             // 
             // txt_TimKiem
             // 
-            this.txt_TimKiem.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txt_TimKiem.Location = new System.Drawing.Point(578, 222);
+            this.txt_TimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_TimKiem.Location = new System.Drawing.Point(534, 249);
             this.txt_TimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_TimKiem.Name = "txt_TimKiem";
-            this.txt_TimKiem.Size = new System.Drawing.Size(376, 23);
+            this.txt_TimKiem.Size = new System.Drawing.Size(444, 23);
             this.txt_TimKiem.TabIndex = 6;
             // 
             // dgrid_ChucVu
             // 
-            this.dgrid_ChucVu.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dgrid_ChucVu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgrid_ChucVu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgrid_ChucVu.BackgroundColor = System.Drawing.Color.White;
             this.dgrid_ChucVu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrid_ChucVu.Location = new System.Drawing.Point(0, 0);
+            this.dgrid_ChucVu.Location = new System.Drawing.Point(0, -98);
             this.dgrid_ChucVu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgrid_ChucVu.Name = "dgrid_ChucVu";
             this.dgrid_ChucVu.RowHeadersWidth = 51;
             this.dgrid_ChucVu.RowTemplate.Height = 29;
             this.dgrid_ChucVu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgrid_ChucVu.Size = new System.Drawing.Size(1066, 206);
+            this.dgrid_ChucVu.Size = new System.Drawing.Size(1066, 343);
             this.dgrid_ChucVu.TabIndex = 5;
             this.dgrid_ChucVu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_ChatLieu_CellClick_1);
             // 
@@ -241,7 +252,7 @@ namespace _3.PL.Views
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1069, 665);
+            this.ClientSize = new System.Drawing.Size(1069, 468);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn_TimKiem);
@@ -249,7 +260,6 @@ namespace _3.PL.Views
             this.Controls.Add(this.dgrid_ChucVu);
             this.Name = "FrmChucVu";
             this.Text = "FrmChucVu";
-            this.Load += new System.EventHandler(this.FrmChucVu_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

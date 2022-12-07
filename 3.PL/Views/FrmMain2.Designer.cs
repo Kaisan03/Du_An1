@@ -62,8 +62,8 @@ namespace _3.PL.Views
             this.IconChange = new FontAwesome.Sharp.IconPictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel_dektop = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button1 = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel_menu.SuspendLayout();
             this.panel_logo.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -651,11 +651,6 @@ namespace _3.PL.Views
             this.panel_dektop.Size = new System.Drawing.Size(1200, 864);
             this.panel_dektop.TabIndex = 3;
             // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(79)))));
@@ -665,15 +660,20 @@ namespace _3.PL.Views
             this.button1.ForeColor = System.Drawing.Color.OrangeRed;
             this.button1.Image = global::_3.PL.Properties.Resources.icons8_shoes_64;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(539, 349);
+            this.button1.Location = new System.Drawing.Point(460, 379);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(281, 106);
+            this.button1.Size = new System.Drawing.Size(353, 159);
             this.button1.TabIndex = 4;
             this.button1.Text = "  Shoes for you";
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button1.UseVisualStyleBackColor = false;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // FrmMain2
             // 

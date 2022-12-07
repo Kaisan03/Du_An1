@@ -135,14 +135,5 @@ namespace _3.PL.Views
             }
         }
 
-        private void FrmChucVu_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_TimKiem_Click(object sender, EventArgs e)
-        {
-            loaddata();
-        }
     }
 }

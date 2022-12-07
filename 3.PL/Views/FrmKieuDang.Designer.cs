@@ -51,7 +51,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.BackColor = System.Drawing.Color.Aquamarine;
             this.groupBox1.Controls.Add(this.txt_Ten);
             this.groupBox1.Controls.Add(this.txt_Ma);
@@ -61,11 +61,11 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(-2, 263);
+            this.groupBox1.Location = new System.Drawing.Point(0, 263);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(510, 193);
+            this.groupBox1.Size = new System.Drawing.Size(605, 193);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin kiểu dáng";
@@ -75,7 +75,7 @@
             this.txt_Ten.Location = new System.Drawing.Point(130, 79);
             this.txt_Ten.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_Ten.Name = "txt_Ten";
-            this.txt_Ten.Size = new System.Drawing.Size(251, 23);
+            this.txt_Ten.Size = new System.Drawing.Size(446, 23);
             this.txt_Ten.TabIndex = 3;
             // 
             // txt_Ma
@@ -83,7 +83,7 @@
             this.txt_Ma.Location = new System.Drawing.Point(130, 38);
             this.txt_Ma.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_Ma.Name = "txt_Ma";
-            this.txt_Ma.Size = new System.Drawing.Size(251, 23);
+            this.txt_Ma.Size = new System.Drawing.Size(446, 23);
             this.txt_Ma.TabIndex = 3;
             // 
             // cbx_KhongHD
@@ -139,7 +139,9 @@
             // 
             // dgrid_KieuDang
             // 
-            this.dgrid_KieuDang.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dgrid_KieuDang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgrid_KieuDang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgrid_KieuDang.BackgroundColor = System.Drawing.Color.White;
             this.dgrid_KieuDang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -149,20 +151,20 @@
             this.dgrid_KieuDang.RowHeadersWidth = 51;
             this.dgrid_KieuDang.RowTemplate.Height = 29;
             this.dgrid_KieuDang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgrid_KieuDang.Size = new System.Drawing.Size(1074, 206);
+            this.dgrid_KieuDang.Size = new System.Drawing.Size(1074, 232);
             this.dgrid_KieuDang.TabIndex = 15;
             this.dgrid_KieuDang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_KieuDang_CellClick);
             // 
             // btn_TimKiem
             // 
-            this.btn_TimKiem.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_TimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_TimKiem.BackColor = System.Drawing.Color.Snow;
             this.btn_TimKiem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_TimKiem.ForeColor = System.Drawing.Color.Red;
-            this.btn_TimKiem.Location = new System.Drawing.Point(990, 229);
+            this.btn_TimKiem.Location = new System.Drawing.Point(992, 236);
             this.btn_TimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_TimKiem.Name = "btn_TimKiem";
-            this.btn_TimKiem.Size = new System.Drawing.Size(82, 22);
+            this.btn_TimKiem.Size = new System.Drawing.Size(82, 23);
             this.btn_TimKiem.TabIndex = 17;
             this.btn_TimKiem.Text = "Tìm kiếm";
             this.btn_TimKiem.UseVisualStyleBackColor = false;
@@ -170,8 +172,9 @@
             // 
             // txt_TimKiem
             // 
-            this.txt_TimKiem.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txt_TimKiem.Location = new System.Drawing.Point(598, 231);
+            this.txt_TimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_TimKiem.Location = new System.Drawing.Point(606, 236);
             this.txt_TimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_TimKiem.Name = "txt_TimKiem";
             this.txt_TimKiem.Size = new System.Drawing.Size(376, 23);
@@ -179,28 +182,31 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.BackColor = System.Drawing.Color.DarkTurquoise;
             this.groupBox2.Controls.Add(this.btn_Clear);
             this.groupBox2.Controls.Add(this.btn_Xoa);
             this.groupBox2.Controls.Add(this.btn_Sua);
             this.groupBox2.Controls.Add(this.btn_Them);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox2.Location = new System.Drawing.Point(514, 263);
+            this.groupBox2.Location = new System.Drawing.Point(606, 263);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(560, 193);
+            this.groupBox2.Size = new System.Drawing.Size(468, 193);
             this.groupBox2.TabIndex = 19;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chức năng";
             // 
             // btn_Clear
             // 
+            this.btn_Clear.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Clear.Location = new System.Drawing.Point(84, 131);
             this.btn_Clear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Clear.Name = "btn_Clear";
-            this.btn_Clear.Size = new System.Drawing.Size(415, 28);
+            this.btn_Clear.Size = new System.Drawing.Size(317, 28);
             this.btn_Clear.TabIndex = 0;
             this.btn_Clear.Text = "Clear";
             this.btn_Clear.UseVisualStyleBackColor = true;
@@ -208,10 +214,12 @@
             // 
             // btn_Xoa
             // 
+            this.btn_Xoa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Xoa.Location = new System.Drawing.Point(84, 98);
             this.btn_Xoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Xoa.Name = "btn_Xoa";
-            this.btn_Xoa.Size = new System.Drawing.Size(415, 28);
+            this.btn_Xoa.Size = new System.Drawing.Size(317, 28);
             this.btn_Xoa.TabIndex = 0;
             this.btn_Xoa.Text = "Xóa";
             this.btn_Xoa.UseVisualStyleBackColor = true;
@@ -219,10 +227,12 @@
             // 
             // btn_Sua
             // 
+            this.btn_Sua.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Sua.Location = new System.Drawing.Point(84, 65);
             this.btn_Sua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Sua.Name = "btn_Sua";
-            this.btn_Sua.Size = new System.Drawing.Size(415, 28);
+            this.btn_Sua.Size = new System.Drawing.Size(317, 28);
             this.btn_Sua.TabIndex = 0;
             this.btn_Sua.Text = "Sửa";
             this.btn_Sua.UseVisualStyleBackColor = true;
@@ -230,10 +240,12 @@
             // 
             // btn_Them
             // 
+            this.btn_Them.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Them.Location = new System.Drawing.Point(84, 31);
             this.btn_Them.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Them.Name = "btn_Them";
-            this.btn_Them.Size = new System.Drawing.Size(415, 28);
+            this.btn_Them.Size = new System.Drawing.Size(317, 28);
             this.btn_Them.TabIndex = 0;
             this.btn_Them.Text = "Thêm";
             this.btn_Them.UseVisualStyleBackColor = true;

@@ -41,8 +41,7 @@
             // 
             // btn_them
             // 
-            this.btn_them.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_them.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_them.Location = new System.Drawing.Point(1074, 332);
             this.btn_them.Name = "btn_them";
             this.btn_them.Size = new System.Drawing.Size(155, 64);
@@ -52,8 +51,7 @@
             // 
             // btn_sua
             // 
-            this.btn_sua.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_sua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_sua.Location = new System.Drawing.Point(1074, 409);
             this.btn_sua.Name = "btn_sua";
             this.btn_sua.Size = new System.Drawing.Size(155, 64);
@@ -63,8 +61,7 @@
             // 
             // btn_xoa
             // 
-            this.btn_xoa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_xoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_xoa.Location = new System.Drawing.Point(1074, 486);
             this.btn_xoa.Name = "btn_xoa";
             this.btn_xoa.Size = new System.Drawing.Size(155, 64);
@@ -75,8 +72,7 @@
             // 
             // btn_lammoi
             // 
-            this.btn_lammoi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_lammoi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_lammoi.Location = new System.Drawing.Point(1074, 563);
             this.btn_lammoi.Name = "btn_lammoi";
             this.btn_lammoi.Size = new System.Drawing.Size(155, 64);
@@ -86,6 +82,9 @@
             // 
             // dgrid_view
             // 
+            this.dgrid_view.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgrid_view.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgrid_view.BackgroundColor = System.Drawing.Color.White;
             this.dgrid_view.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -122,6 +121,8 @@
             // 
             // flp_HoaDon
             // 
+            this.flp_HoaDon.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.flp_HoaDon.Location = new System.Drawing.Point(1, 332);
             this.flp_HoaDon.Name = "flp_HoaDon";
             this.flp_HoaDon.Size = new System.Drawing.Size(1048, 295);

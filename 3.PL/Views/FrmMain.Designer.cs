@@ -63,8 +63,9 @@
             this.panel1.Controls.Add(this.btn_image);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(257, 853);
+            this.panel1.Size = new System.Drawing.Size(225, 640);
             this.panel1.TabIndex = 3;
             // 
             // button5
@@ -76,10 +77,11 @@
             this.button5.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.button5.Image = global::_3.PL.Properties.Resources.icons8_exchange_32;
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(0, 562);
+            this.button5.Location = new System.Drawing.Point(0, 420);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button5.Name = "button5";
-            this.button5.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.button5.Size = new System.Drawing.Size(257, 67);
+            this.button5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.button5.Size = new System.Drawing.Size(225, 50);
             this.button5.TabIndex = 16;
             this.button5.Text = "  Giao ca";
             this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -94,10 +96,11 @@
             this.button4.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.button4.Image = global::_3.PL.Properties.Resources.icons8_profit_32;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(0, 495);
+            this.button4.Location = new System.Drawing.Point(0, 370);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
-            this.button4.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.button4.Size = new System.Drawing.Size(257, 67);
+            this.button4.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.button4.Size = new System.Drawing.Size(225, 50);
             this.button4.TabIndex = 15;
             this.button4.Text = "  Thống kê";
             this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -112,10 +115,11 @@
             this.button3.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.button3.Image = global::_3.PL.Properties.Resources.icons8_sale_32;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(0, 428);
+            this.button3.Location = new System.Drawing.Point(0, 320);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.button3.Size = new System.Drawing.Size(257, 67);
+            this.button3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.button3.Size = new System.Drawing.Size(225, 50);
             this.button3.TabIndex = 14;
             this.button3.Text = "  Khuyến mãi";
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -130,10 +134,11 @@
             this.button6.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button6.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(0, 361);
+            this.button6.Location = new System.Drawing.Point(0, 270);
+            this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button6.Name = "button6";
-            this.button6.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.button6.Size = new System.Drawing.Size(257, 67);
+            this.button6.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.button6.Size = new System.Drawing.Size(225, 50);
             this.button6.TabIndex = 13;
             this.button6.Text = "bú +1";
             this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -149,10 +154,11 @@
             this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button2.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(0, 294);
+            this.button2.Location = new System.Drawing.Point(0, 220);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.button2.Size = new System.Drawing.Size(257, 67);
+            this.button2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.button2.Size = new System.Drawing.Size(225, 50);
             this.button2.TabIndex = 12;
             this.button2.Text = "bú";
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -166,12 +172,12 @@
             this.btn_quanLy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_quanLy.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_quanLy.ForeColor = System.Drawing.SystemColors.HighlightText;
-            //this.btn_quanLy.Image = global::_3.PL.Properties.Resources.ic;
             this.btn_quanLy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_quanLy.Location = new System.Drawing.Point(0, 227);
+            this.btn_quanLy.Location = new System.Drawing.Point(0, 170);
+            this.btn_quanLy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_quanLy.Name = "btn_quanLy";
-            this.btn_quanLy.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.btn_quanLy.Size = new System.Drawing.Size(257, 67);
+            this.btn_quanLy.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btn_quanLy.Size = new System.Drawing.Size(225, 50);
             this.btn_quanLy.TabIndex = 8;
             this.btn_quanLy.Text = "  Quản lý";
             this.btn_quanLy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -189,10 +195,11 @@
             this.btn_muaH.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.btn_muaH.Image = global::_3.PL.Properties.Resources.icons8_shopping_cart_32;
             this.btn_muaH.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_muaH.Location = new System.Drawing.Point(0, 160);
+            this.btn_muaH.Location = new System.Drawing.Point(0, 120);
+            this.btn_muaH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_muaH.Name = "btn_muaH";
-            this.btn_muaH.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.btn_muaH.Size = new System.Drawing.Size(257, 67);
+            this.btn_muaH.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btn_muaH.Size = new System.Drawing.Size(225, 50);
             this.btn_muaH.TabIndex = 4;
             this.btn_muaH.Text = "  Mua hàng";
             this.btn_muaH.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -208,10 +215,11 @@
             this.btn_MuaHang.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.btn_MuaHang.Image = global::_3.PL.Properties.Resources.icons8_monitor_32;
             this.btn_MuaHang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_MuaHang.Location = new System.Drawing.Point(0, 93);
+            this.btn_MuaHang.Location = new System.Drawing.Point(0, 70);
+            this.btn_MuaHang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_MuaHang.Name = "btn_MuaHang";
-            this.btn_MuaHang.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.btn_MuaHang.Size = new System.Drawing.Size(257, 67);
+            this.btn_MuaHang.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btn_MuaHang.Size = new System.Drawing.Size(225, 50);
             this.btn_MuaHang.TabIndex = 3;
             this.btn_MuaHang.Text = "  Trang chủ";
             this.btn_MuaHang.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -229,9 +237,10 @@
             this.btn_image.Image = global::_3.PL.Properties.Resources.icons8_shoes_64;
             this.btn_image.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_image.Location = new System.Drawing.Point(0, 0);
+            this.btn_image.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_image.Name = "btn_image";
-            this.btn_image.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.btn_image.Size = new System.Drawing.Size(257, 93);
+            this.btn_image.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btn_image.Size = new System.Drawing.Size(225, 70);
             this.btn_image.TabIndex = 2;
             this.btn_image.Text = "  Shoes for you";
             this.btn_image.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -244,9 +253,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_home.BackColor = System.Drawing.Color.LightSeaGreen;
             this.panel_home.Controls.Add(this.lbl_home);
-            this.panel_home.Location = new System.Drawing.Point(256, 0);
+            this.panel_home.Location = new System.Drawing.Point(224, 0);
+            this.panel_home.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_home.Name = "panel_home";
-            this.panel_home.Size = new System.Drawing.Size(1267, 93);
+            this.panel_home.Size = new System.Drawing.Size(1109, 70);
             this.panel_home.TabIndex = 4;
             // 
             // lbl_home
@@ -255,9 +265,9 @@
             this.lbl_home.AutoSize = true;
             this.lbl_home.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbl_home.ForeColor = System.Drawing.Color.White;
-            this.lbl_home.Location = new System.Drawing.Point(593, 28);
+            this.lbl_home.Location = new System.Drawing.Point(519, 21);
             this.lbl_home.Name = "lbl_home";
-            this.lbl_home.Size = new System.Drawing.Size(83, 31);
+            this.lbl_home.Size = new System.Drawing.Size(69, 25);
             this.lbl_home.TabIndex = 0;
             this.lbl_home.Text = "HOME";
             // 
@@ -265,7 +275,8 @@
             // 
             this.pictureBox1.ErrorImage = global::_3.PL.Properties.Resources.c36968799e5287ff044a31a878e3cc6a;
             this.pictureBox1.Image = global::_3.PL.Properties.Resources.Logo_giup_khach_hang_nho_toi_shop_giay_cua_ban_lau_hon__1_;
-            this.pictureBox1.Location = new System.Drawing.Point(454, 173);
+            this.pictureBox1.Location = new System.Drawing.Point(386, 150);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(300, 293);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -280,10 +291,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_main.Controls.Add(this.label1);
             this.panel_main.Controls.Add(this.pictureBox1);
-            this.panel_main.Location = new System.Drawing.Point(256, 93);
-            this.panel_main.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel_main.Location = new System.Drawing.Point(224, 70);
             this.panel_main.Name = "panel_main";
-            this.panel_main.Size = new System.Drawing.Size(1267, 756);
+            this.panel_main.Size = new System.Drawing.Size(1109, 567);
             this.panel_main.TabIndex = 7;
             // 
             // label1
@@ -292,9 +302,9 @@
             this.label1.AutoSize = true;
             this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label1.Font = new System.Drawing.Font("Brush Script MT", 25.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(478, 47);
+            this.label1.Location = new System.Drawing.Point(418, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(315, 53);
+            this.label1.Size = new System.Drawing.Size(259, 43);
             this.label1.TabIndex = 6;
             this.label1.Text = "Xin chào quý khách";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -302,13 +312,14 @@
             // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1537, 853);
+            this.ClientSize = new System.Drawing.Size(1345, 640);
             this.Controls.Add(this.panel_main);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel_home);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmMain";
             this.Text = "FrmMain";
             this.panel1.ResumeLayout(false);
