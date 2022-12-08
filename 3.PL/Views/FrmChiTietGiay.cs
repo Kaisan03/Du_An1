@@ -68,7 +68,7 @@ namespace _3.PL.Views
             _IAnhService = new AnhService();
             LoadData();
             LoadComboBox();
-            LoadLoc();
+            //LoadLoc();
             cbx_HoatDong.Enabled = false;
             cbx_khongHD.Enabled = false;
             txt_Ma.Enabled = false;
@@ -138,7 +138,7 @@ namespace _3.PL.Views
         }
         private void LoadData()
         {
-            dgrid_ChiTietGiay.ColumnCount = 17;
+            dgrid_ChiTietGiay.ColumnCount = 16;
             dgrid_ChiTietGiay.Columns[0].Name = "ID";
             dgrid_ChiTietGiay.Columns[0].Visible = false;
             dgrid_ChiTietGiay.Columns[1].Name = "Mã sản phẩm";
@@ -156,7 +156,6 @@ namespace _3.PL.Views
             dgrid_ChiTietGiay.Columns[13].Name = "Ảnh";
             dgrid_ChiTietGiay.Columns[14].Name = "Mô tả";
             dgrid_ChiTietGiay.Columns[15].Name = "Trạng thái";
-            dgrid_ChiTietGiay.Columns[16].Name = "Mã vạch";
             dgrid_ChiTietGiay.Rows.Clear();
             //_lstCTGiay = _IChiTietGiayService.GetViewChiTietGiay();
             //if (txt_TimKiem.Text != "")
@@ -182,8 +181,7 @@ namespace _3.PL.Views
                     x.SoLuongTon,
                     x.Anh,
                     x.MoTa,
-                    x.TrangThai ==1? "Còn hàng": "Hết hàng",
-                    x.MaVach
+                    x.TrangThai ==1? "Còn hàng": "Hết hàng"
                     ) ;
             }
         }
@@ -208,7 +206,6 @@ namespace _3.PL.Views
                     GiaNhap = Convert.ToInt32(txt_NgayNhap.Text),
                     GiaBan = Convert.ToInt32(txt_NgayBan.Text),
                     SoLuongTon = Convert.ToInt32(txt_SoLuongTon.Text),
-                    MaVach = txt_MaVach.Text,
                     MoTa = txt_moTa.Text,
                     
                 };
@@ -247,7 +244,6 @@ namespace _3.PL.Views
                     SoLuongTon = Convert.ToInt32(txt_SoLuongTon.Text),
                     MoTa = txt_moTa.Text,  
                     TrangThai = cbx_HoatDong.Checked ? 1 : 0,
-                    MaVach = txt_MaVach.Text
                 };
                 _IChiTietGiayService.UpdateCTGiay(updateGiay);
                 FrmThongBao frmThongBao = new FrmThongBao();
@@ -299,7 +295,7 @@ namespace _3.PL.Views
                 DataGridViewRow r = dgrid_ChiTietGiay.Rows[e.RowIndex];
                 _idCTGiay = Guid.Parse(r.Cells[0].Value.ToString());
                 var sp = _IChiTietGiayService.GetAllCTGiay().FirstOrDefault(c => c.Id == _idCTGiay);
-                cmb_TenSize.Text = r.Cells[1].Value.ToString();
+                cmb_TenSize.Text = r.Cells[8].Value.ToString();
                 cmb_MauSac.Text = r.Cells[2].Value.ToString();
                 cmb_ChatLieu.Text = r.Cells[3].Value.ToString();
                 cmb_LoaiDe.Text = r.Cells[4].Value.ToString();
@@ -314,12 +310,10 @@ namespace _3.PL.Views
                 cmb_Anh.Text = r.Cells[13].Value.ToString();
                 txt_moTa.Text = sp.MoTa;
                 if (Convert.ToInt32(r.Cells[12].Value) > 0) sp.TrangThai=1;
-                else sp.TrangThai=0;
-                
+                else sp.TrangThai=0;          
                 cbx_HoatDong.Checked = sp.TrangThai == 1;
                 cbx_khongHD.Checked = sp.TrangThai == 0;
                 pic_ImageGiay.ImageLocation = cmb_Anh.Text;
-                txt_MaVach.Text = sp.MaVach;
                 //pic_QuetBarcode.Image = cmb_Anh.Text;
             }
         }
