@@ -615,8 +615,7 @@ namespace _3.PL.Views
         public void FuckYou()
         {
             SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = @"Data Source=DESKTOP-59BFCFR;Initial Catalog=Duan1A;Persist Security Info=True;User ID=ph24903;Password=12345678";
-
+            connection.ConnectionString = @"Data Source=LAPTOP-46F72MJA\SQLEXPRESS;Initial Catalog=Duan11;Persist Security Info=True;User ID=duyvtph24890;Password=123456";
             connection.Open();
             SqlCommand sqlCommand = new SqlCommand("select Sdt FROM KhachHang", connection);
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
@@ -654,7 +653,6 @@ namespace _3.PL.Views
                 {
                     updateHoaDon.TenNguoiNhan = "Khách vãng lai";
                 }
-                updateHoaDon.IdCa = _igiaocaservice.GetAllGiaoca().FirstOrDefault(c => c.Id == _igiaocaservice.GetAllGiaoca().Max(c => c.Id)).Id;
                 updateHoaDon.TongTien = Convert.ToInt32(txt_TongTien.Text);
                 updateHoaDon.Sdt = txt_Sdt.Text;
                 updateHoaDon.TienMat = Convert.ToInt32(txt_TienMat.Text);
@@ -691,55 +689,107 @@ namespace _3.PL.Views
         }
         private void btn_DatHang2_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show($"Bạn có muốn thanh toán hóa Đơn {lbl_MahoaDon.Text} không", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (dialogResult == DialogResult.Yes)
+            try
             {
-                if (String.IsNullOrEmpty(txt_TongTien.Text) || txt_TongTien.Text == "0")
+                DialogResult dialogResult = MessageBox.Show($"Bạn có muốn thanh toán hóa Đơn {lbl_MahoaDon.Text} không", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (dialogResult == DialogResult.Yes)
                 {
-                    MessageBox.Show("Hóa đơn trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
+                    if (String.IsNullOrEmpty(txt_TongTien.Text) || txt_TongTien.Text == "0")
+                    {
+                        MessageBox.Show("Hóa đơn trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    if (txt_TenKH.Text == "" || txt_DiaChi.Text == "")
+                    {
+                        MessageBox.Show("Bạn phải điền đầy đủ thông tin");
+                        return;
+                    }
+                    if (txt_Sdt.Text != "" && Regex.IsMatch(txt_Sdt.Text, @"^\d*$") == false)
+                    {
+                        MessageBox.Show("Số điện thoại không được chứa chữ cái", "ERR");
+                        return;
+                    }
+                    if (txt_SdtNguoiNhan.Text != "" && Regex.IsMatch(txt_SdtNguoiNhan.Text, @"^\d*$") == false)
+                    {
+                        MessageBox.Show("Số điện thoại không được chứa chữ cái", "ERR");
+                        return;
+                    }
+                    if (Date_NgayNhan.Value < date_NgayTaoHDGiaoHang.Value)
+                    {
+                        MessageBox.Show("Ngày nhận hàng dự kiến không được thấp hơn ngày tạo hóa đơn", "ERR");
+                        return;
+                    }
+                    if (txt_TenKH.Text != "" && Regex.IsMatch(txt_TenKH.Text, @"^[a-zA-Z]*$") == false)
+                    {
+                        MessageBox.Show("Tên khách hàng không được chứa số", "ERR");
+                        return;
+                    }
+                    if (txt_TenNguoiNhan.Text != "" && Regex.IsMatch(txt_TenNguoiNhan.Text, @"^[a-zA-Z]*$") == false)
+                    {
+                        MessageBox.Show("Tên người nhận không được chứa số", "ERR");
+                        return;
+                    }
+                    if (Convert.ToDecimal(txt_TienCoc.Text) >= Convert.ToDecimal(txt_TongTien.Text))
+                    {
+                        MessageBox.Show("Tiền cọc không được lớn hơn tổng tiền hàng", "ERR");
+                        return;
+                    }
+                    if (Convert.ToDecimal(lbl_TienThuaTraKhach.Text) <= Convert.ToDecimal(0))
+                    {
+                        MessageBox.Show("Khách thanh toán chưa đủ tiền, vui lòng nhập lại!", "ERR");
+                        return;
+                    }
+                    if (Regex.IsMatch(txt_TienCoc.Text, @"^[0-9]") == false)
+                    {
+                        MessageBox.Show("Tiền cọc không được chứa chữ", "ERR");
+                        return;
+                    }
+                    if (Regex.IsMatch(txt_TienShip.Text, @"^[0-9]") == false)
+                    {
+                        MessageBox.Show("Tiền cọc không được chứa chữ", "ERR");
+                        return;
+                    }
+                    //if (Convert.ToInt32(txt_TienCoc.Text) < (Convert.ToInt32(txt_TongTien.Text)*40/100))
+                    //{
+                    //    MessageBox.Show("Tiền cọc không đủ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //    return;
+                    //}
+                    var updateHoaDon = _hoaDonService.GetallHoadon().Where(c => c.Ma == lbl_MahoaDon.Text).FirstOrDefault();
+                    updateHoaDon.TenNguoiNhan = txt_TenNguoiNhan.Text;
+                    updateHoaDon.TongTien = Convert.ToInt32(txt_TongTien.Text);
+                    updateHoaDon.Sdt = txt_SdtNguoiNhan.Text;
+                    if (rbtn_ChoXuLi.Checked)
+                    {
+                        updateHoaDon.TrangThai = 1;
+                    }
+                    if (rbtn_ChoLayHang.Checked)
+                    {
+                        updateHoaDon.TrangThai = 2;
+                    }
+                    if (rbtn_DangGiao.Checked)
+                    {
+                        updateHoaDon.TrangThai = 3;
+                    }
+                    updateHoaDon.NgayThanhToan = DateTime.Now;
+                    //updateHoaDon.NgayGiao = Date_NgayShip.Value;
+                    updateHoaDon.NgayNhanHang = Date_NgayNhan.Value;
+                    updateHoaDon.TienCoc = Convert.ToInt32(txt_TienCoc.Text);
+                    // updateHoaDon.TienShip = Convert.ToInt32(txt_TienShipHang.Text);
+                    updateHoaDon.TienKhachDua = Convert.ToInt32(txt_TienKhachTT.Text);
+                    updateHoaDon.DiaChi = txt_DiaChi.Text;
+                    updateHoaDon.TienShip = Convert.ToInt32(txt_TienShip.Text);
+                    updateHoaDon.DiaChi = txt_DiaChi.Text;
+                    updateHoaDon.GhiChu = txt_DatHangGhiChu.Text;
+                    _hoaDonService.Update(updateHoaDon);
+                    cookroi();
+                    cookroi1();
+                    dgrid_GioHang.Rows.Clear();
+                    lbl_MahoaDon.Text = "....";
                 }
-                if (txt_TenKH.Text == "" || txt_DiaChi.Text == "")
-                {
-                    MessageBox.Show("Bạn phải điền đầy đủ thông tin");
-                    return;
-                }
-                //if (Convert.ToInt32(txt_TienCoc.Text) < (Convert.ToInt32(txt_TongTien.Text)*40/100))
-                //{
-                //    MessageBox.Show("Tiền cọc không đủ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //    return;
-                //}
-                var updateHoaDon = _hoaDonService.GetallHoadon().Where(c => c.Ma == lbl_MahoaDon.Text).FirstOrDefault();
-                updateHoaDon.TenNguoiNhan = txt_TenNguoiNhan.Text;
-                updateHoaDon.TongTien = Convert.ToInt32(txt_TongTien.Text);
-                updateHoaDon.Sdt = txt_SdtNguoiNhan.Text;
-                if(rbtn_ChoXuLi.Checked)
-                {
-                    updateHoaDon.TrangThai =1;
-                }
-                if (rbtn_ChoLayHang.Checked)
-                {
-                    updateHoaDon.TrangThai = 2;
-                }
-                if (rbtn_DangGiao.Checked)
-                {
-                    updateHoaDon.TrangThai = 3;
-                }
-                updateHoaDon.NgayThanhToan = DateTime.Now;
-                //updateHoaDon.NgayGiao = Date_NgayShip.Value;
-                updateHoaDon.NgayNhanHang = Date_NgayNhan.Value;
-                updateHoaDon.TienCoc = Convert.ToInt32(txt_TienCoc.Text);
-               // updateHoaDon.TienShip = Convert.ToInt32(txt_TienShipHang.Text);
-                updateHoaDon.TienKhachDua = Convert.ToInt32(txt_TienKhachTT.Text);
-                updateHoaDon.DiaChi = txt_DiaChi.Text;
-                updateHoaDon.TienShip = Convert.ToInt32(txt_TienShip.Text);
-                updateHoaDon.DiaChi = txt_DiaChi.Text;
-                updateHoaDon.GhiChu = txt_DatHangGhiChu.Text;
-                _hoaDonService.Update(updateHoaDon);
-                cookroi();
-                cookroi1();
-                dgrid_GioHang.Rows.Clear();
-                lbl_MahoaDon.Text = "....";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Convert.ToString(ex.Message), "Liên Hệ Với KaiSan");
             }
         }
 
@@ -1322,15 +1372,22 @@ namespace _3.PL.Views
 
         private void txt_TienCoc_TextChanged(object sender, EventArgs e)
         {
-            string[] i = txt_TienKhachTT.Text.Split(".");
-            string[] x = lbl_TongTienDatHang.Text.Split(".");
-            if (string.IsNullOrEmpty(i[0]) || Convert.ToDouble(i[0]) <= 0)
+            try
             {
-                lbl_TienThuaTraKhach.Text = "0";
-                return;
+                string[] i = txt_TienKhachTT.Text.Split(".");
+                string[] x = lbl_TongTienDatHang.Text.Split(".");
+                if (string.IsNullOrEmpty(i[0]) || Convert.ToDouble(i[0]) <= 0)
+                {
+                    lbl_TienThuaTraKhach.Text = "0";
+                    return;
+                }
+                //if (Convert.ToInt32(i[0]) >= Convert.ToInt32(x[0])) cb_cod.Checked = false;
+                lbl_TienThuaTraKhach.Text = Convert.ToString(Convert.ToDouble(i[0]) - Convert.ToDouble(x[0]) + Convert.ToDouble(txt_TienCoc.Text.Replace(".", "")) - Convert.ToDouble(txt_TienShip.Text.Replace(".", "")));
             }
-            //if (Convert.ToInt32(i[0]) >= Convert.ToInt32(x[0])) cb_cod.Checked = false;
-            lbl_TienThuaTraKhach.Text = Convert.ToString(Convert.ToDouble(i[0]) - Convert.ToDouble(x[0]) + Convert.ToDouble(txt_TienCoc.Text.Replace(".",""))- Convert.ToDouble(txt_TienShip.Text.Replace(".", "")));
+            catch (Exception ex)
+            {
+                MessageBox.Show(Convert.ToString(ex.Message), "Liên Hệ Với KaiSan");
+            }
         }
 
         private void cb_cod_CheckedChanged(object sender, EventArgs e)
@@ -1599,15 +1656,28 @@ namespace _3.PL.Views
 
         private void txt_TienCoc_TextChanged_1(object sender, EventArgs e)
         {
-            if (txt_TienCoc.Text == ""|| txt_TienKhachTT.Text==""|| txt_TienShip.Text=="") return;
-            lbl_TienThuaTraKhach.Text = (Convert.ToDouble(txt_TienKhachTT.Text.Replace(".", "")) +   Convert.ToDouble(txt_TienCoc.Text.Replace(".", "")) - Convert.ToDouble(lbl_TongTienDatHang.Text.Replace(".", ""))-Convert.ToDouble(txt_TienShip.Text.Replace(".", ""))).ToString();
+            try
+            {
+                if (txt_TienCoc.Text == "" || txt_TienKhachTT.Text == "" || txt_TienShip.Text == "") return;
+                lbl_TienThuaTraKhach.Text = (Convert.ToDouble(txt_TienKhachTT.Text.Replace(".", "")) + Convert.ToDouble(txt_TienCoc.Text.Replace(".", "")) - Convert.ToDouble(lbl_TongTienDatHang.Text.Replace(".", "")) - Convert.ToDouble(txt_TienShip.Text.Replace(".", ""))).ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Convert.ToString(ex.Message), "Liên Hệ Với KaiSan");
+            }
         }
 
         private void txt_TienShip_TextChanged(object sender, EventArgs e)
         {
-
-            if (txt_TienCoc.Text == "" || txt_TienKhachTT.Text == "" || txt_TienShip.Text == "") return;
-            lbl_TienThuaTraKhach.Text = (Convert.ToDouble(txt_TienKhachTT.Text.Replace(".", "")) + Convert.ToDouble(txt_TienCoc.Text.Replace(".", "")) - Convert.ToDouble(lbl_TongTienDatHang.Text.Replace(".", "")) - Convert.ToDouble(txt_TienShip.Text.Replace(".", ""))).ToString();
+            try
+            {
+                if (txt_TienCoc.Text == "" || txt_TienKhachTT.Text == "" || txt_TienShip.Text == "") return;
+                lbl_TienThuaTraKhach.Text = (Convert.ToDouble(txt_TienKhachTT.Text.Replace(".", "")) + Convert.ToDouble(txt_TienCoc.Text.Replace(".", "")) - Convert.ToDouble(lbl_TongTienDatHang.Text.Replace(".", "")) - Convert.ToDouble(txt_TienShip.Text.Replace(".", ""))).ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Convert.ToString(ex.Message), "Liên Hệ Với KaiSan");
+            }
         }
 
         private void tool_HuyDonHang_Click(object sender, EventArgs e)
