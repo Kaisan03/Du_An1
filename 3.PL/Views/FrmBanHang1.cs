@@ -23,6 +23,7 @@ using Microsoft.Data.SqlClient;
 using Microsoft.Office.Interop.Excel;
 using Microsoft.VisualBasic;
 using OfficeOpenXml;
+using Org.BouncyCastle.Crypto;
 using XAct;
 using ZXing.Windows.Compatibility;
 using Button = System.Windows.Forms.Button;
@@ -87,9 +88,10 @@ namespace _3.PL.Views
         }
         public FrmBanHang1(string a)
         {
+           
+            InitializeComponent();
             _igiaocaservice = new GiaoCaService();
             _inhanvienService = new NhanVienService();
-            InitializeComponent();
             _chiTietGiayService = new ChiTietGiayService();
             _hoaDonChiTietService = new HoaDonChiTietService();
             _hoaDonService = new HoaDonService();
@@ -293,13 +295,15 @@ namespace _3.PL.Views
                         IdChiTietGiay = id,
                         IdHoaDon = _hoaDonService.GetallHoadon().FirstOrDefault(c => c.Ma == lbl_MahoaDon.Text).Id,
                         DonGia = sp.GiaBan,
-                        SoLuong = Convert.ToInt32(content)
-                    };
+                        SoLuong = Convert.ToInt32(content),
+                      
+                };
                     _hoaDonChiTietService.Add(hoaDonChiTiet);
                     _chiTietGiayService.UpdateCTGiay2(sp);
                 }
                 else
                 {
+                   
                     sp.SoLuongTon -= Convert.ToInt32(content);
                     data.SoLuong += Convert.ToInt32(content);
                     _hoaDonChiTietService.Update(data);
@@ -320,6 +324,7 @@ namespace _3.PL.Views
 
         private void btn_TaoHoaDon_Click(object sender, EventArgs e)
         {
+            
             var a = _inhanvienService.GetAllNhanVien().FirstOrDefault(c => c.Id == _igiaocaservice.GetAllGiaoca().FirstOrDefault(c => c.Id == _igiaocaservice.GetAllGiaoca().Max(c => c.Id)).IdNhanVienTrongCa);
             DialogResult dialogResult = MessageBox.Show("Bạn có muốn tạo hóa đơn không", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (dialogResult == DialogResult.Yes)
@@ -332,6 +337,8 @@ namespace _3.PL.Views
                     NgayTao = DateTime.Now,
                     TrangThai = 0,
                     IdNhanVien = a.Id,
+                    Idca = _igiaocaservice.GetAllGiaoca().FirstOrDefault(c => c.Id == _igiaocaservice.GetAllGiaoca().Max(c => c.Id)).Id,
+                    
                 };
                 _hoaDonService.Add(hoaDon);
                 cookroi();
@@ -647,6 +654,7 @@ namespace _3.PL.Views
                 {
                     updateHoaDon.TenNguoiNhan = "Khách vãng lai";
                 }
+                updateHoaDon.IdCa = _igiaocaservice.GetAllGiaoca().FirstOrDefault(c => c.Id == _igiaocaservice.GetAllGiaoca().Max(c => c.Id)).Id;
                 updateHoaDon.TongTien = Convert.ToInt32(txt_TongTien.Text);
                 updateHoaDon.Sdt = txt_Sdt.Text;
                 updateHoaDon.TienMat = Convert.ToInt32(txt_TienMat.Text);

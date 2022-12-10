@@ -43,7 +43,7 @@
             this.lb_tongdoanhthutrongca = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this._tongtienmat = new System.Windows.Forms.Label();
+            this.lb_tongtienmat = new System.Windows.Forms.Label();
             this.lb_tongdoanhthu = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -51,6 +51,8 @@
             this.tbx_tienphatsinh = new System.Windows.Forms.TextBox();
             this.tbx_ghichu = new System.Windows.Forms.RichTextBox();
             this.panel_thongke = new System.Windows.Forms.Panel();
+            this.btn_huy = new FontAwesome.Sharp.IconButton();
+            this.btn_xacnhan = new FontAwesome.Sharp.IconButton();
             this.pan_tientrongket = new System.Windows.Forms.Panel();
             this.lb_tientrongket = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
@@ -102,8 +104,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel_thongke.SuspendLayout();
             this.pan_tientrongket.SuspendLayout();
             this.SuspendLayout();
@@ -258,15 +258,15 @@
             this.label10.TabIndex = 14;
             this.label10.Text = "Tổng tiền mặt :";
             // 
-            // _tongtienmat
+            // lb_tongtienmat
             // 
-            this._tongtienmat.AutoSize = true;
-            this._tongtienmat.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this._tongtienmat.Location = new System.Drawing.Point(212, 297);
-            this._tongtienmat.Name = "_tongtienmat";
-            this._tongtienmat.Size = new System.Drawing.Size(91, 20);
-            this._tongtienmat.TabIndex = 15;
-            this._tongtienmat.Text = "tong tin mat";
+            this.lb_tongtienmat.AutoSize = true;
+            this.lb_tongtienmat.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_tongtienmat.Location = new System.Drawing.Point(212, 297);
+            this.lb_tongtienmat.Name = "lb_tongtienmat";
+            this.lb_tongtienmat.Size = new System.Drawing.Size(91, 20);
+            this.lb_tongtienmat.TabIndex = 15;
+            this.lb_tongtienmat.Text = "tong tin mat";
             // 
             // lb_tongdoanhthu
             // 
@@ -292,7 +292,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label19.Location = new System.Drawing.Point(20, 445);
+            this.label19.Location = new System.Drawing.Point(20, 382);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(108, 20);
             this.label19.TabIndex = 18;
@@ -302,7 +302,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label20.Location = new System.Drawing.Point(20, 494);
+            this.label20.Location = new System.Drawing.Point(20, 431);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(65, 20);
             this.label20.TabIndex = 19;
@@ -311,15 +311,16 @@
             // tbx_tienphatsinh
             // 
             this.tbx_tienphatsinh.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbx_tienphatsinh.Location = new System.Drawing.Point(212, 445);
+            this.tbx_tienphatsinh.Location = new System.Drawing.Point(212, 382);
             this.tbx_tienphatsinh.Name = "tbx_tienphatsinh";
             this.tbx_tienphatsinh.Size = new System.Drawing.Size(213, 27);
             this.tbx_tienphatsinh.TabIndex = 20;
+            this.tbx_tienphatsinh.Text = "0";
             // 
             // tbx_ghichu
             // 
             this.tbx_ghichu.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbx_ghichu.Location = new System.Drawing.Point(212, 494);
+            this.tbx_ghichu.Location = new System.Drawing.Point(212, 431);
             this.tbx_ghichu.Name = "tbx_ghichu";
             this.tbx_ghichu.Size = new System.Drawing.Size(213, 73);
             this.tbx_ghichu.TabIndex = 21;
@@ -327,8 +328,8 @@
             // 
             // panel_thongke
             // 
-            this.panel_thongke.Controls.Add(this.button2);
-            this.panel_thongke.Controls.Add(this.button1);
+            this.panel_thongke.Controls.Add(this.btn_huy);
+            this.panel_thongke.Controls.Add(this.btn_xacnhan);
             this.panel_thongke.Controls.Add(this.lb_tienbandau);
             this.panel_thongke.Controls.Add(this.tbx_ghichu);
             this.panel_thongke.Controls.Add(this.label1);
@@ -342,7 +343,7 @@
             this.panel_thongke.Controls.Add(this.label6);
             this.panel_thongke.Controls.Add(this.label18);
             this.panel_thongke.Controls.Add(this.lb_thoigianketthuc);
-            this.panel_thongke.Controls.Add(this._tongtienmat);
+            this.panel_thongke.Controls.Add(this.lb_tongtienmat);
             this.panel_thongke.Controls.Add(this.label8);
             this.panel_thongke.Controls.Add(this.label10);
             this.panel_thongke.Controls.Add(this.label16);
@@ -355,6 +356,31 @@
             this.panel_thongke.Name = "panel_thongke";
             this.panel_thongke.Size = new System.Drawing.Size(439, 650);
             this.panel_thongke.TabIndex = 22;
+            // 
+            // btn_huy
+            // 
+            this.btn_huy.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btn_huy.IconColor = System.Drawing.Color.Black;
+            this.btn_huy.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_huy.Location = new System.Drawing.Point(325, 590);
+            this.btn_huy.Name = "btn_huy";
+            this.btn_huy.Size = new System.Drawing.Size(100, 48);
+            this.btn_huy.TabIndex = 23;
+            this.btn_huy.Text = "Hủy ";
+            this.btn_huy.UseVisualStyleBackColor = true;
+            // 
+            // btn_xacnhan
+            // 
+            this.btn_xacnhan.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btn_xacnhan.IconColor = System.Drawing.Color.Black;
+            this.btn_xacnhan.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_xacnhan.Location = new System.Drawing.Point(204, 590);
+            this.btn_xacnhan.Name = "btn_xacnhan";
+            this.btn_xacnhan.Size = new System.Drawing.Size(100, 48);
+            this.btn_xacnhan.TabIndex = 22;
+            this.btn_xacnhan.Text = "Xác Nhận";
+            this.btn_xacnhan.UseVisualStyleBackColor = true;
+            this.btn_xacnhan.Click += new System.EventHandler(this.btn_xacnhan_Click);
             // 
             // pan_tientrongket
             // 
@@ -416,17 +442,18 @@
             // 
             this.lb_tientrongket.AutoSize = true;
             this.lb_tientrongket.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lb_tientrongket.Location = new System.Drawing.Point(191, 493);
+            this.lb_tientrongket.Location = new System.Drawing.Point(191, 516);
             this.lb_tientrongket.Name = "lb_tientrongket";
             this.lb_tientrongket.Size = new System.Drawing.Size(105, 20);
             this.lb_tientrongket.TabIndex = 48;
             this.lb_tientrongket.Text = "Tien trong ket ";
+            this.lb_tientrongket.TextChanged += new System.EventHandler(this.lb_tientrongket_TextChanged);
             // 
             // label32
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label32.Location = new System.Drawing.Point(20, 493);
+            this.label32.Location = new System.Drawing.Point(20, 516);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(136, 20);
             this.label32.TabIndex = 47;
@@ -443,6 +470,7 @@
             this.iconButton18.Size = new System.Drawing.Size(27, 27);
             this.iconButton18.TabIndex = 46;
             this.iconButton18.UseVisualStyleBackColor = true;
+            this.iconButton18.Click += new System.EventHandler(this.iconButton18_Click);
             // 
             // iconButton17
             // 
@@ -455,6 +483,7 @@
             this.iconButton17.Size = new System.Drawing.Size(27, 27);
             this.iconButton17.TabIndex = 45;
             this.iconButton17.UseVisualStyleBackColor = true;
+            this.iconButton17.Click += new System.EventHandler(this.iconButton17_Click);
             // 
             // iconButton16
             // 
@@ -467,6 +496,7 @@
             this.iconButton16.Size = new System.Drawing.Size(27, 27);
             this.iconButton16.TabIndex = 44;
             this.iconButton16.UseVisualStyleBackColor = true;
+            this.iconButton16.Click += new System.EventHandler(this.iconButton16_Click);
             // 
             // iconButton15
             // 
@@ -479,6 +509,7 @@
             this.iconButton15.Size = new System.Drawing.Size(27, 27);
             this.iconButton15.TabIndex = 43;
             this.iconButton15.UseVisualStyleBackColor = true;
+            this.iconButton15.Click += new System.EventHandler(this.iconButton15_Click);
             // 
             // iconButton14
             // 
@@ -491,6 +522,7 @@
             this.iconButton14.Size = new System.Drawing.Size(27, 27);
             this.iconButton14.TabIndex = 42;
             this.iconButton14.UseVisualStyleBackColor = true;
+            this.iconButton14.Click += new System.EventHandler(this.iconButton14_Click);
             // 
             // iconButton13
             // 
@@ -503,6 +535,7 @@
             this.iconButton13.Size = new System.Drawing.Size(27, 27);
             this.iconButton13.TabIndex = 41;
             this.iconButton13.UseVisualStyleBackColor = true;
+            this.iconButton13.Click += new System.EventHandler(this.iconButton13_Click);
             // 
             // iconButton12
             // 
@@ -515,6 +548,7 @@
             this.iconButton12.Size = new System.Drawing.Size(27, 27);
             this.iconButton12.TabIndex = 40;
             this.iconButton12.UseVisualStyleBackColor = true;
+            this.iconButton12.Click += new System.EventHandler(this.iconButton12_Click);
             // 
             // iconButton11
             // 
@@ -527,6 +561,7 @@
             this.iconButton11.Size = new System.Drawing.Size(27, 27);
             this.iconButton11.TabIndex = 39;
             this.iconButton11.UseVisualStyleBackColor = true;
+            this.iconButton11.Click += new System.EventHandler(this.iconButton11_Click);
             // 
             // iconButton10
             // 
@@ -539,6 +574,7 @@
             this.iconButton10.Size = new System.Drawing.Size(27, 27);
             this.iconButton10.TabIndex = 38;
             this.iconButton10.UseVisualStyleBackColor = true;
+            this.iconButton10.Click += new System.EventHandler(this.iconButton10_Click);
             // 
             // iconButton9
             // 
@@ -551,6 +587,7 @@
             this.iconButton9.Size = new System.Drawing.Size(27, 27);
             this.iconButton9.TabIndex = 37;
             this.iconButton9.UseVisualStyleBackColor = true;
+            this.iconButton9.Click += new System.EventHandler(this.iconButton9_Click);
             // 
             // iconButton8
             // 
@@ -563,6 +600,7 @@
             this.iconButton8.Size = new System.Drawing.Size(27, 27);
             this.iconButton8.TabIndex = 36;
             this.iconButton8.UseVisualStyleBackColor = true;
+            this.iconButton8.Click += new System.EventHandler(this.iconButton8_Click);
             // 
             // iconButton7
             // 
@@ -575,6 +613,7 @@
             this.iconButton7.Size = new System.Drawing.Size(27, 27);
             this.iconButton7.TabIndex = 35;
             this.iconButton7.UseVisualStyleBackColor = true;
+            this.iconButton7.Click += new System.EventHandler(this.iconButton7_Click);
             // 
             // iconButton6
             // 
@@ -587,6 +626,7 @@
             this.iconButton6.Size = new System.Drawing.Size(27, 27);
             this.iconButton6.TabIndex = 34;
             this.iconButton6.UseVisualStyleBackColor = true;
+            this.iconButton6.Click += new System.EventHandler(this.iconButton6_Click);
             // 
             // iconButton5
             // 
@@ -599,6 +639,7 @@
             this.iconButton5.Size = new System.Drawing.Size(27, 27);
             this.iconButton5.TabIndex = 33;
             this.iconButton5.UseVisualStyleBackColor = true;
+            this.iconButton5.Click += new System.EventHandler(this.iconButton5_Click);
             // 
             // iconButton4
             // 
@@ -611,6 +652,7 @@
             this.iconButton4.Size = new System.Drawing.Size(27, 27);
             this.iconButton4.TabIndex = 32;
             this.iconButton4.UseVisualStyleBackColor = true;
+            this.iconButton4.Click += new System.EventHandler(this.iconButton4_Click);
             // 
             // iconButton3
             // 
@@ -623,6 +665,7 @@
             this.iconButton3.Size = new System.Drawing.Size(27, 27);
             this.iconButton3.TabIndex = 31;
             this.iconButton3.UseVisualStyleBackColor = true;
+            this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
             // 
             // iconButton2
             // 
@@ -635,6 +678,7 @@
             this.iconButton2.Size = new System.Drawing.Size(27, 27);
             this.iconButton2.TabIndex = 30;
             this.iconButton2.UseVisualStyleBackColor = true;
+            this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
             // 
             // iconButton1
             // 
@@ -951,24 +995,6 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(269, 615);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(350, 615);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 23;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // FrmGiaoCa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1006,7 +1032,7 @@
         private System.Windows.Forms.Label lb_tongdoanhthutrongca;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label _tongtienmat;
+        private System.Windows.Forms.Label lb_tongtienmat;
         private System.Windows.Forms.Label lb_tongdoanhthu;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
@@ -1067,7 +1093,5 @@
         private System.Windows.Forms.TextBox tbx_500k;
         private System.Windows.Forms.Label lb_tientrongket;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
     }
 }
