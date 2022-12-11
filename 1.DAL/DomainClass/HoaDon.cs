@@ -15,6 +15,7 @@ namespace _1.DAL.DomainClass
         {
             HoaDonChiTiets = new HashSet<HoaDonChiTiet>();
             HinhThucThanhToans = new HashSet<HinhThucThanhToan>();
+         
         }
 
         [Key]
@@ -22,6 +23,7 @@ namespace _1.DAL.DomainClass
         public int Id { get; set; }
         [Column("idKhachHang")]
         public Guid? IdKhachHang { get; set; }
+        public int? IdCa { get; set; } 
         [Column("idNhanVien")]
         public Guid? IdNhanVien { get; set; }
         [StringLength(10)]
@@ -40,9 +42,7 @@ namespace _1.DAL.DomainClass
         [StringLength(100)]
         public string DiaChi { get; set; }
         [Column("SDT")]
-
         [StringLength(50)]
-        
         public string Sdt { get; set; }
         [StringLength(10)]
         public string GiamGia { get; set; }
@@ -61,7 +61,10 @@ namespace _1.DAL.DomainClass
         public DateTime? NgayNhanHang { get; set; }
         [Column(TypeName = "date")]
         public DateTime? NgayTraHang { get; set; }
-        
+
+        [ForeignKey(nameof(IdCa))]
+        [InverseProperty(nameof(GiaoCa.HoaDons))]
+        public virtual GiaoCa IdCaNavigation { get; set; }
         [ForeignKey(nameof(IdKhachHang))]
         [InverseProperty(nameof(KhachHang.HoaDons))]
         public virtual KhachHang IdKhachHangNavigation { get; set; }
@@ -74,5 +77,6 @@ namespace _1.DAL.DomainClass
         [InverseProperty(nameof(HoaDonChiTiet.IdHoaDonNavigation))]
         public virtual ICollection<HoaDonChiTiet> HoaDonChiTiets { get; set; }
         public virtual ICollection<HinhThucThanhToan> HinhThucThanhToans { get; set; }
+        
     }
 }

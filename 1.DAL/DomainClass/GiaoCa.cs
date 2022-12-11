@@ -11,6 +11,10 @@ namespace _1.DAL.DomainClass
     [Table("GiaoCa")]
     public partial class GiaoCa
     {
+        public GiaoCa()
+        {
+            HoaDons = new HashSet<HoaDon>();
+        }
         [Key]
         public int? Id { get; set; }
         public string Ma { get; set; }
@@ -32,6 +36,10 @@ namespace _1.DAL.DomainClass
         [ForeignKey(nameof(IdNhanVienTrongCa))]
         [InverseProperty(nameof(NhanVien.GiaoCas))]
         public virtual NhanVien IdNhanViennNavigation { get; set; }
+        [InverseProperty(nameof(HoaDon.IdCaNavigation))]
+        public virtual ICollection<HoaDon> HoaDons { get; set; }
+
+
     }
 }
 

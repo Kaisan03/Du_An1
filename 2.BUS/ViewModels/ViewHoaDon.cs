@@ -31,6 +31,7 @@ namespace _2.BUS.ViewModels
         public HoaDonChiTiet HoaDonChiTiet { get; set; }
         public HoaDon HoaDon { get; set; }
         public DateTime? NgayNhanHang { get; set; }
+        public int? Idca { get; set;}
 
         public DateTime? NgayTraHang { get; set; }
     }

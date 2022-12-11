@@ -90,6 +90,7 @@ namespace _2.BUS.Services
                             select new ViewHoaDon
                             {
                                 Id = hd.Id,
+                                Idca  = hd.IdCa,
                                 khachhang = kh.Ten,
                                 nhanvien = nv.Ten,
                                 Ma = hd.Ma,
