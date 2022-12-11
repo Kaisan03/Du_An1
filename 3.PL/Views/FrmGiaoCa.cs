@@ -213,8 +213,8 @@ namespace _3.PL.Views
             _idgiaoca = giaoca;
             _idgiaoca.TongTienMat = Convert.ToDecimal(lb_tienmat.Text);
             _idgiaoca.TongTienTrongCa = Convert.ToDecimal(lb_tongdoanhthutrongca.Text);
-            _idgiaoca.TongTienPhatSinh = Convert.ToDecimal(tbx_tienphatsinh.Text);
-            _idgiaoca.GhiChuPhatSinh = tbx_ghichu.Text;
+            //_idgiaoca.TongTienPhatSinh = Convert.ToDecimal(tbx_tienphatsinh.Text);
+            //_idgiaoca.GhiChuPhatSinh = tbx_ghichu.Text;
             _idgiaoca.ThoiGianReset = DateTime.Now;
             _iGiaocaService.Update(_idgiaoca);
             FrmDangNhap dangNhap = new FrmDangNhap();

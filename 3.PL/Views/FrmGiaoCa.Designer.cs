@@ -104,6 +104,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.btn_ruttien = new FontAwesome.Sharp.IconButton();
             this.panel_thongke.SuspendLayout();
             this.pan_tientrongket.SuspendLayout();
             this.SuspendLayout();
@@ -328,6 +329,7 @@
             // 
             // panel_thongke
             // 
+            this.panel_thongke.Controls.Add(this.btn_ruttien);
             this.panel_thongke.Controls.Add(this.btn_huy);
             this.panel_thongke.Controls.Add(this.btn_xacnhan);
             this.panel_thongke.Controls.Add(this.lb_tienbandau);
@@ -362,7 +364,7 @@
             this.btn_huy.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btn_huy.IconColor = System.Drawing.Color.Black;
             this.btn_huy.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_huy.Location = new System.Drawing.Point(325, 590);
+            this.btn_huy.Location = new System.Drawing.Point(334, 590);
             this.btn_huy.Name = "btn_huy";
             this.btn_huy.Size = new System.Drawing.Size(100, 48);
             this.btn_huy.TabIndex = 23;
@@ -995,6 +997,18 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
+            // btn_ruttien
+            // 
+            this.btn_ruttien.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btn_ruttien.IconColor = System.Drawing.Color.Black;
+            this.btn_ruttien.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_ruttien.Location = new System.Drawing.Point(69, 590);
+            this.btn_ruttien.Name = "btn_ruttien";
+            this.btn_ruttien.Size = new System.Drawing.Size(100, 48);
+            this.btn_ruttien.TabIndex = 24;
+            this.btn_ruttien.Text = "Rút Tiền";
+            this.btn_ruttien.UseVisualStyleBackColor = true;
+            // 
             // FrmGiaoCa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1093,5 +1107,6 @@
         private System.Windows.Forms.TextBox tbx_500k;
         private System.Windows.Forms.Label lb_tientrongket;
         private System.Windows.Forms.Label label32;
+        private FontAwesome.Sharp.IconButton btn_ruttien;
     }
 }

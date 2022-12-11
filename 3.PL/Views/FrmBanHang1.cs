@@ -615,7 +615,7 @@ namespace _3.PL.Views
         public void FuckYou()
         {
             SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = @"Data Source=LAPTOP-46F72MJA\SQLEXPRESS;Initial Catalog=Duan11;Persist Security Info=True;User ID=duyvtph24890;Password=123456";
+            connection.ConnectionString = @"Data Source=DESKTOP-59BFCFR;Initial Catalog=Duan1A;Persist Security Info=True;User ID=ph24903;Password=12345678";
             connection.Open();
             SqlCommand sqlCommand = new SqlCommand("select Sdt FROM KhachHang", connection);
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
@@ -673,7 +673,7 @@ namespace _3.PL.Views
                 }
                 updateHoaDon.GhiChu = richTextBox1.Text;
                 updateHoaDon.NgayThanhToan = DateTime.Now;
-               
+                updateHoaDon.IdCa = _igiaocaservice.GetAllGiaoca().Max(c => c.Id);
                 _hoaDonService.Update(updateHoaDon);
                 
                 if (cb_inHoaDon.Checked)
