@@ -279,6 +279,7 @@ namespace _3.PL.Views
             var sp = _chiTietGiayService.GetAllCTGiay().FirstOrDefault(c => c.Id == id);
             var idTmp = _hoaDonService.GetallHoadon().FirstOrDefault(c => c.Ma == lbl_MahoaDon.Text).Id;
             var data = _hoaDonChiTietService.GetAllHoaDonCT().FirstOrDefault(c => c.IdChiTietGiay == id && c.IdHoaDon == idTmp);
+
             if (content == "")
             {
                 return;
