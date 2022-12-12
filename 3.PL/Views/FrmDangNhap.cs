@@ -79,7 +79,7 @@ namespace _3.PL.Views
                 Properties.Settings.Default.UserName = "";
                 Properties.Settings.Default.Save();
             }
-            SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-59BFCFR;Initial Catalog=Duan1A;Persist Security Info=True;User ID=ph24903;Password=12345678");
+            SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-OF-KHAI\SQLEXPRESS;Initial Catalog=Duan1;Persist Security Info=True;User ID=khainq03;Password=123456");
             try
             {
                 conn.Open();
@@ -91,7 +91,7 @@ namespace _3.PL.Views
                 if (dta.Read() == true)
                 {
                     MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                   
+
                     var nv = _inhanvienservice.GetAllNhanVien().FirstOrDefault(x => x.Email == taiKhoan);
                     int id11 = _igiaocaservice.GetAllGiaoca().Count + 1;
                     GiaoCa Giaoca = new GiaoCa()
@@ -104,11 +104,11 @@ namespace _3.PL.Views
                         IdNhanVienTrongCa = nv.Id,
                     };
                     _igiaocaservice.Add(Giaoca);
-                    
-                    FrmXacNhanGiaoCa frmgiaoca = new FrmXacNhanGiaoCa();
+
+                    FrmXacNhanGiaoCa frmgiaoca = new FrmXacNhanGiaoCa(taiKhoan);
                     frmgiaoca.Show();
                     this.Hide();
-                   
+
                 }
                 else
                 {
@@ -119,7 +119,7 @@ namespace _3.PL.Views
             {
                 MessageBox.Show(ex.Message);
             }
-           
+
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)

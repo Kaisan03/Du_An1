@@ -53,6 +53,9 @@ namespace _3.PL.Views
         SanPhamService sanPhams;
         private FilterInfoCollection CaptureDevice;
         private VideoCaptureDevice FinalFrame;
+        private INhanVienService _InhanVienService;
+        private IChucVuService _IChucVuService;
+        private string MaNV;
         public FrmChiTietGiay()
         {
             InitializeComponent();
@@ -60,7 +63,7 @@ namespace _3.PL.Views
             _lstCTGiay = new List<ViewChiTietGiay>();
             _ISanPhamService = new SanPhamService();
             _ISizeService = new SizeService();
-            _IDeGiayService = new DeGiayService();  
+            _IDeGiayService = new DeGiayService();
             _IKieuDangService = new KieuDangService();
             _INsxService = new NhaSanXuatService();
             _IMauSacService = new MauSacService();
@@ -74,6 +77,30 @@ namespace _3.PL.Views
             txt_Ma.Enabled = false;
             dgrid_ChiTietGiay.AllowUserToAddRows = false;
         }
+        public FrmChiTietGiay(string a)
+        {
+            InitializeComponent();
+            _IChiTietGiayService = new ChiTietGiayService();
+            _lstCTGiay = new List<ViewChiTietGiay>();
+            _ISanPhamService = new SanPhamService();
+            _ISizeService = new SizeService();
+            _IDeGiayService = new DeGiayService();
+            _IKieuDangService = new KieuDangService();
+            _INsxService = new NhaSanXuatService();
+            _IMauSacService = new MauSacService();
+            _IChatLieuService = new ChatLieuService();
+            _IAnhService = new AnhService();
+            _InhanVienService = new NhanVienService();
+            _IChucVuService = new ChucVuService();
+            LoadData();
+            LoadComboBox();
+            //LoadLoc();
+            cbx_HoatDong.Enabled = false;
+            cbx_khongHD.Enabled = false;
+            txt_Ma.Enabled = false;
+            dgrid_ChiTietGiay.AllowUserToAddRows = false;
+            MaNV = a;
+        }
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
         (
@@ -86,7 +113,7 @@ namespace _3.PL.Views
         );
         private void LoadLoc()
         {
-            var size11 = _IChiTietGiayService.GetAllCTGiay().Select(c => c.TrangThai == 1 ? "Hết hàng":"Còn hàng".ToString()).Distinct();
+            var size11 = _IChiTietGiayService.GetAllCTGiay().Select(c => c.TrangThai == 1 ? "Hết hàng" : "Còn hàng".ToString()).Distinct();
             foreach (var x in size11)
             {
                 //cmb_Loc.Items.Add(x);
@@ -97,7 +124,7 @@ namespace _3.PL.Views
             var size1 = _ISanPhamService.GetAllSanPham().Select(c => c.Ten.ToString()).Distinct();
             foreach (var x in size1)
             {
-              
+
                 cmb_SanPham.Items.Add(x);
             }
             var size2 = _ISizeService.GetAllSize().Select(c => c.Ten.ToString()).Distinct();
@@ -181,12 +208,18 @@ namespace _3.PL.Views
                     x.SoLuongTon,
                     x.Anh,
                     x.MoTa,
-                    x.TrangThai ==1? "Còn hàng": "Hết hàng"
-                    ) ;
+                    x.TrangThai == 1 ? "Còn hàng" : "Hết hàng"
+                    );
             }
         }
         private void btn_Them_Click(object sender, EventArgs e)
         {
+            //_InhanVienService.GetAllNhanVien().FirstOrDefault(c => c.Ma == MaNV)
+            if (_IChucVuService.GetAllChucVu().FirstOrDefault(c => c.Id == (_InhanVienService.GetAllNhanVien().FirstOrDefault(c => c.Ma == MaNV).IdChucVu)).Ten != "Quản lý"|| _IChucVuService.GetAllChucVu().FirstOrDefault(c => c.Id == (_InhanVienService.GetAllNhanVien().FirstOrDefault(c => c.Ma == MaNV).IdChucVu)).Ten != "Giám Đốc")
+            {
+                MessageBox.Show("Bạn chỉ có thể xem sản phẩm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn thêm?", "Thông báo", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
@@ -207,7 +240,7 @@ namespace _3.PL.Views
                     GiaBan = Convert.ToInt32(txt_NgayBan.Text),
                     SoLuongTon = Convert.ToInt32(txt_SoLuongTon.Text),
                     MoTa = txt_moTa.Text,
-                    
+
                 };
                 _IChiTietGiayService.AddCTGiay(addCTGiay);
                 FrmThongBao frmThongBao = new FrmThongBao();
@@ -218,10 +251,16 @@ namespace _3.PL.Views
             {
                 return;
             }
+
         }
 
         private void btn_Sua_Click(object sender, EventArgs e)
         {
+            if (_IChucVuService.GetAllChucVu().FirstOrDefault(c => c.Id == (_InhanVienService.GetAllNhanVien().FirstOrDefault(c => c.Ma == MaNV).IdChucVu)).Ten != "Quản lý" || _IChucVuService.GetAllChucVu().FirstOrDefault(c => c.Id == (_InhanVienService.GetAllNhanVien().FirstOrDefault(c => c.Ma == MaNV).IdChucVu)).Ten != "Giám Đốc")
+            {
+                MessageBox.Show("Bạn chỉ có thể xem sản phẩm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn sửa?", "Thông báo", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
@@ -242,7 +281,7 @@ namespace _3.PL.Views
                     GiaNhap = Convert.ToInt32(txt_NgayNhap.Text),
                     GiaBan = Convert.ToInt32(txt_NgayBan.Text),
                     SoLuongTon = Convert.ToInt32(txt_SoLuongTon.Text),
-                    MoTa = txt_moTa.Text,  
+                    MoTa = txt_moTa.Text,
                     TrangThai = cbx_HoatDong.Checked ? 1 : 0,
                 };
                 _IChiTietGiayService.UpdateCTGiay(updateGiay);
@@ -254,18 +293,24 @@ namespace _3.PL.Views
             {
                 return;
             }
+
         }
 
         private void btn_Xoa_Click(object sender, EventArgs e)
         {
+            if (_IChucVuService.GetAllChucVu().FirstOrDefault(c => c.Id == (_InhanVienService.GetAllNhanVien().FirstOrDefault(c => c.Ma == MaNV).IdChucVu)).Ten != "Quản lý" || _IChucVuService.GetAllChucVu().FirstOrDefault(c => c.Id == (_InhanVienService.GetAllNhanVien().FirstOrDefault(c => c.Ma == MaNV).IdChucVu)).Ten != "Giám Đốc")
+            {
+                MessageBox.Show("Bạn chỉ có thể xem sản phẩm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             DialogResult dialogResult = MessageBox.Show("Bạn có muốn cập nhật trạng thái không?", "Thông báo", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.OK)
             {
-               
+
 
                 LoadData();
             }
-           
+
         }
 
         private void btn_Clear_Click(object sender, EventArgs e)
@@ -309,8 +354,8 @@ namespace _3.PL.Views
                 txt_SoLuongTon.Text = sp.SoLuongTon.ToString();
                 cmb_Anh.Text = r.Cells[13].Value.ToString();
                 txt_moTa.Text = sp.MoTa;
-                if (Convert.ToInt32(r.Cells[12].Value) > 0) sp.TrangThai=1;
-                else sp.TrangThai=0;          
+                if (Convert.ToInt32(r.Cells[12].Value) > 0) sp.TrangThai = 1;
+                else sp.TrangThai = 0;
                 cbx_HoatDong.Checked = sp.TrangThai == 1;
                 cbx_khongHD.Checked = sp.TrangThai == 0;
                 pic_ImageGiay.ImageLocation = cmb_Anh.Text;
@@ -353,7 +398,7 @@ namespace _3.PL.Views
             //groupBox1.Anchor = AnchorStyles.None;
             //groupBox1.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, groupBox1.Width,
             //groupBox1.Height, 30, 30));
-            
+
             ////
             ////dgrid_ChiTietGiay.Location = new Point(
             ////this.ClientSize.Width / 2 - dgrid_ChiTietGiay.Size.Width / 2,
@@ -361,7 +406,7 @@ namespace _3.PL.Views
             //dgrid_ChiTietGiay.Anchor = AnchorStyles.None;
             //dgrid_ChiTietGiay.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, dgrid_ChiTietGiay.Width,
             //dgrid_ChiTietGiay.Height, 35, 30));
-            
+
             ////
             ////groupBox2.Location = new Point(
             ////this.ClientSize.Width / 1 - groupBox2.Size.Width / 2.5,
@@ -608,7 +653,7 @@ namespace _3.PL.Views
             frmImportExcel.ShowDialog();
         }
 
-       
+
         public void exportdata(DataGridView dgw, string filename)
         {
             BaseFont bf = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, BaseFont.EMBEDDED);
@@ -797,8 +842,8 @@ namespace _3.PL.Views
 
         private void FrmChiTietGiay_FormClosing(object sender, FormClosingEventArgs e)
         {
-        //    if (FinalFrame.IsRunning == true)
-        //        FinalFrame.Stop();
+            //    if (FinalFrame.IsRunning == true)
+            //        FinalFrame.Stop();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -846,7 +891,7 @@ namespace _3.PL.Views
         public string MaCTGiay()
         {
             string name = string.Concat(ChuCaiDau(cmb_MauSac.Text), ChuCaiDau(cmb_Nsx.Text), ChuCaiDau(cmb_ChatLieu.Text), ChuCaiDau(cmb_LoaiDe.Text), ChuCaiDau(cmb_KieuDang.Text),
-                ChuCaiDau(cmb_SanPham.Text)/* ,cmb_TenSize.Text ,*/,_IChiTietGiayService.GetAllCTGiay().Count + 1);
+                ChuCaiDau(cmb_SanPham.Text)/* ,cmb_TenSize.Text ,*/, _IChiTietGiayService.GetAllCTGiay().Count + 1);
             return name;
         }
     }

@@ -18,12 +18,18 @@ namespace _3.PL.Views
     {
         public IGiaoCaService _iGiaocaService;
         public GiaoCa _idgiaoca;
+        FrmMain2 frmm;
         public FrmXacNhanGiaoCa()
         {
             InitializeComponent();
             _iGiaocaService = new GiaoCaService();
         }
-
+        public FrmXacNhanGiaoCa(string a)
+        {
+            InitializeComponent();
+            _iGiaocaService = new GiaoCaService();
+            frmm = new FrmMain2(a);
+        }
         private void FrmXacNhanGiaoCa_Load(object sender, EventArgs e)
         {
             var x = _iGiaocaService.GetAllGiaoca().Max(c => c.Id);
@@ -31,15 +37,15 @@ namespace _3.PL.Views
             _idgiaoca = giaoca;
             lb_thoigianbatdau.Text = Convert.ToString(giaoca.ThoiGianNhanCa);
             lb_maca.Text = giaoca.Ma;
-            
+
         }
 
         private void btn_XacNhan_Click(object sender, EventArgs e)
         {
             _idgiaoca.TienBatDauCa = Convert.ToDecimal(tbx_Tiendauca.Text);
             _iGiaocaService.Update(_idgiaoca);
-            FrmMain2 frmm = new FrmMain2();
-             frmm.ShowDialog();
+
+            frmm.ShowDialog();
             this.Close();
         }
 

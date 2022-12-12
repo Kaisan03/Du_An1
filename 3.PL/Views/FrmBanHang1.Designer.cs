@@ -836,8 +836,8 @@
             // 
             // Gr_BanHang
             // 
-            this.Gr_BanHang.Controls.Add(this.pn_HoaDon);
             this.Gr_BanHang.Controls.Add(this.pn_DatHang);
+            this.Gr_BanHang.Controls.Add(this.pn_HoaDon);
             this.Gr_BanHang.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Gr_BanHang.Location = new System.Drawing.Point(3, 176);
             this.Gr_BanHang.Name = "Gr_BanHang";
@@ -1090,7 +1090,7 @@
             this.dgrid_chitietgiay.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgrid_chitietgiay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgrid_chitietgiay.Location = new System.Drawing.Point(3, 18);
-            this.dgrid_chitietgiay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgrid_chitietgiay.Margin = new System.Windows.Forms.Padding(2);
             this.dgrid_chitietgiay.Name = "dgrid_chitietgiay";
             this.dgrid_chitietgiay.RowHeadersVisible = false;
             this.dgrid_chitietgiay.RowHeadersWidth = 51;

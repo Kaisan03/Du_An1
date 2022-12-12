@@ -156,7 +156,7 @@ namespace _3.PL.Views
 
 
             ActiveButton(sender, RGBColors.color3);
-            OpenChildForm(new FrmChiTietGiay());
+            OpenChildForm(new FrmChiTietGiay(txt_MaNhanVien.Text));
         }
 
         private void btn_hoadon_Click(object sender, EventArgs e)
@@ -178,7 +178,7 @@ namespace _3.PL.Views
                 iconButton3.Visible = false;
                 iconButton4.Visible = false;
                 iconButton5.Visible = false;
-                
+
                 iconButton7.Visible = false;
                 iconButton8.Visible = false;
                 iconButton9.Visible = false;
@@ -192,7 +192,7 @@ namespace _3.PL.Views
                 iconButton3.Visible = true;
                 iconButton4.Visible = true;
                 iconButton5.Visible = true;
-                
+
                 iconButton7.Visible = true;
                 iconButton8.Visible = true;
                 iconButton9.Visible = true;
@@ -408,6 +408,9 @@ namespace _3.PL.Views
             OpenChildForm(new FrmKhachHang());
         }
 
-        
+        private void iconPictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

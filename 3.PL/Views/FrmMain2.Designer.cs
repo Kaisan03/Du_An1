@@ -64,12 +64,14 @@ namespace _3.PL.Views
             this.panel_dektop = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel_menu.SuspendLayout();
             this.panel_logo.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconChange)).BeginInit();
             this.panel_dektop.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_menu
@@ -538,9 +540,7 @@ namespace _3.PL.Views
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.txt_MaNhanVien);
-            this.panel1.Controls.Add(this.iconPictureBox1);
+            this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.txt_Date);
             this.panel1.Controls.Add(this.txt_Time);
             this.panel1.Controls.Add(this.lb_change);
@@ -554,31 +554,34 @@ namespace _3.PL.Views
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(914, 39);
+            this.label1.Location = new System.Drawing.Point(21, 45);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 24);
+            this.label1.Size = new System.Drawing.Size(90, 23);
             this.label1.TabIndex = 5;
             this.label1.Text = "Xin chào:";
             // 
             // txt_MaNhanVien
             // 
+            this.txt_MaNhanVien.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txt_MaNhanVien.AutoSize = true;
             this.txt_MaNhanVien.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txt_MaNhanVien.Location = new System.Drawing.Point(929, 39);
+            this.txt_MaNhanVien.Location = new System.Drawing.Point(117, 43);
             this.txt_MaNhanVien.Name = "txt_MaNhanVien";
             this.txt_MaNhanVien.Size = new System.Drawing.Size(0, 25);
             this.txt_MaNhanVien.TabIndex = 4;
             // 
             // iconPictureBox1
             // 
+            this.iconPictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.iconPictureBox1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.User;
             this.iconPictureBox1.IconColor = System.Drawing.SystemColors.ControlText;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox1.Location = new System.Drawing.Point(1045, 32);
+            this.iconPictureBox1.Location = new System.Drawing.Point(311, 36);
             this.iconPictureBox1.Name = "iconPictureBox1";
             this.iconPictureBox1.Size = new System.Drawing.Size(32, 32);
             this.iconPictureBox1.TabIndex = 3;
@@ -675,6 +678,17 @@ namespace _3.PL.Views
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.iconPictureBox1);
+            this.panel3.Controls.Add(this.txt_MaNhanVien);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel3.Location = new System.Drawing.Point(850, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(350, 95);
+            this.panel3.TabIndex = 6;
+            // 
             // FrmMain2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -694,6 +708,8 @@ namespace _3.PL.Views
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconChange)).EndInit();
             this.panel_dektop.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -733,5 +749,6 @@ namespace _3.PL.Views
         private FontAwesome.Sharp.IconButton btn_ketthuc;
         private FontAwesome.Sharp.IconButton btn_khachhang;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel3;
     }
 }
