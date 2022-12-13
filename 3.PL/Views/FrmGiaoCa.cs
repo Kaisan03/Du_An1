@@ -21,20 +21,9 @@ namespace _3.PL.Views
         public IHoaDonChiTietService _iHoaDonchitietservice;
         public IHoaDonService _ihoadonservice;
         public IGiaoCaService _iGiaocaService;
-       
         public GiaoCa _idgiaoca;
-        int k500;
-        int k200;
-        int k100;
-        int k50;
-        int k20;
-        int k10;
-        int k5;
-        int k2;
-        int k1;
         decimal tienmat;
         decimal chuyenkhoan;
-        decimal tongtientrongket;
         public FrmGiaoCa()
         {
             InitializeComponent();
@@ -53,19 +42,17 @@ namespace _3.PL.Views
             var hoadonchitiet  = _iHoaDonchitietservice.GetAllHoaDonCT().FirstOrDefault(c => c.IdHoaDon == hoadon.Id);
             _idgiaoca = giaoca;
             lb_maca.Text = giaoca.Ma;
-            lb_thoigianbatdau.Text = Convert.ToString(giaoca.ThoiGianNhanCa);
-            lb_thoigianketthuc.Text = Convert.ToString(DateTime.Now);
-            lb_tienbandau.Text = Convert.ToString(giaoca.TienBatDauCa);
-
             foreach (var z in _ihoadonservice.GetallHoadon().Where(c=>c.IdCa == x))
             {
                 lb_tienchuyenkhoan.Text =Convert.ToString(chuyenkhoan += Convert.ToDecimal(z.ChuyenKhoan));
                 lb_tienmat.Text = Convert.ToString(tienmat += Convert.ToDecimal(z.TienMat));
             }
             lb_tongdoanhthutrongca.Text = Convert.ToString(tienmat + chuyenkhoan);
-            lb_tongtienmat.Text = Convert.ToString(tienmat + Convert.ToDecimal(lb_tienbandau.Text));
-            lb_tongdoanhthu.Text = Convert.ToString(tienmat + chuyenkhoan + Convert.ToDecimal(lb_tienbandau.Text));
-
+            lb_tongtienmat.Text = Convert.ToString(giaoca.TienBatDauCa);
+            lb_tongdoanhthu.Text = Convert.ToString(giaoca.TienBatDauCa+ Convert.ToDecimal(chuyenkhoan));
+            lb_thoigianbatdau.Text = Convert.ToString(giaoca.ThoiGianNhanCa);
+            lb_thoigianketthuc.Text = Convert.ToString(DateTime.Now);
+            lb_tienbandau.Text = Convert.ToString(giaoca.TienBatDauCa - tienmat);
         }
         private void btn_huy_Click(object sender, EventArgs e)
         {
@@ -78,7 +65,7 @@ namespace _3.PL.Views
             _idgiaoca = giaoca;
             _idgiaoca.TongTienMat = Convert.ToDecimal(lb_tienmat.Text);
             _idgiaoca.TongTienTrongCa = Convert.ToDecimal(lb_tongdoanhthutrongca.Text);
-            _idgiaoca.TongTienPhatSinh = Convert.ToDecimal(tbx_tienphatsinh.Text);
+            _idgiaoca.TongTienPhatSinh = Convert.ToDecimal(lb_tongtienmat.Text) - Convert.ToDecimal(tbx_tienphatsinh.Text);
             _idgiaoca.GhiChuPhatSinh = tbx_ghichu.Text;
             _idgiaoca.ThoiGianReset = DateTime.Now;
             _iGiaocaService.Update(_idgiaoca);

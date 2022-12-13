@@ -38,7 +38,7 @@ namespace _3.PL.Views
             _idgiaoca = giaoca;
             lb_thoigianbatdau.Text = Convert.ToString(giaoca.ThoiGianNhanCa);
             lb_maca.Text = giaoca.Ma;
-            tbx_Tiendauca.Text = Convert.ToString(catruoc.TienBatDauCa + giaoca.TongTienTrongCa);
+            tbx_Tiendauca.Text = Convert.ToString(catruoc.TienBatDauCa);
 
         }
 

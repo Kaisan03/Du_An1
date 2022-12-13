@@ -51,6 +51,12 @@
             this.tbx_tienphatsinh = new System.Windows.Forms.TextBox();
             this.tbx_ghichu = new System.Windows.Forms.RichTextBox();
             this.panel_thongke = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.btn_ruttien = new FontAwesome.Sharp.IconButton();
             this.btn_huy = new FontAwesome.Sharp.IconButton();
             this.btn_xacnhan = new FontAwesome.Sharp.IconButton();
@@ -83,9 +89,9 @@
             this.lb_thoigianbatdau.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lb_thoigianbatdau.Location = new System.Drawing.Point(212, 57);
             this.lb_thoigianbatdau.Name = "lb_thoigianbatdau";
-            this.lb_thoigianbatdau.Size = new System.Drawing.Size(134, 20);
+            this.lb_thoigianbatdau.Size = new System.Drawing.Size(17, 20);
             this.lb_thoigianbatdau.TabIndex = 3;
-            this.lb_thoigianbatdau.Text = "thoi gian ban hang";
+            this.lb_thoigianbatdau.Text = "0";
             // 
             // label4
             // 
@@ -103,9 +109,9 @@
             this.lb_thoigianketthuc.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lb_thoigianketthuc.Location = new System.Drawing.Point(212, 97);
             this.lb_thoigianketthuc.Name = "lb_thoigianketthuc";
-            this.lb_thoigianketthuc.Size = new System.Drawing.Size(124, 20);
+            this.lb_thoigianketthuc.Size = new System.Drawing.Size(17, 20);
             this.lb_thoigianketthuc.TabIndex = 5;
-            this.lb_thoigianketthuc.Text = "thoi gian ket thuc";
+            this.lb_thoigianketthuc.Text = "0";
             // 
             // label6
             // 
@@ -123,9 +129,9 @@
             this.lb_tienbandau.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lb_tienbandau.Location = new System.Drawing.Point(212, 137);
             this.lb_tienbandau.Name = "lb_tienbandau";
-            this.lb_tienbandau.Size = new System.Drawing.Size(92, 20);
+            this.lb_tienbandau.Size = new System.Drawing.Size(17, 20);
             this.lb_tienbandau.TabIndex = 7;
-            this.lb_tienbandau.Text = "tien ban dau";
+            this.lb_tienbandau.Text = "0";
             // 
             // label8
             // 
@@ -143,9 +149,9 @@
             this.lb_tienmat.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lb_tienmat.Location = new System.Drawing.Point(212, 257);
             this.lb_tienmat.Name = "lb_tienmat";
-            this.lb_tienmat.Size = new System.Drawing.Size(64, 20);
+            this.lb_tienmat.Size = new System.Drawing.Size(17, 20);
             this.lb_tienmat.TabIndex = 13;
-            this.lb_tienmat.Text = "tien mat";
+            this.lb_tienmat.Text = "0";
             // 
             // label12
             // 
@@ -163,9 +169,9 @@
             this.lb_tienchuyenkhoan.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lb_tienchuyenkhoan.Location = new System.Drawing.Point(212, 217);
             this.lb_tienchuyenkhoan.Name = "lb_tienchuyenkhoan";
-            this.lb_tienchuyenkhoan.Size = new System.Drawing.Size(128, 20);
+            this.lb_tienchuyenkhoan.Size = new System.Drawing.Size(17, 20);
             this.lb_tienchuyenkhoan.TabIndex = 11;
-            this.lb_tienchuyenkhoan.Text = "tien chuyen khoan";
+            this.lb_tienchuyenkhoan.Text = "0";
             // 
             // label14
             // 
@@ -183,9 +189,9 @@
             this.lb_tongdoanhthutrongca.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lb_tongdoanhthutrongca.Location = new System.Drawing.Point(212, 177);
             this.lb_tongdoanhthutrongca.Name = "lb_tongdoanhthutrongca";
-            this.lb_tongdoanhthutrongca.Size = new System.Drawing.Size(170, 20);
+            this.lb_tongdoanhthutrongca.Size = new System.Drawing.Size(17, 20);
             this.lb_tongdoanhthutrongca.TabIndex = 9;
-            this.lb_tongdoanhthutrongca.Text = "tong doanh thu trong ca";
+            this.lb_tongdoanhthutrongca.Text = "0";
             // 
             // label16
             // 
@@ -213,9 +219,9 @@
             this.lb_tongtienmat.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lb_tongtienmat.Location = new System.Drawing.Point(212, 297);
             this.lb_tongtienmat.Name = "lb_tongtienmat";
-            this.lb_tongtienmat.Size = new System.Drawing.Size(91, 20);
+            this.lb_tongtienmat.Size = new System.Drawing.Size(17, 20);
             this.lb_tongtienmat.TabIndex = 15;
-            this.lb_tongtienmat.Text = "tong tin mat";
+            this.lb_tongtienmat.Text = "0";
             // 
             // lb_tongdoanhthu
             // 
@@ -223,9 +229,9 @@
             this.lb_tongdoanhthu.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lb_tongdoanhthu.Location = new System.Drawing.Point(212, 337);
             this.lb_tongdoanhthu.Name = "lb_tongdoanhthu";
-            this.lb_tongdoanhthu.Size = new System.Drawing.Size(111, 20);
+            this.lb_tongdoanhthu.Size = new System.Drawing.Size(17, 20);
             this.lb_tongdoanhthu.TabIndex = 17;
-            this.lb_tongdoanhthu.Text = "tong doanh thu";
+            this.lb_tongdoanhthu.Text = "0";
             // 
             // label18
             // 
@@ -279,6 +285,12 @@
             // 
             // panel_thongke
             // 
+            this.panel_thongke.Controls.Add(this.label11);
+            this.panel_thongke.Controls.Add(this.label9);
+            this.panel_thongke.Controls.Add(this.label7);
+            this.panel_thongke.Controls.Add(this.label5);
+            this.panel_thongke.Controls.Add(this.label3);
+            this.panel_thongke.Controls.Add(this.label2);
             this.panel_thongke.Controls.Add(this.btn_ruttien);
             this.panel_thongke.Controls.Add(this.btn_huy);
             this.panel_thongke.Controls.Add(this.btn_xacnhan);
@@ -308,6 +320,66 @@
             this.panel_thongke.Name = "panel_thongke";
             this.panel_thongke.Size = new System.Drawing.Size(456, 650);
             this.panel_thongke.TabIndex = 22;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label11.Location = new System.Drawing.Point(334, 337);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(40, 20);
+            this.label11.TabIndex = 30;
+            this.label11.Text = "VND";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label9.Location = new System.Drawing.Point(334, 297);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(40, 20);
+            this.label9.TabIndex = 29;
+            this.label9.Text = "VND";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(334, 257);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(40, 20);
+            this.label7.TabIndex = 28;
+            this.label7.Text = "VND";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(334, 217);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 20);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "VND";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(334, 177);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(40, 20);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "VND";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(334, 137);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(40, 20);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "VND";
             // 
             // btn_ruttien
             // 
@@ -391,5 +463,11 @@
         private FontAwesome.Sharp.IconButton btn_huy;
         private System.Windows.Forms.Panel panel_thongke;
         private FontAwesome.Sharp.IconButton btn_ruttien;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
     }
 }
