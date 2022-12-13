@@ -694,8 +694,8 @@ namespace _3.PL.Views
 
         private void btn_ThanhToan_Click(object sender, EventArgs e)
         {
-            //try
-            //{
+            try
+            {
                 DialogResult dialogResult = MessageBox.Show($"Bạn có muốn thanh toán hóa Đơn {lbl_MahoaDon.Text} không", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (dialogResult == DialogResult.Yes)
                 {
@@ -765,12 +765,12 @@ namespace _3.PL.Views
                     dgrid_GioHang.Rows.Clear();
                     lbl_MahoaDon.Text = "....";
                 }
-        //}
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(Convert.ToString(ex.Message), "Liên Hệ Với KaiSan");
-        //    }
-}
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Convert.ToString(ex.Message), "Liên Hệ Với KaiSan");
+            }
+        }
         private void btn_DatHang2_Click(object sender, EventArgs e)
         {
             try
@@ -867,7 +867,7 @@ namespace _3.PL.Views
                     updateHoaDon.NgayNhanHang = Date_NgayNhan.Value;
                     updateHoaDon.TienCoc = Convert.ToInt32(txt_TienCoc.Text);
                     // updateHoaDon.TienShip = Convert.ToInt32(txt_TienShipHang.Text);
-                    updateHoaDon.TienKhachDua = Convert.ToInt32(txt_TienKhachTT.Text.Replace(".",""));
+                    updateHoaDon.TienKhachDua = Convert.ToInt32(txt_TienKhachTT.Text.Replace(".","").Replace("đ",""));
                     updateHoaDon.DiaChi = txt_DiaChi.Text;
                     updateHoaDon.TienShip = Convert.ToInt32(txt_TienShip.Text);
                     updateHoaDon.DiaChi = txt_DiaChi.Text;

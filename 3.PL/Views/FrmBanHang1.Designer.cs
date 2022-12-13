@@ -839,8 +839,8 @@
             // 
             // Gr_BanHang
             // 
-            this.Gr_BanHang.Controls.Add(this.pn_HoaDon);
             this.Gr_BanHang.Controls.Add(this.pn_DatHang);
+            this.Gr_BanHang.Controls.Add(this.pn_HoaDon);
             this.Gr_BanHang.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Gr_BanHang.Location = new System.Drawing.Point(3, 176);
             this.Gr_BanHang.Name = "Gr_BanHang";
