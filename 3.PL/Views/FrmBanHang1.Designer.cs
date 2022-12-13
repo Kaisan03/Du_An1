@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.thôngTinChiTiếtSảnPhẩmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pn_HoaDon = new System.Windows.Forms.Panel();
@@ -126,10 +126,10 @@
             this.xóaSảnPhẩmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tool_TrangThai = new System.Windows.Forms.ToolStripMenuItem();
-            this.tool_HuyDonHang = new System.Windows.Forms.ToolStripMenuItem();
             this.chờXửLýToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chờLấyHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đangGiaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tool_HuyDonHang = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.pn_HoaDon.SuspendLayout();
             this.pn_DatHang.SuspendLayout();
@@ -839,8 +839,8 @@
             // 
             // Gr_BanHang
             // 
-            this.Gr_BanHang.Controls.Add(this.pn_DatHang);
             this.Gr_BanHang.Controls.Add(this.pn_HoaDon);
+            this.Gr_BanHang.Controls.Add(this.pn_DatHang);
             this.Gr_BanHang.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Gr_BanHang.Location = new System.Drawing.Point(3, 176);
             this.Gr_BanHang.Name = "Gr_BanHang";
@@ -1073,24 +1073,24 @@
             this.dgrid_chitietgiay.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgrid_chitietgiay.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgrid_chitietgiay.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgrid_chitietgiay.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgrid_chitietgiay.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgrid_chitietgiay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrid_chitietgiay.ContextMenuStrip = this.contextMenuStrip1;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgrid_chitietgiay.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgrid_chitietgiay.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgrid_chitietgiay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgrid_chitietgiay.Location = new System.Drawing.Point(3, 18);
             this.dgrid_chitietgiay.Margin = new System.Windows.Forms.Padding(2);
@@ -1308,13 +1308,6 @@
             this.tool_TrangThai.Size = new System.Drawing.Size(212, 30);
             this.tool_TrangThai.Text = "Trạng thái";
             // 
-            // tool_HuyDonHang
-            // 
-            this.tool_HuyDonHang.Name = "tool_HuyDonHang";
-            this.tool_HuyDonHang.Size = new System.Drawing.Size(254, 30);
-            this.tool_HuyDonHang.Text = "Hủy đơn hàng";
-            this.tool_HuyDonHang.Click += new System.EventHandler(this.tool_HuyDonHang_Click);
-            // 
             // chờXửLýToolStripMenuItem
             // 
             this.chờXửLýToolStripMenuItem.Name = "chờXửLýToolStripMenuItem";
@@ -1335,6 +1328,13 @@
             this.đangGiaoToolStripMenuItem.Size = new System.Drawing.Size(199, 30);
             this.đangGiaoToolStripMenuItem.Text = "Đang giao";
             this.đangGiaoToolStripMenuItem.Click += new System.EventHandler(this.đangGiaoToolStripMenuItem_Click);
+            // 
+            // tool_HuyDonHang
+            // 
+            this.tool_HuyDonHang.Name = "tool_HuyDonHang";
+            this.tool_HuyDonHang.Size = new System.Drawing.Size(212, 30);
+            this.tool_HuyDonHang.Text = "Hủy đơn hàng";
+            this.tool_HuyDonHang.Click += new System.EventHandler(this.tool_HuyDonHang_Click);
             // 
             // FrmBanHang1
             // 

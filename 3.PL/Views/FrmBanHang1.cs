@@ -713,7 +713,7 @@ namespace _3.PL.Views
                         MessageBox.Show("Tên khách hàng không được chứa số", "ERR");
                         return;
                     }
-                    if (Convert.ToDecimal(lbl_TienThua.Text) < 0)
+                    if (Convert.ToDecimal(lbl_TienThua.Text.Replace(".","")) < 0)
                     {
                         MessageBox.Show("Khách thanh toán chưa đủ tiền, vui lòng nhập lại!", "ERR");
                         return;
@@ -757,12 +757,12 @@ namespace _3.PL.Views
                     dgrid_GioHang.Rows.Clear();
                     lbl_MahoaDon.Text = "....";
                 }
-            }
+        }
             catch (Exception ex)
             {
                 MessageBox.Show(Convert.ToString(ex.Message), "Liên Hệ Với KaiSan");
             }
-        }
+}
         private void btn_DatHang2_Click(object sender, EventArgs e)
         {
             try
