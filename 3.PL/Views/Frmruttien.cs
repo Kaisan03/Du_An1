@@ -31,13 +31,13 @@ namespace _3.PL.Views
         private void btn_ruttien_Click(object sender, EventArgs e)
         {
             var _idgiaoca = _igiaocaService.GetAllGiaoca().FirstOrDefault(c => c.Id == _igiaocaService.GetAllGiaoca().Max(c => c.Id));
-            var quanly = _inhanVienService.GetViewNhanVien().FirstOrDefault(c=> c.IdChucVu == _ichucvuservice.GetAllChucVu().FirstOrDefault(c=>c.Ten == "Quản lý").Id);
-            if (tbx_makhau.Text == null)
+            var quanly = _inhanVienService.GetViewNhanVien().FirstOrDefault(c => c.TenChuCVu == "Quản lý");
+            if (tbx_makhau.Text == "")
             {
                 MessageBox.Show("bạn chưa nhập mật khẩu !!!");
                 tbx_makhau.Focus();
             }
-            if (tbx_ruttien.Text == null)
+            if (tbx_ruttien.Text == "")
             {
                 MessageBox.Show("bạn chưa nhập số tiền !!!");
                 tbx_ruttien.Focus();

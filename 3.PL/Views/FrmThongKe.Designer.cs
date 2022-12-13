@@ -31,7 +31,10 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbl_SoHDDangGiao = new System.Windows.Forms.Label();
+            this.rbtn_Nam = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
+            this.rbtn_Ngay = new System.Windows.Forms.RadioButton();
+            this.rbtn_Thang = new System.Windows.Forms.RadioButton();
             this.lbl_SoHDTaiQuay = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -43,10 +46,12 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgrid_ThongKe = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.cmb_LocNam = new System.Windows.Forms.ComboBox();
+            this.cmb_LocThang = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.date_LocTheoNgay = new System.Windows.Forms.DateTimePicker();
-            this.rbtn_Nam = new System.Windows.Forms.RadioButton();
-            this.rbtn_Thang = new System.Windows.Forms.RadioButton();
-            this.rbtn_Ngay = new System.Windows.Forms.RadioButton();
             this.btn_TimKiem = new System.Windows.Forms.Button();
             this.date_NgayKT = new System.Windows.Forms.DateTimePicker();
             this.date_NgayBD = new System.Windows.Forms.DateTimePicker();
@@ -75,7 +80,10 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.lbl_SoHDDangGiao);
+            this.panel2.Controls.Add(this.rbtn_Nam);
             this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.rbtn_Ngay);
+            this.panel2.Controls.Add(this.rbtn_Thang);
             this.panel2.Controls.Add(this.lbl_SoHDTaiQuay);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.pictureBox2);
@@ -94,6 +102,17 @@
             this.lbl_SoHDDangGiao.TabIndex = 2;
             this.lbl_SoHDDangGiao.Text = "...";
             // 
+            // rbtn_Nam
+            // 
+            this.rbtn_Nam.AutoSize = true;
+            this.rbtn_Nam.Location = new System.Drawing.Point(540, 159);
+            this.rbtn_Nam.Name = "rbtn_Nam";
+            this.rbtn_Nam.Size = new System.Drawing.Size(78, 19);
+            this.rbtn_Nam.TabIndex = 2;
+            this.rbtn_Nam.TabStop = true;
+            this.rbtn_Nam.Text = "Theo năm";
+            this.rbtn_Nam.UseVisualStyleBackColor = true;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -104,6 +123,30 @@
             this.label4.TabIndex = 2;
             this.label4.Text = "Số hóa đơn đang giao:";
             // 
+            // rbtn_Ngay
+            // 
+            this.rbtn_Ngay.AutoSize = true;
+            this.rbtn_Ngay.Location = new System.Drawing.Point(540, 34);
+            this.rbtn_Ngay.Name = "rbtn_Ngay";
+            this.rbtn_Ngay.Size = new System.Drawing.Size(82, 19);
+            this.rbtn_Ngay.TabIndex = 2;
+            this.rbtn_Ngay.TabStop = true;
+            this.rbtn_Ngay.Text = "Theo Ngày";
+            this.rbtn_Ngay.UseVisualStyleBackColor = true;
+            this.rbtn_Ngay.CheckedChanged += new System.EventHandler(this.rbtn_Ngay_CheckedChanged);
+            // 
+            // rbtn_Thang
+            // 
+            this.rbtn_Thang.AutoSize = true;
+            this.rbtn_Thang.Location = new System.Drawing.Point(540, 134);
+            this.rbtn_Thang.Name = "rbtn_Thang";
+            this.rbtn_Thang.Size = new System.Drawing.Size(87, 19);
+            this.rbtn_Thang.TabIndex = 2;
+            this.rbtn_Thang.TabStop = true;
+            this.rbtn_Thang.Text = "Theo Tháng";
+            this.rbtn_Thang.UseVisualStyleBackColor = true;
+            this.rbtn_Thang.CheckedChanged += new System.EventHandler(this.rbtn_Thang_CheckedChanged);
+            // 
             // lbl_SoHDTaiQuay
             // 
             this.lbl_SoHDTaiQuay.AutoSize = true;
@@ -112,6 +155,7 @@
             this.lbl_SoHDTaiQuay.Size = new System.Drawing.Size(16, 15);
             this.lbl_SoHDTaiQuay.TabIndex = 1;
             this.lbl_SoHDTaiQuay.Text = "...";
+            this.lbl_SoHDTaiQuay.TextChanged += new System.EventHandler(this.lbl_SoHDTaiQuay_TextChanged);
             // 
             // label3
             // 
@@ -213,10 +257,12 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.cmb_LocNam);
+            this.panel4.Controls.Add(this.cmb_LocThang);
+            this.panel4.Controls.Add(this.label7);
+            this.panel4.Controls.Add(this.label6);
+            this.panel4.Controls.Add(this.label5);
             this.panel4.Controls.Add(this.date_LocTheoNgay);
-            this.panel4.Controls.Add(this.rbtn_Nam);
-            this.panel4.Controls.Add(this.rbtn_Thang);
-            this.panel4.Controls.Add(this.rbtn_Ngay);
             this.panel4.Controls.Add(this.btn_TimKiem);
             this.panel4.Controls.Add(this.date_NgayKT);
             this.panel4.Controls.Add(this.date_NgayBD);
@@ -226,48 +272,58 @@
             this.panel4.Size = new System.Drawing.Size(1414, 74);
             this.panel4.TabIndex = 0;
             // 
+            // cmb_LocNam
+            // 
+            this.cmb_LocNam.FormattingEnabled = true;
+            this.cmb_LocNam.Location = new System.Drawing.Point(629, 30);
+            this.cmb_LocNam.Name = "cmb_LocNam";
+            this.cmb_LocNam.Size = new System.Drawing.Size(121, 23);
+            this.cmb_LocNam.TabIndex = 5;
+            // 
+            // cmb_LocThang
+            // 
+            this.cmb_LocThang.FormattingEnabled = true;
+            this.cmb_LocThang.Location = new System.Drawing.Point(374, 30);
+            this.cmb_LocThang.Name = "cmb_LocThang";
+            this.cmb_LocThang.Size = new System.Drawing.Size(121, 23);
+            this.cmb_LocThang.TabIndex = 5;
+            this.cmb_LocThang.SelectedIndexChanged += new System.EventHandler(this.cmb_LocThang_SelectedIndexChanged);
+            this.cmb_LocThang.SelectedValueChanged += new System.EventHandler(this.cmb_LocThang_SelectedValueChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(548, 33);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(63, 15);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Theo năm:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(287, 33);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(70, 15);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Theo tháng:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 30);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(65, 15);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Theo ngày:";
+            // 
             // date_LocTheoNgay
             // 
-            this.date_LocTheoNgay.Location = new System.Drawing.Point(509, 27);
+            this.date_LocTheoNgay.Location = new System.Drawing.Point(83, 30);
             this.date_LocTheoNgay.Name = "date_LocTheoNgay";
-            this.date_LocTheoNgay.Size = new System.Drawing.Size(200, 23);
+            this.date_LocTheoNgay.Size = new System.Drawing.Size(151, 23);
             this.date_LocTheoNgay.TabIndex = 3;
             this.date_LocTheoNgay.ValueChanged += new System.EventHandler(this.date_LocTheoNgay_ValueChanged);
-            // 
-            // rbtn_Nam
-            // 
-            this.rbtn_Nam.AutoSize = true;
-            this.rbtn_Nam.Location = new System.Drawing.Point(320, 27);
-            this.rbtn_Nam.Name = "rbtn_Nam";
-            this.rbtn_Nam.Size = new System.Drawing.Size(78, 19);
-            this.rbtn_Nam.TabIndex = 2;
-            this.rbtn_Nam.TabStop = true;
-            this.rbtn_Nam.Text = "Theo năm";
-            this.rbtn_Nam.UseVisualStyleBackColor = true;
-            // 
-            // rbtn_Thang
-            // 
-            this.rbtn_Thang.AutoSize = true;
-            this.rbtn_Thang.Location = new System.Drawing.Point(163, 27);
-            this.rbtn_Thang.Name = "rbtn_Thang";
-            this.rbtn_Thang.Size = new System.Drawing.Size(87, 19);
-            this.rbtn_Thang.TabIndex = 2;
-            this.rbtn_Thang.TabStop = true;
-            this.rbtn_Thang.Text = "Theo Tháng";
-            this.rbtn_Thang.UseVisualStyleBackColor = true;
-            this.rbtn_Thang.CheckedChanged += new System.EventHandler(this.rbtn_Thang_CheckedChanged);
-            // 
-            // rbtn_Ngay
-            // 
-            this.rbtn_Ngay.AutoSize = true;
-            this.rbtn_Ngay.Location = new System.Drawing.Point(13, 27);
-            this.rbtn_Ngay.Name = "rbtn_Ngay";
-            this.rbtn_Ngay.Size = new System.Drawing.Size(82, 19);
-            this.rbtn_Ngay.TabIndex = 2;
-            this.rbtn_Ngay.TabStop = true;
-            this.rbtn_Ngay.Text = "Theo Ngày";
-            this.rbtn_Ngay.UseVisualStyleBackColor = true;
-            this.rbtn_Ngay.CheckedChanged += new System.EventHandler(this.rbtn_Ngay_CheckedChanged);
             // 
             // btn_TimKiem
             // 
@@ -342,5 +398,10 @@
         private System.Windows.Forms.RadioButton rbtn_Nam;
         private System.Windows.Forms.DateTimePicker date_LocTheoNgay;
         private System.Windows.Forms.RadioButton rbtn_Ngay;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cmb_LocNam;
+        private System.Windows.Forms.ComboBox cmb_LocThang;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
     }
 }

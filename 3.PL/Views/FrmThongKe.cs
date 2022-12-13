@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -29,7 +30,37 @@ namespace _3.PL.Views
             _ICTGiayService = new ChiTietGiayService();
             frmbh1 = new FrmBanHang1();
             LoadData();
+            LoadDataCbxThang();
+            lbl_SoHDTaiQuay.Text = _IHoaDonService.GetallHoadon().Where(c => c.TrangThai != 1).Count().ToString();
+            lbl_SoHDDangGiao.Text = _IHoaDonService.GetallHoadon().Where(c => c.TrangThai == 1).Count().ToString();
+            //LoadDataNam();
         }
+        private void LoadDataCbxThang()
+        {
+            cmb_LocThang.Items.Add("1");
+            cmb_LocThang.Items.Add("2");
+            cmb_LocThang.Items.Add("3");
+            cmb_LocThang.Items.Add("4");
+            cmb_LocThang.Items.Add("5");
+            cmb_LocThang.Items.Add("6");
+            cmb_LocThang.Items.Add("7");
+            cmb_LocThang.Items.Add("8");
+            cmb_LocThang.Items.Add("9");
+            cmb_LocThang.Items.Add("10");
+            cmb_LocThang.Items.Add("11");
+            cmb_LocThang.Items.Add("12");
+        }
+        //private void LoadDataNam()
+        //{
+        //    cmb_LocNam.Items.Add("2018");
+        //    cmb_LocNam.Items.Add("2019");
+        //    cmb_LocNam.Items.Add("2020");
+        //    cmb_LocNam.Items.Add("2021");
+        //    cmb_LocNam.Items.Add("2022");
+        //    cmb_LocNam.Items.Add("2023");
+        //    cmb_LocNam.Items.Add("2024");
+        //    cmb_LocNam.Items.Add("2025");
+        //}
         private void LoadData()
         {
             dgrid_ThongKe.ColumnCount = 6;
@@ -99,6 +130,47 @@ namespace _3.PL.Views
             string[] a = date_LocTheoNgay.Value.ToString().Split(" ");
             
             foreach (var x in _IHoaDonCTService.GetViewHoaDonCT().Where(c => c.HoaDon.NgayThanhToan.Value.ToString().Substring(0,10) == a[0]))
+            {
+                var x1 = _IHoaDonService.GetallHoadon().FirstOrDefault(c => c.Id == x.HoaDon.Id);
+                var x2 = _ICTGiayService.GetViewChiTietGiay().FirstOrDefault(c => c.Id == x.ChiTietGiay.Id);
+                dgrid_ThongKe.Rows.Add(x.HoaDon.Id, x.HoaDon.Ma, x.HoaDonChiTiet.SoLuong, x.HoaDonChiTiet.SoLuong * x.ChiTietGiay.GiaBan, x.HoaDon.TrangThai == 1 ? "Giao hàng" : "Mua tại quầy", x.HoaDon.NgayThanhToan);
+            }
+        }
+
+        private void cmb_LocThang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //dgrid_ThongKe.ColumnCount = 6;
+            //dgrid_ThongKe.Columns[0].Name = "ID Hóa đơn";
+            //dgrid_ThongKe.Columns[1].Name = "Mã hóa đơn";
+            //dgrid_ThongKe.Columns[2].Name = "Số SP";
+            //dgrid_ThongKe.Columns[3].Name = "Doanh thu";
+            //dgrid_ThongKe.Columns[4].Name = "Loại HD";
+            //dgrid_ThongKe.Columns[5].Name = "Ngày TT";
+            //dgrid_ThongKe.Rows.Clear();
+            //foreach (var x in _IHoaDonCTService.GetViewHoaDonCT().Where(c => c.HoaDon.NgayThanhToan.Value.ToString("MM:yyyy") == Convert.ToString(cmb_LocThang.Text)))
+            //{
+            //    var x1 = _IHoaDonService.GetallHoadon().FirstOrDefault(c => c.Id == x.HoaDon.Id);
+            //    var x2 = _ICTGiayService.GetViewChiTietGiay().FirstOrDefault(c => c.Id == x.ChiTietGiay.Id);
+            //    dgrid_ThongKe.Rows.Add(x.HoaDon.Id, x.HoaDon.Ma, x.HoaDonChiTiet.SoLuong, x.HoaDonChiTiet.SoLuong * x.ChiTietGiay.GiaBan, x.HoaDon.TrangThai == 1 ? "Giao hàng" : "Mua tại quầy", x.HoaDon.NgayThanhToan);
+            //}
+        }
+
+        private void lbl_SoHDTaiQuay_TextChanged(object sender, EventArgs e)
+        {
+            //lbl_SoHDTaiQuay.Text = _IHoaDonService.GetallHoadon().Where(c => c.TrangThai != 1).ToString();
+        }
+
+        private void cmb_LocThang_SelectedValueChanged(object sender, EventArgs e)
+        {
+            dgrid_ThongKe.ColumnCount = 6;
+            dgrid_ThongKe.Columns[0].Name = "ID Hóa đơn";
+            dgrid_ThongKe.Columns[1].Name = "Mã hóa đơn";
+            dgrid_ThongKe.Columns[2].Name = "Số SP";
+            dgrid_ThongKe.Columns[3].Name = "Doanh thu";
+            dgrid_ThongKe.Columns[4].Name = "Loại HD";
+            dgrid_ThongKe.Columns[5].Name = "Ngày TT";
+            dgrid_ThongKe.Rows.Clear();
+            foreach (var x in _IHoaDonCTService.GetViewHoaDonCT().Where(c => c.HoaDon.NgayThanhToan.Value.ToString("MM:yyyy") == cmb_LocThang.SelectedValue))
             {
                 var x1 = _IHoaDonService.GetallHoadon().FirstOrDefault(c => c.Id == x.HoaDon.Id);
                 var x2 = _ICTGiayService.GetViewChiTietGiay().FirstOrDefault(c => c.Id == x.ChiTietGiay.Id);
