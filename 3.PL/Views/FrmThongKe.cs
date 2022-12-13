@@ -78,7 +78,7 @@ namespace _3.PL.Views
 
         private void rbtn_Ngay_CheckedChanged(object sender, EventArgs e)
         {
-            lbl_DoanhThuHomNay.Text = Convert.ToString(_IHoaDonService.GetallHoadon().Where(c => c.NgayThanhToan == DateTime.Today).Sum(c => c.TongTien));
+            lbl_DoanhThuHomNay.Text = Convert.ToString(_IHoaDonService.GetallHoadon().Where(c => c.NgayThanhToan.Value.ToString().Substring(0,10) == DateTime.Now.ToString().Substring(0, 10)).Sum(c => c.TongTien));
         }
 
         private void rbtn_Thang_CheckedChanged(object sender, EventArgs e)
