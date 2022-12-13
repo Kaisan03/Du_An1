@@ -817,16 +817,12 @@ namespace _3.PL.Views
                         MessageBox.Show("Tên khách hàng không được chứa số", "ERR");
                         return;
                     }
-                    if (Convert.ToDecimal(txt_TienCoc.Text) >= Convert.ToDecimal(txt_TongTien.Text))
+                    if (Convert.ToDecimal(txt_TienCoc.Text) > Convert.ToDecimal(txt_TongTien.Text))
                     {
                         MessageBox.Show("Tiền cọc không được lớn hơn tổng tiền hàng", "ERR");
                         return;
                     }
-                    if (Convert.ToDecimal(lbl_TienThuaTraKhach.Text) <= Convert.ToDecimal(0))
-                    {
-                        MessageBox.Show("Khách thanh toán chưa đủ tiền, vui lòng nhập lại!", "ERR");
-                        return;
-                    }
+                    
                     if (Regex.IsMatch(txt_TienCoc.Text, @"^[0-9]") == false)
                     {
                         MessageBox.Show("Tiền cọc không được chứa chữ", "ERR");
@@ -863,7 +859,7 @@ namespace _3.PL.Views
                     updateHoaDon.NgayNhanHang = Date_NgayNhan.Value;
                     updateHoaDon.TienCoc = Convert.ToInt32(txt_TienCoc.Text);
                     // updateHoaDon.TienShip = Convert.ToInt32(txt_TienShipHang.Text);
-                    updateHoaDon.TienKhachDua = Convert.ToInt32(txt_TienKhachTT.Text);
+                    updateHoaDon.TienKhachDua = Convert.ToInt32(txt_TienKhachTT.Text.Replace(".",""));
                     updateHoaDon.DiaChi = txt_DiaChi.Text;
                     updateHoaDon.TienShip = Convert.ToInt32(txt_TienShip.Text);
                     updateHoaDon.DiaChi = txt_DiaChi.Text;
@@ -874,12 +870,12 @@ namespace _3.PL.Views
                     dgrid_GioHang.Rows.Clear();
                     lbl_MahoaDon.Text = "....";
                 }
-            }
+        }
             catch (Exception ex)
             {
                 MessageBox.Show(Convert.ToString(ex.Message), "Liên Hệ Với KaiSan");
             }
-        }
+}
 
         private void txt_TienKhachDua_TextAlignChanged(object sender, EventArgs e)
         {
