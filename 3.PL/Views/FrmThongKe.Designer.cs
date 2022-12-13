@@ -34,10 +34,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbl_SoHDDangGiao = new System.Windows.Forms.Label();
-            this.rbtn_Nam = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
-            this.rbtn_Ngay = new System.Windows.Forms.RadioButton();
-            this.rbtn_Thang = new System.Windows.Forms.RadioButton();
             this.lbl_SoHDTaiQuay = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -84,10 +81,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.LightSalmon;
             this.panel2.Controls.Add(this.lbl_SoHDDangGiao);
-            this.panel2.Controls.Add(this.rbtn_Nam);
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.rbtn_Ngay);
-            this.panel2.Controls.Add(this.rbtn_Thang);
             this.panel2.Controls.Add(this.lbl_SoHDTaiQuay);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.pictureBox2);
@@ -107,17 +101,6 @@
             this.lbl_SoHDDangGiao.TabIndex = 2;
             this.lbl_SoHDDangGiao.Text = "...";
             // 
-            // rbtn_Nam
-            // 
-            this.rbtn_Nam.AutoSize = true;
-            this.rbtn_Nam.Location = new System.Drawing.Point(721, 34);
-            this.rbtn_Nam.Name = "rbtn_Nam";
-            this.rbtn_Nam.Size = new System.Drawing.Size(78, 19);
-            this.rbtn_Nam.TabIndex = 2;
-            this.rbtn_Nam.TabStop = true;
-            this.rbtn_Nam.Text = "Theo năm";
-            this.rbtn_Nam.UseVisualStyleBackColor = true;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -127,30 +110,6 @@
             this.label4.Size = new System.Drawing.Size(214, 25);
             this.label4.TabIndex = 2;
             this.label4.Text = "Số hóa đơn đang giao:";
-            // 
-            // rbtn_Ngay
-            // 
-            this.rbtn_Ngay.AutoSize = true;
-            this.rbtn_Ngay.Location = new System.Drawing.Point(540, 34);
-            this.rbtn_Ngay.Name = "rbtn_Ngay";
-            this.rbtn_Ngay.Size = new System.Drawing.Size(82, 19);
-            this.rbtn_Ngay.TabIndex = 2;
-            this.rbtn_Ngay.TabStop = true;
-            this.rbtn_Ngay.Text = "Theo Ngày";
-            this.rbtn_Ngay.UseVisualStyleBackColor = true;
-            this.rbtn_Ngay.CheckedChanged += new System.EventHandler(this.rbtn_Ngay_CheckedChanged);
-            // 
-            // rbtn_Thang
-            // 
-            this.rbtn_Thang.AutoSize = true;
-            this.rbtn_Thang.Location = new System.Drawing.Point(628, 34);
-            this.rbtn_Thang.Name = "rbtn_Thang";
-            this.rbtn_Thang.Size = new System.Drawing.Size(87, 19);
-            this.rbtn_Thang.TabIndex = 2;
-            this.rbtn_Thang.TabStop = true;
-            this.rbtn_Thang.Text = "Theo Tháng";
-            this.rbtn_Thang.UseVisualStyleBackColor = true;
-            this.rbtn_Thang.CheckedChanged += new System.EventHandler(this.rbtn_Thang_CheckedChanged);
             // 
             // lbl_SoHDTaiQuay
             // 
@@ -437,10 +396,7 @@
         private System.Windows.Forms.Button btn_TimKiem;
         private System.Windows.Forms.DateTimePicker date_NgayKT;
         private System.Windows.Forms.DateTimePicker date_NgayBD;
-        private System.Windows.Forms.RadioButton rbtn_Thang;
-        private System.Windows.Forms.RadioButton rbtn_Nam;
         private System.Windows.Forms.DateTimePicker date_LocTheoNgay;
-        private System.Windows.Forms.RadioButton rbtn_Ngay;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cmb_LocNam;
         private System.Windows.Forms.ComboBox cmb_LocThang;
