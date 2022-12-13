@@ -189,6 +189,7 @@ namespace _3.PL.Views
             dgrid_ChiTietGiay.Columns[10].Name = "Giá bán";
             dgrid_ChiTietGiay.Columns[11].Name = "Số lượng tồn";
             dgrid_ChiTietGiay.Columns[12].Name = "Ảnh";
+            dgrid_ChiTietGiay.Columns[12].Visible = false;
             dgrid_ChiTietGiay.Columns[13].Name = "Mô tả";
             dgrid_ChiTietGiay.Columns[14].Name = "Trạng thái";
             dgrid_ChiTietGiay.Rows.Clear();

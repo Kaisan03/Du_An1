@@ -563,6 +563,16 @@ namespace _3.PL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_statistical_report_60 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-statistical-report-60", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_sum_38 {
             get {
                 object obj = ResourceManager.GetObject("icons8-sum-38", resourceCulture);

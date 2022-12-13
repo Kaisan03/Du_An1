@@ -31,10 +31,11 @@ namespace _3.PL.Views
             frmbh1 = new FrmBanHang1();
             LoadData();
             LoadDataCbxThang();
-            lbl_SoHDTaiQuay.Text = _IHoaDonService.GetallHoadon().Where(c => c.TrangThai == 0).Count().ToString();
-            lbl_SoHDDangGiao.Text = _IHoaDonService.GetallHoadon().Where(c => c.TrangThai == 1).Count().ToString();
+            lbl_SoHDTaiQuay.Text = _IHoaDonService.GetallHoadon().Where(c => c.NgayGiao == null).Count().ToString();
+            lbl_SoHDDangGiao.Text = _IHoaDonService.GetallHoadon().Where(c => c.NgayGiao !=null).Count().ToString();
             LoadDataNam();
             dgrid_ThongKe.AllowUserToAddRows = false;
+            
         }
         private void LoadDataCbxThang()
         {
@@ -77,7 +78,7 @@ namespace _3.PL.Views
             {
                 var x1 = _IHoaDonService.GetallHoadon().FirstOrDefault(c => c.Id == x.IdHoaDon);
                 var x2 = _ICTGiayService.GetViewChiTietGiay().FirstOrDefault(c => c.Id == x.IdChiTietGiay);
-                dgrid_ThongKe.Rows.Add(x.IdHoaDon, x1.Ma, x.SoLuong, x.SoLuong * x2.GiaBan, x1.TrangThai == 1 ? "Giao hàng" : "Mua tại quầy", x1.NgayThanhToan);
+                dgrid_ThongKe.Rows.Add(x.IdHoaDon, x1.Ma, x.SoLuong, x.SoLuong * x2.GiaBan, x1.NgayGiao == null ? "Mua tại quầy" : "Giao hàng", x1.NgayThanhToan);
             }
         }
         private void LoadDataTimKiem()
@@ -90,12 +91,12 @@ namespace _3.PL.Views
             dgrid_ThongKe.Columns[4].Name = "Loại HD";
             dgrid_ThongKe.Columns[5].Name = "Ngày TT";
             dgrid_ThongKe.Rows.Clear();
-            var ok = _IHoaDonCTService.GetViewHoaDonCT().Where(c => c.HoaDon.NgayThanhToan > date_NgayBD.Value.AddDays(-1) && c.HoaDon.NgayThanhToan < date_NgayKT.Value);
+            var ok = _IHoaDonCTService.GetViewHoaDonCT().Where(c => c.HoaDon.NgayThanhToan >= date_NgayBD.Value && c.HoaDon.NgayThanhToan <= date_NgayKT.Value);
             foreach (var x in ok.OrderBy(c => c.HoaDon.Id).ToList())
             {
                 var x1 = _IHoaDonService.GetallHoadon().FirstOrDefault(c => c.Id == x.HoaDon.Id);
                 var x2 = _ICTGiayService.GetViewChiTietGiay().FirstOrDefault(c => c.Id == x.ChiTietGiay.Id);
-                dgrid_ThongKe.Rows.Add(x.HoaDon.Id, x.HoaDon.Ma, x.HoaDonChiTiet.SoLuong, x.HoaDonChiTiet.SoLuong * x.ChiTietGiay.GiaBan, x.HoaDon.TrangThai == 1 ? "Giao hàng" : "Mua tại quầy", x.HoaDon.NgayThanhToan);
+                dgrid_ThongKe.Rows.Add(x.HoaDon.Id, x.HoaDon.Ma, x.HoaDonChiTiet.SoLuong, x.HoaDonChiTiet.SoLuong * x.ChiTietGiay.GiaBan, x.HoaDon.NgayGiao == null ? "Mua tại quầy" : "Giao hàng", x.HoaDon.NgayThanhToan);
             }
         }
 
@@ -135,7 +136,7 @@ namespace _3.PL.Views
                 {
                     var x1 = _IHoaDonService.GetallHoadon().FirstOrDefault(c => c.Id == x.HoaDon.Id);
                     var x2 = _ICTGiayService.GetViewChiTietGiay().FirstOrDefault(c => c.Id == x.ChiTietGiay.Id);
-                    dgrid_ThongKe.Rows.Add(x.HoaDon.Id, x.HoaDon.Ma, x.HoaDonChiTiet.SoLuong, x.HoaDonChiTiet.SoLuong * x.ChiTietGiay.GiaBan, x.HoaDon.TrangThai == 1 ? "Giao hàng" : "Mua tại quầy", x.HoaDon.NgayThanhToan);
+                    dgrid_ThongKe.Rows.Add(x.HoaDon.Id, x.HoaDon.Ma, x.HoaDonChiTiet.SoLuong, x.HoaDonChiTiet.SoLuong * x.ChiTietGiay.GiaBan, x.HoaDon.NgayGiao == null ? "Mua tại quầy" : "Giao hàng", x.HoaDon.NgayThanhToan);
                 }
                 lbl_DoanhThuHomNay.Text = Convert.ToString(_IHoaDonService.GetallHoadon().Where(c => c.NgayThanhToan.Value.ToString().Substring(0, 10) == date_LocTheoNgay.Value.ToString().Substring(0, 10)).Sum(c => c.TongTien));
             }
@@ -184,9 +185,9 @@ namespace _3.PL.Views
                 {
                     var x1 = _IHoaDonService.GetallHoadon().FirstOrDefault(c => c.Id == x.HoaDon.Id);
                     var x2 = _ICTGiayService.GetViewChiTietGiay().FirstOrDefault(c => c.Id == x.ChiTietGiay.Id);
-                    dgrid_ThongKe.Rows.Add(x.HoaDon.Id, x.HoaDon.Ma, x.HoaDonChiTiet.SoLuong, x.HoaDonChiTiet.SoLuong * x.ChiTietGiay.GiaBan, x.HoaDon.TrangThai == 1 ? "Giao hàng" : "Mua tại quầy", x.HoaDon.NgayThanhToan);
+                    dgrid_ThongKe.Rows.Add(x.HoaDon.Id, x.HoaDon.Ma, x.HoaDonChiTiet.SoLuong, x.HoaDonChiTiet.SoLuong * x.ChiTietGiay.GiaBan, x.HoaDon.NgayGiao == null ? "Mua tại quầy" : "Giao hàng", x.HoaDon.NgayThanhToan);
                 }
-                lbl_DoanhThuHomNay.Text = Convert.ToString(_IHoaDonService.GetallHoadon().Where(c => c.NgayThanhToan.Value.ToString().Substring(0, 2) == cmb_LocThang.Text.ToString().Substring(0, 2)).Sum(c => c.TongTien));
+                lbl_DoanhThuHomNay.Text = Convert.ToString(_IHoaDonService.GetallHoadon().Where(c => c.NgayThanhToan.Value.ToString().Substring(0, 2) == cmb_LocThang.Text.ToString()).Sum(c => c.TongTien));
             }
             catch (Exception ex)
             {
@@ -209,9 +210,9 @@ namespace _3.PL.Views
                 {
                     var x1 = _IHoaDonService.GetallHoadon().FirstOrDefault(c => c.Id == x.HoaDon.Id);
                     var x2 = _ICTGiayService.GetViewChiTietGiay().FirstOrDefault(c => c.Id == x.ChiTietGiay.Id);
-                    dgrid_ThongKe.Rows.Add(x.HoaDon.Id, x.HoaDon.Ma, x.HoaDonChiTiet.SoLuong, x.HoaDonChiTiet.SoLuong * x.ChiTietGiay.GiaBan, x.HoaDon.TrangThai == 1 ? "Giao hàng" : "Mua tại quầy", x.HoaDon.NgayThanhToan);
+                    dgrid_ThongKe.Rows.Add(x.HoaDon.Id, x.HoaDon.Ma, x.HoaDonChiTiet.SoLuong, x.HoaDonChiTiet.SoLuong * x.ChiTietGiay.GiaBan, x.HoaDon.NgayGiao == null ? "Mua tại quầy" : "Giao hàng", x.HoaDon.NgayThanhToan);
                 }
-                lbl_DoanhThuHomNay.Text = Convert.ToString(_IHoaDonService.GetallHoadon().Where(c => c.NgayThanhToan.Value.ToString().Substring(6, 4) == cmb_LocNam.Text.ToString().Substring(6, 4)).Sum(c => c.TongTien));
+                lbl_DoanhThuHomNay.Text = Convert.ToString(_IHoaDonService.GetallHoadon().Where(c => c.NgayThanhToan.Value.ToString().Substring(6, 4) == cmb_LocNam.Text.ToString()).Sum(c => c.TongTien));
             }
             catch (Exception ex)
             {

@@ -14,6 +14,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 using System.Windows.Forms;
 
 namespace _3.PL.Views
@@ -42,6 +43,7 @@ namespace _3.PL.Views
             chiTietGiayService = new ChiTietGiayService();
             Loaddata();
             cookroi();
+            
             //LoaddataCombobox();
         }
         public void Loaddata()
@@ -198,11 +200,12 @@ namespace _3.PL.Views
             }
 
 
-            foreach (var i in _ihoadonservice.GetallHoadon().Where(c => c.TrangThai == 1 || c.TrangThai == 2 || c.TrangThai == 3))
+            foreach (var i in _ihoadonservice.GetallHoadon().Where(c => c.TrangThai == 1))
             {
                 Button btn_HoaDonCho = new Button();
 
-                btn_HoaDonCho.Text = i.Ma + Environment.NewLine + "Đã thanh toán";
+                btn_HoaDonCho.Text = i.Ma + Environment.NewLine + "Đã thanh toán" ;
+                
                 btn_HoaDonCho.ForeColor = Color.FromArgb(255, 89, 136);
                 btn_HoaDonCho.Tag = i;
                 btn_HoaDonCho.Width = 60;
@@ -211,6 +214,58 @@ namespace _3.PL.Views
                 flp_HoaDon.Controls.Add(btn_HoaDonCho);
                 btn_HoaDonCho.Click += Btn_HoaDonCho_Click;
 
+            }
+        }
+        private void cookroi1()
+        {
+            while (flp_HoaDon.Controls.Count > 0)
+            {
+                flp_HoaDon.Controls[0].Dispose();
+            }
+
+
+            foreach (var i in _ihoadonservice.GetallHoadon().Where(c => c.TrangThai == 4))
+            {
+                Button btn_HoaDonCho = new Button();
+
+                btn_HoaDonCho.Text = i.Ma + Environment.NewLine +  "Giao thành công";
+
+                btn_HoaDonCho.ForeColor = Color.FromArgb(255, 89, 136);
+                btn_HoaDonCho.Tag = i;
+                btn_HoaDonCho.Width = 60;
+                btn_HoaDonCho.Height = 60;
+                btn_HoaDonCho.Name = $"btn_HDCho{i}";
+                flp_HoaDon.Controls.Add(btn_HoaDonCho);
+                btn_HoaDonCho.Click += Btn_HoaDonCho_Click1; ;
+
+            }
+        }
+
+        private void Btn_HoaDonCho_Click1(object? sender, EventArgs e)
+        {
+            string acbc = ((sender as Button).Tag as HoaDon).Ma;
+
+            dgrid_view.Rows.Clear();
+            dgrid_view.ColumnCount = 10;
+            dgrid_view.Columns[0].Name = "id";
+            dgrid_view.Columns[0].Visible = false;
+            dgrid_view.Columns[1].Name = "Tên khách hàng";
+            dgrid_view.Columns[2].Name = "Số điện thoại";
+            dgrid_view.Columns[3].Name = "Địa chỉ";
+            dgrid_view.Columns[4].Name = "Tiền Cọc";
+            dgrid_view.Columns[5].Name = "Tiền Cọc";
+            dgrid_view.Columns[6].Name = "Tổng tiền";
+            dgrid_view.Columns[7].Name = "Hình thức thanh toán";
+            dgrid_view.Columns[8].Name = "Ngày thanh toán";
+            dgrid_view.Columns[9].Name = "Ghi chú";
+            dgrid_view.AllowUserToAddRows = false;
+
+
+
+            foreach (var x in _ihoadonservice.GetallHoadon().Where(c => c.Ma == acbc && c.TrangThai == 4))
+            {
+
+                dgrid_view.Rows.Add(x.Id, x.TenNguoiNhan, x.Sdt,x.DiaChi,x.TienCoc,x.TienKhachDua, x.TongTien, x.TrangThai == 1 ? "Tiền mặt" : x.TrangThai == 2 ? "Chuyển khoản" : "Chuyển khoản và tiền mặt", x.NgayThanhToan, x.GhiChu);
             }
         }
 
@@ -325,5 +380,15 @@ namespace _3.PL.Views
         }*/
 
         #endregion
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            cookroi();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            cookroi1();
+        }
     }
 }

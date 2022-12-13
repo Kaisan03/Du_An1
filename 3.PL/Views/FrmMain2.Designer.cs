@@ -32,7 +32,6 @@ namespace _3.PL.Views
         {
             this.components = new System.ComponentModel.Container();
             this.panel_menu = new System.Windows.Forms.Panel();
-            this.btn_ketthuc = new FontAwesome.Sharp.IconButton();
             this.btn_khachhang = new FontAwesome.Sharp.IconButton();
             this.btn_nhanvien = new FontAwesome.Sharp.IconButton();
             this.iconButton11 = new FontAwesome.Sharp.IconButton();
@@ -53,9 +52,10 @@ namespace _3.PL.Views
             this.panel_logo = new System.Windows.Forms.Panel();
             this.btn_image = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.txt_MaNhanVien = new System.Windows.Forms.Label();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
+            this.txt_MaNhanVien = new System.Windows.Forms.Label();
             this.txt_Date = new System.Windows.Forms.Label();
             this.txt_Time = new System.Windows.Forms.Label();
             this.lb_change = new System.Windows.Forms.Label();
@@ -64,20 +64,22 @@ namespace _3.PL.Views
             this.panel_dektop = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.iconButton6 = new FontAwesome.Sharp.IconButton();
+            this.btn_ketthuc = new FontAwesome.Sharp.IconButton();
             this.panel_menu.SuspendLayout();
             this.panel_logo.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconChange)).BeginInit();
             this.panel_dektop.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_menu
             // 
             this.panel_menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.panel_menu.Controls.Add(this.btn_ketthuc);
+            this.panel_menu.Controls.Add(this.iconButton6);
             this.panel_menu.Controls.Add(this.btn_khachhang);
             this.panel_menu.Controls.Add(this.btn_nhanvien);
             this.panel_menu.Controls.Add(this.iconButton11);
@@ -99,29 +101,8 @@ namespace _3.PL.Views
             this.panel_menu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel_menu.Location = new System.Drawing.Point(0, 0);
             this.panel_menu.Name = "panel_menu";
-            this.panel_menu.Size = new System.Drawing.Size(281, 969);
+            this.panel_menu.Size = new System.Drawing.Size(281, 1043);
             this.panel_menu.TabIndex = 0;
-            // 
-            // btn_ketthuc
-            // 
-            this.btn_ketthuc.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_ketthuc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_ketthuc.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_ketthuc.ForeColor = System.Drawing.Color.Black;
-            this.btn_ketthuc.IconChar = FontAwesome.Sharp.IconChar.RightFromBracket;
-            this.btn_ketthuc.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(79)))));
-            this.btn_ketthuc.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_ketthuc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_ketthuc.Location = new System.Drawing.Point(0, 896);
-            this.btn_ketthuc.Name = "btn_ketthuc";
-            this.btn_ketthuc.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btn_ketthuc.Size = new System.Drawing.Size(281, 63);
-            this.btn_ketthuc.TabIndex = 21;
-            this.btn_ketthuc.Text = "Kết Thúc";
-            this.btn_ketthuc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_ketthuc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_ketthuc.UseVisualStyleBackColor = true;
-            this.btn_ketthuc.Click += new System.EventHandler(this.btn_ketthuc_Click);
             // 
             // btn_khachhang
             // 
@@ -552,6 +533,17 @@ namespace _3.PL.Views
             this.panel1.TabIndex = 1;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.iconPictureBox1);
+            this.panel3.Controls.Add(this.txt_MaNhanVien);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel3.Location = new System.Drawing.Point(850, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(350, 95);
+            this.panel3.TabIndex = 6;
+            // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -562,16 +554,6 @@ namespace _3.PL.Views
             this.label1.Size = new System.Drawing.Size(90, 23);
             this.label1.TabIndex = 5;
             this.label1.Text = "Xin chào:";
-            // 
-            // txt_MaNhanVien
-            // 
-            this.txt_MaNhanVien.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txt_MaNhanVien.AutoSize = true;
-            this.txt_MaNhanVien.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txt_MaNhanVien.Location = new System.Drawing.Point(117, 43);
-            this.txt_MaNhanVien.Name = "txt_MaNhanVien";
-            this.txt_MaNhanVien.Size = new System.Drawing.Size(0, 25);
-            this.txt_MaNhanVien.TabIndex = 4;
             // 
             // iconPictureBox1
             // 
@@ -586,6 +568,16 @@ namespace _3.PL.Views
             this.iconPictureBox1.Size = new System.Drawing.Size(32, 32);
             this.iconPictureBox1.TabIndex = 3;
             this.iconPictureBox1.TabStop = false;
+            // 
+            // txt_MaNhanVien
+            // 
+            this.txt_MaNhanVien.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txt_MaNhanVien.AutoSize = true;
+            this.txt_MaNhanVien.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txt_MaNhanVien.Location = new System.Drawing.Point(117, 43);
+            this.txt_MaNhanVien.Name = "txt_MaNhanVien";
+            this.txt_MaNhanVien.Size = new System.Drawing.Size(0, 25);
+            this.txt_MaNhanVien.TabIndex = 4;
             // 
             // txt_Date
             // 
@@ -651,7 +643,7 @@ namespace _3.PL.Views
             this.panel_dektop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_dektop.Location = new System.Drawing.Point(281, 105);
             this.panel_dektop.Name = "panel_dektop";
-            this.panel_dektop.Size = new System.Drawing.Size(1200, 864);
+            this.panel_dektop.Size = new System.Drawing.Size(1200, 938);
             this.panel_dektop.TabIndex = 3;
             // 
             // button1
@@ -678,22 +670,54 @@ namespace _3.PL.Views
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // panel3
+            // iconButton6
             // 
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.iconPictureBox1);
-            this.panel3.Controls.Add(this.txt_MaNhanVien);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(850, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(350, 95);
-            this.panel3.TabIndex = 6;
+            this.iconButton6.BackgroundImage = global::_3.PL.Properties.Resources.icons8_statistical_report_60;
+            this.iconButton6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.iconButton6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.iconButton6.ForeColor = System.Drawing.Color.Black;
+            this.iconButton6.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton6.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(79)))));
+            this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton6.Location = new System.Drawing.Point(0, 896);
+            this.iconButton6.Name = "iconButton6";
+            this.iconButton6.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.iconButton6.Size = new System.Drawing.Size(281, 63);
+            this.iconButton6.TabIndex = 22;
+            this.iconButton6.Text = "Thống kê";
+            this.iconButton6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton6.UseVisualStyleBackColor = true;
+            this.iconButton6.Click += new System.EventHandler(this.iconButton6_Click_1);
+            // 
+            // btn_ketthuc
+            // 
+            this.btn_ketthuc.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_ketthuc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ketthuc.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_ketthuc.ForeColor = System.Drawing.Color.Black;
+            this.btn_ketthuc.IconChar = FontAwesome.Sharp.IconChar.RightFromBracket;
+            this.btn_ketthuc.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(79)))));
+            this.btn_ketthuc.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_ketthuc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_ketthuc.Location = new System.Drawing.Point(0, 959);
+            this.btn_ketthuc.Name = "btn_ketthuc";
+            this.btn_ketthuc.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
+            this.btn_ketthuc.Size = new System.Drawing.Size(281, 63);
+            this.btn_ketthuc.TabIndex = 23;
+            this.btn_ketthuc.Text = "Kết Thúc";
+            this.btn_ketthuc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_ketthuc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_ketthuc.UseVisualStyleBackColor = true;
             // 
             // FrmMain2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1481, 969);
+            this.ClientSize = new System.Drawing.Size(1481, 1043);
             this.Controls.Add(this.panel_dektop);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -705,11 +729,11 @@ namespace _3.PL.Views
             this.panel_logo.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IconChange)).EndInit();
             this.panel_dektop.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -746,9 +770,10 @@ namespace _3.PL.Views
         private System.Windows.Forms.Label txt_MaNhanVien;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private System.Windows.Forms.Label label1;
-        private FontAwesome.Sharp.IconButton btn_ketthuc;
         private FontAwesome.Sharp.IconButton btn_khachhang;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel3;
+        private FontAwesome.Sharp.IconButton btn_ketthuc;
+        private FontAwesome.Sharp.IconButton iconButton6;
     }
 }

@@ -30,55 +30,12 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btn_them = new System.Windows.Forms.Button();
-            this.btn_sua = new System.Windows.Forms.Button();
-            this.btn_xoa = new System.Windows.Forms.Button();
-            this.btn_lammoi = new System.Windows.Forms.Button();
             this.dgrid_view = new System.Windows.Forms.DataGridView();
             this.flp_HoaDon = new System.Windows.Forms.FlowLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_view)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btn_them
-            // 
-            this.btn_them.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_them.Location = new System.Drawing.Point(1074, 332);
-            this.btn_them.Name = "btn_them";
-            this.btn_them.Size = new System.Drawing.Size(155, 64);
-            this.btn_them.TabIndex = 0;
-            this.btn_them.Text = "Thêm";
-            this.btn_them.UseVisualStyleBackColor = true;
-            // 
-            // btn_sua
-            // 
-            this.btn_sua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_sua.Location = new System.Drawing.Point(1074, 409);
-            this.btn_sua.Name = "btn_sua";
-            this.btn_sua.Size = new System.Drawing.Size(155, 64);
-            this.btn_sua.TabIndex = 1;
-            this.btn_sua.Text = "Sửa";
-            this.btn_sua.UseVisualStyleBackColor = true;
-            // 
-            // btn_xoa
-            // 
-            this.btn_xoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_xoa.Location = new System.Drawing.Point(1074, 486);
-            this.btn_xoa.Name = "btn_xoa";
-            this.btn_xoa.Size = new System.Drawing.Size(155, 64);
-            this.btn_xoa.TabIndex = 2;
-            this.btn_xoa.Text = "Xóa";
-            this.btn_xoa.UseVisualStyleBackColor = true;
-            this.btn_xoa.Click += new System.EventHandler(this.btn_xoa_Click);
-            // 
-            // btn_lammoi
-            // 
-            this.btn_lammoi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_lammoi.Location = new System.Drawing.Point(1074, 563);
-            this.btn_lammoi.Name = "btn_lammoi";
-            this.btn_lammoi.Size = new System.Drawing.Size(155, 64);
-            this.btn_lammoi.TabIndex = 3;
-            this.btn_lammoi.Text = "Làm Mới";
-            this.btn_lammoi.UseVisualStyleBackColor = true;
             // 
             // dgrid_view
             // 
@@ -128,17 +85,37 @@
             this.flp_HoaDon.Size = new System.Drawing.Size(1048, 295);
             this.flp_HoaDon.TabIndex = 5;
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.Location = new System.Drawing.Point(1068, 356);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(161, 33);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Hóa đơn tại quầy";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button2.Location = new System.Drawing.Point(1068, 395);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(161, 33);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Hóa đơn giao hàng";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // FrmHoadon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1241, 635);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.flp_HoaDon);
             this.Controls.Add(this.dgrid_view);
-            this.Controls.Add(this.btn_lammoi);
-            this.Controls.Add(this.btn_xoa);
-            this.Controls.Add(this.btn_sua);
-            this.Controls.Add(this.btn_them);
             this.Name = "FrmHoadon";
             this.Text = "FrmHoadon";
             ((System.ComponentModel.ISupportInitialize)(this.dgrid_view)).EndInit();
@@ -147,12 +124,9 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btn_them;
-        private System.Windows.Forms.Button btn_sua;
-        private System.Windows.Forms.Button btn_xoa;
-        private System.Windows.Forms.Button btn_lammoi;
         private System.Windows.Forms.DataGridView dgrid_view;
         private System.Windows.Forms.FlowLayoutPanel flp_HoaDon;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

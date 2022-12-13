@@ -11,6 +11,7 @@ using System.Security.Policy;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Markup;
 using _1.DAL.Context;
@@ -27,10 +28,12 @@ using Microsoft.VisualBasic;
 using OfficeOpenXml;
 using Org.BouncyCastle.Crypto;
 using XAct;
+using XAct.Messages;
 using ZXing.Windows.Compatibility;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Button = System.Windows.Forms.Button;
 using Font = System.Drawing.Font;
+using MessageBox = System.Windows.Forms.MessageBox;
 using Point = System.Drawing.Point;
 using TextBox = System.Windows.Forms.TextBox;
 
@@ -428,7 +431,7 @@ namespace _3.PL.Views
             }
 
 
-            foreach (var i in _hoaDonService.GetallHoadon().Where(c => c.NgayNhanHang != null && c.TrangThai != 5 && c.TrangThai != 6))
+            foreach (var i in _hoaDonService.GetallHoadon().Where(c => c.NgayNhanHang != null && c.TrangThai != 4 && c.TrangThai != 6))
             {
                 Button btn_HoaDonCho = new Button();
 
@@ -1846,7 +1849,7 @@ namespace _3.PL.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Convert.ToString(ex.Message), "Liên Hệ Với KaiSan");
+                MessageBox.Show("Sai định dạng");
             }
         }
 
@@ -1859,7 +1862,7 @@ namespace _3.PL.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Convert.ToString(ex.Message), "Liên Hệ Với KaiSan");
+                MessageBox.Show("Sai định dạng");
             }
         }
 
@@ -1894,6 +1897,11 @@ namespace _3.PL.Views
 
         private void chờXửLýToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (lbl_MahoaDon.Text == ".......")
+            {
+                MessageBox.Show($"Chưa chọn đơn hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             DialogResult dialogResult = MessageBox.Show($"Bạn có chuyển trạng thái hóa đơn {lbl_MahoaDon.Text} thành chờ xử lý không ", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
             if (dialogResult == DialogResult.Yes)
@@ -1917,6 +1925,11 @@ namespace _3.PL.Views
 
         private void chờLấyHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (lbl_MahoaDon.Text == ".......")
+            {
+                MessageBox.Show($"Chưa chọn đơn hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             DialogResult dialogResult = MessageBox.Show($"Bạn có chuyển trạng thái hóa đơn {lbl_MahoaDon.Text} thành chờ lấy hàng không ", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
             if (dialogResult == DialogResult.Yes)
@@ -1940,6 +1953,16 @@ namespace _3.PL.Views
 
         private void đangGiaoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (lbl_MahoaDon.Text == ".......")
+            {
+                MessageBox.Show($"Chưa chọn đơn hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (_hoaDonService.GetallHoadon().FirstOrDefault(c=>c.Ma==lbl_MahoaDon.Text).TrangThai==1)
+            {
+                MessageBox.Show($"Phâỉ sử lý hóa {lbl_MahoaDon.Text} thành đang mới giao hàng được ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             DialogResult dialogResult = MessageBox.Show($"Bạn có chuyển trạng thái hóa đơn {lbl_MahoaDon.Text} thành đang giao không ", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
             if (dialogResult == DialogResult.Yes)
@@ -1986,6 +2009,33 @@ namespace _3.PL.Views
             
         }
 
-      
+        private void giaoHàngThànhCôngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(lbl_MahoaDon.Text== ".......")
+            {
+                MessageBox.Show($"Chưa chọn đơn hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (_hoaDonService.GetallHoadon().FirstOrDefault(c => c.Ma == lbl_MahoaDon.Text).TrangThai == 1)
+            {
+                MessageBox.Show($"Chưa giao hàng đã nhận được hàng rồi :)) ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (_hoaDonService.GetallHoadon().FirstOrDefault(c => c.Ma == lbl_MahoaDon.Text).TrangThai == 2)
+            {
+                MessageBox.Show($"Chưa giao hàng đã nhận được hàng rồi :)) ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            var a = _hoaDonService.GetallHoadon().FirstOrDefault(c => c.Ma == lbl_MahoaDon.Text);
+            DialogResult dialogResult = MessageBox.Show("Cập nhật đơn hàng thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if(dialogResult == DialogResult.OK)
+            {
+                a.TrangThai = 4;
+                _hoaDonService.Update(a);
+                LoadGioHang();
+                LoadSanPham();
+                anhcaidmm1();
+            }
+        }
     }
 }

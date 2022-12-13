@@ -205,6 +205,7 @@ namespace _3.PL.Views
             //lb_change.Text = btn_ketthuc.Text;
             //ActiveButton(sender, RGBColors.color4);
             //OpenChildForm(new FrmGiaoCa());
+            
             FrmGiaoCa giaoca = new FrmGiaoCa();
             giaoca.ShowDialog();
 
@@ -411,6 +412,16 @@ namespace _3.PL.Views
         private void iconPictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+        public void close()
+        {
+            this.Close();
+        }
+
+        private void iconButton6_Click_1(object sender, EventArgs e)
+        {
+            lb_change.Text = iconButton6.Text;
+            OpenChildForm(new FrmThongKe());
         }
     }
 }

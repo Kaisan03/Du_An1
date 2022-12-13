@@ -117,6 +117,28 @@ namespace _3.PL.Views
                 tbx_tienphatsinh.Text = "";
                 return;
             }
+            if (Regex.IsMatch(tbx_tienphatsinh.Text, @"^[a-zA-Z0-9 ]*$") == false)
+            {
+
+                MessageBox.Show("Tiền phát sinh không được chứa ký tự đặc biệt", "ERR");
+                return;
+            }
+            if (Regex.IsMatch(tbx_tienphatsinh.Text, @"^\d+$") == false)
+            {
+
+                MessageBox.Show("Tiền phát sinh không được chứa ký tự đặc biệt", "ERR");
+                return;
+            }
+            if (tbx_tienphatsinh.Text.Length > 13)
+            {
+                MessageBox.Show("Tiền phát sinh Không Cho Phép", "ERR");
+                return;
+            }
+            if (Convert.ToInt32(tbx_tienphatsinh.Text) < 0)
+            {
+                MessageBox.Show("Tiền phát sinh Không Cho Phép Âm", "ERR");
+                return;
+            }
         }
     }
 }
