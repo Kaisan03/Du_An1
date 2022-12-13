@@ -31,11 +31,11 @@ namespace _1.DAL.DomainClass
         [Column("TenSP")]
         [StringLength(50)]
         public string TenSp { get; set; }
-        [Column(TypeName = "date")]
+        [Column(TypeName = "datetime")]
         public DateTime? NgayTao { get; set; }
-        [Column(TypeName = "date")]
+        [Column(TypeName = "datetime")]
         public DateTime? NgayThanhToan { get; set; }
-        [Column(TypeName = "date")]
+        [Column(TypeName = "datetime")]
         public DateTime? NgayGiao { get; set; }
         [StringLength(50)]
         public string TenNguoiNhan { get; set; }
@@ -57,9 +57,9 @@ namespace _1.DAL.DomainClass
         public int? TrangThai { get; set; }
         [Column("idSanPham")]
         public Guid? IdSanPham { get; set; }
-        [Column(TypeName = "date")]
+        [Column(TypeName = "datetime")]
         public DateTime? NgayNhanHang { get; set; }
-        [Column(TypeName = "date")]
+        [Column(TypeName = "datetime")]
         public DateTime? NgayTraHang { get; set; }
 
         [ForeignKey(nameof(IdCa))]
