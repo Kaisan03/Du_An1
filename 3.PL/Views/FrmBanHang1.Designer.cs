@@ -478,8 +478,9 @@
             this.pn_DatHang.Controls.Add(this.label7);
             this.pn_DatHang.Controls.Add(this.label4);
             this.pn_DatHang.Controls.Add(this.rbtn_DangGiao);
+            this.pn_DatHang.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_DatHang.ForeColor = System.Drawing.Color.Black;
-            this.pn_DatHang.Location = new System.Drawing.Point(3, 2);
+            this.pn_DatHang.Location = new System.Drawing.Point(3, 19);
             this.pn_DatHang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pn_DatHang.Name = "pn_DatHang";
             this.pn_DatHang.Size = new System.Drawing.Size(347, 591);
@@ -838,8 +839,8 @@
             // 
             // Gr_BanHang
             // 
-            this.Gr_BanHang.Controls.Add(this.pn_DatHang);
             this.Gr_BanHang.Controls.Add(this.pn_HoaDon);
+            this.Gr_BanHang.Controls.Add(this.pn_DatHang);
             this.Gr_BanHang.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Gr_BanHang.Location = new System.Drawing.Point(3, 176);
             this.Gr_BanHang.Name = "Gr_BanHang";

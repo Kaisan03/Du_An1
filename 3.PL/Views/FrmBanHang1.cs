@@ -675,7 +675,7 @@ namespace _3.PL.Views
         public void FuckYou()
         {
             SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = @"Data Source=DESKTOP-59BFCFR;Initial Catalog=Duan1A;Persist Security Info=True;User ID=ph24903;Password=12345678";
+            connection.ConnectionString = @"Data Source=LAPTOP-OF-KHAI\SQLEXPRESS;Initial Catalog=Duan1;Persist Security Info=True;User ID=khainq03;Password=123456";
             connection.Open();
             SqlCommand sqlCommand = new SqlCommand("select Sdt FROM KhachHang", connection);
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
@@ -725,7 +725,7 @@ namespace _3.PL.Views
                     }
                     var updateHoaDon = _hoaDonService.GetallHoadon().Where(c => c.Ma == lbl_MahoaDon.Text).FirstOrDefault();
                     var updateca = _igiaocaservice.GetAllGiaoca().FirstOrDefault(c => c.Id == _igiaocaservice.GetAllGiaoca().Max(c => c.Id));
-                    var tongtien = updateca.TienBatDauCa;
+                    var tongtien = updateca.TienBatDauCa.ToString().Replace(".00","");
                     updateHoaDon.TenNguoiNhan = txt_TenKH.Text;
                     if (txt_TenKH.Text == "")
                     {
@@ -733,9 +733,9 @@ namespace _3.PL.Views
                     }
                     updateHoaDon.TongTien = Convert.ToInt32(txt_TongTien.Text);
                     updateHoaDon.Sdt = txt_Sdt.Text;
-                    updateHoaDon.TienMat = Convert.ToInt32(txt_TienMat.Text) - Convert.ToInt32(lbl_TienThua.Text);
+                    updateHoaDon.TienMat = Convert.ToInt32(txt_TienMat.Text) - Convert.ToInt32(lbl_TienThua.Text.Replace(".",""));
                     updateHoaDon.ChuyenKhoan = Convert.ToInt32(txt_TienCK.Text);
-                    updateHoaDon.TienKhachDua = Convert.ToDecimal(lbl_TienThua.Text);
+                    updateHoaDon.TienKhachDua = Convert.ToDecimal(lbl_TienThua.Text.Replace(".", ""));
                     if (updateHoaDon.TienMat > 0 && updateHoaDon.ChuyenKhoan > 0)
                     {
                         updateHoaDon.TrangThai = 3;
@@ -753,7 +753,7 @@ namespace _3.PL.Views
                     updateHoaDon.GhiChu = richTextBox1.Text;
                     updateHoaDon.NgayThanhToan = DateTime.Now;
                     updateHoaDon.IdCa = _igiaocaservice.GetAllGiaoca().Max(c => c.Id);
-                    updateca.TienBatDauCa = (tongtien + Convert.ToDecimal(txt_TienMat.Text)) - Convert.ToDecimal(lbl_TienThua.Text); 
+                    updateca.TienBatDauCa = (Convert.ToDecimal(tongtien) + Convert.ToDecimal(txt_TienMat.Text)) - Convert.ToDecimal(lbl_TienThua.Text.Replace(".", "")); 
                     _igiaocaservice.Update(updateca);
                     _hoaDonService.Update(updateHoaDon);
 
@@ -767,12 +767,12 @@ namespace _3.PL.Views
                     dgrid_GioHang.Rows.Clear();
                     lbl_MahoaDon.Text = "....";
                 }
-            }
+        }
             catch (Exception ex)
             {
                 MessageBox.Show(Convert.ToString(ex.Message), "Liên Hệ Với KaiSan");
             }
-        }
+}
         private void btn_DatHang2_Click(object sender, EventArgs e)
         {
             try
