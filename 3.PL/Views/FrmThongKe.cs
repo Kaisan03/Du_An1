@@ -170,7 +170,7 @@ namespace _3.PL.Views
             dgrid_ThongKe.Columns[4].Name = "Loại HD";
             dgrid_ThongKe.Columns[5].Name = "Ngày TT";
             dgrid_ThongKe.Rows.Clear();
-            foreach (var x in _IHoaDonCTService.GetViewHoaDonCT().Where(c => c.HoaDon.NgayThanhToan.Value.ToString("MM:yyyy") == cmb_LocThang.SelectedValue))
+            foreach (var x in _IHoaDonCTService.GetViewHoaDonCT().Where(c => c.HoaDon.NgayThanhToan.Value.ToString().Substring(0,2) == cmb_LocThang.Text))
             {
                 var x1 = _IHoaDonService.GetallHoadon().FirstOrDefault(c => c.Id == x.HoaDon.Id);
                 var x2 = _ICTGiayService.GetViewChiTietGiay().FirstOrDefault(c => c.Id == x.ChiTietGiay.Id);
