@@ -215,7 +215,7 @@ namespace _3.PL.Views
         private void btn_Them_Click(object sender, EventArgs e)
         {
             //_InhanVienService.GetAllNhanVien().FirstOrDefault(c => c.Ma == MaNV)
-            if (_IChucVuService.GetAllChucVu().FirstOrDefault(c => c.Id == (_InhanVienService.GetAllNhanVien().FirstOrDefault(c => c.Ma == MaNV).IdChucVu)).Ten != "Quản lý"|| _IChucVuService.GetAllChucVu().FirstOrDefault(c => c.Id == (_InhanVienService.GetAllNhanVien().FirstOrDefault(c => c.Ma == MaNV).IdChucVu)).Ten != "Giám Đốc")
+            if (_IChucVuService.GetAllChucVu().FirstOrDefault(c => c.Id == (_InhanVienService.GetAllNhanVien().FirstOrDefault(c => c.Ma == MaNV).IdChucVu)).Ten != "Quản lý")
             {
                 MessageBox.Show("Bạn chỉ có thể xem sản phẩm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -256,7 +256,7 @@ namespace _3.PL.Views
 
         private void btn_Sua_Click(object sender, EventArgs e)
         {
-            if (_IChucVuService.GetAllChucVu().FirstOrDefault(c => c.Id == (_InhanVienService.GetAllNhanVien().FirstOrDefault(c => c.Ma == MaNV).IdChucVu)).Ten != "Quản lý" || _IChucVuService.GetAllChucVu().FirstOrDefault(c => c.Id == (_InhanVienService.GetAllNhanVien().FirstOrDefault(c => c.Ma == MaNV).IdChucVu)).Ten != "Giám Đốc")
+            if (_IChucVuService.GetAllChucVu().FirstOrDefault(c => c.Id == (_InhanVienService.GetAllNhanVien().FirstOrDefault(c => c.Ma == MaNV).IdChucVu)).Ten != "Quản lý" )
             {
                 MessageBox.Show("Bạn chỉ có thể xem sản phẩm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -298,7 +298,7 @@ namespace _3.PL.Views
 
         private void btn_Xoa_Click(object sender, EventArgs e)
         {
-            if (_IChucVuService.GetAllChucVu().FirstOrDefault(c => c.Id == (_InhanVienService.GetAllNhanVien().FirstOrDefault(c => c.Ma == MaNV).IdChucVu)).Ten != "Quản lý" || _IChucVuService.GetAllChucVu().FirstOrDefault(c => c.Id == (_InhanVienService.GetAllNhanVien().FirstOrDefault(c => c.Ma == MaNV).IdChucVu)).Ten != "Giám Đốc")
+            if (_IChucVuService.GetAllChucVu().FirstOrDefault(c => c.Id == (_InhanVienService.GetAllNhanVien().FirstOrDefault(c => c.Ma == MaNV).IdChucVu)).Ten != "Quản lý")
             {
                 MessageBox.Show("Bạn chỉ có thể xem sản phẩm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;

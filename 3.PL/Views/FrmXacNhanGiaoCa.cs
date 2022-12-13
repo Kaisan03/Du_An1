@@ -43,10 +43,10 @@ namespace _3.PL.Views
         private void btn_XacNhan_Click(object sender, EventArgs e)
         {
             _idgiaoca.TienBatDauCa = Convert.ToDecimal(tbx_Tiendauca.Text);
-            _iGiaocaService.Update(_idgiaoca);
-
-            frmm.ShowDialog();
             this.Close();
+            _iGiaocaService.Update(_idgiaoca);
+            frmm.ShowDialog();
+            Application.Exit();
         }
 
         private void btn_Huy_Click(object sender, EventArgs e)
@@ -54,6 +54,7 @@ namespace _3.PL.Views
             Application.Exit();
             FrmDangNhap frmDangNhap = new FrmDangNhap();
             frmDangNhap.Show();
+            
         }
 
     }
