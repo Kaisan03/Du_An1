@@ -156,16 +156,18 @@
             // 
             // contextMenuStrip1
             // 
+            this.contextMenuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.contextMenuStrip1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.thôngTinChiTiếtSảnPhẩmToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(220, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(271, 28);
             // 
             // thôngTinChiTiếtSảnPhẩmToolStripMenuItem
             // 
             this.thôngTinChiTiếtSảnPhẩmToolStripMenuItem.Name = "thôngTinChiTiếtSảnPhẩmToolStripMenuItem";
-            this.thôngTinChiTiếtSảnPhẩmToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.thôngTinChiTiếtSảnPhẩmToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
             this.thôngTinChiTiếtSảnPhẩmToolStripMenuItem.Text = "Thông tin chi tiết sản phẩm";
             this.thôngTinChiTiếtSảnPhẩmToolStripMenuItem.Click += new System.EventHandler(this.thôngTinChiTiếtSảnPhẩmToolStripMenuItem_Click);
             // 
@@ -199,7 +201,7 @@
             this.pn_HoaDon.Location = new System.Drawing.Point(3, 19);
             this.pn_HoaDon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pn_HoaDon.Name = "pn_HoaDon";
-            this.pn_HoaDon.Size = new System.Drawing.Size(347, 591);
+            this.pn_HoaDon.Size = new System.Drawing.Size(347, 482);
             this.pn_HoaDon.TabIndex = 11;
             this.pn_HoaDon.Paint += new System.Windows.Forms.PaintEventHandler(this.pn_HoaDon_Paint);
             // 
@@ -255,7 +257,7 @@
             this.btn_ThanhToan.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btn_ThanhToan.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_ThanhToan.ForeColor = System.Drawing.Color.White;
-            this.btn_ThanhToan.Location = new System.Drawing.Point(0, 561);
+            this.btn_ThanhToan.Location = new System.Drawing.Point(0, 452);
             this.btn_ThanhToan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_ThanhToan.Name = "btn_ThanhToan";
             this.btn_ThanhToan.Size = new System.Drawing.Size(347, 30);
@@ -483,7 +485,7 @@
             this.pn_DatHang.Location = new System.Drawing.Point(3, 19);
             this.pn_DatHang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pn_DatHang.Name = "pn_DatHang";
-            this.pn_DatHang.Size = new System.Drawing.Size(347, 591);
+            this.pn_DatHang.Size = new System.Drawing.Size(347, 482);
             this.pn_DatHang.TabIndex = 0;
             // 
             // txt_SdtNguoiNhan
@@ -538,7 +540,7 @@
             this.btn_DatHang2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_DatHang2.BackColor = System.Drawing.Color.Yellow;
             this.btn_DatHang2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_DatHang2.Location = new System.Drawing.Point(42, 555);
+            this.btn_DatHang2.Location = new System.Drawing.Point(42, 446);
             this.btn_DatHang2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_DatHang2.Name = "btn_DatHang2";
             this.btn_DatHang2.Size = new System.Drawing.Size(280, 30);
@@ -832,7 +834,7 @@
             this.Gr_TaoHD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Gr_TaoHD.Name = "Gr_TaoHD";
             this.Gr_TaoHD.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Gr_TaoHD.Size = new System.Drawing.Size(359, 791);
+            this.Gr_TaoHD.Size = new System.Drawing.Size(359, 682);
             this.Gr_TaoHD.TabIndex = 7;
             this.Gr_TaoHD.TabStop = false;
             this.Gr_TaoHD.Text = "Tạo hóa đơn";
@@ -844,7 +846,7 @@
             this.Gr_BanHang.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Gr_BanHang.Location = new System.Drawing.Point(3, 176);
             this.Gr_BanHang.Name = "Gr_BanHang";
-            this.Gr_BanHang.Size = new System.Drawing.Size(353, 613);
+            this.Gr_BanHang.Size = new System.Drawing.Size(353, 504);
             this.Gr_BanHang.TabIndex = 1;
             this.Gr_BanHang.TabStop = false;
             // 
@@ -952,7 +954,7 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripDropDownButton2,
             this.toolStripDropDownButton3});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 760);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 651);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1332, 31);
             this.statusStrip1.TabIndex = 12;
@@ -987,7 +989,7 @@
             this.Gr_HDDangGiao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Gr_HDDangGiao.Name = "Gr_HDDangGiao";
             this.Gr_HDDangGiao.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Gr_HDDangGiao.Size = new System.Drawing.Size(165, 760);
+            this.Gr_HDDangGiao.Size = new System.Drawing.Size(165, 651);
             this.Gr_HDDangGiao.TabIndex = 14;
             this.Gr_HDDangGiao.TabStop = false;
             this.Gr_HDDangGiao.Text = "Các hóa đơn đang giao";
@@ -1000,7 +1002,7 @@
             this.flow_DangGiao.Location = new System.Drawing.Point(4, 14);
             this.flow_DangGiao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flow_DangGiao.Name = "flow_DangGiao";
-            this.flow_DangGiao.Size = new System.Drawing.Size(155, 1322);
+            this.flow_DangGiao.Size = new System.Drawing.Size(155, 1213);
             this.flow_DangGiao.TabIndex = 0;
             // 
             // Gr_HDChuaTT
@@ -1012,7 +1014,7 @@
             this.Gr_HDChuaTT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Gr_HDChuaTT.Name = "Gr_HDChuaTT";
             this.Gr_HDChuaTT.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Gr_HDChuaTT.Size = new System.Drawing.Size(175, 760);
+            this.Gr_HDChuaTT.Size = new System.Drawing.Size(175, 651);
             this.Gr_HDChuaTT.TabIndex = 13;
             this.Gr_HDChuaTT.TabStop = false;
             this.Gr_HDChuaTT.Text = "Hóa đơn chưa thanh toán";
@@ -1025,7 +1027,7 @@
             this.flow_HDChuaTT.Location = new System.Drawing.Point(5, 14);
             this.flow_HDChuaTT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flow_HDChuaTT.Name = "flow_HDChuaTT";
-            this.flow_HDChuaTT.Size = new System.Drawing.Size(164, 1327);
+            this.flow_HDChuaTT.Size = new System.Drawing.Size(164, 1218);
             this.flow_HDChuaTT.TabIndex = 0;
             // 
             // Gr_View
@@ -1037,7 +1039,7 @@
             this.Gr_View.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Gr_View.Location = new System.Drawing.Point(0, 0);
             this.Gr_View.Name = "Gr_View";
-            this.Gr_View.Size = new System.Drawing.Size(992, 760);
+            this.Gr_View.Size = new System.Drawing.Size(992, 651);
             this.Gr_View.TabIndex = 15;
             this.Gr_View.TabStop = false;
             // 
@@ -1049,7 +1051,7 @@
             this.gr_timKiem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gr_timKiem.Location = new System.Drawing.Point(3, 360);
             this.gr_timKiem.Name = "gr_timKiem";
-            this.gr_timKiem.Size = new System.Drawing.Size(986, 397);
+            this.gr_timKiem.Size = new System.Drawing.Size(986, 288);
             this.gr_timKiem.TabIndex = 24;
             this.gr_timKiem.TabStop = false;
             // 
@@ -1063,7 +1065,7 @@
             this.Gr_SanPham.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Gr_SanPham.Name = "Gr_SanPham";
             this.Gr_SanPham.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Gr_SanPham.Size = new System.Drawing.Size(980, 345);
+            this.Gr_SanPham.Size = new System.Drawing.Size(980, 236);
             this.Gr_SanPham.TabIndex = 14;
             this.Gr_SanPham.TabStop = false;
             this.Gr_SanPham.Text = "Danh sách sản phẩm";
@@ -1099,7 +1101,7 @@
             this.dgrid_chitietgiay.RowHeadersWidth = 51;
             this.dgrid_chitietgiay.RowTemplate.Height = 29;
             this.dgrid_chitietgiay.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgrid_chitietgiay.Size = new System.Drawing.Size(974, 325);
+            this.dgrid_chitietgiay.Size = new System.Drawing.Size(974, 216);
             this.dgrid_chitietgiay.TabIndex = 0;
             this.dgrid_chitietgiay.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_chitietgiay_CellDoubleClick);
             this.dgrid_chitietgiay.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgrid_chitietgiay_CellMouseUp_1);
@@ -1193,7 +1195,7 @@
             this.Gr_ViewSanPham.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Gr_ViewSanPham.Location = new System.Drawing.Point(3, 360);
             this.Gr_ViewSanPham.Name = "Gr_ViewSanPham";
-            this.Gr_ViewSanPham.Size = new System.Drawing.Size(986, 397);
+            this.Gr_ViewSanPham.Size = new System.Drawing.Size(986, 288);
             this.Gr_ViewSanPham.TabIndex = 24;
             this.Gr_ViewSanPham.TabStop = false;
             // 
@@ -1341,7 +1343,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(1691, 791);
+            this.ClientSize = new System.Drawing.Size(1691, 682);
             this.Controls.Add(this.Gr_View);
             this.Controls.Add(this.Gr_HDDangGiao);
             this.Controls.Add(this.Gr_HDChuaTT);
