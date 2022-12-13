@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.thôngTinChiTiếtSảnPhẩmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pn_HoaDon = new System.Windows.Forms.Panel();
@@ -126,10 +126,10 @@
             this.xóaSảnPhẩmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tool_TrangThai = new System.Windows.Forms.ToolStripMenuItem();
+            this.tool_HuyDonHang = new System.Windows.Forms.ToolStripMenuItem();
             this.chờXửLýToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chờLấyHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đangGiaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tool_HuyDonHang = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.pn_HoaDon.SuspendLayout();
             this.pn_DatHang.SuspendLayout();
@@ -566,6 +566,7 @@
             this.lbl_TienThuaTraKhach.Size = new System.Drawing.Size(14, 15);
             this.lbl_TienThuaTraKhach.TabIndex = 1;
             this.lbl_TienThuaTraKhach.Text = "0";
+            this.lbl_TienThuaTraKhach.Visible = false;
             // 
             // lbl_MaHDGiaoHang
             // 
@@ -597,6 +598,7 @@
             this.label3.Size = new System.Drawing.Size(120, 15);
             this.label3.TabIndex = 12;
             this.label3.Text = "Tiền thừa trả khách:";
+            this.label3.Visible = false;
             // 
             // txt_DatHangGhiChu
             // 
@@ -655,6 +657,7 @@
             // 
             // txt_TienCoc
             // 
+            this.txt_TienCoc.BackColor = System.Drawing.SystemColors.Window;
             this.txt_TienCoc.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txt_TienCoc.Location = new System.Drawing.Point(152, 242);
             this.txt_TienCoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -666,6 +669,7 @@
             // 
             // txt_TienKhachTT
             // 
+            this.txt_TienKhachTT.Enabled = false;
             this.txt_TienKhachTT.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txt_TienKhachTT.Location = new System.Drawing.Point(152, 314);
             this.txt_TienKhachTT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -673,7 +677,6 @@
             this.txt_TienKhachTT.Size = new System.Drawing.Size(168, 22);
             this.txt_TienKhachTT.TabIndex = 4;
             this.txt_TienKhachTT.Text = "0";
-            this.txt_TienKhachTT.TextChanged += new System.EventHandler(this.txt_TienCoc_TextChanged);
             // 
             // label24
             // 
@@ -825,7 +828,7 @@
             this.Gr_TaoHD.Controls.Add(this.Gr_BanHang);
             this.Gr_TaoHD.Controls.Add(this.Gr_Thongtin);
             this.Gr_TaoHD.Dock = System.Windows.Forms.DockStyle.Right;
-            this.Gr_TaoHD.Location = new System.Drawing.Point(1325, 0);
+            this.Gr_TaoHD.Location = new System.Drawing.Point(1332, 0);
             this.Gr_TaoHD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Gr_TaoHD.Name = "Gr_TaoHD";
             this.Gr_TaoHD.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -951,7 +954,7 @@
             this.toolStripDropDownButton3});
             this.statusStrip1.Location = new System.Drawing.Point(0, 760);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1325, 31);
+            this.statusStrip1.Size = new System.Drawing.Size(1332, 31);
             this.statusStrip1.TabIndex = 12;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -980,7 +983,7 @@
             this.Gr_HDDangGiao.BackColor = System.Drawing.Color.DarkTurquoise;
             this.Gr_HDDangGiao.Controls.Add(this.flow_DangGiao);
             this.Gr_HDDangGiao.Dock = System.Windows.Forms.DockStyle.Right;
-            this.Gr_HDDangGiao.Location = new System.Drawing.Point(985, 0);
+            this.Gr_HDDangGiao.Location = new System.Drawing.Point(992, 0);
             this.Gr_HDDangGiao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Gr_HDDangGiao.Name = "Gr_HDDangGiao";
             this.Gr_HDDangGiao.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1005,7 +1008,7 @@
             this.Gr_HDChuaTT.BackColor = System.Drawing.Color.DarkTurquoise;
             this.Gr_HDChuaTT.Controls.Add(this.flow_HDChuaTT);
             this.Gr_HDChuaTT.Dock = System.Windows.Forms.DockStyle.Right;
-            this.Gr_HDChuaTT.Location = new System.Drawing.Point(1150, 0);
+            this.Gr_HDChuaTT.Location = new System.Drawing.Point(1157, 0);
             this.Gr_HDChuaTT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Gr_HDChuaTT.Name = "Gr_HDChuaTT";
             this.Gr_HDChuaTT.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1034,7 +1037,7 @@
             this.Gr_View.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Gr_View.Location = new System.Drawing.Point(0, 0);
             this.Gr_View.Name = "Gr_View";
-            this.Gr_View.Size = new System.Drawing.Size(985, 760);
+            this.Gr_View.Size = new System.Drawing.Size(992, 760);
             this.Gr_View.TabIndex = 15;
             this.Gr_View.TabStop = false;
             // 
@@ -1046,7 +1049,7 @@
             this.gr_timKiem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gr_timKiem.Location = new System.Drawing.Point(3, 360);
             this.gr_timKiem.Name = "gr_timKiem";
-            this.gr_timKiem.Size = new System.Drawing.Size(979, 397);
+            this.gr_timKiem.Size = new System.Drawing.Size(986, 397);
             this.gr_timKiem.TabIndex = 24;
             this.gr_timKiem.TabStop = false;
             // 
@@ -1060,7 +1063,7 @@
             this.Gr_SanPham.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Gr_SanPham.Name = "Gr_SanPham";
             this.Gr_SanPham.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Gr_SanPham.Size = new System.Drawing.Size(973, 345);
+            this.Gr_SanPham.Size = new System.Drawing.Size(980, 345);
             this.Gr_SanPham.TabIndex = 14;
             this.Gr_SanPham.TabStop = false;
             this.Gr_SanPham.Text = "Danh sách sản phẩm";
@@ -1070,24 +1073,24 @@
             this.dgrid_chitietgiay.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgrid_chitietgiay.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgrid_chitietgiay.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgrid_chitietgiay.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgrid_chitietgiay.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgrid_chitietgiay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgrid_chitietgiay.ContextMenuStrip = this.contextMenuStrip1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgrid_chitietgiay.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgrid_chitietgiay.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgrid_chitietgiay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgrid_chitietgiay.Location = new System.Drawing.Point(3, 18);
             this.dgrid_chitietgiay.Margin = new System.Windows.Forms.Padding(2);
@@ -1096,7 +1099,7 @@
             this.dgrid_chitietgiay.RowHeadersWidth = 51;
             this.dgrid_chitietgiay.RowTemplate.Height = 29;
             this.dgrid_chitietgiay.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgrid_chitietgiay.Size = new System.Drawing.Size(967, 325);
+            this.dgrid_chitietgiay.Size = new System.Drawing.Size(974, 325);
             this.dgrid_chitietgiay.TabIndex = 0;
             this.dgrid_chitietgiay.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_chitietgiay_CellDoubleClick);
             this.dgrid_chitietgiay.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgrid_chitietgiay_CellMouseUp_1);
@@ -1111,7 +1114,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(3, 19);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(973, 30);
+            this.panel1.Size = new System.Drawing.Size(980, 30);
             this.panel1.TabIndex = 15;
             // 
             // cmb_LocNsx
@@ -1190,7 +1193,7 @@
             this.Gr_ViewSanPham.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Gr_ViewSanPham.Location = new System.Drawing.Point(3, 360);
             this.Gr_ViewSanPham.Name = "Gr_ViewSanPham";
-            this.Gr_ViewSanPham.Size = new System.Drawing.Size(979, 397);
+            this.Gr_ViewSanPham.Size = new System.Drawing.Size(986, 397);
             this.Gr_ViewSanPham.TabIndex = 24;
             this.Gr_ViewSanPham.TabStop = false;
             // 
@@ -1214,7 +1217,7 @@
             this.Gr_ViewGioHang.Dock = System.Windows.Forms.DockStyle.Top;
             this.Gr_ViewGioHang.Location = new System.Drawing.Point(3, 19);
             this.Gr_ViewGioHang.Name = "Gr_ViewGioHang";
-            this.Gr_ViewGioHang.Size = new System.Drawing.Size(979, 341);
+            this.Gr_ViewGioHang.Size = new System.Drawing.Size(986, 341);
             this.Gr_ViewGioHang.TabIndex = 13;
             this.Gr_ViewGioHang.TabStop = false;
             // 
@@ -1237,7 +1240,7 @@
             this.Gr_GioHang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Gr_GioHang.Name = "Gr_GioHang";
             this.Gr_GioHang.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Gr_GioHang.Size = new System.Drawing.Size(973, 319);
+            this.Gr_GioHang.Size = new System.Drawing.Size(980, 319);
             this.Gr_GioHang.TabIndex = 18;
             this.Gr_GioHang.TabStop = false;
             this.Gr_GioHang.Text = "Giỏ hàng";
@@ -1247,7 +1250,6 @@
             this.dgrid_GioHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgrid_GioHang.BackgroundColor = System.Drawing.Color.White;
             this.dgrid_GioHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrid_GioHang.ContextMenuStrip = this.contextMenuStrip2;
             this.dgrid_GioHang.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgrid_GioHang.Location = new System.Drawing.Point(3, 18);
             this.dgrid_GioHang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -1256,40 +1258,45 @@
             this.dgrid_GioHang.RowHeadersWidth = 51;
             this.dgrid_GioHang.RowTemplate.Height = 29;
             this.dgrid_GioHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgrid_GioHang.Size = new System.Drawing.Size(967, 299);
+            this.dgrid_GioHang.Size = new System.Drawing.Size(974, 299);
             this.dgrid_GioHang.TabIndex = 0;
             this.dgrid_GioHang.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgrid_GioHang_CellMouseUp);
             // 
             // contextMenuStrip2
             // 
+            this.contextMenuStrip2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.contextMenuStrip2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sửaSốLượngToolStripMenuItem,
             this.xóaSảnPhẩmToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(150, 48);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(178, 52);
             // 
             // sửaSốLượngToolStripMenuItem
             // 
             this.sửaSốLượngToolStripMenuItem.Name = "sửaSốLượngToolStripMenuItem";
-            this.sửaSốLượngToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.sửaSốLượngToolStripMenuItem.Size = new System.Drawing.Size(177, 24);
             this.sửaSốLượngToolStripMenuItem.Text = "Sửa số lượng";
             this.sửaSốLượngToolStripMenuItem.Click += new System.EventHandler(this.sửaSốLượngToolStripMenuItem_Click);
             // 
             // xóaSảnPhẩmToolStripMenuItem
             // 
             this.xóaSảnPhẩmToolStripMenuItem.Name = "xóaSảnPhẩmToolStripMenuItem";
-            this.xóaSảnPhẩmToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.xóaSảnPhẩmToolStripMenuItem.Size = new System.Drawing.Size(177, 24);
             this.xóaSảnPhẩmToolStripMenuItem.Text = "Xóa sản phẩm";
+            this.xóaSảnPhẩmToolStripMenuItem.Click += new System.EventHandler(this.xóaSảnPhẩmToolStripMenuItem_Click);
             // 
             // contextMenuStrip3
             // 
+            this.contextMenuStrip3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.contextMenuStrip3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.contextMenuStrip3.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tool_TrangThai,
             this.tool_HuyDonHang});
             this.contextMenuStrip3.Name = "contextMenuStrip3";
-            this.contextMenuStrip3.Size = new System.Drawing.Size(151, 48);
+            this.contextMenuStrip3.Size = new System.Drawing.Size(213, 64);
             // 
             // tool_TrangThai
             // 
@@ -1298,43 +1305,43 @@
             this.chờLấyHàngToolStripMenuItem,
             this.đangGiaoToolStripMenuItem});
             this.tool_TrangThai.Name = "tool_TrangThai";
-            this.tool_TrangThai.Size = new System.Drawing.Size(150, 22);
+            this.tool_TrangThai.Size = new System.Drawing.Size(212, 30);
             this.tool_TrangThai.Text = "Trạng thái";
+            // 
+            // tool_HuyDonHang
+            // 
+            this.tool_HuyDonHang.Name = "tool_HuyDonHang";
+            this.tool_HuyDonHang.Size = new System.Drawing.Size(254, 30);
+            this.tool_HuyDonHang.Text = "Hủy đơn hàng";
+            this.tool_HuyDonHang.Click += new System.EventHandler(this.tool_HuyDonHang_Click);
             // 
             // chờXửLýToolStripMenuItem
             // 
             this.chờXửLýToolStripMenuItem.Name = "chờXửLýToolStripMenuItem";
-            this.chờXửLýToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.chờXửLýToolStripMenuItem.Size = new System.Drawing.Size(199, 30);
             this.chờXửLýToolStripMenuItem.Text = "Chờ xử lý";
             this.chờXửLýToolStripMenuItem.Click += new System.EventHandler(this.chờXửLýToolStripMenuItem_Click);
             // 
             // chờLấyHàngToolStripMenuItem
             // 
             this.chờLấyHàngToolStripMenuItem.Name = "chờLấyHàngToolStripMenuItem";
-            this.chờLấyHàngToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.chờLấyHàngToolStripMenuItem.Size = new System.Drawing.Size(199, 30);
             this.chờLấyHàngToolStripMenuItem.Text = "Chờ lấy hàng";
             this.chờLấyHàngToolStripMenuItem.Click += new System.EventHandler(this.chờLấyHàngToolStripMenuItem_Click);
             // 
             // đangGiaoToolStripMenuItem
             // 
             this.đangGiaoToolStripMenuItem.Name = "đangGiaoToolStripMenuItem";
-            this.đangGiaoToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.đangGiaoToolStripMenuItem.Size = new System.Drawing.Size(199, 30);
             this.đangGiaoToolStripMenuItem.Text = "Đang giao";
             this.đangGiaoToolStripMenuItem.Click += new System.EventHandler(this.đangGiaoToolStripMenuItem_Click);
-            // 
-            // tool_HuyDonHang
-            // 
-            this.tool_HuyDonHang.Name = "tool_HuyDonHang";
-            this.tool_HuyDonHang.Size = new System.Drawing.Size(150, 22);
-            this.tool_HuyDonHang.Text = "Hủy đơn hàng";
-            this.tool_HuyDonHang.Click += new System.EventHandler(this.tool_HuyDonHang_Click);
             // 
             // FrmBanHang1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(1684, 791);
+            this.ClientSize = new System.Drawing.Size(1691, 791);
             this.Controls.Add(this.Gr_View);
             this.Controls.Add(this.Gr_HDDangGiao);
             this.Controls.Add(this.Gr_HDChuaTT);
