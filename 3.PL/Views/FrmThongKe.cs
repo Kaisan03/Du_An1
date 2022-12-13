@@ -1,4 +1,5 @@
-﻿using _2.BUS.IServices;
+﻿using _1.DAL.DomainClass;
+using _2.BUS.IServices;
 using _2.BUS.Services;
 using _2.BUS.ViewModels;
 using System;
@@ -27,7 +28,7 @@ namespace _3.PL.Views
             _IHoaDonService = new HoaDonService();
             _ICTGiayService = new ChiTietGiayService();
             frmbh1 = new FrmBanHang1();
-            //LoadData();
+            LoadData();
         }
         private void LoadData()
         {
@@ -95,7 +96,9 @@ namespace _3.PL.Views
             dgrid_ThongKe.Columns[4].Name = "Loại HD";
             dgrid_ThongKe.Columns[5].Name = "Ngày TT";
             dgrid_ThongKe.Rows.Clear();
-            foreach (var x in _IHoaDonCTService.GetViewHoaDonCT().Where(c => c.HoaDon.NgayThanhToan == date_LocTheoNgay.Value).OrderBy(c => c.HoaDon.Id).ToList())
+            string[] a = date_LocTheoNgay.Value.ToString().Split(" ");
+            
+            foreach (var x in _IHoaDonCTService.GetViewHoaDonCT().Where(c => c.HoaDon.NgayThanhToan.Value.ToString().Substring(0,10) == a[0]))
             {
                 var x1 = _IHoaDonService.GetallHoadon().FirstOrDefault(c => c.Id == x.HoaDon.Id);
                 var x2 = _ICTGiayService.GetViewChiTietGiay().FirstOrDefault(c => c.Id == x.ChiTietGiay.Id);
