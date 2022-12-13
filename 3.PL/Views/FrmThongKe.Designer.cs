@@ -279,6 +279,7 @@
             this.cmb_LocNam.Name = "cmb_LocNam";
             this.cmb_LocNam.Size = new System.Drawing.Size(121, 23);
             this.cmb_LocNam.TabIndex = 5;
+            this.cmb_LocNam.SelectedValueChanged += new System.EventHandler(this.cmb_LocNam_SelectedValueChanged);
             // 
             // cmb_LocThang
             // 
