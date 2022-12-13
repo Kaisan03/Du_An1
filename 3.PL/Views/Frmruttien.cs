@@ -31,7 +31,7 @@ namespace _3.PL.Views
         private void btn_ruttien_Click(object sender, EventArgs e)
         {
             var _idgiaoca = _igiaocaService.GetAllGiaoca().FirstOrDefault(c => c.Id == _igiaocaService.GetAllGiaoca().Max(c => c.Id));
-            var quanly = _inhanVienService.GetViewNhanVien().FirstOrDefault(c => c.TenChuCVu == "Quản lý");
+            var quanly = _inhanVienService.GetAllNhanVien().FirstOrDefault(c => c.Email =="khai030720037@gmail.com");
             if (tbx_makhau.Text == "")
             {
                 MessageBox.Show("bạn chưa nhập mật khẩu !!!");
