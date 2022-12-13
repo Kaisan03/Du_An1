@@ -232,19 +232,17 @@ namespace _3.PL.Views
             // 
             // dgrid_ChucVu
             // 
-            this.dgrid_ChucVu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgrid_ChucVu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgrid_ChucVu.BackgroundColor = System.Drawing.Color.White;
             this.dgrid_ChucVu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrid_ChucVu.Location = new System.Drawing.Point(0, -98);
+            this.dgrid_ChucVu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgrid_ChucVu.Location = new System.Drawing.Point(0, 0);
             this.dgrid_ChucVu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgrid_ChucVu.Name = "dgrid_ChucVu";
             this.dgrid_ChucVu.RowHeadersWidth = 51;
             this.dgrid_ChucVu.RowTemplate.Height = 29;
             this.dgrid_ChucVu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgrid_ChucVu.Size = new System.Drawing.Size(1066, 343);
+            this.dgrid_ChucVu.Size = new System.Drawing.Size(1069, 245);
             this.dgrid_ChucVu.TabIndex = 5;
             this.dgrid_ChucVu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrid_ChatLieu_CellClick_1);
             // 

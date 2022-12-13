@@ -59,7 +59,6 @@
             this.txt_NgayBan = new System.Windows.Forms.TextBox();
             this.txt_NgayNhap = new System.Windows.Forms.TextBox();
             this.txt_moTa = new System.Windows.Forms.TextBox();
-            this.txt_SoLuong = new System.Windows.Forms.TextBox();
             this.txt_SoLuongTon = new System.Windows.Forms.TextBox();
             this.txt_Ma = new System.Windows.Forms.TextBox();
             this.cmb_Anh = new System.Windows.Forms.ComboBox();
@@ -70,7 +69,6 @@
             this.cmb_TenSize = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -183,7 +181,6 @@
             this.groupBox1.Controls.Add(this.txt_NgayBan);
             this.groupBox1.Controls.Add(this.txt_NgayNhap);
             this.groupBox1.Controls.Add(this.txt_moTa);
-            this.groupBox1.Controls.Add(this.txt_SoLuong);
             this.groupBox1.Controls.Add(this.txt_SoLuongTon);
             this.groupBox1.Controls.Add(this.txt_Ma);
             this.groupBox1.Controls.Add(this.cmb_Anh);
@@ -194,7 +191,6 @@
             this.groupBox1.Controls.Add(this.cmb_TenSize);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.label17);
-            this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.label11);
@@ -414,7 +410,7 @@
             // 
             this.cbx_khongHD.AutoSize = true;
             this.cbx_khongHD.Font = new System.Drawing.Font("Sitka Heading", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cbx_khongHD.Location = new System.Drawing.Point(573, 270);
+            this.cbx_khongHD.Location = new System.Drawing.Point(573, 258);
             this.cbx_khongHD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbx_khongHD.Name = "cbx_khongHD";
             this.cbx_khongHD.Size = new System.Drawing.Size(84, 24);
@@ -427,7 +423,7 @@
             // 
             this.cbx_HoatDong.AutoSize = true;
             this.cbx_HoatDong.Font = new System.Drawing.Font("Sitka Heading", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cbx_HoatDong.Location = new System.Drawing.Point(573, 245);
+            this.cbx_HoatDong.Location = new System.Drawing.Point(573, 230);
             this.cbx_HoatDong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbx_HoatDong.Name = "cbx_HoatDong";
             this.cbx_HoatDong.Size = new System.Drawing.Size(85, 24);
@@ -488,22 +484,12 @@
             // txt_moTa
             // 
             this.txt_moTa.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_moTa.Location = new System.Drawing.Point(573, 220);
+            this.txt_moTa.Location = new System.Drawing.Point(573, 198);
             this.txt_moTa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_moTa.Multiline = true;
             this.txt_moTa.Name = "txt_moTa";
             this.txt_moTa.Size = new System.Drawing.Size(420, 20);
             this.txt_moTa.TabIndex = 1;
-            // 
-            // txt_SoLuong
-            // 
-            this.txt_SoLuong.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_SoLuong.Location = new System.Drawing.Point(573, 192);
-            this.txt_SoLuong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_SoLuong.Multiline = true;
-            this.txt_SoLuong.Name = "txt_SoLuong";
-            this.txt_SoLuong.Size = new System.Drawing.Size(420, 20);
-            this.txt_SoLuong.TabIndex = 1;
             // 
             // txt_SoLuongTon
             // 
@@ -584,7 +570,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Sitka Heading", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label15.Location = new System.Drawing.Point(447, 219);
+            this.label15.Location = new System.Drawing.Point(447, 197);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(49, 20);
             this.label15.TabIndex = 0;
@@ -599,16 +585,6 @@
             this.label17.Size = new System.Drawing.Size(111, 20);
             this.label17.TabIndex = 0;
             this.label17.Text = "Đường dẫn ảnh:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Sitka Heading", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label14.Location = new System.Drawing.Point(447, 190);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(71, 20);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Số lượng:";
             // 
             // label12
             // 
@@ -644,7 +620,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Sitka Heading", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(447, 247);
+            this.label10.Location = new System.Drawing.Point(447, 230);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(79, 20);
             this.label10.TabIndex = 0;
@@ -826,7 +802,6 @@
         private System.Windows.Forms.TextBox txt_NgayBan;
         private System.Windows.Forms.TextBox txt_NgayNhap;
         private System.Windows.Forms.TextBox txt_moTa;
-        private System.Windows.Forms.TextBox txt_SoLuong;
         private System.Windows.Forms.TextBox txt_SoLuongTon;
         private System.Windows.Forms.TextBox txt_Ma;
         private System.Windows.Forms.ComboBox cmb_KieuDang;
@@ -835,7 +810,6 @@
         private System.Windows.Forms.ComboBox cmb_Nsx;
         private System.Windows.Forms.ComboBox cmb_TenSize;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
