@@ -34,6 +34,7 @@ namespace _3.PL.Views
             lbl_SoHDTaiQuay.Text = _IHoaDonService.GetallHoadon().Where(c => c.TrangThai != 1).Count().ToString();
             lbl_SoHDDangGiao.Text = _IHoaDonService.GetallHoadon().Where(c => c.TrangThai == 1).Count().ToString();
             LoadDataNam();
+            dgrid_ThongKe.AllowUserToAddRows = false;
         }
         private void LoadDataCbxThang()
         {
@@ -65,6 +66,7 @@ namespace _3.PL.Views
         {
             dgrid_ThongKe.ColumnCount = 6;
             dgrid_ThongKe.Columns[0].Name = "ID Hóa đơn";
+            dgrid_ThongKe.Columns[0].Visible = false;
             dgrid_ThongKe.Columns[1].Name = "Mã hóa đơn";
             dgrid_ThongKe.Columns[2].Name = "Số SP";
             dgrid_ThongKe.Columns[3].Name = "Doanh thu";
@@ -80,20 +82,20 @@ namespace _3.PL.Views
         }
         private void LoadDataTimKiem()
         {
-            dgrid_ThongKe.ColumnCount = 6;
-            dgrid_ThongKe.Columns[0].Name = "ID Hóa đơn";
-            dgrid_ThongKe.Columns[1].Name = "Mã hóa đơn";
-            dgrid_ThongKe.Columns[2].Name = "Số SP";
-            dgrid_ThongKe.Columns[3].Name = "Doanh thu";
-            dgrid_ThongKe.Columns[4].Name = "Loại HD";
-            dgrid_ThongKe.Columns[5].Name = "Ngày TT";
-            dgrid_ThongKe.Rows.Clear();
-            foreach (var x in _IHoaDonCTService.GetViewHoaDonCT().Where(c => c.HoaDon.NgayThanhToan == date_LocTheoNgay.Value).OrderBy(c => c.HoaDon.Id).ToList())
-            {
-                var x1 = _IHoaDonService.GetallHoadon().FirstOrDefault(c => c.Id == x.HoaDon.Id);
-                var x2 = _ICTGiayService.GetViewChiTietGiay().FirstOrDefault(c => c.Id == x.ChiTietGiay.Id);
-                dgrid_ThongKe.Rows.Add(x.HoaDon.Id, x.HoaDon.Ma, x.HoaDonChiTiet.SoLuong, x.HoaDonChiTiet.SoLuong * x.ChiTietGiay.GiaBan, x.HoaDon.TrangThai == 1 ? "Giao hàng" : "Mua tại quầy", x.HoaDon.NgayThanhToan);
-            }
+            //dgrid_ThongKe.ColumnCount = 6;
+            //dgrid_ThongKe.Columns[0].Name = "ID Hóa đơn";
+            //dgrid_ThongKe.Columns[1].Name = "Mã hóa đơn";
+            //dgrid_ThongKe.Columns[2].Name = "Số SP";
+            //dgrid_ThongKe.Columns[3].Name = "Doanh thu";
+            //dgrid_ThongKe.Columns[4].Name = "Loại HD";
+            //dgrid_ThongKe.Columns[5].Name = "Ngày TT";
+            //dgrid_ThongKe.Rows.Clear();
+            //foreach (var x in _IHoaDonCTService.GetViewHoaDonCT().Where(date_NgayBD.Value < date_NgayKT.Value).OrderBy(c => c.HoaDon.Id).ToList())
+            //{
+            //    var x1 = _IHoaDonService.GetallHoadon().FirstOrDefault(c => c.Id == x.HoaDon.Id);
+            //    var x2 = _ICTGiayService.GetViewChiTietGiay().FirstOrDefault(c => c.Id == x.ChiTietGiay.Id);
+            //    dgrid_ThongKe.Rows.Add(x.HoaDon.Id, x.HoaDon.Ma, x.HoaDonChiTiet.SoLuong, x.HoaDonChiTiet.SoLuong * x.ChiTietGiay.GiaBan, x.HoaDon.TrangThai == 1 ? "Giao hàng" : "Mua tại quầy", x.HoaDon.NgayThanhToan);
+            //}
         }
 
         private void btn_TimKiem_Click(object sender, EventArgs e)
@@ -103,37 +105,42 @@ namespace _3.PL.Views
 
         private void lbl_DoanhThuHomNay_TextChanged(object sender, EventArgs e)
         {
-            //var x2 = _ICTGiayService.GetViewChiTietGiay().Select(c => c.SoLuong && c.TrangThai);
-            //lbl_DoanhThuHomNay.Text = DateTime.Now.Day();
         }
 
         private void rbtn_Ngay_CheckedChanged(object sender, EventArgs e)
         {
-            lbl_DoanhThuHomNay.Text = Convert.ToString(_IHoaDonService.GetallHoadon().Where(c => c.NgayThanhToan.Value.ToString().Substring(0,10) == DateTime.Now.ToString().Substring(0, 10)).Sum(c => c.TongTien));
+            //lbl_DoanhThuHomNay.Text = Convert.ToString(_IHoaDonService.GetallHoadon().Where(c => c.NgayThanhToan.Value.ToString().Substring(0,10) == DateTime.Now.ToString().Substring(0, 10)).Sum(c => c.TongTien));
         }
 
         private void rbtn_Thang_CheckedChanged(object sender, EventArgs e)
         {
 
         }
-
         private void date_LocTheoNgay_ValueChanged(object sender, EventArgs e)
         {
-            dgrid_ThongKe.ColumnCount = 6;
-            dgrid_ThongKe.Columns[0].Name = "ID Hóa đơn";
-            dgrid_ThongKe.Columns[1].Name = "Mã hóa đơn";
-            dgrid_ThongKe.Columns[2].Name = "Số SP";
-            dgrid_ThongKe.Columns[3].Name = "Doanh thu";
-            dgrid_ThongKe.Columns[4].Name = "Loại HD";
-            dgrid_ThongKe.Columns[5].Name = "Ngày TT";
-            dgrid_ThongKe.Rows.Clear();
-            string[] a = date_LocTheoNgay.Value.ToString().Split(" ");
-            
-            foreach (var x in _IHoaDonCTService.GetViewHoaDonCT().Where(c => c.HoaDon.NgayThanhToan.Value.ToString().Substring(0,10) == a[0]))
+            try
             {
-                var x1 = _IHoaDonService.GetallHoadon().FirstOrDefault(c => c.Id == x.HoaDon.Id);
-                var x2 = _ICTGiayService.GetViewChiTietGiay().FirstOrDefault(c => c.Id == x.ChiTietGiay.Id);
-                dgrid_ThongKe.Rows.Add(x.HoaDon.Id, x.HoaDon.Ma, x.HoaDonChiTiet.SoLuong, x.HoaDonChiTiet.SoLuong * x.ChiTietGiay.GiaBan, x.HoaDon.TrangThai == 1 ? "Giao hàng" : "Mua tại quầy", x.HoaDon.NgayThanhToan);
+                dgrid_ThongKe.ColumnCount = 6;
+                dgrid_ThongKe.Columns[0].Name = "ID Hóa đơn";
+                dgrid_ThongKe.Columns[1].Name = "Mã hóa đơn";
+                dgrid_ThongKe.Columns[2].Name = "Số SP";
+                dgrid_ThongKe.Columns[3].Name = "Doanh thu";
+                dgrid_ThongKe.Columns[4].Name = "Loại HD";
+                dgrid_ThongKe.Columns[5].Name = "Ngày TT";
+                dgrid_ThongKe.Rows.Clear();
+                string[] a = date_LocTheoNgay.Value.ToString().Split(" ");
+
+                foreach (var x in _IHoaDonCTService.GetViewHoaDonCT().Where(c => c.HoaDon.NgayThanhToan.Value.ToString().Substring(0, 10) == a[0]))
+                {
+                    var x1 = _IHoaDonService.GetallHoadon().FirstOrDefault(c => c.Id == x.HoaDon.Id);
+                    var x2 = _ICTGiayService.GetViewChiTietGiay().FirstOrDefault(c => c.Id == x.ChiTietGiay.Id);
+                    dgrid_ThongKe.Rows.Add(x.HoaDon.Id, x.HoaDon.Ma, x.HoaDonChiTiet.SoLuong, x.HoaDonChiTiet.SoLuong * x.ChiTietGiay.GiaBan, x.HoaDon.TrangThai == 1 ? "Giao hàng" : "Mua tại quầy", x.HoaDon.NgayThanhToan);
+                }
+                lbl_DoanhThuHomNay.Text = Convert.ToString(_IHoaDonService.GetallHoadon().Where(c => c.NgayThanhToan.Value.ToString().Substring(0, 10) == date_LocTheoNgay.Value.ToString().Substring(0, 10)).Sum(c => c.TongTien));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Convert.ToString(ex.Message), "Liên Hệ Với KaiSan");
             }
         }
 
@@ -162,41 +169,52 @@ namespace _3.PL.Views
 
         private void cmb_LocThang_SelectedValueChanged(object sender, EventArgs e)
         {
-            dgrid_ThongKe.ColumnCount = 6;
-            dgrid_ThongKe.Columns[0].Name = "ID Hóa đơn";
-            dgrid_ThongKe.Columns[1].Name = "Mã hóa đơn";
-            dgrid_ThongKe.Columns[2].Name = "Số SP";
-            dgrid_ThongKe.Columns[3].Name = "Doanh thu";
-            dgrid_ThongKe.Columns[4].Name = "Loại HD";
-            dgrid_ThongKe.Columns[5].Name = "Ngày TT";
-            dgrid_ThongKe.Rows.Clear();
-            foreach (var x in _IHoaDonCTService.GetViewHoaDonCT().Where(c => c.HoaDon.NgayThanhToan.Value.ToString().Substring(0,2) == cmb_LocThang.Text))
+            try
             {
-                var x1 = _IHoaDonService.GetallHoadon().FirstOrDefault(c => c.Id == x.HoaDon.Id);
-                var x2 = _ICTGiayService.GetViewChiTietGiay().FirstOrDefault(c => c.Id == x.ChiTietGiay.Id);
-                dgrid_ThongKe.Rows.Add(x.HoaDon.Id, x.HoaDon.Ma, x.HoaDonChiTiet.SoLuong, x.HoaDonChiTiet.SoLuong * x.ChiTietGiay.GiaBan, x.HoaDon.TrangThai == 1 ? "Giao hàng" : "Mua tại quầy", x.HoaDon.NgayThanhToan);
+                dgrid_ThongKe.ColumnCount = 6;
+                dgrid_ThongKe.Columns[0].Name = "ID Hóa đơn";
+                dgrid_ThongKe.Columns[1].Name = "Mã hóa đơn";
+                dgrid_ThongKe.Columns[2].Name = "Số SP";
+                dgrid_ThongKe.Columns[3].Name = "Doanh thu";
+                dgrid_ThongKe.Columns[4].Name = "Loại HD";
+                dgrid_ThongKe.Columns[5].Name = "Ngày TT";
+                dgrid_ThongKe.Rows.Clear();
+                foreach (var x in _IHoaDonCTService.GetViewHoaDonCT().Where(c => c.HoaDon.NgayThanhToan.Value.ToString().Substring(0, 2) == cmb_LocThang.Text))
+                {
+                    var x1 = _IHoaDonService.GetallHoadon().FirstOrDefault(c => c.Id == x.HoaDon.Id);
+                    var x2 = _ICTGiayService.GetViewChiTietGiay().FirstOrDefault(c => c.Id == x.ChiTietGiay.Id);
+                    dgrid_ThongKe.Rows.Add(x.HoaDon.Id, x.HoaDon.Ma, x.HoaDonChiTiet.SoLuong, x.HoaDonChiTiet.SoLuong * x.ChiTietGiay.GiaBan, x.HoaDon.TrangThai == 1 ? "Giao hàng" : "Mua tại quầy", x.HoaDon.NgayThanhToan);
+                }
+                lbl_DoanhThuHomNay.Text = Convert.ToString(_IHoaDonService.GetallHoadon().Where(c => c.NgayThanhToan.Value.ToString().Substring(0, 2) == cmb_LocThang.Text.ToString().Substring(0, 2)).Sum(c => c.TongTien));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Convert.ToString(ex.Message), "Liên Hệ Với KaiSan");
             }
         }
-
         private void cmb_LocNam_SelectedValueChanged(object sender, EventArgs e)
         {
-            dgrid_ThongKe.ColumnCount = 6;
-            dgrid_ThongKe.Columns[0].Name = "ID Hóa đơn";
-            dgrid_ThongKe.Columns[1].Name = "Mã hóa đơn";
-            dgrid_ThongKe.Columns[2].Name = "Số SP";
-            dgrid_ThongKe.Columns[3].Name = "Doanh thu";
-            dgrid_ThongKe.Columns[4].Name = "Loại HD";
-            dgrid_ThongKe.Columns[5].Name = "Ngày TT";
-            dgrid_ThongKe.Rows.Clear();
-            //foreach (var x in _IHoaDonCTService.GetViewHoaDonCT())
-            //{
-            //    var a = x.HoaDon.NgayThanhToan.Value.ToString().Substring(6, 4);
-            //}
-            foreach (var x in _IHoaDonCTService.GetViewHoaDonCT().Where(c => c.HoaDon.NgayThanhToan.Value.ToString().Substring(6, 4) == cmb_LocNam.Text))
+            try
             {
-                var x1 = _IHoaDonService.GetallHoadon().FirstOrDefault(c => c.Id == x.HoaDon.Id);
-                var x2 = _ICTGiayService.GetViewChiTietGiay().FirstOrDefault(c => c.Id == x.ChiTietGiay.Id);
-                dgrid_ThongKe.Rows.Add(x.HoaDon.Id, x.HoaDon.Ma, x.HoaDonChiTiet.SoLuong, x.HoaDonChiTiet.SoLuong * x.ChiTietGiay.GiaBan, x.HoaDon.TrangThai == 1 ? "Giao hàng" : "Mua tại quầy", x.HoaDon.NgayThanhToan);
+                dgrid_ThongKe.ColumnCount = 6;
+                dgrid_ThongKe.Columns[0].Name = "ID Hóa đơn";
+                dgrid_ThongKe.Columns[1].Name = "Mã hóa đơn";
+                dgrid_ThongKe.Columns[2].Name = "Số SP";
+                dgrid_ThongKe.Columns[3].Name = "Doanh thu";
+                dgrid_ThongKe.Columns[4].Name = "Loại HD";
+                dgrid_ThongKe.Columns[5].Name = "Ngày TT";
+                dgrid_ThongKe.Rows.Clear();
+                foreach (var x in _IHoaDonCTService.GetViewHoaDonCT().Where(c => c.HoaDon.NgayThanhToan.Value.ToString().Substring(6, 4) == cmb_LocNam.Text))
+                {
+                    var x1 = _IHoaDonService.GetallHoadon().FirstOrDefault(c => c.Id == x.HoaDon.Id);
+                    var x2 = _ICTGiayService.GetViewChiTietGiay().FirstOrDefault(c => c.Id == x.ChiTietGiay.Id);
+                    dgrid_ThongKe.Rows.Add(x.HoaDon.Id, x.HoaDon.Ma, x.HoaDonChiTiet.SoLuong, x.HoaDonChiTiet.SoLuong * x.ChiTietGiay.GiaBan, x.HoaDon.TrangThai == 1 ? "Giao hàng" : "Mua tại quầy", x.HoaDon.NgayThanhToan);
+                }
+                lbl_DoanhThuHomNay.Text = Convert.ToString(_IHoaDonService.GetallHoadon().Where(c => c.NgayThanhToan.Value.ToString().Substring(6, 4) == cmb_LocNam.Text.ToString().Substring(6, 4)).Sum(c => c.TongTien));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(Convert.ToString(ex.Message), "Liên Hệ Với KaiSan");
             }
         }
     }

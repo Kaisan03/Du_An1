@@ -221,173 +221,185 @@ namespace _3.PL.Views
         }
         private void btn_Them_Click(object sender, EventArgs e)
         {
-            if (_IChucVuService.GetAllChucVu().FirstOrDefault(c => c.Id == (_InhanVienService.GetAllNhanVien().FirstOrDefault(c => c.Ma == MaNV).IdChucVu)).Ten != "Quản lý")
+            try
             {
-                MessageBox.Show("Bạn chỉ có thể xem sản phẩm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-            DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn thêm?", "Thông báo", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                if (txt_NgayNhap.Text == "")
+                if (_IChucVuService.GetAllChucVu().FirstOrDefault(c => c.Id == (_InhanVienService.GetAllNhanVien().FirstOrDefault(c => c.Ma == MaNV).IdChucVu)).Ten != "Quản lý")
                 {
-                    MessageBox.Show("Bạn phải điền giá nhập");
+                    MessageBox.Show("Bạn chỉ có thể xem sản phẩm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
-                if (txt_NgayBan.Text == "")
+                DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn thêm?", "Thông báo", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
                 {
-                    MessageBox.Show("Bạn phải điền giá bán");
-                    return;
-                }
-                if (txt_SoLuongTon.Text == "")
-                {
-                    MessageBox.Show("Bạn phải điền số lượng tồn");
-                    return;
-                }
-                if (txt_NgayNhap.Text != "" && Regex.IsMatch(txt_NgayNhap.Text, @"^\d*$") == false)
-                {
-                    MessageBox.Show("Giá nhập không được chứa chữ cái", "ERR");
-                    return;
-                }
-                if (txt_NgayBan.Text != "" && Regex.IsMatch(txt_NgayBan.Text, @"^\d*$") == false)
-                {
-                    MessageBox.Show("Giá bán không được chứa chữ cái", "ERR");
-                    return;
-                }
-                if (txt_SoLuongTon.Text != "" && Regex.IsMatch(txt_SoLuongTon.Text, @"^\d*$") == false)
-                {
-                    MessageBox.Show("Số lượng tồn không được chứa chữ cái", "ERR");
-                    return;
-                }
-                if (txt_NgayNhap.Text.Length < 0 || txt_NgayNhap.Text.Length > 12)
-                {
-                    MessageBox.Show("Số tiền nhập vào vượt quá phạm vi cho phép");
-                    return;
-                }
-                if (txt_NgayBan.Text.Length < 0 || txt_NgayBan.Text.Length > 12)
-                {
-                    MessageBox.Show("Số tiền bán ra vượt quá phạm vi cho phép");
-                    return;
-                }
-                if (txt_SoLuongTon.Text.Length < 0 || txt_SoLuongTon.Text.Length > 5)
-                {
-                    MessageBox.Show("Số lượng tồn vượt quá phạm vi cho phép");
-                    return;
-                }
-                txt_Ma.Text = MaCTGiay();
-                AddChiTietSPView addCTGiay = new AddChiTietSPView()
-                {
-                    IdSP = cmb_SanPham.Text != null ? _ISanPhamService.GetAllSanPham().FirstOrDefault(c => c.Ten == cmb_SanPham.Text).Id : null,
-                    IdChatLieu = cmb_ChatLieu.Text != null ? _IChatLieuService.GetAllChatLieu().FirstOrDefault(c => c.Ten == cmb_ChatLieu.Text).Id : null,
-                    IdMauSac = cmb_MauSac.Text != null ? _IMauSacService.GetAllMauSac().FirstOrDefault(c => c.Ten == cmb_MauSac.Text).Id : null,
-                    IdNsx = cmb_Nsx.Text != null ? _INsxService.GetAllNSX().FirstOrDefault(c => c.Ten == cmb_Nsx.Text).Id : null,
-                    IdDeGiay = cmb_LoaiDe.Text != null ? _IDeGiayService.GetAllDeGiay().FirstOrDefault(c => c.Ten == cmb_LoaiDe.Text).Id : null,
-                    IdKieuDang = cmb_KieuDang.Text != null ? _IKieuDangService.GetAllKieuDang().FirstOrDefault(c => c.Ten == cmb_KieuDang.Text).Id : null,
-                    IdSize = cmb_TenSize.Text != null ? _ISizeService.GetAllSize().FirstOrDefault(c => c.Ten == cmb_TenSize.Text).Id : null,
-                    Ma = txt_Ma.Text,
-                    IdAnh = cmb_Anh.Text != null ? _IAnhService.GetAllAnh().FirstOrDefault(c => c.DuongDan == cmb_Anh.Text).Id : null,
-                    GiaNhap = Convert.ToInt32(txt_NgayNhap.Text),
-                    GiaBan = Convert.ToInt32(txt_NgayBan.Text),
-                    SoLuongTon = Convert.ToInt32(txt_SoLuongTon.Text),
-                    MoTa = txt_moTa.Text,
+                    if (txt_NgayNhap.Text == "")
+                    {
+                        MessageBox.Show("Bạn phải điền giá nhập");
+                        return;
+                    }
+                    if (txt_NgayBan.Text == "")
+                    {
+                        MessageBox.Show("Bạn phải điền giá bán");
+                        return;
+                    }
+                    if (txt_SoLuongTon.Text == "")
+                    {
+                        MessageBox.Show("Bạn phải điền số lượng tồn");
+                        return;
+                    }
+                    if (txt_NgayNhap.Text != "" && Regex.IsMatch(txt_NgayNhap.Text, @"^\d*$") == false)
+                    {
+                        MessageBox.Show("Giá nhập không được chứa chữ cái", "ERR");
+                        return;
+                    }
+                    if (txt_NgayBan.Text != "" && Regex.IsMatch(txt_NgayBan.Text, @"^\d*$") == false)
+                    {
+                        MessageBox.Show("Giá bán không được chứa chữ cái", "ERR");
+                        return;
+                    }
+                    if (txt_SoLuongTon.Text != "" && Regex.IsMatch(txt_SoLuongTon.Text, @"^\d*$") == false)
+                    {
+                        MessageBox.Show("Số lượng tồn không được chứa chữ cái", "ERR");
+                        return;
+                    }
+                    if (txt_NgayNhap.Text.Length < 0 || txt_NgayNhap.Text.Length > 12)
+                    {
+                        MessageBox.Show("Số tiền nhập vào vượt quá phạm vi cho phép");
+                        return;
+                    }
+                    if (txt_NgayBan.Text.Length < 0 || txt_NgayBan.Text.Length > 12)
+                    {
+                        MessageBox.Show("Số tiền bán ra vượt quá phạm vi cho phép");
+                        return;
+                    }
+                    if (txt_SoLuongTon.Text.Length < 0 || txt_SoLuongTon.Text.Length > 5)
+                    {
+                        MessageBox.Show("Số lượng tồn vượt quá phạm vi cho phép");
+                        return;
+                    }
+                    txt_Ma.Text = MaCTGiay();
+                    AddChiTietSPView addCTGiay = new AddChiTietSPView()
+                    {
+                        IdSP = cmb_SanPham.Text != null ? _ISanPhamService.GetAllSanPham().FirstOrDefault(c => c.Ten == cmb_SanPham.Text).Id : null,
+                        IdChatLieu = cmb_ChatLieu.Text != null ? _IChatLieuService.GetAllChatLieu().FirstOrDefault(c => c.Ten == cmb_ChatLieu.Text).Id : null,
+                        IdMauSac = cmb_MauSac.Text != null ? _IMauSacService.GetAllMauSac().FirstOrDefault(c => c.Ten == cmb_MauSac.Text).Id : null,
+                        IdNsx = cmb_Nsx.Text != null ? _INsxService.GetAllNSX().FirstOrDefault(c => c.Ten == cmb_Nsx.Text).Id : null,
+                        IdDeGiay = cmb_LoaiDe.Text != null ? _IDeGiayService.GetAllDeGiay().FirstOrDefault(c => c.Ten == cmb_LoaiDe.Text).Id : null,
+                        IdKieuDang = cmb_KieuDang.Text != null ? _IKieuDangService.GetAllKieuDang().FirstOrDefault(c => c.Ten == cmb_KieuDang.Text).Id : null,
+                        IdSize = cmb_TenSize.Text != null ? _ISizeService.GetAllSize().FirstOrDefault(c => c.Ten == cmb_TenSize.Text).Id : null,
+                        Ma = txt_Ma.Text,
+                        IdAnh = cmb_Anh.Text != null ? _IAnhService.GetAllAnh().FirstOrDefault(c => c.DuongDan == cmb_Anh.Text).Id : null,
+                        GiaNhap = Convert.ToInt32(txt_NgayNhap.Text),
+                        GiaBan = Convert.ToInt32(txt_NgayBan.Text),
+                        SoLuongTon = Convert.ToInt32(txt_SoLuongTon.Text),
+                        MoTa = txt_moTa.Text,
 
-                };
-                _IChiTietGiayService.AddCTGiay(addCTGiay);
-                FrmThongBao frmThongBao = new FrmThongBao();
-                frmThongBao.ShowDialog();
-                LoadData();
+                    };
+                    _IChiTietGiayService.AddCTGiay(addCTGiay);
+                    FrmThongBao frmThongBao = new FrmThongBao();
+                    frmThongBao.ShowDialog();
+                    LoadData();
+                }
+                if (dialogResult == DialogResult.No)
+                {
+                    return;
+                }
             }
-            if (dialogResult == DialogResult.No)
+            catch (Exception ex)
             {
-                return;
+                MessageBox.Show(Convert.ToString(ex.Message), "Liên Hệ Với KaiSan");
             }
-
         }
 
         private void btn_Sua_Click(object sender, EventArgs e)
         {
-            if (_IChucVuService.GetAllChucVu().FirstOrDefault(c => c.Id == (_InhanVienService.GetAllNhanVien().FirstOrDefault(c => c.Ma == MaNV).IdChucVu)).Ten != "Quản lý")
+            try
             {
-                MessageBox.Show("Bạn chỉ có thể xem sản phẩm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
+                if (_IChucVuService.GetAllChucVu().FirstOrDefault(c => c.Id == (_InhanVienService.GetAllNhanVien().FirstOrDefault(c => c.Ma == MaNV).IdChucVu)).Ten != "Quản lý")
+                {
+                    MessageBox.Show("Bạn chỉ có thể xem sản phẩm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn sửa?", "Thông báo", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    if (txt_NgayNhap.Text == "")
+                    {
+                        MessageBox.Show("Bạn phải điền giá nhập");
+                        return;
+                    }
+                    if (txt_NgayBan.Text == "")
+                    {
+                        MessageBox.Show("Bạn phải điền giá bán");
+                        return;
+                    }
+                    if (txt_SoLuongTon.Text == "")
+                    {
+                        MessageBox.Show("Bạn phải điền số lượng tồn");
+                        return;
+                    }
+                    if (txt_NgayNhap.Text != "" && Regex.IsMatch(txt_NgayNhap.Text, @"^\d*$") == false)
+                    {
+                        MessageBox.Show("Giá nhập không được chứa chữ cái", "ERR");
+                        return;
+                    }
+                    if (txt_NgayBan.Text != "" && Regex.IsMatch(txt_NgayBan.Text, @"^\d*$") == false)
+                    {
+                        MessageBox.Show("Giá bán không được chứa chữ cái", "ERR");
+                        return;
+                    }
+                    if (txt_SoLuongTon.Text != "" && Regex.IsMatch(txt_SoLuongTon.Text, @"^\d*$") == false)
+                    {
+                        MessageBox.Show("Số lượng tồn không được chứa chữ cái", "ERR");
+                        return;
+                    }
+                    if (txt_NgayNhap.Text.Length < 0 || txt_NgayNhap.Text.Length > 12)
+                    {
+                        MessageBox.Show("Số tiền nhập vào vượt quá phạm vi cho phép");
+                        return;
+                    }
+                    if (txt_NgayBan.Text.Length < 0 || txt_NgayBan.Text.Length > 12)
+                    {
+                        MessageBox.Show("Số tiền bán ra vượt quá phạm vi cho phép");
+                        return;
+                    }
+                    if (txt_SoLuongTon.Text.Length < 0 || txt_SoLuongTon.Text.Length > 5)
+                    {
+                        MessageBox.Show("Số lượng tồn vượt quá phạm vi cho phép");
+                        return;
+                    }
+                    txt_Ma.Text = MaCTGiay();
+                    UpdateChiTietSPView updateGiay = new UpdateChiTietSPView()
+                    {
+                        Id = _idCTGiay,
+                        IdSP = cmb_SanPham.Text != null ? _ISanPhamService.GetAllSanPham().FirstOrDefault(c => c.Ten == cmb_SanPham.Text).Id : null,
+                        IdChatLieu = cmb_ChatLieu.Text != null ? _IChatLieuService.GetAllChatLieu().FirstOrDefault(c => c.Ten == cmb_ChatLieu.Text).Id : null,
+                        IdMauSac = cmb_MauSac.Text != null ? _IMauSacService.GetAllMauSac().FirstOrDefault(c => c.Ten == cmb_MauSac.Text).Id : null,
+                        IdNsx = cmb_Nsx.Text != null ? _INsxService.GetAllNSX().FirstOrDefault(c => c.Ten == cmb_Nsx.Text).Id : null,
+                        IdDeGiay = cmb_LoaiDe.Text != null ? _IDeGiayService.GetAllDeGiay().FirstOrDefault(c => c.Ten == cmb_LoaiDe.Text).Id : null,
+                        IdKieuDang = cmb_KieuDang.Text != null ? _IKieuDangService.GetAllKieuDang().FirstOrDefault(c => c.Ten == cmb_KieuDang.Text).Id : null,
+                        IdSize = cmb_TenSize.Text != null ? _ISizeService.GetAllSize().FirstOrDefault(c => c.Ten == cmb_TenSize.Text).Id : null,
+                        Ma = txt_Ma.Text,
+                        IdAnh = cmb_Anh.Text != null ? _IAnhService.GetAllAnh().FirstOrDefault(c => c.DuongDan == cmb_Anh.Text).Id : null,
+                        GiaNhap = Convert.ToInt32(txt_NgayNhap.Text),
+                        GiaBan = Convert.ToInt32(txt_NgayBan.Text),
+                        SoLuongTon = Convert.ToInt32(txt_SoLuongTon.Text),
+                        MoTa = txt_moTa.Text,
+                        TrangThai = cbx_HoatDong.Checked ? 1 : 0,
+                    };
+                    _IChiTietGiayService.UpdateCTGiay(updateGiay);
+                    FrmThongBao frmThongBao = new FrmThongBao();
+                    frmThongBao.ShowDialog();
+                    LoadData();
+                }
+                if (dialogResult == DialogResult.No)
+                {
+                    return;
+                }
             }
-            DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn muốn sửa?", "Thông báo", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            catch (Exception ex)
             {
-                if (txt_NgayNhap.Text == "")
-                {
-                    MessageBox.Show("Bạn phải điền giá nhập");
-                    return;
-                }
-                if (txt_NgayBan.Text == "")
-                {
-                    MessageBox.Show("Bạn phải điền giá bán");
-                    return;
-                }
-                if (txt_SoLuongTon.Text == "")
-                {
-                    MessageBox.Show("Bạn phải điền số lượng tồn");
-                    return;
-                }
-                if (txt_NgayNhap.Text != "" && Regex.IsMatch(txt_NgayNhap.Text, @"^\d*$") == false)
-                {
-                    MessageBox.Show("Giá nhập không được chứa chữ cái", "ERR");
-                    return;
-                }
-                if (txt_NgayBan.Text != "" && Regex.IsMatch(txt_NgayBan.Text, @"^\d*$") == false)
-                {
-                    MessageBox.Show("Giá bán không được chứa chữ cái", "ERR");
-                    return;
-                }
-                if (txt_SoLuongTon.Text != "" && Regex.IsMatch(txt_SoLuongTon.Text, @"^\d*$") == false)
-                {
-                    MessageBox.Show("Số lượng tồn không được chứa chữ cái", "ERR");
-                    return;
-                }
-                if (txt_NgayNhap.Text.Length < 0 || txt_NgayNhap.Text.Length > 12)
-                {
-                    MessageBox.Show("Số tiền nhập vào vượt quá phạm vi cho phép");
-                    return;
-                }
-                if (txt_NgayBan.Text.Length < 0 || txt_NgayBan.Text.Length > 12)
-                {
-                    MessageBox.Show("Số tiền bán ra vượt quá phạm vi cho phép");
-                    return;
-                }
-                if (txt_SoLuongTon.Text.Length < 0 || txt_SoLuongTon.Text.Length > 5)
-                {
-                    MessageBox.Show("Số lượng tồn vượt quá phạm vi cho phép");
-                    return;
-                }
-                txt_Ma.Text = MaCTGiay();
-                UpdateChiTietSPView updateGiay = new UpdateChiTietSPView()
-                {
-                    Id = _idCTGiay,
-                    IdSP = cmb_SanPham.Text != null ? _ISanPhamService.GetAllSanPham().FirstOrDefault(c => c.Ten == cmb_SanPham.Text).Id : null,
-                    IdChatLieu = cmb_ChatLieu.Text != null ? _IChatLieuService.GetAllChatLieu().FirstOrDefault(c => c.Ten == cmb_ChatLieu.Text).Id : null,
-                    IdMauSac = cmb_MauSac.Text != null ? _IMauSacService.GetAllMauSac().FirstOrDefault(c => c.Ten == cmb_MauSac.Text).Id : null,
-                    IdNsx = cmb_Nsx.Text != null ? _INsxService.GetAllNSX().FirstOrDefault(c => c.Ten == cmb_Nsx.Text).Id : null,
-                    IdDeGiay = cmb_LoaiDe.Text != null ? _IDeGiayService.GetAllDeGiay().FirstOrDefault(c => c.Ten == cmb_LoaiDe.Text).Id : null,
-                    IdKieuDang = cmb_KieuDang.Text != null ? _IKieuDangService.GetAllKieuDang().FirstOrDefault(c => c.Ten == cmb_KieuDang.Text).Id : null,
-                    IdSize = cmb_TenSize.Text != null ? _ISizeService.GetAllSize().FirstOrDefault(c => c.Ten == cmb_TenSize.Text).Id : null,
-                    Ma = txt_Ma.Text,
-                    IdAnh = cmb_Anh.Text != null ? _IAnhService.GetAllAnh().FirstOrDefault(c => c.DuongDan == cmb_Anh.Text).Id : null,
-                    GiaNhap = Convert.ToInt32(txt_NgayNhap.Text),
-                    GiaBan = Convert.ToInt32(txt_NgayBan.Text),
-                    SoLuongTon = Convert.ToInt32(txt_SoLuongTon.Text),
-                    MoTa = txt_moTa.Text,
-                    TrangThai = cbx_HoatDong.Checked ? 1 : 0,
-                };
-                _IChiTietGiayService.UpdateCTGiay(updateGiay);
-                FrmThongBao frmThongBao = new FrmThongBao();
-                frmThongBao.ShowDialog();
-                LoadData();
+                MessageBox.Show(Convert.ToString(ex.Message), "Liên Hệ Với KaiSan");
             }
-            if (dialogResult == DialogResult.No)
-            {
-                return;
-            }
-
         }
 
         private void btn_Xoa_Click(object sender, EventArgs e)
