@@ -15,16 +15,15 @@ namespace _2.BUS.Services
         {
             private IHoaDonChiTietRipositry _IHoaDonChiTietRp;
             private IChiTietGiayRepository _IChiTietGiayRp;
-            private IChiTietKhuyenMaiRepository _IChiTietKhuyenMaiRp;
             private IHoaDonRepository _IHoaDonRp;
-
+            private List<ViewHoaDonChiTiet> lstHDCT;
             public HoaDonChiTietService()
             {
                 _IHoaDonChiTietRp = new HoaDonChiTietRepository();
                 _IChiTietGiayRp = new ChiTietGiayRepository();
-                _IChiTietKhuyenMaiRp = new ChiTietKhuyenMaiReposity();
                 _IHoaDonRp = new HoaDonRepository();
-            }
+                lstHDCT = new List<ViewHoaDonChiTiet>();
+        }
             public string Add(ViewHoaDonChiTiet obj)
             {
                 if (obj == null)
@@ -65,13 +64,11 @@ namespace _2.BUS.Services
                 List<ViewHoaDonChiTiet> lstHDCT = new List<ViewHoaDonChiTiet>();
                 lstHDCT = (from a in _IHoaDonChiTietRp.GetAll()
                            join b in _IChiTietGiayRp.GetAllChiTietGiay() on a.IdChiTietGiay equals b.Id
-                           join c in _IChiTietKhuyenMaiRp.GetAll() on a.IdKhuyenMai equals c.Id
                            join d in _IHoaDonRp.GetAll() on a.IdHoaDon equals d.Id
                            select new ViewHoaDonChiTiet
                            {
                                HoaDonChiTiet = a,
                                ChiTietGiay = b,
-                               ChiTietKhuyenMai = c,
                                HoaDon = d
 
                            }).ToList();
@@ -85,16 +82,13 @@ namespace _2.BUS.Services
 
             public List<ViewHoaDonChiTiet> GetViewHoaDonCT()
             {
-                List<ViewHoaDonChiTiet> lstHDCT = new List<ViewHoaDonChiTiet>();
                 lstHDCT = (from a in _IHoaDonChiTietRp.GetAll()
                            join b in _IChiTietGiayRp.GetAllChiTietGiay() on a.IdChiTietGiay equals b.Id
-                           join c in _IChiTietKhuyenMaiRp.GetAll() on a.IdKhuyenMai equals c.Id
                            join d in _IHoaDonRp.GetAll() on a.IdHoaDon equals d.Id
                            select new ViewHoaDonChiTiet
                            {
                                HoaDonChiTiet = a,
                                ChiTietGiay = b,
-                               ChiTietKhuyenMai = c,
                                HoaDon = d
 
                            }).ToList();
