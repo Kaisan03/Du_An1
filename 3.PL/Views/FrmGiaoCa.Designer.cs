@@ -327,7 +327,7 @@
             this.tbx_ghichu.Name = "tbx_ghichu";
             this.tbx_ghichu.Size = new System.Drawing.Size(213, 73);
             this.tbx_ghichu.TabIndex = 21;
-            this.tbx_ghichu.Text = "";
+            this.tbx_ghichu.Text = "  ";
             // 
             // panel_thongke
             // 

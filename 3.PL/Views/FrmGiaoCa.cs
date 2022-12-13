@@ -203,7 +203,7 @@ namespace _3.PL.Views
         private void lb_tientrongket_TextChanged(object sender, EventArgs e)
         {
             tongtientrongket = (k500 * 500000) + (k200 * 200000) + (k100 * 100000) + (k50 * 50000) + (k20 * 20000) + (k10 * 10000) + (k5 * 5000) + (k2 * 2000) + (k1 * 1000);
-            lb_tientrongket.Text = String.Format("{0:0,00}", tongtientrongket);
+            lb_tientrongket.Text = Convert.ToString(tongtientrongket);
         }
 
         private void btn_xacnhan_Click(object sender, EventArgs e)
@@ -213,8 +213,8 @@ namespace _3.PL.Views
             _idgiaoca = giaoca;
             _idgiaoca.TongTienMat = Convert.ToDecimal(lb_tienmat.Text);
             _idgiaoca.TongTienTrongCa = Convert.ToDecimal(lb_tongdoanhthutrongca.Text);
-            //_idgiaoca.TongTienPhatSinh = Convert.ToDecimal(tbx_tienphatsinh.Text);
-            //_idgiaoca.GhiChuPhatSinh = tbx_ghichu.Text;
+            _idgiaoca.TongTienPhatSinh = Convert.ToDecimal(tbx_tienphatsinh.Text);
+            _idgiaoca.GhiChuPhatSinh = tbx_ghichu.Text;
             _idgiaoca.ThoiGianReset = DateTime.Now;
             _iGiaocaService.Update(_idgiaoca);
             FrmDangNhap dangNhap = new FrmDangNhap();

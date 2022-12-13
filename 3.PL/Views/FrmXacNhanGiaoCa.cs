@@ -34,9 +34,11 @@ namespace _3.PL.Views
         {
             var x = _iGiaocaService.GetAllGiaoca().Max(c => c.Id);
             var giaoca = _iGiaocaService.GetAllGiaoca().FirstOrDefault(c => c.Id == x);
+            var catruoc = _iGiaocaService.GetAllGiaoca().FirstOrDefault(c => c.Id == (x-1));
             _idgiaoca = giaoca;
             lb_thoigianbatdau.Text = Convert.ToString(giaoca.ThoiGianNhanCa);
             lb_maca.Text = giaoca.Ma;
+            tbx_Tiendauca.Text = Convert.ToString(catruoc.TienBatDauCa + giaoca.TongTienTrongCa);
 
         }
 

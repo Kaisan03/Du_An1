@@ -12,6 +12,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Markup;
 using _1.DAL.Context;
 using _1.DAL.DomainClass;
 using _2.BUS.IServices;
@@ -674,7 +675,7 @@ namespace _3.PL.Views
         public void FuckYou()
         {
             SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = @"Data Source=LAPTOP-OF-KHAI\SQLEXPRESS;Initial Catalog=Duan1;Persist Security Info=True;User ID=khainq03;Password=123456";
+            connection.ConnectionString = @"Data Source=DESKTOP-59BFCFR;Initial Catalog=Duan1A;Persist Security Info=True;User ID=ph24903;Password=12345678";
             connection.Open();
             SqlCommand sqlCommand = new SqlCommand("select Sdt FROM KhachHang", connection);
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
@@ -719,6 +720,7 @@ namespace _3.PL.Views
                         return;
                     }
                     var updateHoaDon = _hoaDonService.GetallHoadon().Where(c => c.Ma == lbl_MahoaDon.Text).FirstOrDefault();
+                    var updateca = _igiaocaservice.GetAllGiaoca().FirstOrDefault(c=>c.Id == _igiaocaservice.GetAllGiaoca().Max(c => c.Id));
                     updateHoaDon.TenNguoiNhan = txt_TenKH.Text;
                     if (txt_TenKH.Text == "")
                     {
@@ -745,6 +747,8 @@ namespace _3.PL.Views
                     updateHoaDon.GhiChu = richTextBox1.Text;
                     updateHoaDon.NgayThanhToan = DateTime.Now;
                     updateHoaDon.IdCa = _igiaocaservice.GetAllGiaoca().Max(c => c.Id);
+                    updateca.TienBatDauCa = (updateca.TienBatDauCa + Convert.ToDecimal(txt_TienMat.Text)) - Convert.ToDecimal(lbl_TienThua.Text); 
+                    _igiaocaservice.Update(updateca);
                     _hoaDonService.Update(updateHoaDon);
 
                     if (cb_inHoaDon.Checked)
