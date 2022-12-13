@@ -272,6 +272,7 @@
             this.tbx_tienphatsinh.Size = new System.Drawing.Size(213, 27);
             this.tbx_tienphatsinh.TabIndex = 20;
             this.tbx_tienphatsinh.Text = "0";
+            this.tbx_tienphatsinh.TextChanged += new System.EventHandler(this.tbx_tienphatsinh_TextChanged);
             // 
             // tbx_ghichu
             // 
@@ -405,6 +406,7 @@
             this.btn_huy.TabIndex = 23;
             this.btn_huy.Text = "Hủy ";
             this.btn_huy.UseVisualStyleBackColor = true;
+            this.btn_huy.Click += new System.EventHandler(this.btn_huy_Click_1);
             // 
             // btn_xacnhan
             // 
@@ -428,7 +430,6 @@
             this.Controls.Add(this.panel_thongke);
             this.Name = "FrmGiaoCa";
             this.Text = "FrmGiaoCa";
-            this.Load += new System.EventHandler(this.FrmGiaoCa_Load);
             this.panel_thongke.ResumeLayout(false);
             this.panel_thongke.PerformLayout();
             this.ResumeLayout(false);

@@ -40,6 +40,7 @@
             this.tbx_makhau.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbx_makhau.Location = new System.Drawing.Point(112, 77);
             this.tbx_makhau.Name = "tbx_makhau";
+            this.tbx_makhau.PasswordChar = '*';
             this.tbx_makhau.Size = new System.Drawing.Size(362, 23);
             this.tbx_makhau.TabIndex = 0;
             // 

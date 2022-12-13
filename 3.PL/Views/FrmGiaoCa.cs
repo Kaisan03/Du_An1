@@ -1,6 +1,8 @@
 ﻿using _1.DAL.DomainClass;
 using _2.BUS.IServices;
 using _2.BUS.Services;
+using _3.PL.Utilities;
+using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,9 +10,12 @@ using System.Data;
 using System.Data.Common;
 using System.Drawing;
 using System.Linq;
+using System.Printing;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace _3.PL.Views
 {
@@ -24,6 +29,8 @@ namespace _3.PL.Views
         public GiaoCa _idgiaoca;
         decimal tienmat;
         decimal chuyenkhoan;
+        FrmDangNhap dangNhap ;
+        
         public FrmGiaoCa()
         {
             InitializeComponent();
@@ -31,9 +38,13 @@ namespace _3.PL.Views
             _ihoadonservice = new HoaDonService();
             _iHoaDonchitietservice = new HoaDonChiTietService();
             _iNhanVienservice = new NhanVienService();
+            dangNhap = new FrmDangNhap();
+            
+            LoadData();
+            
         }
 
-        private void FrmGiaoCa_Load(object sender, EventArgs e)
+        private void LoadData()
         {
             var x = _iGiaocaService.GetAllGiaoca().Max(c => c.Id);
             var giaoca = _iGiaocaService.GetAllGiaoca().FirstOrDefault(c => c.Id == x);
@@ -63,21 +74,49 @@ namespace _3.PL.Views
             var x = _iGiaocaService.GetAllGiaoca().Max(c => c.Id);
             var giaoca = _iGiaocaService.GetAllGiaoca().FirstOrDefault(c => c.Id == x);
             _idgiaoca = giaoca;
-            _idgiaoca.TongTienMat = Convert.ToDecimal(lb_tienmat.Text);
+            
             _idgiaoca.TongTienTrongCa = Convert.ToDecimal(lb_tongdoanhthutrongca.Text);
-            _idgiaoca.TongTienPhatSinh = Convert.ToDecimal(lb_tongtienmat.Text) - Convert.ToDecimal(tbx_tienphatsinh.Text);
-            _idgiaoca.GhiChuPhatSinh = tbx_ghichu.Text;
+            _idgiaoca.TongTienPhatSinh = Convert.ToDecimal(tbx_tienphatsinh.Text);
+            _idgiaoca.GhiChuPhatSinh = tbx_tienphatsinh.Text;
+            _idgiaoca.TongTienPhatSinh = Convert.ToDecimal(tbx_tienphatsinh.Text);
+            _idgiaoca.TongTienMat = Convert.ToDecimal(lb_tongtienmat.Text) - Convert.ToDecimal(tbx_tienphatsinh.Text);
             _idgiaoca.ThoiGianReset = DateTime.Now;
+            if(tbx_tienphatsinh.Text!=null&& tbx_tienphatsinh.Text=="")
+            {
+                MessageBox.Show("Bạn phải ghi rõ lý do của tiền phát sinh", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                tbx_tienphatsinh.Focus();
+                return;
+            }
             _iGiaocaService.Update(_idgiaoca);
-            FrmDangNhap dangNhap = new FrmDangNhap();
-            dangNhap.Show();
-        }
+            Application.Exit();
 
+        }
+        
         private void btn_ruttien_Click(object sender, EventArgs e)
         {
-            Frmruttien ruttien = new Frmruttien();
-            ruttien.Show();
             this.Close();
+            Frmruttien ruttien = new Frmruttien();
+            ruttien.ShowDialog();
+            LoadData();
+        }
+
+        private void btn_huy_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void tbx_tienphatsinh_TextChanged(object sender, EventArgs e)
+        {
+            if(tbx_tienphatsinh.Text=="")
+            {
+                return;
+            }
+            if (Convert.ToInt32(tbx_tienphatsinh.Text)> Convert.ToDecimal(lb_tongdoanhthutrongca.Text))
+            {
+                MessageBox.Show("Tổng tiền trong ca không đủ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                tbx_tienphatsinh.Text = "";
+                return;
+            }
         }
     }
 }

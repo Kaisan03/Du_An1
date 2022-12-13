@@ -19,6 +19,7 @@ namespace _3.PL.Views
         public IGiaoCaService _iGiaocaService;
         public GiaoCa _idgiaoca;
         FrmMain2 frmm;
+        FrmDangNhap frmDangNhap;
         public FrmXacNhanGiaoCa()
         {
             InitializeComponent();
@@ -29,6 +30,7 @@ namespace _3.PL.Views
             InitializeComponent();
             _iGiaocaService = new GiaoCaService();
             frmm = new FrmMain2(a);
+            frmDangNhap = new FrmDangNhap();
         }
         private void FrmXacNhanGiaoCa_Load(object sender, EventArgs e)
         {
@@ -53,9 +55,9 @@ namespace _3.PL.Views
 
         private void btn_Huy_Click(object sender, EventArgs e)
         {
-            Application.Exit();
-            FrmDangNhap frmDangNhap = new FrmDangNhap();
-            frmDangNhap.Show();
+            this.Close();
+            
+            frmDangNhap.ShowDialog();
             
         }
 

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace _3.PL.Views
 {
@@ -36,26 +37,31 @@ namespace _3.PL.Views
             {
                 MessageBox.Show("bạn chưa nhập mật khẩu !!!");
                 tbx_makhau.Focus();
+                return;
             }
             if (tbx_ruttien.Text == "")
             {
                 MessageBox.Show("bạn chưa nhập số tiền !!!");
                 tbx_ruttien.Focus();
+                return;
             }
             if (tbx_makhau.Text != quanly.MatKhau)
             {
                 MessageBox.Show("Sai mật khẩu !");
                 tbx_makhau.Focus();
+                return;
             }
             if (Convert.ToDecimal(tbx_ruttien.Text) < _igiaocaService.GetAllGiaoca().FirstOrDefault(c => c.Id == _igiaocaService.GetAllGiaoca().Max(c=>c.Id)).TongTienMat)
             {
                 MessageBox.Show("Bạn thật tham lam rút quá nhiều tiền !! để tiền trả khách nữa chứ !!");
                   tbx_ruttien.Focus();
+                return;
             }
             else
             {
                 _idgiaoca.TienBatDauCa = _idgiaoca.TienBatDauCa - Convert.ToDecimal(tbx_ruttien.Text);
                 _igiaocaService.Update(_idgiaoca);
+                this.Close();
             }
             
         }

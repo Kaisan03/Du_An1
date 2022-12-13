@@ -23,7 +23,7 @@ namespace _3.PL.Views
         INhanVienRepository _iNhanVienRepos;
         string email;
         List<NhanVien> lstNhanVien;
-        private string hemail = "duyvtph24890@fpt.edu.vn";
+        private string hemail = "khainqph24697@fpt.edu.vn";
         private string haha = "Gửi mail từ phần mềm bán giày Zen Sports";
         private string hihi;
         private string a;
@@ -80,9 +80,9 @@ namespace _3.PL.Views
         public void guiMail(string text)
         {
             MailMessage mess = new MailMessage(hemail, email, haha, hihi);
-            SmtpClient client = new SmtpClient("smtp.gmail.com");
+            SmtpClient client = new SmtpClient("smtp.gmail.com",587);
             client.EnableSsl = true;
-            client.Credentials = new NetworkCredential("duyvtph24890@fpt.edu.vn", "vutuongduy16102003");
+            client.Credentials = new NetworkCredential("khainqph24697@fpt.edu.vn", "thachdau2003");
             client.Send(mess);
         }
 
