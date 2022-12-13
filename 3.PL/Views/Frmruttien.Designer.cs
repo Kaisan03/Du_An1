@@ -28,45 +28,72 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbx_makhau = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_ruttien = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbx_ruttien = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // textBox1
+            // tbx_makhau
             // 
-            this.textBox1.Location = new System.Drawing.Point(57, 58);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(278, 23);
-            this.textBox1.TabIndex = 0;
+            this.tbx_makhau.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbx_makhau.Location = new System.Drawing.Point(12, 54);
+            this.tbx_makhau.Name = "tbx_makhau";
+            this.tbx_makhau.Size = new System.Drawing.Size(362, 23);
+            this.tbx_makhau.TabIndex = 0;
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(139, 21);
+            this.label1.Location = new System.Drawing.Point(12, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 20);
+            this.label1.Size = new System.Drawing.Size(113, 20);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Nhập số tiền rút";
+            this.label1.Text = "Nhập mật khẩu:";
             // 
             // btn_ruttien
             // 
-            this.btn_ruttien.Location = new System.Drawing.Point(158, 116);
+            this.btn_ruttien.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_ruttien.Location = new System.Drawing.Point(156, 188);
             this.btn_ruttien.Name = "btn_ruttien";
-            this.btn_ruttien.Size = new System.Drawing.Size(75, 23);
+            this.btn_ruttien.Size = new System.Drawing.Size(75, 34);
             this.btn_ruttien.TabIndex = 2;
-            this.btn_ruttien.Text = "button1";
+            this.btn_ruttien.Text = "Rút tiền";
             this.btn_ruttien.UseVisualStyleBackColor = true;
+            this.btn_ruttien.Click += new System.EventHandler(this.btn_ruttien_Click);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(12, 101);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(115, 20);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Nhập số tiền rút";
+            // 
+            // tbx_ruttien
+            // 
+            this.tbx_ruttien.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbx_ruttien.Location = new System.Drawing.Point(12, 136);
+            this.tbx_ruttien.Name = "tbx_ruttien";
+            this.tbx_ruttien.Size = new System.Drawing.Size(362, 23);
+            this.tbx_ruttien.TabIndex = 3;
             // 
             // Frmruttien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(393, 153);
+            this.ClientSize = new System.Drawing.Size(386, 267);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.tbx_ruttien);
             this.Controls.Add(this.btn_ruttien);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbx_makhau);
             this.Name = "Frmruttien";
             this.Text = "Frmruttien";
             this.ResumeLayout(false);
@@ -76,8 +103,10 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbx_makhau;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_ruttien;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tbx_ruttien;
     }
 }
