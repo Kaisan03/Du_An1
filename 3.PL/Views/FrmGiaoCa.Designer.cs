@@ -51,6 +51,7 @@
             this.tbx_tienphatsinh = new System.Windows.Forms.TextBox();
             this.tbx_ghichu = new System.Windows.Forms.RichTextBox();
             this.panel_thongke = new System.Windows.Forms.Panel();
+            this.btn_ruttien = new FontAwesome.Sharp.IconButton();
             this.btn_huy = new FontAwesome.Sharp.IconButton();
             this.btn_xacnhan = new FontAwesome.Sharp.IconButton();
             this.pan_tientrongket = new System.Windows.Forms.Panel();
@@ -104,7 +105,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.btn_ruttien = new FontAwesome.Sharp.IconButton();
             this.panel_thongke.SuspendLayout();
             this.pan_tientrongket.SuspendLayout();
             this.SuspendLayout();
@@ -311,6 +311,7 @@
             // 
             // tbx_tienphatsinh
             // 
+            this.tbx_tienphatsinh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(167)))), ((int)(((byte)(170)))));
             this.tbx_tienphatsinh.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbx_tienphatsinh.Location = new System.Drawing.Point(212, 382);
             this.tbx_tienphatsinh.Name = "tbx_tienphatsinh";
@@ -320,6 +321,7 @@
             // 
             // tbx_ghichu
             // 
+            this.tbx_ghichu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(167)))), ((int)(((byte)(170)))));
             this.tbx_ghichu.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbx_ghichu.Location = new System.Drawing.Point(212, 431);
             this.tbx_ghichu.Name = "tbx_ghichu";
@@ -358,6 +360,18 @@
             this.panel_thongke.Name = "panel_thongke";
             this.panel_thongke.Size = new System.Drawing.Size(439, 650);
             this.panel_thongke.TabIndex = 22;
+            // 
+            // btn_ruttien
+            // 
+            this.btn_ruttien.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btn_ruttien.IconColor = System.Drawing.Color.Black;
+            this.btn_ruttien.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btn_ruttien.Location = new System.Drawing.Point(69, 590);
+            this.btn_ruttien.Name = "btn_ruttien";
+            this.btn_ruttien.Size = new System.Drawing.Size(100, 48);
+            this.btn_ruttien.TabIndex = 24;
+            this.btn_ruttien.Text = "Rút Tiền";
+            this.btn_ruttien.UseVisualStyleBackColor = true;
             // 
             // btn_huy
             // 
@@ -997,22 +1011,11 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // btn_ruttien
-            // 
-            this.btn_ruttien.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btn_ruttien.IconColor = System.Drawing.Color.Black;
-            this.btn_ruttien.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btn_ruttien.Location = new System.Drawing.Point(69, 590);
-            this.btn_ruttien.Name = "btn_ruttien";
-            this.btn_ruttien.Size = new System.Drawing.Size(100, 48);
-            this.btn_ruttien.TabIndex = 24;
-            this.btn_ruttien.Text = "Rút Tiền";
-            this.btn_ruttien.UseVisualStyleBackColor = true;
-            // 
             // FrmGiaoCa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(167)))), ((int)(((byte)(170)))));
             this.ClientSize = new System.Drawing.Size(854, 650);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.pan_tientrongket);
