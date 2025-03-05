@@ -8,14 +8,8 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.DomainClass
 {
-    [Table("GiaoCa")]
-    public partial class GiaoCa
+    public class GiaoCa
     {
-        public GiaoCa()
-        {
-            HoaDons = new HashSet<HoaDon>();
-        }
-        [Key]
         public int? Id { get; set; }
         public string Ma { get; set; }
         public Guid? IdNhanVienTrongCa { get; set; }
@@ -33,11 +27,8 @@ namespace _1.DAL.DomainClass
         public Guid IdChuCuaHang { get; set; }
         public decimal TongTienMatRut { get; set; }
         public int TrangThai { get; set; }
-        [ForeignKey(nameof(IdNhanVienTrongCa))]
-        [InverseProperty(nameof(NhanVien.GiaoCas))]
         public virtual NhanVien IdNhanViennNavigation { get; set; }
-        [InverseProperty(nameof(HoaDon.IdCaNavigation))]
-        public virtual ICollection<HoaDon> HoaDons { get; set; }
+        public virtual List<HoaDon> HoaDons { get; set; }
 
 
     }
