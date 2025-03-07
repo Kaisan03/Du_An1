@@ -39,7 +39,7 @@ namespace _1.DAL.Context
         public DbSet<Size> Sizes { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=LAPTOP-46F72MJA\SQLEXPRESS;Initial Catalog=DA1;User ID=sa;Password=123456");
+            optionsBuilder.UseSqlServer(@"Data Source=LAPTOP-46F72MJA\SQLEXPRESS;Initial Catalog=DUAN1;User ID=sa;Password=azx1azx1");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

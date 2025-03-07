@@ -79,7 +79,7 @@ namespace _3.PL.Views
                 Properties.Settings.Default.UserName = "";
                 Properties.Settings.Default.Save();
             }
-            SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-46F72MJA\SQLEXPRESS;Initial Catalog=DA1;User ID=sa;Password=123456");
+            SqlConnection conn = new SqlConnection(@"Data Source=LAPTOP-46F72MJA\SQLEXPRESS;Initial Catalog=DUAN1;User ID=sa;Password=azx1azx1");
             try
             {
                 conn.Open();

@@ -20,10 +20,10 @@ namespace _1.DAL.Configurations
             builder.Property(nv => nv.TenDem).HasColumnType("nvarchar(50)");
             builder.Property(nv => nv.Ten).HasColumnType("nvarchar(50)");
             builder.Property(nv => nv.GioiTinh).HasColumnType("nvarchar(50)");
-            builder.Property(nv => nv.NgaySinh).HasColumnType("date");
+            builder.Property(nv => nv.NgaySinh).HasColumnType("Datetime");
             builder.Property(nv => nv.DiaChi).HasColumnType("nvarchar(100)");
             builder.Property(nv => nv.Sdt).HasColumnType("nvarchar(50)");
-            builder.Property(nv => nv.Email).HasColumnType("nvarchar(50)");
+            builder.Property(nv => nv.Email).HasColumnType("nvarchar(60)");
             builder.Property(nv => nv.DuongDan).HasColumnType("nvarchar(100)");
             builder.Property(nv => nv.MatKhau).HasColumnType("nvarchar(50)");
             builder.Property(nv => nv.TrangThai).HasColumnType("int");

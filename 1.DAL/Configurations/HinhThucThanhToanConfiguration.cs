@@ -16,8 +16,8 @@ namespace _1.DAL.Configurations
             builder.ToTable("HinhThucThanhToan");
             builder.HasKey(httt => httt.Id);
             builder.Property(httt => httt.Ma).HasColumnType("nvarchar(50)");
-            builder.Property(httt => httt.NgayTao).HasColumnType("date");
-            builder.Property(httt => httt.NgaySua).HasColumnType("date");
+            builder.Property(httt => httt.NgayTao).HasColumnType("Datetime");
+            builder.Property(httt => httt.NgaySua).HasColumnType("Datetime");
             builder.Property(httt => httt.LoaiHinhThanhToan).HasColumnType("int");
             builder.Property(httt => httt.TongTienThanhToan).HasColumnType("decimal(18,2)");
             builder.Property(httt => httt.TrangThai).HasColumnType("int");

@@ -17,7 +17,7 @@ namespace _1.DAL.Configurations
             builder.HasKey(c => c.Id);
             builder.Property(c => c.Ma).HasColumnType("nvarchar(10)").IsRequired();
             builder.Property(c => c.SoLuong).HasColumnType("int");
-            builder.Property(c => c.MaVach).HasColumnType("nvarchar(max)");
+            builder.Property(c => c.MaVach).HasColumnType("nvarchar(200)");
             builder.Property(c => c.GiaNhap).HasColumnType("int");
             builder.Property(c => c.GiaBan).HasColumnType("int");
             builder.Property(c => c.SoLuongTon).HasColumnType("int");
